@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"],
+      "components/*": ["./src/components/*"],
+      "hooks/*": ["./src/hooks/*"],
+      "@variables": ["./src/styles/variables.module.scss"],
+      "@animations": ["./src/styles/animations.module.scss"],
+      "graphql": ["./src/graphql/*"]
+    }
+  }
+}
