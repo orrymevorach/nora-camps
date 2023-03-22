@@ -5,7 +5,7 @@ import styles from './nav.module.scss';
 
 export default function Nav() {
   const navLinks = [
-    { label: 'Home', href: '/home' },
+    { label: 'Home', href: '/' },
     { label: 'Paintings', href: '/paintings' },
     { label: 'Exhibitions', href: '/exhibitions' },
     { label: 'About', href: '/about' },
@@ -15,7 +15,7 @@ export default function Nav() {
   return (
     <div className={styles.container}>
       <div className={styles.maxWidth}>
-        <Link href='/home'>
+        <Link href='/'>
           <NoraLogo />
         </Link>
         <nav className={styles.navigation}>
