@@ -4,7 +4,13 @@ import NoraLogo from 'svg/NoraLogo/NoraLogo';
 import styles from './nav.module.scss';
 
 export default function Nav() {
-  const navLinks = ['Home', 'Paintings', 'Exhibitions', 'About', 'Contact'];
+  const navLinks = [
+    { label: 'Home', href: '/home' },
+    { label: 'Paintings', href: '/paintings' },
+    { label: 'Exhibitions', href: '/exhibitions' },
+    { label: 'About', href: '/about' },
+    { label: 'Contact', href: '/contact' },
+  ];
 
   return (
     <div className={styles.container}>
@@ -14,12 +20,9 @@ export default function Nav() {
           <ul className={styles.navUl}>
             {navLinks.map(link => {
               return (
-                <li key={link} className={styles.navLi}>
-                  <Link
-                    href={`/${link.toLowerCase()}`}
-                    className={styles.nextLink}
-                  >
-                    {link}
+                <li key={link.label} className={styles.navLi}>
+                  <Link href={link.href} className={styles.nextLink}>
+                    {link.label}
                   </Link>
                 </li>
               );
