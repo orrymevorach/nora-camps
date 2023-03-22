@@ -38,56 +38,42 @@ export default function Nav() {
         <Link href='/'>
           <NoraLogo />
         </Link>
-        {device === 'mobile' ? (
-          <div className={styles.mobileView}>
-            <MagGlass />
+        <div className={styles.mobileView}>
+          <MagGlass />
+          <button onClick={() => toggleHamburger()}>
+            <Hamburger />
+          </button>
+        </div>
+        <nav
+          className={`${styles.navigation} ${
+            hamToggle ? styles.show : styles.hide
+          }`}
+        >
+          <div className={styles.x}>
             <button onClick={() => toggleHamburger()}>
-              <Hamburger />
+              <X />
             </button>
           </div>
-        ) : (
-          <nav className={styles.navigation}>
-            <ul className={styles.navUl}>
-              {navLinks.map(link => {
-                return (
-                  <li key={link.label} className={styles.navLi}>
-                    <Link href={link.href} className={styles.nextLink}>
-                      {link.label}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-            <button className={styles.joinEmailListButton}>
-              <p>Join the Email List</p>
-              <RightArrow />
-            </button>
-          </nav>
-        )}
-        {hamToggle && (
-          <nav className={styles.mobileNav}>
-            <div className={styles.x}>
-              <button onClick={() => toggleHamburger()}>
-                <X />
-              </button>
-            </div>
-            <ul className={styles.mobileUl}>
-              {navLinks.map(link => {
-                return (
-                  <li key={link.label} className={styles.navLi}>
-                    <Link href={link.href} className={styles.nextLink}>
-                      {link.label}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-            <button className={styles.joinEmailListButton}>
-              <p>Join the Email List</p>
-              <RightArrow />
-            </button>
-          </nav>
-        )}
+          <ul className={styles.navUl}>
+            {navLinks.map(link => {
+              return (
+                <li
+                  key={link.label}
+                  className={styles.navLi}
+                  onClick={() => toggleHamburger()}
+                >
+                  <Link href={link.href} className={styles.nextLink}>
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          <button className={styles.joinEmailListButton}>
+            <p>Join the Email List</p>
+            <RightArrow />
+          </button>
+        </nav>
       </div>
     </div>
   );
