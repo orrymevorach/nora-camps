@@ -1,0 +1,43 @@
+@use '@variables' as *;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $black;
+  width: 76px;
+  height: 66px;
+  min-width: 76px;
+  margin-right: 6.0625rem;
+
+  img {
+    width: 49px;
+    height: 29px;
+  }
+}
+
+@media (max-width: $tablet) {
+  .container {
+    width: 61px;
+    height: 51px;
+    min-width: 61px;
+    margin-right: 5.0625rem;
+
+    img {
+      width: 39px;
+      height: 19px;
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .container {
+    width: 49px;
+    height: 42px;
+
+    img {
+      width: 29px;
+      height: 16px;
+    }
+  }
+}
