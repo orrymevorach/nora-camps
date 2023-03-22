@@ -6,7 +6,9 @@
       "hooks/*": ["./src/hooks/*"],
       "@variables": ["./src/styles/variables.module.scss"],
       "@animations": ["./src/styles/animations.module.scss"],
-      "graphql": ["./src/graphql/*"]
+      "graphql": ["./src/graphql/*"],
+      "svg/*": ["./src/components/shared/svg/*"],
+      "images/*": ["./public/images/*"]
     }
   }
 }
