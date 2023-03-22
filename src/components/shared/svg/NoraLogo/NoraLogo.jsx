@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import ncLogo from '../../../../../public/images/NC.png';
+import ncLogo from 'images/NC.png';
 import styles from './NoraLogo.module.scss';
 
 export default function NavLogo() {
