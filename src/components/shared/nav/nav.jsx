@@ -1,4 +1,3 @@
-import { useWindowSize } from '@/hooks';
 import Link from 'next/link';
 import RightArrow from 'svg/RightArrow/RightArrow';
 import NoraLogo from 'svg/NoraLogo/NoraLogo';
@@ -6,11 +5,10 @@ import MagGlass from 'svg/MagGlass';
 import styles from './nav.module.scss';
 import Hamburger from 'svg/Hamburger';
 import X from 'svg/X';
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 export default function Nav() {
-  const [hamToggle, setHamToggle] = useState(false);
+  const [mobileNavView, setMobileNavView] = useState(false);
 
   const navLinks = [
     { label: 'Home', href: '/' },
@@ -20,34 +18,25 @@ export default function Nav() {
     { label: 'Contact', href: '/contact' },
   ];
 
-  const { device } = useWindowSize();
-
-  const toggleHamburger = () => {
-    setHamToggle(showNav => !showNav);
+  const toggleMobileNavView = () => {
+    setMobileNavView(showNav => !showNav);
   };
-
-  useEffect(() => {
-    const resetToggles = () => {
-      setHamToggle(false);
-    };
-    resetToggles();
-  }, [device]);
 
   return (
     <div className={styles.container}>
       <div className={styles.maxWidth}>
-        <Link href='/' onClick={() => setHamToggle(false)}>
+        <Link href='/' onClick={() => setMobileNavView(false)}>
           <NoraLogo />
         </Link>
-        <div className={styles.mobileView}>
+        <div className={styles.mobileButtons}>
           <MagGlass />
-          <button onClick={() => toggleHamburger()}>
+          <button onClick={() => toggleMobileNavView()}>
             <Hamburger />
           </button>
         </div>
         <nav
           className={`${styles.navigation} ${
-            hamToggle ? styles.show : styles.hide
+            mobileNavView ? styles.show : styles.hide
           }`}
         >
           <div className={styles.x}>
