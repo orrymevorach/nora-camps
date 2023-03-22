@@ -15,7 +15,9 @@ export default function Nav() {
   return (
     <div className={styles.container}>
       <div className={styles.maxWidth}>
-        <NoraLogo />
+        <Link href='/home'>
+          <NoraLogo />
+        </Link>
         <nav className={styles.navigation}>
           <ul className={styles.navUl}>
             {navLinks.map(link => {
