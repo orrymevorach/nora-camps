@@ -8,6 +8,7 @@
   top: 0;
   width: 100%;
   height: 120px;
+  padding: 0 1rem 0 1rem;
   background-color: $white;
   font-family: open-sans;
   z-index: 100;
@@ -15,20 +16,16 @@
 
 .maxWidth {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
-  gap: 1rem;
   max-width: 1131px;
-  //   temp padding... might be better to have a layout padding
-  padding: 0 1rem 0 1rem;
 }
 
 .navigation {
   display: flex;
   align-items: center;
-  gap: 5rem;
-  padding-right: 5rem;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .navUl {
@@ -73,12 +70,9 @@
   .maxWidth {
     max-width: 900px;
   }
-
-  .navigation {
-    gap: 2.5rem;
-    padding-right: 2.5rem;
+  .navUl {
+    gap: 2.125rem;
   }
-
   .navLi {
     font-size: 0.875rem;
   }
@@ -98,7 +92,6 @@
 
   .navigation {
     gap: 1.5rem;
-    padding-right: 1.5rem;
   }
 
   .navLi {

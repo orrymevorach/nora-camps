@@ -7,6 +7,8 @@
   background-color: $black;
   width: 76px;
   height: 66px;
+  min-width: 76px;
+  margin-right: 6.0625rem;
 
   img {
     width: 49px;
@@ -18,6 +20,8 @@
   .container {
     width: 61px;
     height: 51px;
+    min-width: 61px;
+    margin-right: 5.0625rem;
 
     img {
       width: 39px;

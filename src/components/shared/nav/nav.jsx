@@ -9,8 +9,8 @@ export default function Nav() {
   return (
     <div className={styles.container}>
       <div className={styles.maxWidth}>
+        <NoraLogo />
         <nav className={styles.navigation}>
-          <NoraLogo />
           <ul className={styles.navUl}>
             {navLinks.map(link => {
               return (
@@ -25,11 +25,11 @@ export default function Nav() {
               );
             })}
           </ul>
+          <button className={styles.joinEmailListButton}>
+            <p>Join the Email List</p>
+            <EmailListArrow />
+          </button>
         </nav>
-        <button className={styles.joinEmailListButton}>
-          <p>Join the Email List</p>
-          <EmailListArrow />
-        </button>
       </div>
     </div>
   );
