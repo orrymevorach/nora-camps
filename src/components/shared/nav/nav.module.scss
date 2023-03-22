@@ -49,7 +49,6 @@
   justify-content: center;
   gap: 0.625rem;
   width: 268px;
-  min-width: 200px;
   height: 66px;
   background-color: $white;
   border: 1px solid $black;
@@ -79,7 +78,6 @@
   .joinEmailListButton {
     height: 51px;
     width: 200px;
-    min-width: 175px;
     font-size: 0.875rem;
   }
 }
