@@ -6,9 +6,12 @@ import styles from './nav.module.scss';
 import Hamburger from 'svg/Hamburger';
 import X from 'svg/X';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 export default function Nav() {
   const [mobileNavView, setMobileNavView] = useState(false);
+  const { route } = useRouter();
+
   const navLinks = [
     { label: 'Home', href: '/' },
     { label: 'Paintings', href: '/paintings' },
@@ -57,17 +60,25 @@ export default function Nav() {
                   className={styles.navLi}
                   onClick={() => toggleMobileNavView()}
                 >
-                  <Link href={link.href} className={styles.nextLink}>
+                  <Link
+                    href={link.href}
+                    className={`${styles.nextLink} ${
+                      route === link.href ? styles.activeLink : ''
+                    }`}
+                  >
                     {link.label}
                   </Link>
                 </li>
               );
             })}
           </ul>
-          <button className={styles.joinEmailListButton}>
+          <Link
+            href='/mail'
+            className={`${styles.joinEmailList} ${styles.nextLink}`}
+          >
             <p>Join the Email List</p>
             <RightArrow />
-          </button>
+          </Link>
         </nav>
       </div>
     </div>
