@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import RightArrow from '@/components/shared/svg/RightArrow/RightArrow';
+import RightArrow from 'svg/RightArrow/RightArrow';
 import NoraLogo from 'svg/NoraLogo/NoraLogo';
 import styles from './nav.module.scss';
 
