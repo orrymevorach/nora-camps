@@ -61,17 +61,17 @@
 }
 
 .mobileView {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
 }
 
 .mobileNav {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   top: 68px;
   left: 0;
-  display: flex;
-  flex-direction: column;
   z-index: 100;
   background-color: $white;
   height: calc(100vh - 68px);
@@ -79,7 +79,7 @@
 }
 
 .x {
-  display: flex;
+  display: none;
   justify-content: flex-end;
   width: 100%;
 }
@@ -122,6 +122,45 @@
   .maxWidth {
     justify-content: space-between;
     padding: 0 0.7rem 0 1.25rem;
+  }
+
+  .mobileView {
+    display: flex;
+  }
+
+  .navigation {
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    z-index: 100;
+    background-color: $white;
+    height: calc(100vh - 68px);
+    width: 100%;
+
+    &.show {
+      display: flex;
+    }
+
+    &.hide {
+      display: none;
+    }
+  }
+
+  .x {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  .navUl {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1.25rem;
+    gap: 3.125rem;
   }
 
   .joinEmailListButton {
