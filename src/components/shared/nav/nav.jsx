@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import EmailListArrow from '../svg/EmailListArrow/EmailListArrow';
-import NoraLogo from '../svg/NoraLogo/NoraLogo';
+import RightArrow from '@/components/shared/svg/RightArrow/RightArrow';
+import NoraLogo from 'svg/NoraLogo/NoraLogo';
 import styles from './nav.module.scss';
 
 export default function Nav() {
@@ -27,7 +27,7 @@ export default function Nav() {
           </ul>
           <button className={styles.joinEmailListButton}>
             <p>Join the Email List</p>
-            <EmailListArrow />
+            <RightArrow />
           </button>
         </nav>
       </div>
