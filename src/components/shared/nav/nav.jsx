@@ -9,7 +9,6 @@ import { useState } from 'react';
 
 export default function Nav() {
   const [mobileNavView, setMobileNavView] = useState(false);
-
   const navLinks = [
     { label: 'Home', href: '/' },
     { label: 'Paintings', href: '/paintings' },
@@ -23,13 +22,19 @@ export default function Nav() {
   };
 
   return (
-    <div className={styles.container}>
+    <div
+      className={`${styles.container} ${
+        mobileNavView ? styles.mobileNavActive : ''
+      }`}
+    >
       <div className={styles.maxWidth}>
         <Link href='/' onClick={() => setMobileNavView(false)}>
           <NoraLogo />
         </Link>
         <div className={styles.mobileButtons}>
-          <MagGlass />
+          <button onClick={() => toggleMobileNavView()}>
+            <MagGlass />
+          </button>
           <button onClick={() => toggleMobileNavView()}>
             <Hamburger />
           </button>
@@ -40,7 +45,7 @@ export default function Nav() {
           }`}
         >
           <div className={styles.x}>
-            <button onClick={() => toggleHamburger()}>
+            <button onClick={() => toggleMobileNavView()}>
               <X />
             </button>
           </div>
@@ -50,7 +55,7 @@ export default function Nav() {
                 <li
                   key={link.label}
                   className={styles.navLi}
-                  onClick={() => toggleHamburger()}
+                  onClick={() => toggleMobileNavView()}
                 >
                   <Link href={link.href} className={styles.nextLink}>
                     {link.label}
