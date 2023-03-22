@@ -7,6 +7,7 @@ import styles from './nav.module.scss';
 import Hamburger from 'svg/Hamburger';
 import X from 'svg/X';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 export default function Nav() {
   const [hamToggle, setHamToggle] = useState(false);
@@ -35,7 +36,7 @@ export default function Nav() {
   return (
     <div className={styles.container}>
       <div className={styles.maxWidth}>
-        <Link href='/'>
+        <Link href='/' onClick={() => setHamToggle(false)}>
           <NoraLogo />
         </Link>
         <div className={styles.mobileView}>
