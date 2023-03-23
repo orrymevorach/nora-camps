@@ -1,4 +1,5 @@
 @use '@variables' as *;
+@use '@mixins' as mixins;
 
 .container {
   position: sticky;
@@ -10,7 +11,7 @@
   height: 120px;
   padding: 0 1rem 0 1rem;
   background-color: $white;
-  font-family: open-sans;
+  @include mixins.openSans;
   z-index: 100;
 }
 
@@ -36,7 +37,7 @@
 .navLi {
   list-style: none;
   font-size: 1rem;
-  font-family: 'Open Sans', sans-serif;
+  @include mixins.openSans;
 }
 
 .nextLink {
@@ -57,7 +58,7 @@
   background-color: $white;
   border: 1px solid $black;
   font-size: 1rem;
-  font-family: 'Open Sans', sans-serif;
+  @include mixins.openSans;
 
   p {
     white-space: nowrap;
