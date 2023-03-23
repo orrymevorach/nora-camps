@@ -1,0 +1,71 @@
+@use '@variables' as *;
+
+.container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  bottom: 0;
+  width: 100%;
+  height: 378px;
+  background-color: $lightGrey;
+}
+
+.footerNav {
+  display: flex;
+  width: 100%;
+  max-width: 1131px;
+  padding: 3.75rem 0 3.75rem 0;
+  font-family: Open Sans;
+  font-weight: 300;
+  @include mixins.spacing;
+
+  img {
+    width: 38px;
+    height: 33px;
+  }
+}
+
+.footerUl {
+  display: flex;
+  list-style: none;
+  gap: 3.125rem;
+  padding: 0;
+}
+
+.footerLi {
+  border-bottom: 0.5px solid black;
+  line-height: 14px;
+  color: black;
+  font-size: 16px;
+}
+
+.nextLink {
+  color: $black;
+}
+
+.footerLine {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 1131px;
+  border: 0.5px solid #231f20;
+}
+
+.footerLogoBackground {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $black;
+  width: 38px;
+  height: 33px;
+
+  img {
+    height: 14px;
+  }
+}
+
+.footerSocials {
+  display: flex;
+  gap: 1rem;
+}
