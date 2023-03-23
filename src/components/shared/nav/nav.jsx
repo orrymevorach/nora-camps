@@ -7,10 +7,12 @@ import Hamburger from 'svg/Hamburger';
 import X from 'svg/X';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import { useWindowSize } from '@/hooks';
 
 export default function Nav() {
   const [mobileNavView, setMobileNavView] = useState(false);
   const { route } = useRouter();
+  const { device } = useWindowSize();
 
   const navLinks = [
     { label: 'Home', href: '/' },
@@ -34,14 +36,16 @@ export default function Nav() {
         <Link href='/' onClick={() => setMobileNavView(false)}>
           <NoraLogo />
         </Link>
-        <div className={styles.mobileButtons}>
-          <button onClick={() => toggleMobileNavView()}>
-            <MagGlass />
-          </button>
-          <button onClick={() => toggleMobileNavView()}>
-            <Hamburger />
-          </button>
-        </div>
+        {device && device === 'mobile' && (
+          <div className={styles.mobileButtons}>
+            <button onClick={() => toggleMobileNavView()}>
+              <MagGlass />
+            </button>
+            <button onClick={() => toggleMobileNavView()}>
+              <Hamburger />
+            </button>
+          </div>
+        )}
         <nav
           className={`${styles.navigation} ${
             mobileNavView ? styles.show : styles.hide
