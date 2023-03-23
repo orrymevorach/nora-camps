@@ -1,4 +1,4 @@
-@import './fonts.module.scss';
+@use './fonts.module.scss' as *;
 
 @mixin heading {
   font-family: 'Manrope Medium';
@@ -6,7 +6,7 @@
   color: #231f20;
 }
 
-@mixin openSans {
+@mixin bodyCopy {
   font-family: 'OpenSans Regular';
   font-size: 16px;
   line-height: 28px;
