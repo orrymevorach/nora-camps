@@ -28,6 +28,14 @@
   }
 }
 
+@media (max-width: $tablet) {
+  .form {
+    input {
+      font-size: 0.875rem;
+    }
+  }
+}
+
 @media (max-width: $mobile) {
   .container {
     @include mixins.padding;
