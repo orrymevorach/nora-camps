@@ -44,23 +44,6 @@
   color: $black;
 }
 
-.joinEmailListButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.625rem;
-  width: 268px;
-  height: 66px;
-  background-color: $white;
-  border: 1px solid $black;
-  font-size: 1rem;
-  @include mixins.openSans;
-
-  p {
-    white-space: nowrap;
-  }
-}
-
 @media (max-width: $tablet) {
   .container {
     height: 98px;
@@ -75,12 +58,6 @@
   .navLi {
     font-size: 0.875rem;
   }
-
-  .joinEmailListButton {
-    height: 51px;
-    width: 200px;
-    font-size: 0.875rem;
-  }
 }
 
 @media (max-width: $mobile) {
@@ -93,13 +70,6 @@
   }
 
   .navLi {
-    font-size: 0.875rem;
-  }
-
-  .joinEmailListButton {
-    height: 46px;
-    width: 184px;
-    min-width: 175px;
     font-size: 0.875rem;
   }
 }

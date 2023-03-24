@@ -23,3 +23,28 @@
   font-family: 'OpenSans Regular';
   color: variables[black];
 }
+
+@mixin openSansBold {
+  font-family: 'OpenSans Bold';
+  color: variables[black];
+}
+
+@mixin openSansMedium {
+  font-family: 'OpenSans Medium';
+  color: variables[black];
+}
+
+@mixin openSansLight {
+  font-family: 'OpenSans Light';
+  color: variables[black];
+}
+
+@mixin montserrat {
+  font-family: 'Montserrat Regular';
+  color: variables[black];
+}
+
+@mixin montserratLight {
+  font-family: 'Montserrat Light';
+  color: variables[black];
+}
