@@ -1,7 +1,7 @@
-import MagSmallBackground from 'svg/MagGlassSmallBackground';
-import styles from './Search.module.scss';
+import MagSmallBackground from '@/components/shared/svg/magnifying-glass-small';
+import styles from './search-bar.module.scss';
 
-export default function Search() {
+export default function SearchBar() {
   const submitSearch = e => {
     e.preventDefault();
   };

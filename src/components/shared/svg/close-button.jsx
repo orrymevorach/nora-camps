@@ -1,4 +1,4 @@
-export default function X() {
+export default function CloseButton() {
   return (
     <svg
       width='62'

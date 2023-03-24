@@ -1,4 +1,4 @@
-export default function MagGlass() {
+export default function MagnifyingGlassLarge() {
   return (
     <svg
       width='44'

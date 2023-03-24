@@ -1,4 +1,4 @@
-export default function MagSmallBackground() {
+export default function MagnifyingGlassSmall() {
   return (
     <svg
       width='20'
