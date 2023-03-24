@@ -1,19 +1,25 @@
 @use './fonts.module.scss' as *;
+@use './variables.module.scss' as variables;
 
-@mixin heading {
+@mixin heading($fontSize: 45px) {
   font-family: 'Manrope Medium';
-  font-size: 45px;
-  color: #231f20;
+  font-size: $fontSize;
+  color: variables[black];
+}
+
+@mixin manropeLight($fontSize: 45px) {
+  font-family: 'Manrope Light';
+  font-size: $fontSize;
 }
 
 @mixin bodyCopy {
   font-family: 'OpenSans Regular';
   font-size: 16px;
   line-height: 28px;
-  color: #231f20;
+  color: variables[black];
 }
 
 @mixin openSans {
   font-family: 'OpenSans Regular';
-  color: #231f20;
+  color: variables[black];
 }
