@@ -26,6 +26,7 @@ a {
 }
 
 button {
+  display: flex;
   border: none;
   cursor: pointer;
   background: none;
