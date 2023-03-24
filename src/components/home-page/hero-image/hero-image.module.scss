@@ -32,5 +32,13 @@
 .heading {
   position: relative;
   z-index: 2;
-  @include mixins.headingLight($fontSize: 60px);
+  @include mixins.manropeLight($fontSize: 60px);
+  margin-bottom: 30px;
+}
+
+.description {
+  position: relative;
+  z-index: 2;
+  @include mixins.manropeLight($fontSize: 26px);
+  line-height: 36px;
 }
