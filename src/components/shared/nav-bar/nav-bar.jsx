@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { clsx } from 'clsx';
 import RightArrow from '@/components/shared/svg/right-arrow/right-arrow';
 import NoraLogo from '@/components/shared/svg/nora-logo/nora-logo';
 import MagGlass from '@/components/shared/svg/magnifying-glass-large';
@@ -36,9 +37,10 @@ export default function NavBar() {
 
   return (
     <div
-      className={`${styles.container} ${
+      className={clsx(
+        styles.container,
         mobileNavView ? styles.mobileNavActive : ''
-      }`}
+      )}
     >
       <div className={styles.maxWidth}>
         <Link href='/' onClick={() => setMobileNavView(false)}>
@@ -55,9 +57,10 @@ export default function NavBar() {
           </div>
         )}
         <nav
-          className={`${styles.navigation} ${
+          className={clsx(
+            styles.navigation,
             mobileNavView ? styles.show : styles.hide
-          }`}
+          )}
         >
           {device && device === 'mobile' && (
             <div className={styles.x}>
@@ -76,9 +79,10 @@ export default function NavBar() {
                 >
                   <Link
                     href={link.href}
-                    className={`${styles.nextLink} ${
+                    className={clsx(
+                      styles.nextLink,
                       route === link.href ? styles.activeLink : ''
-                    }`}
+                    )}
                   >
                     {link.label}
                   </Link>
@@ -93,7 +97,7 @@ export default function NavBar() {
           )}
           <Link
             href='/mail'
-            className={`${styles.joinEmailList} ${styles.nextLink}`}
+            className={clsx(styles.joinEmailList, styles.nextLink)}
           >
             <p>Join the Email List</p>
             <RightArrow />
