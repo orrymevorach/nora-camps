@@ -1,0 +1,36 @@
+@use '@variables' as *;
+@use '../../../styles/mixins.module.scss' as mixins;
+
+.container {
+  height: 600px;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+  // Overlay
+  &:before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background-color: rgba($black, 0.5);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.textContainer {
+  padding: 12% 0 0 12%;
+  color: $white;
+}
+
+.heading {
+  position: relative;
+  z-index: 2;
+  @include mixins.headingLight($fontSize: 60px);
+}

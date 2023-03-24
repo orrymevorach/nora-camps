@@ -4,6 +4,10 @@ export const PAGES = {
   HOME: 'Home',
 };
 
+export const CONTENT_MODELS = {
+  HERO_IMAGE: 'HeroImage',
+};
+
 export const getEntryDataFromEntryIds = async ({ entryIds }) => {
   const mapContentModelToQuery = {
     HeroImage: getHeroImage,
