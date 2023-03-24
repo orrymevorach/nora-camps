@@ -1,7 +1,8 @@
-@import '@variables';
+@use '@variables' as *;
+@use '../../../styles/mixins.module.scss' as mixins;
 
 .container {
-  height: 800px;
+  height: 600px;
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -24,11 +25,12 @@
 }
 
 .textContainer {
-  padding: 16% 0 0 16%;
+  padding: 12% 0 0 12%;
   color: $white;
 }
 
 .heading {
   position: relative;
   z-index: 2;
+  @include mixins.headingLight($fontSize: 60px);
 }
