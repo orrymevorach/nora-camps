@@ -17,3 +17,7 @@
   font-family: 'OpenSans Regular';
   color: #231f20;
 }
+
+@mixin padding {
+  padding: 0 1.25rem;
+}
