@@ -15,7 +15,7 @@ export default function Nav() {
   return (
     <div className={styles.container}>
       <div className={styles.maxWidth}>
-        <Link href='/'>
+        <Link href="/">
           <NoraLogo />
         </Link>
         <nav className={styles.navigation}>

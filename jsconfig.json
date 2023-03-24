@@ -6,6 +6,7 @@
       "hooks/*": ["./src/hooks/*"],
       "@variables": ["./src/styles/variables.module.scss"],
       "@animations": ["./src/styles/animations.module.scss"],
+      "@mixins": ["./src/styles/mixins.module.scss"],
       "graphql": ["./src/graphql/*"],
       "svg/*": ["./src/components/shared/svg/*"],
       "images/*": ["./public/images/*"]
