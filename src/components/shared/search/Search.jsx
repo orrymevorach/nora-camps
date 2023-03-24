@@ -9,11 +9,7 @@ export default function Search() {
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={e => submitSearch(e)}>
-        <input
-          autoFocus
-          type='search'
-          placeholder='Search for a painting or collection'
-        />
+        <input autoFocus placeholder='Search for a painting or collection' />
         <button type='submit'>
           <MagSmallBackground />
         </button>
