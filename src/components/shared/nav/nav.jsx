@@ -8,9 +8,11 @@ import X from 'svg/X';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useWindowSize } from '@/hooks';
+import Search from '../search/Search';
 
 export default function Nav() {
   const [mobileNavView, setMobileNavView] = useState(false);
+  const [searchBarView, setSearchBarView] = useState(false);
   const { route } = useRouter();
   const { device } = useWindowSize();
 
@@ -22,8 +24,14 @@ export default function Nav() {
     { label: 'Contact', href: '/contact' },
   ];
 
+  const toggleSearchBar = () => {
+    setSearchBarView(showSearchBar => !showSearchBar);
+    setMobileNavView(false);
+  };
+
   const toggleMobileNavView = () => {
     setMobileNavView(showNav => !showNav);
+    setSearchBarView(false);
   };
 
   return (
@@ -38,7 +46,7 @@ export default function Nav() {
         </Link>
         {device && device === 'mobile' && (
           <div className={styles.mobileButtons}>
-            <button onClick={() => toggleMobileNavView()}>
+            <button onClick={() => toggleSearchBar()}>
               <MagGlass />
             </button>
             <button onClick={() => toggleMobileNavView()}>
@@ -76,6 +84,11 @@ export default function Nav() {
               );
             })}
           </ul>
+          {device && device !== 'mobile' && (
+            <button onClick={() => toggleSearchBar()}>
+              <MagGlass />
+            </button>
+          )}
           <Link
             href='/mail'
             className={`${styles.joinEmailList} ${styles.nextLink}`}
@@ -85,6 +98,7 @@ export default function Nav() {
           </Link>
         </nav>
       </div>
+      {searchBarView && <Search />}
     </div>
   );
 }
