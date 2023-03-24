@@ -7,10 +7,9 @@
   color: variables[black];
 }
 
-@mixin headingLight($fontSize: 45px) {
+@mixin manropeLight($fontSize: 45px) {
   font-family: 'Manrope Light';
   font-size: $fontSize;
-  color: variables[black];
 }
 
 @mixin bodyCopy {
