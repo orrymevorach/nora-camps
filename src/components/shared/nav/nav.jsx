@@ -59,11 +59,13 @@ export default function Nav() {
             mobileNavView ? styles.show : styles.hide
           }`}
         >
-          <div className={styles.x}>
-            <button onClick={() => toggleMobileNavView()}>
-              <X />
-            </button>
-          </div>
+          {device && device === 'mobile' && (
+            <div className={styles.x}>
+              <button onClick={() => toggleMobileNavView()}>
+                <X />
+              </button>
+            </div>
+          )}
           <ul className={styles.navUl}>
             {navLinks.map(link => {
               return (
