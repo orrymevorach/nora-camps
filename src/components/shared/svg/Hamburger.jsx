@@ -7,7 +7,7 @@ export default function Hamburger() {
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
-      <rect x='0.457031' width='43.4571' height='39' fill='white' />
+      <rect x='0.457031' width='43.4571' height='39' fill='inherit' />
       <path
         d='M13.543 15.5C13.543 15.7761 13.7668 16 14.043 16H31.043C31.3191 16 31.543 15.7761 31.543 15.5C31.543 15.2239 31.3191 15 31.043 15H14.043C13.7668 15 13.543 15.2239 13.543 15.5Z'
         fill='#231F20'
