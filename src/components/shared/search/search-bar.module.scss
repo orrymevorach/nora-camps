@@ -1,0 +1,53 @@
+@use '@variables' as var;
+@use '@mixins' as mixins;
+
+.container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  background-color: var.$white;
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  border-bottom: 1px solid var.$black;
+  width: 100%;
+  max-width: 400px;
+  padding: 0.25rem 0;
+
+  input {
+    border: none;
+    width: 100%;
+    font-size: 1rem;
+    @include mixins.manropeRegular;
+  }
+
+  input:focus {
+    padding-left: 0.1rem;
+  }
+}
+
+@media (max-width: var.$tablet) {
+  .form {
+    input {
+      font-size: 0.875rem;
+    }
+  }
+}
+
+@media (max-width: var.$mobile) {
+  .container {
+    justify-content: flex-start;
+  }
+  .form {
+    max-width: none;
+
+    input {
+      font-size: 1rem;
+    }
+  }
+}

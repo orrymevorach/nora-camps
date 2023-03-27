@@ -23,7 +23,12 @@ export default function CollectionTile({ name, paintingsCollection }) {
         </div>
 
         <PrimaryButton
-          href={`/paintings?collection=${name}`}
+          href={{
+            pathname: '/paintings',
+            query: {
+              collection: name,
+            },
+          }}
           classNames={styles.button}
         >
           View other Landscapes
