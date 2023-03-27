@@ -1,4 +1,6 @@
-export const PAINTING_FRAGMENT = `
+import { gql } from '@apollo/client';
+
+export const PAINTING_FRAGMENT = gql`
   fragment PaintingFields on Painting {
     name
     description {

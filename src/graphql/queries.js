@@ -1,6 +1,7 @@
+import { gql } from '@apollo/client';
 import { PAINTING_FRAGMENT } from './fragments';
 
-export const GET_PAGE_ENTRIES = `
+export const GET_PAGE_ENTRIES = gql`
   query getEntryIdsFromPageBuilder($page: String!) {
     pageBuilderCollection(where: { page: $page }) {
       items {
@@ -17,7 +18,7 @@ export const GET_PAGE_ENTRIES = `
   }
 `;
 
-export const GET_HERO_IMAGE = `
+export const GET_HERO_IMAGE = gql`
   query getHeroImageData($entryId: String!) {
     heroImageCollection(where: { sys: { id: $entryId } }) {
       items {
@@ -34,7 +35,7 @@ export const GET_HERO_IMAGE = `
   }
 `;
 
-export const GET_COLLECTION = `
+export const GET_COLLECTION = gql`
   query getEntryIdsFromPageBuilder($entryId: String!) {
     collectionCollection(where: { sys: { id: $entryId } }, limit: 40) {
       items {
