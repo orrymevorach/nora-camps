@@ -1,29 +1,19 @@
 import Link from 'next/link';
 import { clsx } from 'clsx';
-import RightArrow from '@/components/shared/svg/right-arrow/right-arrow';
-import NoraLogo from '@/components/shared/svg/nora-logo/nora-logo';
-import MagGlass from '@/components/shared/svg/magnifying-glass-large';
+import NoraLogo from 'svg/nora-logo/nora-logo';
 import styles from './nav-bar.module.scss';
-import Hamburger from '@/components/shared/svg/hamburger';
-import X from '@/components/shared/svg/close-button';
 import { useState } from 'react';
-import { useRouter } from 'next/router';
 import { useWindowSize } from '@/hooks';
 import Search from '../search/search-bar';
+import DesktopNav from './desktop-nav/desktop-nav';
+import MobileNav from './mobile-nav/mobile-nav';
 
 export default function NavBar() {
-  const [mobileNavView, setMobileNavView] = useState(false);
   const [searchBarView, setSearchBarView] = useState(false);
-  const { route } = useRouter();
-  const { device } = useWindowSize();
+  const [isMobileNavOpen, setMobileNavView] = useState(false);
+  const { device, isMobile } = useWindowSize();
 
-  const navLinks = [
-    { label: 'Home', href: '/' },
-    { label: 'Paintings', href: '/paintings' },
-    { label: 'Exhibitions', href: '/exhibitions' },
-    { label: 'About', href: '/about' },
-    { label: 'Contact', href: '/contact' },
-  ];
+  if (!device) return;
 
   const toggleSearchBar = () => {
     setSearchBarView(showSearchBar => !showSearchBar);
@@ -36,75 +26,25 @@ export default function NavBar() {
   };
 
   return (
-    <div
+    <nav
       className={clsx(
-        styles.container,
-        mobileNavView ? styles.mobileNavActive : ''
+        styles.navigation,
+        isMobileNavOpen ? styles.mobileNavActive : ''
       )}
     >
-      <div className={styles.maxWidth}>
-        <Link href='/' onClick={() => setMobileNavView(false)}>
-          <NoraLogo />
-        </Link>
-        {device && device === 'mobile' && (
-          <div className={styles.mobileButtons}>
-            <button onClick={() => toggleSearchBar()}>
-              <MagGlass />
-            </button>
-            <button onClick={() => toggleMobileNavView()}>
-              <Hamburger />
-            </button>
-          </div>
-        )}
-        <nav
-          className={clsx(
-            styles.navigation,
-            mobileNavView ? styles.show : styles.hide
-          )}
-        >
-          {device && device === 'mobile' && (
-            <div className={styles.x}>
-              <button onClick={() => toggleMobileNavView()}>
-                <X />
-              </button>
-            </div>
-          )}
-          <ul className={styles.navUl}>
-            {navLinks.map(link => {
-              return (
-                <li
-                  key={link.label}
-                  className={styles.navLi}
-                  onClick={() => toggleMobileNavView()}
-                >
-                  <Link
-                    href={link.href}
-                    className={clsx(
-                      styles.nextLink,
-                      route === link.href ? styles.activeLink : ''
-                    )}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-          {device && device !== 'mobile' && (
-            <button onClick={() => toggleSearchBar()}>
-              <MagGlass />
-            </button>
-          )}
-          <Link
-            href='/mail'
-            className={clsx(styles.joinEmailList, styles.nextLink)}
-          >
-            <p>Join the Email List</p>
-            <RightArrow />
-          </Link>
-        </nav>
-      </div>
+      <Link href='/' onClick={() => setMobileNavView(false)}>
+        <NoraLogo />
+      </Link>
+      {!isMobile ? (
+        <DesktopNav toggleSearchBar={toggleSearchBar} />
+      ) : (
+        <MobileNav
+          toggleMobileNavView={toggleMobileNavView}
+          toggleSearchBar={toggleSearchBar}
+          mobileNavView={isMobileNavOpen}
+        />
+      )}
       {searchBarView && <Search />}
-    </div>
+    </nav>
   );
 }
