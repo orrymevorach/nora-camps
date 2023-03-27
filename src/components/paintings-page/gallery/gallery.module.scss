@@ -12,26 +12,12 @@
   grid-template-columns: 1fr 1fr;
   max-width: 1131px;
   margin-top: 150px;
-  row-gap: 100px;
-}
-
-.listItem {
-  &:nth-child(odd) {
-    margin-right: 85px;
-  }
-  &:nth-child(even) {
-    margin-left: 85px;
-  }
+  gap: 100px 170px;
 }
 
 @media screen and (max-width: variables.$tablet) {
-  .listItem {
-    &:nth-child(odd) {
-      margin-right: 25px;
-    }
-    &:nth-child(even) {
-      margin-left: 25px;
-    }
+  .gallery {
+    gap: 100px 50px;
   }
 }
 
@@ -47,10 +33,5 @@
   }
   .listItem {
     margin-bottom: 80px;
-    &:nth-child(even),
-    &:nth-child(odd) {
-      margin-left: 0;
-      margin-right: 0;
-    }
   }
 }
