@@ -16,22 +16,6 @@
   background-color: var.$white;
 }
 
-.nextLink {
-  color: var.$black;
-
-  &.activeLink {
-    font-weight: 700;
-  }
-}
-
-.magnifyingGlass {
-  width: 44px;
-  height: 39px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .joinEmailList {
   @include mixins.joinEmailButton;
 }
