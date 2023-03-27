@@ -61,8 +61,8 @@
   width: 268px;
   min-width: 200px;
   height: 66px;
-  background-color: variables[white];
-  border: 1px solid variables[black];
+  border: 1px solid variables.$black;
+  background-color: variables.$white;
   font-size: 1rem;
   @include montserratMedium;
 
