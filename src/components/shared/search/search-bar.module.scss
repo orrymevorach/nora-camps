@@ -4,14 +4,14 @@
 .container {
   position: absolute;
   top: 100%;
-  width: 100%;
+  width: calc(100% - 40px);
   display: flex;
   justify-content: center;
 }
 
 .form {
   display: flex;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid $black;
   width: 100%;
   max-width: 400px;
   padding: 0.25rem 0;
@@ -20,11 +20,11 @@
     border: none;
     width: 100%;
     font-size: 1rem;
-    @include mixins.openSans;
+    @include mixins.manropeRegular;
   }
 
   input:focus {
-    outline: none;
+    padding-left: 0.1rem;
   }
 }
 
@@ -38,9 +38,13 @@
 
 @media (max-width: $mobile) {
   .container {
-    @include mixins.padding;
+    justify-content: flex-start;
   }
   .form {
     max-width: none;
+
+    input {
+      font-size: 1rem;
+    }
   }
-} ;
+}
