@@ -7,6 +7,13 @@
   color: variables[black];
 }
 
+@mixin bodyCopy {
+  font-family: 'OpenSans Regular';
+  font-size: 16px;
+  line-height: 28px;
+  color: variables[black];
+}
+
 @mixin manropeLight($fontSize: 45px) {
   font-family: 'Manrope Light';
   font-size: $fontSize;
@@ -17,26 +24,39 @@
   color: #231f20;
 }
 
-@mixin bodyCopy {
-  font-family: 'OpenSans Regular';
-  font-size: 16px;
-  line-height: 28px;
-  color: variables[black];
-}
-
 @mixin openSans {
   font-family: 'OpenSans Regular';
   color: variables[black];
 }
 
+@mixin openSansBold {
+  font-family: 'OpenSans Bold';
+  color: variables[black];
+}
+
 @mixin openSansMedium {
-  font-family: 'OpenSans Extra Medium';
+  font-family: 'OpenSans Medium';
+  color: variables[black];
+}
+
+@mixin openSansLight {
+  font-family: 'OpenSans Light';
+  color: variables[black];
+}
+
+@mixin openSansExtraSemiBold {
+  font-family: 'OpenSans Extra Semi Bold';
   color: #231f20;
 }
 
-@mixin openSansSemiBold {
-  font-family: 'OpenSans Extra Semi Bold';
-  color: #231f20;
+@mixin montserrat {
+  font-family: 'Montserrat Regular';
+  color: variables[black];
+}
+
+@mixin montserratLight {
+  font-family: 'Montserrat Light';
+  color: variables[black];
 }
 
 @mixin montserratMedium {
@@ -46,22 +66,4 @@
 
 @mixin pagePadding {
   padding: 0 1.25rem;
-}
-
-@mixin joinEmailButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.625rem;
-  width: 268px;
-  min-width: 200px;
-  height: 66px;
-  border: 1px solid variables.$black;
-  background-color: variables.$white;
-  font-size: 1rem;
-  @include montserratMedium;
-
-  p {
-    white-space: nowrap;
-  }
 }

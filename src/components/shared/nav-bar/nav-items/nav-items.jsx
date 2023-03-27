@@ -2,9 +2,9 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { clsx } from 'clsx';
 import CloseButton from '../../svg/close-button';
-import RightArrow from '../../svg/right-arrow/right-arrow';
 import styles from './nav-items.module.scss';
 import { useWindowSize } from '@/hooks';
+import PrimaryButton from '@/components/shared/primary-button';
 
 export default function NavItems({ toggles }) {
   const { toggleMobileNavView } = toggles;
@@ -48,13 +48,12 @@ export default function NavItems({ toggles }) {
       })}
       {isMobile && (
         <li className={styles.navLi}>
-          <Link
-            href='/mail'
-            className={clsx(styles.joinEmailList, styles.nextLink)}
+          <PrimaryButton
+            href="/mail"
+            classNames={clsx(styles.joinEmailList, styles.nextLink)}
           >
-            <p>Join the Email List</p>
-            <RightArrow />
-          </Link>
+            Join the Email List
+          </PrimaryButton>
         </li>
       )}
     </ul>

@@ -12,11 +12,7 @@
 .navLi {
   list-style: none;
   font-size: 1rem;
-  @include mixins.openSansSemiBold;
-}
-
-.joinEmailList {
-  @include mixins.joinEmailButton;
+  @include mixins.openSansExtraSemiBold;
 }
 
 .nextLink {
@@ -60,8 +56,5 @@
   .navLi {
     padding-bottom: 3.125rem;
     font-size: 1rem;
-  }
-  .joinEmailList {
-    min-width: 100px;
   }
 }

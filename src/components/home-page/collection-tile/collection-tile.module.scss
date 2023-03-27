@@ -1,0 +1,48 @@
+@use '@variables' as *;
+@use '@mixins' as mixins;
+
+.container {
+  width: 556px;
+  display: block;
+  margin: 0 auto 150px;
+  //   @include spacing;
+}
+
+.image {
+  width: 556px;
+  height: 418px;
+  object-fit: cover;
+}
+
+.paintingName {
+  @include mixins.openSansMedium;
+  font-size: 16px;
+  text-align: right;
+  margin: 15px 0 40px;
+}
+
+.collection {
+  @include mixins.openSans;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $darkGrey;
+  margin-bottom: 10px;
+}
+
+.collectionContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.collectionName {
+  @include mixins.heading;
+}
+
+.button {
+  font-size: 14px;
+  width: 235px;
+  height: 60px;
+  align-self: flex-end;
+  margin-bottom: 5px;
+}

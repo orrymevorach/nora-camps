@@ -16,10 +16,6 @@
   background-color: var.$white;
 }
 
-.joinEmailList {
-  @include mixins.joinEmailButton;
-}
-
 @media (max-width: var.$tablet) {
   .container {
     height: 98px;
@@ -27,12 +23,6 @@
 
   .navigation {
     max-width: 900px;
-  }
-
-  .joinEmailList {
-    height: 51px;
-    width: 200px;
-    font-size: 0.875rem;
   }
 }
 

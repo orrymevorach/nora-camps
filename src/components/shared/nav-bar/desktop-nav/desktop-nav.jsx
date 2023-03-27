@@ -1,9 +1,9 @@
-import Link from 'next/link';
 import RightArrow from 'svg/right-arrow/right-arrow';
 import NavItems from '../nav-items/nav-items';
 import { clsx } from 'clsx';
 import styles from '../nav-bar.module.scss';
 import MagnifyingGlass from 'svg/magnifying-glass';
+import PrimaryButton from '@/components/shared/primary-button';
 
 export default function DesktopNav({ toggleMobileNavView, toggleSearchBar }) {
   return (
@@ -15,13 +15,12 @@ export default function DesktopNav({ toggleMobileNavView, toggleSearchBar }) {
       >
         <MagnifyingGlass />
       </button>
-      <Link
-        href='/mail'
-        className={clsx(styles.joinEmailList, styles.nextLink)}
+      <PrimaryButton
+        href="/mail"
+        classNames={clsx(styles.joinEmailList, styles.nextLink)}
       >
-        <p>Join the Email List</p>
-        <RightArrow />
-      </Link>
+        Join the Email List
+      </PrimaryButton>
     </>
   );
 }

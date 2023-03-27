@@ -27,7 +27,7 @@
 }
 
 @font-face {
-  font-family: 'OpenSans Extra Regular';
+  font-family: 'OpenSans Regular';
   font-style: normal;
   font-weight: normal;
   src: url('../../assets/Open_Sans/OpenSans-Regular.ttf');
@@ -38,6 +38,13 @@
   font-style: normal;
   font-weight: bold;
   src: url('../../assets/Open_Sans/OpenSans-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'OpenSans Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../../assets/Open_Sans/OpenSans-Medium.ttf');
 }
 
 @font-face {
@@ -66,4 +73,18 @@
   font-style: normal;
   font-weight: normal;
   src: url('../../assets/Manrope/Manrope-Light.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat Light';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../../assets/Montserrat/Montserrat-Light.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../../assets/Montserrat/Montserrat-Regular.ttf');
 }
