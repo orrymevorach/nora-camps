@@ -1,0 +1,67 @@
+@use '@variables' as var;
+@use '@mixins' as mixins;
+
+.navUl {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3.125rem;
+  background-color: var.$white;
+}
+
+.navLi {
+  list-style: none;
+  font-size: 1rem;
+  @include mixins.openSansSemiBold;
+}
+
+.joinEmailList {
+  @include mixins.joinEmailButton;
+}
+
+.nextLink {
+  color: var.$black;
+
+  &.activeLink {
+    font-weight: 700;
+  }
+}
+
+@media (max-width: var.$tablet) {
+  .navUl {
+    gap: 2.125rem;
+  }
+  .navLi {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: var.$mobile) {
+  .navUl {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: absolute;
+    gap: 0;
+    top: 68px;
+    left: 0;
+    padding-left: 1.25rem;
+    width: 100%;
+  }
+
+  .closeButton {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .navLi {
+    padding-bottom: 3.125rem;
+    font-size: 1rem;
+  }
+  .joinEmailList {
+    min-width: 100px;
+  }
+}
