@@ -23,7 +23,7 @@ export default function CollectionTile({ name, paintingsCollection }) {
         </div>
 
         <PrimaryButton
-          href={`/collection?collection=${name}`}
+          href={`/paintings?collection=${name}`}
           classNames={styles.button}
         >
           View other Landscapes
