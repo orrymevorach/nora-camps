@@ -1,4 +1,5 @@
 @use '@variables' as *;
+@use '@mixins' as mixins;
 
 .container {
   position: absolute;
@@ -15,10 +16,8 @@
   display: flex;
   width: 100%;
   max-width: 1131px;
-  padding: 3.75rem 0 3.75rem 0;
-  font-family: Open Sans;
-  font-weight: 300;
-  @include mixins.spacing;
+  // padding: 3.75rem 0 3.75rem 0;
+  // @include mixins.pagePadding;
 
   img {
     width: 38px;
@@ -34,7 +33,7 @@
 }
 
 .footerLi {
-  border-bottom: 0.5px solid black;
+  border-bottom: 1px solid black;
   line-height: 14px;
   color: black;
   font-size: 16px;

@@ -1,0 +1,17 @@
+.footerUl {
+  display: flex;
+  list-style: none;
+  gap: 3.125rem;
+  padding: 0;
+}
+
+.footerLi {
+  border-bottom: 1px solid black;
+  line-height: 14px;
+  color: black;
+  font-size: 16px;
+}
+
+.nextLink {
+  color: $black;
+}
