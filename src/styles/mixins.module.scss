@@ -17,11 +17,6 @@
   color: #231f20;
 }
 
-@mixin manropeRegular {
-  font-family: 'Manrope Regular';
-  color: #231f20;
-}
-
 @mixin bodyCopy {
   font-family: 'OpenSans Regular';
   font-size: 16px;
@@ -49,7 +44,7 @@
   color: #231f20;
 }
 
-@mixin padding {
+@mixin pagePadding {
   padding: 0 1.25rem;
 }
 
