@@ -1,4 +1,4 @@
-import styles from './RightArrow.module.scss';
+import styles from './right-arrow.module.scss';
 
 export default function RightArrow() {
   return (

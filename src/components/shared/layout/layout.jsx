@@ -1,3 +1,4 @@
+import Nav from '../nav-bar/nav-bar';
 import Footer from '../footer/Footer';
 import Nav from '../nav/nav';
 
