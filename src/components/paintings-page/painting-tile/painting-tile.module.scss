@@ -1,0 +1,26 @@
+@use '@variables' as *;
+@use '@mixins' as mixins;
+
+.paintingTile {
+  color: $black;
+}
+
+.imageContainer {
+  padding: 25px;
+  background: $lightGrey;
+}
+
+.textContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  align-self: flex-end;
+}
+
+.paintingName {
+  @include mixins.openSans;
+}
+
+.price {
+  @include mixins.openSansBold;
+}
