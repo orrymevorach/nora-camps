@@ -1,17 +1,20 @@
-@use '@variables' as *;
+@use '@variables' as var;
 @use '@mixins' as mixins;
 
 .container {
   position: absolute;
   top: 100%;
-  width: calc(100% - 40px);
+  left: 0;
   display: flex;
   justify-content: center;
+  padding: 1rem;
+  background-color: var.$white;
+  width: 100%;
 }
 
 .form {
   display: flex;
-  border-bottom: 1px solid $black;
+  border-bottom: 1px solid var.$black;
   width: 100%;
   max-width: 400px;
   padding: 0.25rem 0;
@@ -28,7 +31,7 @@
   }
 }
 
-@media (max-width: $tablet) {
+@media (max-width: var.$tablet) {
   .form {
     input {
       font-size: 0.875rem;
@@ -36,7 +39,7 @@
   }
 }
 
-@media (max-width: $mobile) {
+@media (max-width: var.$mobile) {
   .container {
     justify-content: flex-start;
   }
