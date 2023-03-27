@@ -1,23 +1,22 @@
-@use '@variables' as *;
+@use '@variables' as var;
 @use '@mixins' as mixins;
 
 .container {
-  position: absolute;
   display: flex;
   align-items: center;
   flex-direction: column;
-  bottom: 0;
   width: 100%;
   height: 378px;
-  background-color: $lightGrey;
+  background-color: var.$lightGrey;
+  @include mixins.pagePadding;
 }
 
 .footerNav {
   display: flex;
+  align-items: center;
+  flex-direction: column;
   width: 100%;
   max-width: 1131px;
-  // padding: 3.75rem 0 3.75rem 0;
-  // @include mixins.pagePadding;
 
   img {
     width: 38px;
@@ -25,46 +24,8 @@
   }
 }
 
-.footerUl {
-  display: flex;
-  list-style: none;
-  gap: 3.125rem;
-  padding: 0;
-}
-
-.footerLi {
-  border-bottom: 1px solid black;
-  line-height: 14px;
-  color: black;
-  font-size: 16px;
-}
-
-.nextLink {
-  color: $black;
-}
-
-.footerLine {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  max-width: 1131px;
-  border: 0.5px solid #231f20;
-}
-
-.footerLogoBackground {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: $black;
-  width: 38px;
-  height: 33px;
-
-  img {
-    height: 14px;
+@media (max-width: var.$mobile) {
+  .container {
+    height: 365px;
   }
-}
-
-.footerSocials {
-  display: flex;
-  gap: 1rem;
 }

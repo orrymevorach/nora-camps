@@ -1,20 +1,14 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import ncLogo from 'images/NC.png';
-import styles from './Footer.module.scss';
-import SocialButtons from './social-buttons/social-buttons';
-import FooterItems from './footer-items/footer-items';
+import DesktopFooter from './desktop-footer/desktop-footer';
+import MobileFooter from './mobile-footer/mobile-footer';
+import { useWindowSize } from '@/hooks';
+import styles from './footer.module.scss';
 
 export default function Footer() {
+  const { isMobile } = useWindowSize();
   return (
     <footer className={styles.container}>
       <nav className={styles.footerNav}>
-        <FooterItems />
-        <div className={styles.footerLine} />
-        <div className={styles.footerLogoBackground}>
-          <Image src={ncLogo} alt='footer logo' />
-        </div>
-        <SocialButtons />
+        {!isMobile ? <DesktopFooter /> : <MobileFooter />}
       </nav>
     </footer>
   );

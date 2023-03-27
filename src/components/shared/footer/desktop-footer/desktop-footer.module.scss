@@ -1,0 +1,28 @@
+@use '@variables' as var;
+
+.footerLogoBackground {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var.$black;
+  width: 38px;
+  height: 34px;
+
+  img {
+    height: 14px;
+  }
+}
+
+.logos {
+  display: flex;
+  gap: 6rem;
+  width: 100%;
+  padding: 3rem 0;
+}
+
+.copyright {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+}

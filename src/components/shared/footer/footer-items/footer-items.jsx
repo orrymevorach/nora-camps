@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import styles from './footer-items.module.scss';
 
 export default function FooterItems() {
   const footerNavItems = [
