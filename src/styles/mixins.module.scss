@@ -1,8 +1,14 @@
 @use './fonts.module.scss' as *;
+@use '@variables' as color;
 
 @mixin heading {
   font-family: 'Manrope Medium';
   font-size: 45px;
+  color: #231f20;
+}
+
+@mixin manropeRegular {
+  font-family: 'Manrope Regular';
   color: #231f20;
 }
 
@@ -18,6 +24,39 @@
   color: #231f20;
 }
 
+@mixin openSansMedium {
+  font-family: 'OpenSans Extra Medium';
+  color: #231f20;
+}
+
+@mixin openSansSemiBold {
+  font-family: 'OpenSans Extra Semi Bold';
+  color: #231f20;
+}
+
+@mixin montserratMedium {
+  font-family: 'Montserrat Medium';
+  color: #231f20;
+}
+
 @mixin padding {
   padding: 0 1.25rem;
+}
+
+@mixin joinEmailButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  width: 268px;
+  min-width: 200px;
+  height: 66px;
+  background-color: color.$white;
+  border: 1px solid color.$black;
+  font-size: 1rem;
+  @include montserratMedium;
+
+  p {
+    white-space: nowrap;
+  }
 }
