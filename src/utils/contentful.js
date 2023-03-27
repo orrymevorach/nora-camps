@@ -18,9 +18,11 @@ export const getEntryDataFromEntryIds = async ({ entryIds }) => {
     const entry = entryIds[i];
     const contentModelId = entry.__typename;
     const query = mapContentModelToQuery[contentModelId];
-    const componentData = await query({ entryId: entry.sys.id });
-    componentData.contentModel = contentModelId; // Use this ID to map the data to a corresponding React component
-    data.push(componentData);
+    if (query) {
+      const componentData = await query({ entryId: entry.sys.id });
+      componentData.contentModel = contentModelId; // Use this ID to map the data to a corresponding React component
+      data.push(componentData);
+    }
   }
   return data;
 };
