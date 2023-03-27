@@ -1,4 +1,4 @@
-import MagSmallBackground from '@/components/shared/svg/magnifying-glass-small';
+import MagnifyingGlass from 'svg/magnifying-glass';
 import styles from './search-bar.module.scss';
 
 export default function SearchBar() {
@@ -11,7 +11,7 @@ export default function SearchBar() {
       <form className={styles.form} onSubmit={e => submitSearch(e)}>
         <input autoFocus placeholder='Search for a painting or collection' />
         <button type='submit'>
-          <MagSmallBackground />
+          <MagnifyingGlass />
         </button>
       </form>
     </div>
