@@ -12,7 +12,7 @@
   max-width: 1131px;
   height: 120px;
   z-index: 100;
-  @include mixins.padding;
+  @include mixins.pagePadding;
   background-color: var.$white;
 }
 
