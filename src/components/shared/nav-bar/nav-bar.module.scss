@@ -1,101 +1,48 @@
-@use '@variables' as *;
+@use '@variables' as var;
 @use '@mixins' as mixins;
 
-.container {
-  position: sticky;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 0;
-  width: 100%;
-  height: 120px;
-  @include mixins.padding;
-  background-color: $white;
-  @include mixins.openSans;
-  z-index: 100;
-}
-
-.maxWidth {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  max-width: 1131px;
-  gap: 5rem;
-}
-
 .navigation {
+  position: sticky;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 0 auto;
   width: 100%;
-}
-
-.navUl {
-  display: flex;
-  gap: 3.125rem;
-}
-
-.navLi {
-  list-style: none;
-  font-size: 1rem;
-  @include mixins.openSans;
+  max-width: 1131px;
+  height: 120px;
+  z-index: 100;
+  @include mixins.padding;
+  background-color: var.$white;
 }
 
 .nextLink {
-  color: $black;
+  color: var.$black;
 
   &.activeLink {
     font-weight: 700;
   }
 }
 
+.magnifyingGlass {
+  width: 44px;
+  height: 39px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .joinEmailList {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.625rem;
-  width: 268px;
-  height: 66px;
-  background-color: $white;
-  border: 1px solid $black;
-  font-size: 1rem;
-  @include mixins.openSans;
-
-  p {
-    white-space: nowrap;
-  }
+  @include mixins.joinEmailButton;
 }
 
-.mobileUl {
-  display: flex;
-  flex-direction: column;
-  padding-left: 1.25rem;
-  gap: 3.125rem;
-}
-
-.mobileButtons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  button {
-    display: flex;
-  }
-}
-
-@media (max-width: $tablet) {
+@media (max-width: var.$tablet) {
   .container {
     height: 98px;
   }
 
-  .maxWidth {
+  .navigation {
     max-width: 900px;
-  }
-  .navUl {
-    gap: 2.125rem;
-  }
-  .navLi {
-    font-size: 0.875rem;
   }
 
   .joinEmailList {
@@ -105,59 +52,19 @@
   }
 }
 
-@media (max-width: $mobile) {
-  .container {
-    height: 68px;
-    padding: 0;
-
-    &.mobileNavActive {
-      background: rgba(35, 31, 32, 0.5);
-    }
-  }
-
-  .maxWidth {
-    justify-content: space-between;
-    padding: 0 0.6rem 0 1.25rem;
-  }
-
+@media (max-width: var.$mobile) {
   .navigation {
-    display: none;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    position: absolute;
+    display: flex;
     top: 68px;
     left: 0;
     z-index: 100;
-    background-color: $white;
-    padding: 0 0 1.25rem 1.25rem;
+    background-color: var.$white;
+    padding: 0 0.6rem 0 1.25rem;
     width: 100%;
+    height: 68px;
 
-    &.show {
-      display: flex;
+    &.mobileNavActive {
+      background: rgb(200, 200, 200);
     }
-
-    &.hide {
-      display: none;
-    }
-  }
-
-  .x {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-  }
-
-  .navUl {
-    display: flex;
-    flex-direction: column;
-    gap: 3.125rem;
-  }
-
-  .joinEmailList {
-    margin-top: 3.125rem;
-    min-height: 66px;
-    width: 100%;
-    max-width: 268px;
   }
 }
