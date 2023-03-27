@@ -1,4 +1,4 @@
-import { GET_IMAGE } from 'graphql/queries';
+import { GET_HERO_IMAGE, GET_PAGE_ENTRIES } from '@/graphql/queries';
 
 export async function fetchGraphQL({
   query,
@@ -23,11 +23,18 @@ export async function fetchGraphQL({
   ).then(response => response.json());
 }
 
-// Sample request
-// export const getImage = async ({ assetId }) => {
-//   const imageResponse = await fetchGraphQL({
-//     query: GET_IMAGE,
-//     variables: { id: assetId },
-//   });
-//   return imageResponse.data.asset.url;
-// };
+export const getEntryIdsFromPageBuilder = async ({ page = '' }) => {
+  const { data } = await fetchGraphQL({
+    query: GET_PAGE_ENTRIES,
+    variables: { page },
+  });
+  return data.pageBuilderCollection.items[0].componentsCollection.items;
+};
+
+export const getHeroImage = async ({ entryId = '' }) => {
+  const { data } = await fetchGraphQL({
+    query: GET_HERO_IMAGE,
+    variables: { entryId },
+  });
+  return data.heroImageCollection.items[0];
+};

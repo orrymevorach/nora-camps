@@ -1,9 +1,19 @@
 @use './fonts.module.scss' as *;
-@use '@variables' as color;
+@use './variables.module.scss' as variables;
 
-@mixin heading {
+@mixin heading($fontSize: 45px) {
   font-family: 'Manrope Medium';
-  font-size: 45px;
+  font-size: $fontSize;
+  color: variables[black];
+}
+
+@mixin manropeLight($fontSize: 45px) {
+  font-family: 'Manrope Light';
+  font-size: $fontSize;
+}
+
+@mixin manropeRegular {
+  font-family: 'Manrope Regular';
   color: #231f20;
 }
 
@@ -16,12 +26,12 @@
   font-family: 'OpenSans Regular';
   font-size: 16px;
   line-height: 28px;
-  color: #231f20;
+  color: variables[black];
 }
 
 @mixin openSans {
   font-family: 'OpenSans Regular';
-  color: #231f20;
+  color: variables[black];
 }
 
 @mixin openSansMedium {
@@ -51,8 +61,8 @@
   width: 268px;
   min-width: 200px;
   height: 66px;
-  background-color: color.$white;
-  border: 1px solid color.$black;
+  background-color: variables[white];
+  border: 1px solid variables[black];
   font-size: 1rem;
   @include montserratMedium;
 
