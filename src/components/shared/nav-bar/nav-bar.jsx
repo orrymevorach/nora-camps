@@ -36,7 +36,10 @@ export default function NavBar() {
         <NoraLogo />
       </Link>
       {!isMobile ? (
-        <DesktopNav toggleSearchBar={toggleSearchBar} />
+        <DesktopNav
+          toggleSearchBar={toggleSearchBar}
+          toggleMobileNavView={toggleMobileNavView}
+        />
       ) : (
         <MobileNav
           toggleMobileNavView={toggleMobileNavView}
