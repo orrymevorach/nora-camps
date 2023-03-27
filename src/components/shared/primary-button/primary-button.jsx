@@ -1,5 +1,5 @@
 import styles from './primary-button.module.scss';
-import RightArrow from '@/components/shared/svg/RightArrow/RightArrow';
+import RightArrow from '@/components/shared/svg/right-arrow/right-arrow';
 import Link from 'next/link';
 import clsx from 'clsx';
 
