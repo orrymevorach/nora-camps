@@ -34,11 +34,6 @@
   color: #231f20;
 }
 
-@mixin openSansRegular {
-  font-family: 'OpenSans Extra Regular';
-  color: variables.$darkGrey;
-}
-
 @mixin openSansSemiBold {
   font-family: 'OpenSans Extra Semi Bold';
   color: #231f20;
