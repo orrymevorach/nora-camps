@@ -6,7 +6,7 @@ export default function FooterItems() {
     { label: 'Contact', href: '/contact' },
     { label: 'Newsletter', href: '/newsletter' },
     { label: 'Shipping & Policies', href: '/shipping' },
-    { label: 'Special Projects', href: 'projects' },
+    { label: 'Special Projects', href: '/projects' },
   ];
 
   return (
