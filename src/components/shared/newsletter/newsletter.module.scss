@@ -1,0 +1,39 @@
+@use '@variables' as var;
+@use '@mixins' as mixins;
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.title {
+  font-size: var.$--16px;
+  color: var.$darkGrey;
+}
+
+.signUp {
+  font-size: 2.875rem;
+  @include mixins.manropeSemiBold;
+}
+
+.description {
+  font-size: var.$--16px;
+  @include mixins.openSansExtraSemiBold;
+}
+
+.emailInput {
+  font-size: var.$--16px;
+  @include mixins.montserratMedium;
+  letter-spacing: 0.03em;
+}

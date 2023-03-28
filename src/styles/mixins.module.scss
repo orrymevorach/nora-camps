@@ -21,7 +21,13 @@
 
 @mixin manropeRegular {
   font-family: 'Manrope Regular';
-  color: #231f20;
+  color: variables.$black;
+}
+
+// font weight 600
+@mixin manropeSemiBold {
+  font-family: 'Manrope Semi Bold';
+  color: variables.$black;
 }
 
 @mixin openSans {
@@ -46,7 +52,7 @@
 
 @mixin openSansExtraSemiBold {
   font-family: 'OpenSans Extra Semi Bold';
-  color: #231f20;
+  color: variables.$black;
 }
 
 @mixin montserrat {
@@ -59,9 +65,10 @@
   color: variables[black];
 }
 
+// font weight 500
 @mixin montserratMedium {
   font-family: 'Montserrat Medium';
-  color: #231f20;
+  color: variables.$black;
 }
 
 @mixin pagePadding {
