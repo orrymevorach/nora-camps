@@ -16,7 +16,7 @@
   text-decoration: underline;
   line-height: 14px;
   color: var.$black;
-  @include mixins.openSansRegular;
+  @include mixins.openSans;
 }
 
 .nextLink {
