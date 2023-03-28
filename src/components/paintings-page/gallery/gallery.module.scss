@@ -1,6 +1,10 @@
+@use '@variables' as variables;
+@use '@mixins' as mixins;
+
 .container {
   display: flex;
   justify-content: center;
+  @include mixins.pagePadding;
 }
 
 .gallery {
@@ -8,14 +12,26 @@
   grid-template-columns: 1fr 1fr;
   max-width: 1131px;
   margin-top: 150px;
-  row-gap: 100px;
+  gap: 100px 170px;
 }
 
-.listItem {
-  &:nth-child(odd) {
-    margin-right: 85px;
+@media screen and (max-width: variables.$tablet) {
+  .gallery {
+    gap: 100px 50px;
   }
-  &:nth-child(even) {
-    margin-left: 85px;
+}
+
+@media screen and (max-width: variables.$mobile) {
+  .container {
+    flex-direction: column;
+    width: 100%;
+  }
+  .gallery {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .listItem {
+    margin-bottom: 80px;
   }
 }
