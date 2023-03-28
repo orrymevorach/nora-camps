@@ -97,7 +97,7 @@ export default function PaintingInfoTemplate({
               className={styles.readMoreButton}
               onClick={handleClickReadMore}
             >
-              Read more
+              {!showAdditionalDescription ? 'Read more' : 'Read less'}
             </button>
           )}
         </div>
