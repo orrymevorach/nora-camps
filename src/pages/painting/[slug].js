@@ -5,13 +5,16 @@ import {
 } from '@/lib/contentful';
 import Head from 'next/head';
 import PaintingInfoTemplate from '@/components/shared/painting-info-template';
+import { capitalizeFirstLetterOfEachWord } from '@/utils/string-utils';
 
 export default function Paintings({ paintingData, collectionData }) {
   // The collectionData prop has all the paintings in this collection. Use this data for the reccommended paintings section
   return (
     <>
       <Head>
-        <title>Nora Camps | Painting</title>
+        <title>
+          Nora Camps | {capitalizeFirstLetterOfEachWord(paintingData.name)}
+        </title>
       </Head>
       <PaintingInfoTemplate {...paintingData} />
     </>
