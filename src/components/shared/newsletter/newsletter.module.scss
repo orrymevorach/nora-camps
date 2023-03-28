@@ -22,13 +22,13 @@
   @include mixins.openSans;
   opacity: 50%;
   letter-spacing: 0.2em;
-  margin-bottom: 10px;
+  margin-bottom: var.$px10;
 }
 
 .signUp {
   font-size: 2.875rem;
   line-height: 4.5rem;
-  margin-bottom: 30px;
+  margin-bottom: var.$px30;
   @include mixins.manropeSemiBold;
 }
 
@@ -37,7 +37,7 @@
   @include mixins.openSans;
   text-align: center;
   line-height: 28px;
-  margin-bottom: 30px;
+  margin-bottom: var.$px30;
 }
 
 .row {
@@ -63,7 +63,6 @@
   gap: var.$px10;
   width: 100%;
   max-width: 173px;
-  //   padding: 33px 0;
   border: 1px solid var.$black;
   @include mixins.montserratMedium;
 }
