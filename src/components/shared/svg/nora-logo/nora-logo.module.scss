@@ -1,43 +1,43 @@
-@use '@variables' as *;
+// @use '@variables' as *;
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: $black;
-  width: 76px;
-  height: 66px;
-  min-width: 76px;
+// .container {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   background-color: $black;
+//   width: 76px;
+//   height: 66px;
+//   min-width: 76px;
+// }
 
-  img {
-    width: 49px;
-    height: 29px;
-  }
-}
+// .noraLogo {
+//   width: 49px;
+//   height: 29px;
+// }
 
-@media (max-width: $tablet) {
-  .container {
-    width: 61px;
-    height: 51px;
-    min-width: 61px;
+// @media (max-width: $tablet) {
+//   .container {
+//     width: 61px;
+//     height: 51px;
+//     min-width: 61px;
+//   }
 
-    img {
-      width: 39px;
-      height: 19px;
-    }
-  }
-}
+//   .noraLogo {
+//     width: 39px;
+//     height: 19px;
+//   }
+// }
 
-@media (max-width: $mobile) {
-  .container {
-    width: 49px;
-    height: 42px;
-    min-width: 49px;
-    margin-right: 0;
+// @media (max-width: $mobile) {
+//   .container {
+//     width: 49px;
+//     height: 42px;
+//     min-width: 49px;
+//     margin-right: 0;
+//   }
 
-    img {
-      width: 29px;
-      height: 16px;
-    }
-  }
-}
+//   .noraLogo {
+//     width: 29px;
+//     height: 16px;
+//   }
+// }

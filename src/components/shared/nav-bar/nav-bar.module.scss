@@ -1,19 +1,40 @@
 @use '@variables' as var;
 @use '@mixins' as mixins;
 
-.navigation {
+.container {
   position: sticky;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   top: 0;
+  @include mixins.pagePadding;
+  width: 100%;
+  background-color: var.$white;
+  z-index: 100;
+}
+
+.navigation {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 auto;
   width: 100%;
   max-width: 1131px;
   height: 120px;
-  z-index: 100;
-  @include mixins.pagePadding;
-  background-color: var.$white;
+}
+
+.background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var.$black;
+  width: 76px;
+  height: 66px;
+  min-width: 76px;
+
+  img {
+    width: 49px;
+    height: 29px;
+  }
 }
 
 .joinEmailList {
@@ -29,6 +50,17 @@
     max-width: 900px;
   }
 
+  .background {
+    width: 61px;
+    height: 51px;
+    min-width: 61px;
+
+    img {
+      width: 39px;
+      height: 19px;
+    }
+  }
+
   .joinEmailList {
     height: 51px;
     width: 200px;
@@ -37,16 +69,25 @@
 }
 
 @media (max-width: var.$mobile) {
-  .navigation {
-    display: flex;
-    z-index: 100;
-    background-color: var.$white;
+  .container {
     padding: 0 0.6rem 0 1.25rem;
-    width: 100%;
     height: 68px;
+    z-index: 100;
 
     &.mobileNavActive {
       background: rgb(200, 200, 200);
+    }
+  }
+
+  .background {
+    width: 49px;
+    height: 42px;
+    min-width: 49px;
+    margin-right: 0;
+
+    img {
+      width: 29px;
+      height: 16px;
     }
   }
 }

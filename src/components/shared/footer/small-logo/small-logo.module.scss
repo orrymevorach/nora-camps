@@ -1,0 +1,14 @@
+@use '@variables' as var;
+
+.footerLogoBackground {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var.$black;
+  width: 38px;
+  height: 34px;
+}
+
+.noraLogo {
+  height: 14px;
+}

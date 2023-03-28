@@ -5,7 +5,7 @@ import styles from './nora-logo.module.scss';
 export default function NoraLogo() {
   return (
     <div className={styles.container}>
-      <Image src={ncLogo} alt='main logo' />
+      <Image className={styles.noraLogo} src={ncLogo} alt='main logo' />
     </div>
   );
 }

@@ -26,28 +26,32 @@ export default function NavBar() {
   };
 
   return (
-    <nav
+    <div
       className={clsx(
-        styles.navigation,
+        styles.container,
         isMobileNavOpen ? styles.mobileNavActive : ''
       )}
     >
-      <Link href='/' onClick={() => setMobileNavView(false)}>
-        <NoraLogo />
-      </Link>
-      {!isMobile ? (
-        <DesktopNav
-          toggleSearchBar={toggleSearchBar}
-          toggleMobileNavView={toggleMobileNavView}
-        />
-      ) : (
-        <MobileNav
-          toggleMobileNavView={toggleMobileNavView}
-          toggleSearchBar={toggleSearchBar}
-          mobileNavView={isMobileNavOpen}
-        />
-      )}
-      {searchBarView && <Search />}
-    </nav>
+      <nav className={clsx(styles.navigation)}>
+        <Link href='/' onClick={() => setMobileNavView(false)}>
+          <div className={styles.background}>
+            <NoraLogo />
+          </div>
+        </Link>
+        {!isMobile ? (
+          <DesktopNav
+            toggleSearchBar={toggleSearchBar}
+            toggleMobileNavView={toggleMobileNavView}
+          />
+        ) : (
+          <MobileNav
+            toggleMobileNavView={toggleMobileNavView}
+            toggleSearchBar={toggleSearchBar}
+            mobileNavView={isMobileNavOpen}
+          />
+        )}
+        {searchBarView && <Search />}
+      </nav>
+    </div>
   );
 }
