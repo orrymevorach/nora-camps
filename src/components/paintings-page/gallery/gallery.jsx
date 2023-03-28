@@ -1,4 +1,5 @@
 import styles from './gallery.module.scss';
+import PaintingTile from '../painting-tile';
 
 export default function Gallery(props) {
   const { items } = props;
@@ -8,7 +9,7 @@ export default function Gallery(props) {
         {items.map(item => {
           return (
             <li key={item.name} className={styles.listItem}>
-              Painting tile component
+              <PaintingTile {...item} />
             </li>
           );
         })}
