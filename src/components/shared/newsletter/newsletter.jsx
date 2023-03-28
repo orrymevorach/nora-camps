@@ -1,4 +1,5 @@
 import RightArrow from '../svg/right-arrow/right-arrow';
+import styles from './newsletter.module.scss';
 
 export default function Newsletter() {
   return (
@@ -10,8 +11,11 @@ export default function Newsletter() {
           Sign up with your email address to receive news and updates on my
           latest exhibitions & works.
         </p>
-        <div className={styles.createRow}>
-          <input className={styles.emailInput} />
+        <div className={styles.row}>
+          <input
+            className={styles.emailInput}
+            placeholder='Enter Email Address'
+          />
           <button className={styles.button}>
             <p>Sign Up</p>
             <RightArrow />

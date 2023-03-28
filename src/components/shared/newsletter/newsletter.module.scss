@@ -14,26 +14,56 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 500px;
+  max-width: 477px;
 }
 
 .title {
-  font-size: var.$--16px;
-  color: var.$darkGrey;
+  font-size: var.$px16;
+  @include mixins.openSans;
+  opacity: 50%;
+  letter-spacing: 0.2em;
+  margin-bottom: 10px;
 }
 
 .signUp {
   font-size: 2.875rem;
+  line-height: 4.5rem;
+  margin-bottom: 30px;
   @include mixins.manropeSemiBold;
 }
 
 .description {
-  font-size: var.$--16px;
-  @include mixins.openSansExtraSemiBold;
+  font-size: var.$px16;
+  @include mixins.openSans;
+  text-align: center;
+  line-height: 28px;
+  margin-bottom: 30px;
+}
+
+.row {
+  display: flex;
+  gap: 19px;
+  width: 100%;
+  height: 66px;
 }
 
 .emailInput {
-  font-size: var.$--16px;
-  @include mixins.montserratMedium;
+  font-size: var.$px16;
+  @include mixins.montserrat;
   letter-spacing: 0.03em;
+  width: 100%;
+  opacity: 50%;
+  padding-left: 1.25rem;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var.$px10;
+  width: 100%;
+  max-width: 173px;
+  //   padding: 33px 0;
+  border: 1px solid var.$black;
+  @include mixins.montserratMedium;
 }
