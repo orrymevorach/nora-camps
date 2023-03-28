@@ -24,7 +24,7 @@ export default function CollectionTile({ name, paintingsCollection }) {
 
         <PrimaryButton
           href={{
-            pathname: '/collection',
+            pathname: '/paintings',
             query: {
               collection: name,
             },

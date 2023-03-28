@@ -1,6 +1,7 @@
 import { client } from '@/graphql/apollo-config';
 import {
   GET_COLLECTION,
+  GET_GALLERY,
   GET_HERO_IMAGE,
   GET_PAGE_ENTRIES,
 } from '@/graphql/queries';
@@ -27,4 +28,16 @@ export const getCollection = async ({ entryId = '' }) => {
     variables: { entryId },
   });
   return data.collectionCollection.items[0];
+};
+
+export const getGallery = async ({ entryId = '' }) => {
+  try {
+    const { data } = await client.query({
+      query: GET_GALLERY,
+      variables: { entryId },
+    });
+    return data.gallery.itemsCollection;
+  } catch (error) {
+    console.error('error', error);
+  }
 };
