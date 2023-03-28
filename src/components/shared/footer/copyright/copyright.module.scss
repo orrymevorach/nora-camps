@@ -2,7 +2,8 @@
 @use '@mixins' as mixins;
 
 .copyright {
-  @include mixins.openSansRegular;
+  @include mixins.openSans;
+  color: var.$darkGrey;
 }
 
 @media (max-width: var.$tablet) {
