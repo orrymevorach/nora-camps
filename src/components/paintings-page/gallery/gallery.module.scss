@@ -1,37 +1,17 @@
 @use '@variables' as variables;
-@use '@mixins' as mixins;
 
-.container {
-  display: flex;
-  justify-content: center;
-  @include mixins.pagePadding;
-}
-
-.gallery {
+.columnGallery {
   display: grid;
   grid-template-columns: 1fr 1fr;
   max-width: 1131px;
   margin-top: 150px;
   gap: 100px 170px;
-}
-
-@media screen and (max-width: variables.$tablet) {
-  .gallery {
+  @media screen and (max-width: variables.$tablet) {
     gap: 100px 50px;
   }
-}
-
-@media screen and (max-width: variables.$mobile) {
-  .container {
-    flex-direction: column;
-    width: 100%;
-  }
-  .gallery {
+  @media screen and (max-width: variables.$mobile) {
     display: block;
     margin: 0 auto;
     width: 100%;
-  }
-  .listItem {
-    margin-bottom: 80px;
   }
 }
