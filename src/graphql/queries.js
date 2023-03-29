@@ -35,9 +35,23 @@ export const GET_HERO_IMAGE = gql`
   ${IMAGE_FRAGMENT}
 `;
 
-export const GET_COLLECTION = gql`
-  query getEntryIdsFromPageBuilder($entryId: String!) {
-    collectionCollection(where: { sys: { id: $entryId } }, limit: 40) {
+export const GET_COLLECTION_BY_ENTRY_ID = gql`
+  query getCollectionByEntryId($entryId: String!) {
+    collection(id: $entryId) {
+      name
+      paintingsCollection(limit: 40) {
+        items {
+          ...PaintingFields
+        }
+      }
+    }
+  }
+  ${PAINTING_FRAGMENT}
+`;
+
+export const GET_COLLECTION_BY_NAME = gql`
+  query getCollectionByName($name: String!) {
+    collectionCollection(where: { name: $name }) {
       items {
         name
         paintingsCollection(limit: 40) {
@@ -58,6 +72,28 @@ export const GET_GALLERY = gql`
         items {
           ...PaintingFields
         }
+      }
+    }
+  }
+  ${PAINTING_FRAGMENT}
+`;
+
+export const GET_PAINTING_BY_NAME = gql`
+  query getPaintingByName($name: String) {
+    paintingCollection(where: { name: $name }) {
+      items {
+        ...PaintingFields
+      }
+    }
+  }
+  ${PAINTING_FRAGMENT}
+`;
+
+export const GET_ALL_PAINTINGS = gql`
+  query getPaintings {
+    paintingCollection {
+      items {
+        ...PaintingFields
       }
     }
   }

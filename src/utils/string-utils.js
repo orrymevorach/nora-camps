@@ -4,3 +4,6 @@ export const formatPrice = number => {
     currency: 'CAD',
   }).format(number);
 };
+
+export const capitalizeFirstLetterOfEachWord = sentence =>
+  sentence.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());

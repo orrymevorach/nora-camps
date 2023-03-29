@@ -1,0 +1,96 @@
+@use '@variables' as variables;
+@use '@mixins' as mixins;
+
+.paintingInfoTemplateContainer {
+  @include mixins.pagePadding;
+  margin-top: 100px;
+}
+
+.mainContent {
+  display: flex;
+}
+
+.image,
+.rightColumn {
+  width: 50%;
+}
+
+.image {
+  background-color: variables.$lightGrey;
+  padding: 25px 30px;
+  height: 560px;
+  margin-right: 90px;
+}
+
+.collectionContainer {
+  display: flex;
+  margin-bottom: 15px;
+  .collection {
+    @include mixins.openSans;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: variables.$darkGrey;
+    font-size: 16px;
+  }
+  .collectionName {
+    @include mixins.openSans;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-left: 15px;
+  }
+}
+
+.name {
+  @include mixins.heading;
+  text-transform: capitalize;
+  margin: 15px 0;
+  line-height: 1;
+}
+
+.detailsContainer {
+  display: flex;
+  @include mixins.openSansLight;
+  color: variables.$darkGrey;
+  font-size: 16px;
+  letter-spacing: 1.2px;
+  margin: 15px 0;
+  .detail {
+    margin-left: 7px;
+  }
+}
+
+.price {
+  @include mixins.manropeSemiBold;
+  font-size: 26px;
+}
+
+.contactButton {
+  margin: 45px 0;
+}
+
+.richText {
+  @include mixins.openSansLight;
+  font-size: 16px;
+  letter-spacing: 0.8px;
+  margin-bottom: 15px;
+}
+
+.richTextBold {
+  @include mixins.openSansMedium;
+}
+
+.richTextItalic {
+  @include mixins.openSansLightItalic;
+}
+
+.additionalDetails {
+  max-width: 750px;
+  margin: 60px auto 140px;
+}
+
+.readMoreButton {
+  @include mixins.openSansBold;
+  text-decoration: underline;
+  margin-top: 25px;
+}

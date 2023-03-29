@@ -1,18 +1,10 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
-// Documentation for @contentful/rich-text-react-renderer: https://github.com/contentful/rich-text
+// Documentation for @contentful/rich-text-react-renderer:
+// https://www.contentful.com/blog/rich-text-field-tips-and-tricks/
+// https://github.com/contentful/rich-text/tree/8b31b855f758fd8f26a041270903eadd6ebe337f/packages/rich-text-react-renderer
+// https://www.npmjs.com/package/@contentful/rich-text-react-renderer/v/14.1.2
 
-const defaultConfig = {
-  renderNode: {
-    // Add space between paragraphs
-    renderText: text => {
-      return text.split('\n').reduce((children, textSegment, index) => {
-        return [...children, index > 0 && <br key={index} />, textSegment];
-      }, []);
-    },
-  },
-};
-
-export default function RichText({ json, config = defaultConfig }) {
+export default function RichText({ json, config }) {
   return documentToReactComponents(json, config);
 }
