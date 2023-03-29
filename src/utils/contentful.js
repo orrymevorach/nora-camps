@@ -7,15 +7,12 @@ import {
 export const PAGES = {
   HOME: 'Home Page',
   PAINTINGS: 'Paintings Page',
-  EXHIBITIONS: 'Exhibitions Page',
 };
 
 export const CONTENT_MODELS = {
   HERO_IMAGE: 'HeroImage',
   COLLECTION: 'Collection',
   GALLERY: 'Gallery',
-  EVENT: 'Event',
-  PAINTING: 'Painting',
 };
 
 export const getEntryDataFromEntryIds = async ({ entryIds }) => {

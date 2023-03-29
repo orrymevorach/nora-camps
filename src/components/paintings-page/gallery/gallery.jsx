@@ -1,16 +1,19 @@
 import styles from './gallery.module.scss';
-import PaintingTile from '@/components/paintings-page/painting-tile';
+import PaintingTile from '../painting-tile';
 
-export default function PaintingGallery({ items = [] }) {
+export default function Gallery(props) {
+  const { items } = props;
   return (
-    <ul className={styles.columnGallery}>
-      {items.map(item => {
-        return (
-          <li key={item.name} className={styles.listItem}>
-            <PaintingTile {...item} />
-          </li>
-        );
-      })}
-    </ul>
+    <div className={styles.container}>
+      <ul className={styles.gallery}>
+        {items.map(item => {
+          return (
+            <li key={item.name} className={styles.listItem}>
+              <PaintingTile {...item} />
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 }
