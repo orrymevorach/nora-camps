@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-import { PAINTING_FRAGMENT, IMAGE_FRAGMENT } from './fragments';
+import { PAINTING_FRAGMENT, IMAGE_FRAGMENT, EVENT_FRAGMENT } from './fragments';
 
 export const GET_PAGE_ENTRIES = gql`
   query getEntryIdsFromPageBuilder($page: String!) {
@@ -70,11 +70,17 @@ export const GET_GALLERY = gql`
     gallery(id: $entryId) {
       itemsCollection {
         items {
-          ...PaintingFields
+          ... on Painting {
+            ...PaintingFields
+          }
+          ... on Event {
+            ...EventFields
+          }
         }
       }
     }
   }
+  ${EVENT_FRAGMENT}
   ${PAINTING_FRAGMENT}
 `;
 
