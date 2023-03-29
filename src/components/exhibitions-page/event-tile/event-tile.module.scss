@@ -36,3 +36,17 @@
 .button {
   background: none;
 }
+
+@media screen and (max-width: variables.$mobile) {
+  .column {
+    width: 100%;
+    @include mixins.pagePadding;
+  }
+  .eventTileContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .button {
+    margin-bottom: 50px;
+  }
+}
