@@ -39,6 +39,12 @@ export const EVENT_FRAGMENT = gql`
     startDate
     endDate
     location
+    description {
+      json
+    }
+    additionalDescription {
+      json
+    }
     imageCollection(limit: 10) {
       items {
         ...ImageFields

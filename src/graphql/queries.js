@@ -105,3 +105,25 @@ export const GET_ALL_PAINTINGS = gql`
   }
   ${PAINTING_FRAGMENT}
 `;
+
+export const GET_EVENT_BY_NAME = gql`
+  query getEventByName($name: String) {
+    eventCollection(where: { name: $name }) {
+      items {
+        ...EventFields
+      }
+    }
+  }
+  ${EVENT_FRAGMENT}
+`;
+
+export const GET_ALL_EVENTS = gql`
+  query getAllEvents {
+    eventCollection {
+      items {
+        ...EventFields
+      }
+    }
+  }
+  ${EVENT_FRAGMENT}
+`;
