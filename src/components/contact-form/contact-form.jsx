@@ -1,60 +1,114 @@
+import { useForm } from 'react-hook-form';
+import clsx from 'clsx';
 import RightArrow from 'svg/right-arrow/right-arrow';
 import styles from './contact-form.module.scss';
+import DropDownMenu from './drop-down-menu/drop-down-menu';
 
 export default function ContactForm() {
-  const purposeOptions = [
-    { value: '', text: 'Please select an option' },
-    { value: 'buying', text: 'Buying' },
-    { value: 'general', text: 'General inquiry' },
-  ];
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    console.log(`[Submitted Form!]`);
+  const onSubmit = formData => {
+    console.log(formData);
   };
 
   return (
     <div className={styles.container}>
-      <form className={styles.form} onSubmit={e => handleSubmit(e)}>
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <h1 className={styles.title}>Send a message</h1>
-        <div className={styles.row}>
-          <div className={styles.formGroup}>
-            <label className={styles.label}>First Name</label>
-            <input type='text' id='first-name' name='first-name' required />
-          </div>
 
-          <div className={styles.formGroup}>
-            <label className={styles.label}>Last Name</label>
-            <input type='text' id='last-name' name='last-name' required />
-          </div>
+        <div
+          className={clsx(
+            styles.formGroup,
+            styles.firstName,
+            errors.firstName ? styles.errorActive : ''
+          )}
+        >
+          <label className={styles.label}>First Name</label>
+          <input
+            className={clsx(styles.input)}
+            type='text'
+            {...register('firstName', { required: true })}
+          />
+          {errors.lastName && (
+            <div className={styles.errorText}>First name is required</div>
+          )}
         </div>
 
-        <div className={styles.formGroup}>
+        <div className={clsx(styles.formGroup, styles.lastName)}>
+          <label className={styles.label}>Last Name</label>
+          <input
+            className={clsx(
+              styles.input,
+              errors.lastName ? styles.errorActive : ''
+            )}
+            type='text'
+            {...register('lastName', { required: true })}
+          />
+          {errors.lastName && (
+            <div className={styles.errorText}>Last name is required</div>
+          )}
+        </div>
+
+        <div className={clsx(styles.formGroup, styles.email)}>
           <label className={styles.label}>Email Address</label>
-          <input type='email' id='email' name='email' required />
-        </div>
-
-        <div className={styles.formGroup}>
-          <label className={styles.label}>Purpose</label>
-          <select id='purpose' name='purpose' required>
-            {purposeOptions.map(item => {
-              return (
-                <option key={item.value} value={item.value}>
-                  {item.text}
-                </option>
-              );
+          <input
+            className={clsx(
+              styles.input,
+              errors.lastName ? styles.errorActive : ''
+            )}
+            type='text'
+            {...register('email', {
+              required: true,
+              pattern:
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
             })}
-          </select>
+          />
+          {errors.email && (
+            <div className={styles.errorText}>{`${
+              errors.email.type === 'required'
+                ? 'Email is required'
+                : 'Invalid email address'
+            }`}</div>
+          )}
         </div>
 
-        <div className={styles.formGroup}>
+        <div className={clsx(styles.formGroup, styles.painting)}>
           <label className={styles.label}>Painting(s) interested in</label>
-          <input type='text' id='paintings' name='paintings' required />
+          <input className={styles.input} />
+          <DropDownMenu />
         </div>
 
-        <div className={styles.formGroup}>
+        <div className={clsx(styles.formGroup, styles.subject)}>
+          <label className={styles.label}>Subject</label>
+          <input
+            className={clsx(
+              styles.input,
+              errors.lastName ? styles.errorActive : ''
+            )}
+            type='text'
+            {...register('subject', { required: true })}
+          />
+          {errors.subject && (
+            <div className={styles.errorText}>Subject is required</div>
+          )}
+        </div>
+
+        <div className={clsx(styles.formGroup, styles.message)}>
           <label className={styles.label}>Message</label>
-          <textarea id='message' name='message' required></textarea>
+          <textarea
+            className={clsx(
+              styles.messageBox,
+              errors.message ? styles.errorActive : ''
+            )}
+            {...register('message', { required: true })}
+          />
+          {errors.message && (
+            <div className={styles.errorText}>A message is required</div>
+          )}
         </div>
 
         <button className={styles.submitButton} type='submit'>

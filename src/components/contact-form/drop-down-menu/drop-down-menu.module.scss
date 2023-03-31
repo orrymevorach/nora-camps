@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.button {
+  display: flex;
+  width: 10px;
+}
+
+.ul {
+  position: absolute;
+  top: 100%;
+  z-index: 100;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+}
+
+.li {
+  display: flex;
+  justify-content: flex-start;
+  padding: 1rem;
+  width: 100%;
+  //   border-bottom: 1px solid black;
+}

@@ -16,12 +16,21 @@
 .title {
   @include mixins.manropeSemiBold;
   font-size: 2.8125rem;
+  grid-area: title;
+  text-align: center;
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template:
+    'title title'
+    'firstName lastName'
+    'email email'
+    'painting painting'
+    'subject subject'
+    'message message'
+    'submitButton submitButton';
+  grid-template-columns: 1fr 1fr;
   gap: 1.875rem;
   width: 100%;
   padding: 5rem 6.875rem 3.875rem 6.875rem;
@@ -30,37 +39,23 @@
   margin-top: 100px;
 }
 
-.row {
-  display: flex;
-  width: 100%;
-  gap: 1rem;
-}
-
 .formGroup {
   position: relative;
   display: flex;
   font-size: 15px;
   width: 100%;
+  border: 1px solid var.$darkGrey;
+  border-radius: 1px;
+  width: 100%;
 
   label {
     position: absolute;
-    top: -20px;
-    left: 10px;
-    padding: 5px;
+    bottom: calc(100% - 9px);
+    left: 5px;
+    padding: 0 5px 5px 5px;
     background-color: var.$white;
     font-weight: bold;
     font-size: 12px;
-  }
-
-  input[type='text'],
-  input[type='email'],
-  select,
-  textarea {
-    padding: 10px;
-    border: 1px solid var.$darkGrey;
-    border-radius: 1px;
-    height: 44px;
-    width: 100%;
   }
 
   textarea {
@@ -70,10 +65,46 @@
   }
 }
 
+.input,
+.messageBox {
+  border: none;
+  padding: 10px;
+  border-radius: 1px;
+  width: 100%;
+}
+
+.input {
+  height: 44px;
+}
+
+$classes: firstName, lastName, email, painting, subject, message;
+
+@each $class in $classes {
+  .#{$class} {
+    grid-area: $class;
+  }
+}
+
 .submitButton {
+  grid-area: submitButton;
+  display: flex;
+  gap: 0.5rem;
+  font-size: 15px;
   border: 1px solid var.$black;
   justify-content: center;
   align-items: center;
   height: 44px;
   width: 100%;
+}
+
+.errorText {
+  position: absolute;
+  top: 100%;
+  font-size: 0.625rem;
+  color: #ff0000;
+  padding-left: 0.5rem;
+}
+
+.errorActive {
+  border-color: #ff0000;
 }
