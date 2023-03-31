@@ -48,6 +48,13 @@
 }
 
 @font-face {
+  font-family: 'Manrope Light';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../../assets/Manrope/Manrope-Light.ttf');
+}
+
+@font-face {
   font-family: 'Manrope Regular';
   font-style: normal;
   font-weight: normal;
@@ -62,17 +69,16 @@
 }
 
 @font-face {
+  font-family: 'Manrope Semi Bold';
+  font-style: normal;
+  src: url('../../assets//Manrope/Manrope-SemiBold.ttf');
+}
+
+@font-face {
   font-family: 'Montserrat Medium';
   font-style: normal;
   font-weight: normal;
   src: url('../../assets/Montserrat/Montserrat-Medium.ttf');
-}
-
-@font-face {
-  font-family: 'Manrope Light';
-  font-style: normal;
-  font-weight: normal;
-  src: url('../../assets/Manrope/Manrope-Light.ttf');
 }
 
 @font-face {

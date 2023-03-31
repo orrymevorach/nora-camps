@@ -1,0 +1,79 @@
+@use '@variables' as var;
+@use '@mixins' as mixins;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1131px;
+  margin: 0 auto;
+  background-color: #f4f4f4;
+  @include mixins.openSans;
+}
+
+.title {
+  @include mixins.manropeSemiBold;
+  font-size: 2.8125rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.875rem;
+  width: 100%;
+  padding: 5rem 6.875rem 3.875rem 6.875rem;
+  max-width: 748px;
+  background-color: var.$white;
+  margin-top: 100px;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+}
+
+.formGroup {
+  position: relative;
+  display: flex;
+  font-size: 15px;
+  width: 100%;
+
+  label {
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    padding: 5px;
+    background-color: var.$white;
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+  input[type='text'],
+  input[type='email'],
+  select,
+  textarea {
+    padding: 10px;
+    border: 1px solid var.$darkGrey;
+    border-radius: 1px;
+    height: 44px;
+    width: 100%;
+  }
+
+  textarea {
+    height: 104px;
+    resize: none;
+    @include mixins.openSans;
+  }
+}
+
+.submitButton {
+  border: 1px solid var.$black;
+  justify-content: center;
+  align-items: center;
+  height: 44px;
+  width: 100%;
+}

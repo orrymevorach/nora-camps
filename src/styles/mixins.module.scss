@@ -27,6 +27,11 @@
   color: #231f20;
 }
 
+@mixin manropeSemiBold {
+  font-family: 'Manrope Semi Bold';
+  color: variables.$black;
+}
+
 @mixin openSans {
   font-family: 'OpenSans Regular';
   color: variables.$black;
