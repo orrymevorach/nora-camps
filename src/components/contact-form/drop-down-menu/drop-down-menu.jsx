@@ -1,8 +1,6 @@
-import { useState } from 'react';
 import styled from './drop-down-menu.module.scss';
 
-export default function DropDownMenu() {
-  const [isToggled, setIsToggled] = useState(false);
+export default function DropDownMenu({ isToggled }) {
   const testPaintings = [
     'Landscape',
     'Mountain',
@@ -11,20 +9,21 @@ export default function DropDownMenu() {
     'House',
   ];
 
-  return (
-    // <div className={styled.container}>
-    <>
-      {/* <input className={styled.input} /> */}
+  const test = option => {
+    console.log(option);
+  };
 
-      <button
-        className={styled.button}
-        onClick={() => setIsToggled(prev => !prev)}
-      >{`>`}</button>
+  return (
+    <>
       {isToggled && (
         <ul className={styled.ul}>
           {testPaintings.map(option => {
             return (
-              <li className={styled.li} key={option}>
+              <li
+                className={styled.li}
+                key={option}
+                onClick={() => test(option)}
+              >
                 {option}
               </li>
             );

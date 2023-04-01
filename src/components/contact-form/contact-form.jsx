@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import clsx from 'clsx';
 import RightArrow from 'svg/right-arrow/right-arrow';
@@ -5,6 +6,9 @@ import styles from './contact-form.module.scss';
 import DropDownMenu from './drop-down-menu/drop-down-menu';
 
 export default function ContactForm() {
+  const [isToggled, setIsToggled] = useState(false);
+  const [selectedOption, setSelectedOption] = useState('');
+
   const {
     register,
     handleSubmit,
@@ -27,7 +31,7 @@ export default function ContactForm() {
             errors.firstName ? styles.errorActive : ''
           )}
         >
-          <label className={styles.label}>First Name</label>
+          <label>First Name</label>
           <input
             className={clsx(styles.input)}
             type='text'
@@ -38,13 +42,16 @@ export default function ContactForm() {
           )}
         </div>
 
-        <div className={clsx(styles.formGroup, styles.lastName)}>
-          <label className={styles.label}>Last Name</label>
+        <div
+          className={clsx(
+            styles.formGroup,
+            styles.lastName,
+            errors.lastName ? styles.errorActive : ''
+          )}
+        >
+          <label>Last Name</label>
           <input
-            className={clsx(
-              styles.input,
-              errors.lastName ? styles.errorActive : ''
-            )}
+            className={styles.input}
             type='text'
             {...register('lastName', { required: true })}
           />
@@ -53,13 +60,16 @@ export default function ContactForm() {
           )}
         </div>
 
-        <div className={clsx(styles.formGroup, styles.email)}>
-          <label className={styles.label}>Email Address</label>
+        <div
+          className={clsx(
+            styles.formGroup,
+            styles.email,
+            errors.lastName ? styles.errorActive : ''
+          )}
+        >
+          <label>Email Address</label>
           <input
-            className={clsx(
-              styles.input,
-              errors.lastName ? styles.errorActive : ''
-            )}
+            className={styles.input}
             type='text'
             {...register('email', {
               required: true,
@@ -76,19 +86,29 @@ export default function ContactForm() {
           )}
         </div>
 
-        <div className={clsx(styles.formGroup, styles.painting)}>
-          <label className={styles.label}>Painting(s) interested in</label>
-          <input className={styles.input} />
-          <DropDownMenu />
+        <div className={styles.painting}>
+          <div className={clsx(styles.formGroup)}>
+            <label>Painting(s) interested in</label>
+            <input className={styles.input} />
+            <button
+              type='button'
+              className={styles.dropDownButton}
+              onClick={() => setIsToggled(prev => !prev)}
+            >{`>`}</button>
+          </div>
+          <DropDownMenu isToggled={isToggled} selectedOption={selectedOption} />
         </div>
 
-        <div className={clsx(styles.formGroup, styles.subject)}>
-          <label className={styles.label}>Subject</label>
+        <div
+          className={clsx(
+            styles.formGroup,
+            styles.subject,
+            errors.lastName ? styles.errorActive : ''
+          )}
+        >
+          <label>Subject</label>
           <input
-            className={clsx(
-              styles.input,
-              errors.lastName ? styles.errorActive : ''
-            )}
+            className={styles.input}
             type='text'
             {...register('subject', { required: true })}
           />
@@ -97,13 +117,16 @@ export default function ContactForm() {
           )}
         </div>
 
-        <div className={clsx(styles.formGroup, styles.message)}>
-          <label className={styles.label}>Message</label>
+        <div
+          className={clsx(
+            styles.formGroup,
+            styles.message,
+            errors.message ? styles.errorActive : ''
+          )}
+        >
+          <label>Message</label>
           <textarea
-            className={clsx(
-              styles.messageBox,
-              errors.message ? styles.errorActive : ''
-            )}
+            className={styles.messageBox}
             {...register('message', { required: true })}
           />
           {errors.message && (
