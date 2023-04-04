@@ -57,7 +57,7 @@ export default function DropDownMenu({ isToggled, setIsToggled, setValue }) {
   };
 
   useEffect(() => {
-    const closeDropDownByClick = e => {
+    const closeDropDownByLosingFocus = e => {
       const target = e.target;
       if (
         ulRef.current &&
@@ -68,8 +68,9 @@ export default function DropDownMenu({ isToggled, setIsToggled, setValue }) {
       }
     };
 
-    document.addEventListener('mouseup', closeDropDownByClick);
-    return () => document.removeEventListener('mouseup', closeDropDownByClick);
+    document.addEventListener('mouseup', closeDropDownByLosingFocus);
+    return () =>
+      document.removeEventListener('mouseup', closeDropDownByLosingFocus);
   }, [ulRef]);
 
   useEffect(() => {
