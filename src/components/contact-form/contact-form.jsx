@@ -8,6 +8,12 @@ import InputShell from './input-shell';
 
 export default function ContactForm() {
   const [isToggled, setIsToggled] = useState(false);
+  const formInputs = [
+    { name: 'firstName', label: 'First Name' },
+    { name: 'lastName', label: 'Last Name' },
+    { name: 'subject', label: 'Subject' },
+    { name: 'message', label: 'Message' },
+  ];
   const {
     register,
     handleSubmit,
@@ -24,21 +30,18 @@ export default function ContactForm() {
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <h1 className={styles.title}>Send a message</h1>
 
-        <InputShell
-          name={'firstName'}
-          label={'First Name'}
-          styles={styles}
-          register={register}
-          errors={errors}
-        />
-
-        <InputShell
-          name={'lastName'}
-          label={'Last Name'}
-          styles={styles}
-          register={register}
-          errors={errors}
-        />
+        {formInputs.map(input => {
+          return (
+            <InputShell
+              key={input.name}
+              name={input.name}
+              label={input.label}
+              styles={styles}
+              register={register}
+              errors={errors}
+            />
+          );
+        })}
 
         <EmailInput styles={styles} register={register} errors={errors} />
 
@@ -48,22 +51,6 @@ export default function ContactForm() {
           setIsToggled={setIsToggled}
           register={register}
           setValue={setValue}
-        />
-
-        <InputShell
-          name={'subject'}
-          label={'Subject'}
-          styles={styles}
-          register={register}
-          errors={errors}
-        />
-
-        <InputShell
-          name={'message'}
-          label={'Message'}
-          styles={styles}
-          register={register}
-          errors={errors}
         />
 
         <button className={styles.submitButton} type='submit'>
