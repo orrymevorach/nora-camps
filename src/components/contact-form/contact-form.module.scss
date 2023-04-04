@@ -63,12 +63,6 @@
     font-weight: bold;
     font-size: 12px;
   }
-
-  textarea {
-    height: 104px;
-    resize: none;
-    @include mixins.openSans;
-  }
 }
 
 .input,
@@ -82,6 +76,12 @@
 
 .input {
   height: 44px;
+}
+
+.messageBox {
+  height: 104px;
+  resize: none;
+  @include mixins.openSans;
 }
 
 $classes: firstName, lastName, email, painting, subject, message;
@@ -121,4 +121,21 @@ $classes: firstName, lastName, email, painting, subject, message;
 
 .errorActive {
   border-color: #ff0000;
+}
+
+.emailValidation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+@media (max-width: var.$mobile) {
+  .title {
+    font-size: 2rem;
+  }
+  .form {
+    margin-top: 0;
+    padding: 2rem;
+  }
 }
