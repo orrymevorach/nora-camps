@@ -9,10 +9,7 @@ export default function PaintingTile(props) {
   return (
     <Link
       href={{
-        pathname: '/painting',
-        query: {
-          painting: name,
-        },
+        pathname: `/painting/${name}`,
       }}
       className={styles.paintingTile}
     >

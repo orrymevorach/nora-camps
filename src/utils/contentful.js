@@ -1,8 +1,12 @@
-import { getCollection, getHeroImage, getGallery } from '@/lib/contentful';
+import {
+  getCollectionByEntryId,
+  getHeroImage,
+  getGallery,
+} from '@/lib/contentful';
 
 export const PAGES = {
-  HOME: 'Home',
-  PAINTINGS: 'Paintings',
+  HOME: 'Home Page',
+  PAINTINGS: 'Paintings Page',
 };
 
 export const CONTENT_MODELS = {
@@ -15,7 +19,7 @@ export const getEntryDataFromEntryIds = async ({ entryIds }) => {
   const { HERO_IMAGE, COLLECTION, GALLERY } = CONTENT_MODELS;
   const mapContentModelToQuery = {
     [HERO_IMAGE]: getHeroImage,
-    [COLLECTION]: getCollection,
+    [COLLECTION]: getCollectionByEntryId,
     [GALLERY]: getGallery,
   };
 

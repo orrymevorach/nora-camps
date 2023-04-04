@@ -52,8 +52,13 @@
   color: variables.$black;
 }
 
-@mixin openSansExtraSemiBold {
-  font-family: 'OpenSans Extra Semi Bold';
+@mixin openSansSemiBold {
+  font-family: 'OpenSans Semi Bold';
+  color: #231f20;
+}
+
+@mixin openSansLightItalic {
+  font-family: 'OpenSans Light Italic';
   color: #231f20;
 }
 
@@ -74,4 +79,6 @@
 
 @mixin pagePadding {
   padding: 0 1.25rem;
+  max-width: 1131px;
+  margin: 0 auto;
 }
