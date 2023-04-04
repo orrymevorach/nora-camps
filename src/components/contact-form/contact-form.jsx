@@ -8,18 +8,41 @@ import InputShell from './input-shell';
 
 export default function ContactForm() {
   const [isToggled, setIsToggled] = useState(false);
-  const formInputs = [
-    { name: 'firstName', label: 'First Name' },
-    { name: 'lastName', label: 'Last Name' },
-    { name: 'subject', label: 'Subject' },
-    { name: 'message', label: 'Message' },
-  ];
   const {
     register,
     handleSubmit,
     setValue,
     formState: { errors },
   } = useForm();
+
+  const formInputs = [
+    { name: 'firstName', label: 'First Name' },
+    { name: 'lastName', label: 'Last Name' },
+    {
+      component: (
+        <EmailInput
+          key={'emailInput'}
+          styles={styles}
+          register={register}
+          errors={errors}
+        />
+      ),
+    },
+    {
+      component: (
+        <PaintingsInput
+          key={'paintingInput'}
+          styles={styles}
+          isToggled={isToggled}
+          setIsToggled={setIsToggled}
+          register={register}
+          setValue={setValue}
+        />
+      ),
+    },
+    { name: 'subject', label: 'Subject' },
+    { name: 'message', label: 'Message' },
+  ];
 
   const onSubmit = formData => {
     console.log(formData);
@@ -31,7 +54,7 @@ export default function ContactForm() {
         <h1 className={styles.title}>Send a message</h1>
 
         {formInputs.map(input => {
-          return (
+          return !input.component ? (
             <InputShell
               key={input.name}
               name={input.name}
@@ -40,18 +63,10 @@ export default function ContactForm() {
               register={register}
               errors={errors}
             />
+          ) : (
+            input.component
           );
         })}
-
-        <EmailInput styles={styles} register={register} errors={errors} />
-
-        <PaintingsInput
-          styles={styles}
-          isToggled={isToggled}
-          setIsToggled={setIsToggled}
-          register={register}
-          setValue={setValue}
-        />
 
         <button className={styles.submitButton} type='submit'>
           <p>Submit</p>
