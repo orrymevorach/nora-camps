@@ -18,11 +18,12 @@
 .li {
   display: flex;
   justify-content: flex-start;
-  padding: 1rem;
+  padding: 1rem 0.625rem;
   cursor: pointer;
   font-size: 15px;
 }
 
-.li:hover {
+.li:hover,
+.li:focus {
   background-color: var.$lightGrey;
 }

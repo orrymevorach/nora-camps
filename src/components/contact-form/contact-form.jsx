@@ -4,14 +4,15 @@ import clsx from 'clsx';
 import RightArrow from 'svg/right-arrow/right-arrow';
 import styles from './contact-form.module.scss';
 import DropDownMenu from './drop-down-menu/drop-down-menu';
+import DownArrow from '../shared/svg/down-arrow';
 
 export default function ContactForm() {
   const [isToggled, setIsToggled] = useState(false);
-  const [selectedOption, setSelectedOption] = useState('');
 
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm();
 
@@ -89,14 +90,23 @@ export default function ContactForm() {
         <div className={styles.painting}>
           <div className={clsx(styles.formGroup)}>
             <label>Painting(s) interested in</label>
-            <input className={styles.input} />
+            <input className={styles.input} {...register('paintings')} />
             <button
               type='button'
               className={styles.dropDownButton}
+              id='drop-down-arrow'
               onClick={() => setIsToggled(prev => !prev)}
-            >{`>`}</button>
+            >
+              <DownArrow />
+            </button>
           </div>
-          <DropDownMenu isToggled={isToggled} selectedOption={selectedOption} />
+          {isToggled && (
+            <DropDownMenu
+              isToggled={isToggled}
+              setIsToggled={setIsToggled}
+              setValue={setValue}
+            />
+          )}
         </div>
 
         <div
