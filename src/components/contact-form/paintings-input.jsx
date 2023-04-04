@@ -1,6 +1,5 @@
 import DropDownMenu from './drop-down-menu/drop-down-menu';
 import DownArrow from '../shared/svg/down-arrow';
-import clsx from 'clsx';
 
 export default function PaintingsInput({
   styles,
@@ -11,7 +10,7 @@ export default function PaintingsInput({
 }) {
   return (
     <div className={styles.painting}>
-      <div className={clsx(styles.formGroup)}>
+      <div className={styles.formGroup}>
         <label>Painting(s) interested in</label>
         <input
           placeholder='Type painting'

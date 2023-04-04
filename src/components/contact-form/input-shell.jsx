@@ -12,7 +12,7 @@ export default function InputShell({ styles, name, label, errors, register }) {
       <label>{label}</label>
       {name !== 'message' ? (
         <input
-          className={clsx(styles.input)}
+          className={styles.input}
           placeholder='Type text'
           type='text'
           {...register(name, { required: true })}
