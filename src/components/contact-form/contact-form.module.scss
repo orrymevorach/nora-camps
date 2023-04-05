@@ -109,6 +109,7 @@ $classes: firstName, lastName, email, painting, subject, message;
   align-items: center;
   height: 44px;
   width: 100%;
+  @include mixins.montserratMedium;
 }
 
 .errorText {

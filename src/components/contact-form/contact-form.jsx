@@ -5,6 +5,7 @@ import styles from './contact-form.module.scss';
 import EmailInput from './email-input';
 import PaintingsInput from './paintings-input';
 import InputShell from './input-shell';
+import PrimaryButton from '../shared/primary-button/primary-button';
 
 export default function ContactForm() {
   const [isToggled, setIsToggled] = useState(false);
@@ -68,10 +69,7 @@ export default function ContactForm() {
           );
         })}
 
-        <button className={styles.submitButton} type='submit'>
-          <p>Submit</p>
-          <RightArrow />
-        </button>
+        <PrimaryButton classNames={styles.submitButton}>Submit</PrimaryButton>
       </form>
     </div>
   );
