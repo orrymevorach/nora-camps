@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import NewsletterPage from '@/components/newsletter-page/newsletter-page';
 
 export default function Newsletter() {
   return (
@@ -6,6 +7,7 @@ export default function Newsletter() {
       <Head>
         <title>Nora Camps | Newsletter</title>
       </Head>
+      <NewsletterPage />
     </>
   );
 }
