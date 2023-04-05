@@ -1,0 +1,90 @@
+@use '@variables' as var;
+@use '@mixins' as mixins;
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 1.5rem;
+}
+
+.borderTop {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid black;
+  width: 100%;
+  max-width: 1131px;
+  padding-top: 1rem;
+}
+
+.filterBy {
+  @include mixins.openSans;
+}
+
+.dropDown {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 58px;
+}
+
+.openDropDown {
+  display: flex;
+  align-items: center;
+  background: var.$lightGrey;
+  height: 100%;
+}
+
+.input {
+  display: flex;
+  border: none;
+  font-size: 1rem;
+  padding: 18px 20px;
+  background: transparent;
+  @include mixins.openSansSemiBold;
+  cursor: pointer;
+}
+
+.downArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+.ul {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  @include mixins.openSansSemiBold;
+}
+
+.li {
+  border: 1px solid #e0e0e0;
+  padding: 18px 20px;
+  background: var.$lightGrey;
+  cursor: pointer;
+}
+
+@media (max-width: var.$tablet) {
+  .container {
+    padding-bottom: 1rem;
+  }
+
+  .borderTop {
+    max-width: 900px;
+  }
+
+  .filterBy {
+    font-size: 0.875rem;
+  }
+
+  .input {
+    font-size: 0.875rem;
+  }
+
+  .ul {
+    font-size: 0.875rem;
+  }
+}
