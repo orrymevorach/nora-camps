@@ -12,7 +12,7 @@
 .navLi {
   list-style: none;
   font-size: 1rem;
-  @include mixins.openSansExtraSemiBold;
+  @include mixins.openSansSemiBold;
 }
 
 .nextLink {

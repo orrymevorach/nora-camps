@@ -36,3 +36,8 @@ html,
 body {
   scroll-behavior: smooth;
 }
+
+ul,
+li {
+  list-style: none;
+}

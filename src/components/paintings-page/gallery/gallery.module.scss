@@ -1,0 +1,37 @@
+@use '@variables' as variables;
+@use '@mixins' as mixins;
+
+.container {
+  display: flex;
+  justify-content: center;
+  @include mixins.pagePadding;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1131px;
+  margin-top: 150px;
+  gap: 100px 170px;
+}
+
+@media screen and (max-width: variables.$tablet) {
+  .gallery {
+    gap: 100px 50px;
+  }
+}
+
+@media screen and (max-width: variables.$mobile) {
+  .container {
+    flex-direction: column;
+    width: 100%;
+  }
+  .gallery {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .listItem {
+    margin-bottom: 80px;
+  }
+}

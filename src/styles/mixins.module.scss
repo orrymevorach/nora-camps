@@ -4,14 +4,17 @@
 @mixin heading($fontSize: 45px) {
   font-family: 'Manrope Medium';
   font-size: $fontSize;
-  color: variables[black];
+  color: variables.$black;
+  @media screen and (max-width: variables.$mobile) {
+    font-size: 35px;
+  }
 }
 
 @mixin bodyCopy {
   font-family: 'OpenSans Regular';
   font-size: 16px;
   line-height: 28px;
-  color: variables[black];
+  color: variables.$black;
 }
 
 @mixin manropeLight($fontSize: 45px) {
@@ -24,46 +27,50 @@
   color: variables.$black;
 }
 
-// font weight 600
 @mixin manropeSemiBold {
   font-family: 'Manrope Semi Bold';
-  color: variables.$black;
+  color: #231f20;
 }
 
 // font weight 400
 @mixin openSans {
   font-family: 'OpenSans Regular';
-  color: variables[black];
+  color: variables.$black;
 }
 
 @mixin openSansBold {
   font-family: 'OpenSans Bold';
-  color: variables[black];
+  color: variables.$black;
 }
 
 @mixin openSansMedium {
   font-family: 'OpenSans Medium';
-  color: variables[black];
+  color: variables.$black;
 }
 
 @mixin openSansLight {
   font-family: 'OpenSans Light';
-  color: variables[black];
+  color: variables.$black;
 }
 
-@mixin openSansExtraSemiBold {
-  font-family: 'OpenSans Extra Semi Bold';
-  color: variables.$black;
+@mixin openSansSemiBold {
+  font-family: 'OpenSans Semi Bold';
+  color: #231f20;
+}
+
+@mixin openSansLightItalic {
+  font-family: 'OpenSans Light Italic';
+  color: #231f20;
 }
 
 @mixin montserrat {
   font-family: 'Montserrat Regular';
-  color: variables[black];
+  color: variables.$black;
 }
 
 @mixin montserratLight {
   font-family: 'Montserrat Light';
-  color: variables[black];
+  color: variables.$black;
 }
 
 // font weight 500
@@ -74,6 +81,8 @@
 
 @mixin pagePadding {
   padding: 0 1.25rem;
+  max-width: 1131px;
+  margin: 0 auto;
 }
 
 @mixin desktopMaxWidth {

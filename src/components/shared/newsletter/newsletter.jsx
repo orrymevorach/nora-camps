@@ -1,5 +1,4 @@
 import PrimaryButton from '../primary-button/primary-button';
-import RightArrow from '../svg/right-arrow/right-arrow';
 import styles from './newsletter.module.scss';
 
 export default function Newsletter() {

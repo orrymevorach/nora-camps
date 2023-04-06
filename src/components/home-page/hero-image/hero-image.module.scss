@@ -43,3 +43,20 @@
   @include mixins.manropeLight($fontSize: 26px);
   line-height: 36px;
 }
+
+@media screen and (max-width: $mobile) {
+  .container {
+    margin-bottom: 70px;
+  }
+  .textContainer {
+    padding: 60px 0 0 20px;
+  }
+  .heading {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  .description {
+    font-size: 20px;
+    line-height: 26px;
+  }
+}
