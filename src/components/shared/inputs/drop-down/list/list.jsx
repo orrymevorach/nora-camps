@@ -1,28 +1,22 @@
 import { useEffect, useRef } from 'react';
-import styled from './drop-down-menu.module.scss';
+import styled from './list.module.scss';
 
-export default function DropDownMenu({ isToggled, setIsToggled, setValue }) {
+export default function DropDownMenu({
+  form = '',
+  isToggled,
+  setIsToggled,
+  setValue = '',
+  reference = '',
+  listItems,
+}) {
   const ulRef = useRef(null);
-  const testPaintings = [
-    'Landscape',
-    'Mountain',
-    'River',
-    'Grassland',
-    'House',
-  ];
 
-  const setValueAndCloseDropDown = option => {
-    setValue('paintings', option);
-    dropDownToggle();
-  };
-
-  const enterKeyPressed = (e, option) => {
+  const handleKeyPress = (e, option) => {
     const listItems = document.querySelectorAll('#drop-down-li');
     const activeElement = document.activeElement;
 
     if (e.key === 'Enter') {
-      setValue('paintings', option);
-      dropDownToggle();
+      setValueAndCloseDropDown(option);
     }
 
     if (e.key === 'ArrowUp') {
@@ -34,7 +28,7 @@ export default function DropDownMenu({ isToggled, setIsToggled, setValue }) {
     }
 
     if (e.key === 'Escape') {
-      dropDownToggle();
+      closeDropDown();
     }
   };
 
@@ -52,7 +46,12 @@ export default function DropDownMenu({ isToggled, setIsToggled, setValue }) {
     }
   };
 
-  const dropDownToggle = () => {
+  const setValueAndCloseDropDown = option => {
+    form ? setValue('paintings', option) : (reference.current.value = option);
+    closeDropDown();
+  };
+
+  const closeDropDown = () => {
     setIsToggled(false);
   };
 
@@ -83,14 +82,14 @@ export default function DropDownMenu({ isToggled, setIsToggled, setValue }) {
   return (
     <>
       <ul ref={ulRef} className={styled.ul}>
-        {testPaintings.map(option => {
+        {listItems.map(option => {
           return (
             <li
               tabIndex='0'
               className={styled.li}
               id='drop-down-li'
               key={option}
-              onKeyDown={e => enterKeyPressed(e, option)}
+              onKeyDown={e => handleKeyPress(e, option)}
               onClick={() => setValueAndCloseDropDown(option)}
             >
               {option}

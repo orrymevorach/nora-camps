@@ -1,14 +1,12 @@
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import RightArrow from 'svg/right-arrow/right-arrow';
 import styles from './contact-form.module.scss';
-import EmailInput from './email-input';
-import PaintingsInput from './paintings-input';
-import InputShell from './input-shell';
+import styledInput from '../shared/inputs/shared-inputs.module.scss';
+import EmailInput from '../shared/inputs/email-input';
+import DropDown from '../shared/inputs/drop-down/drop-down';
+import InputShell from '../shared/inputs/input-shell';
 import PrimaryButton from '../shared/primary-button/primary-button';
 
 export default function ContactForm() {
-  const [isToggled, setIsToggled] = useState(false);
   const {
     register,
     handleSubmit,
@@ -16,34 +14,7 @@ export default function ContactForm() {
     formState: { errors },
   } = useForm();
 
-  const formInputs = [
-    { name: 'firstName', label: 'First Name' },
-    { name: 'lastName', label: 'Last Name' },
-    {
-      component: (
-        <EmailInput
-          key={'emailInput'}
-          styles={styles}
-          register={register}
-          errors={errors}
-        />
-      ),
-    },
-    {
-      component: (
-        <PaintingsInput
-          key={'paintingInput'}
-          styles={styles}
-          isToggled={isToggled}
-          setIsToggled={setIsToggled}
-          register={register}
-          setValue={setValue}
-        />
-      ),
-    },
-    { name: 'subject', label: 'Subject' },
-    { name: 'message', label: 'Message' },
-  ];
+  const listItems = ['Landscape', 'Mountain', 'River', 'Grassland', 'House'];
 
   const onSubmit = formData => {
     console.log(formData);
@@ -54,20 +25,88 @@ export default function ContactForm() {
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <h1 className={styles.title}>Send a message</h1>
 
-        {formInputs.map(input => {
-          return !input.component ? (
-            <InputShell
-              key={input.name}
-              name={input.name}
-              label={input.label}
-              styles={styles}
-              register={register}
-              errors={errors}
-            />
-          ) : (
-            input.component
-          );
-        })}
+        <InputShell
+          register={register}
+          name='firstName'
+          type='input'
+          required={true}
+          label={'First Name'}
+          classNames={{
+            gridArea: styles.firstName,
+          }}
+          errors={{
+            formError: errors.firstName,
+            message: 'First name is required',
+          }}
+        />
+
+        <InputShell
+          register={register}
+          name='lastName'
+          type='input'
+          required={true}
+          label={'Last Name'}
+          classNames={{
+            gridArea: styles.lastName,
+          }}
+          errors={{
+            formError: errors.lastName,
+            message: 'Last name is required',
+          }}
+        />
+
+        <EmailInput
+          classNames={{ email: styles.email }}
+          register={register}
+          errors={errors}
+        />
+
+        <DropDown
+          form={true}
+          listItems={listItems}
+          attributes={{
+            placeholder: 'Type painting',
+            ...register('paintings'),
+          }}
+          classNames={{
+            container: styles.painting,
+            inputGroup: styledInput.formGroup,
+            input: styledInput.input,
+            label: styledInput.label,
+            dropDownButton: styledInput.dropDownButton,
+          }}
+          setValue={setValue}
+        />
+
+        <InputShell
+          register={register}
+          name='subject'
+          type='input'
+          required={true}
+          label={'Subject'}
+          classNames={{
+            gridArea: styles.subject,
+          }}
+          errors={{
+            formError: errors.subject,
+            message: 'Last name is required',
+          }}
+        />
+
+        <InputShell
+          register={register}
+          name='message'
+          type='textarea'
+          required={true}
+          label={'Message'}
+          classNames={{
+            gridArea: styles.message,
+          }}
+          errors={{
+            formError: errors.message,
+            message: 'A message is required',
+          }}
+        />
 
         <PrimaryButton classNames={styles.submitButton}>Submit</PrimaryButton>
       </form>

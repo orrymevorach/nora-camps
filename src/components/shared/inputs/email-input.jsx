@@ -3,8 +3,9 @@ import clsx from 'clsx';
 import EmailValidationError from 'svg/email-validation-error';
 import EmailValidationSuccess from 'svg/email-validation-success';
 import { emailValidator } from '@/utils/string-utils';
+import styles from './shared-inputs.module.scss';
 
-export default function EmailInput({ styles, register, errors }) {
+export default function EmailInput({ classNames, register, errors }) {
   const [isEmailValidated, setIsEmailValidated] = useState(false);
 
   const handleEmailInputChange = e => {
@@ -19,11 +20,11 @@ export default function EmailInput({ styles, register, errors }) {
     <div
       className={clsx(
         styles.formGroup,
-        styles.email,
-        errors.email ? styles.errorActive : ''
+        classNames.email,
+        errors.email ? styles.activeError : ''
       )}
     >
-      <label>Email Address</label>
+      <label className={styles.label}>Email Address</label>
       <input
         className={styles.input}
         placeholder='Type email address'
