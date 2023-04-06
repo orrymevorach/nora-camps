@@ -1,3 +1,4 @@
+import PrimaryButton from '../primary-button/primary-button';
 import RightArrow from '../svg/right-arrow/right-arrow';
 import styles from './newsletter.module.scss';
 
@@ -13,13 +14,15 @@ export default function Newsletter() {
         </p>
         <div className={styles.row}>
           <input
+            type='email'
             className={styles.emailInput}
             placeholder='Enter Email Address'
           />
-          <button className={styles.button}>
+          {/* <button className={styles.button}>
             <p>Sign Up</p>
             <RightArrow />
-          </button>
+          </button> */}
+          <PrimaryButton classNames={styles.button}>Sign Up</PrimaryButton>
         </div>
       </form>
     </div>
