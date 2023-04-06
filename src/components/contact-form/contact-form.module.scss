@@ -67,18 +67,6 @@ $classes: firstName, lastName, email, painting, subject, message;
   @include mixins.montserratMedium;
 }
 
-.errorText {
-  position: absolute;
-  top: 100%;
-  font-size: 0.625rem;
-  color: #ff0000;
-  padding-left: 0.5rem;
-}
-
-.activeError {
-  border-color: #ff0000;
-}
-
 @media (max-width: var.$mobile) {
   .title {
     font-size: 2rem;
