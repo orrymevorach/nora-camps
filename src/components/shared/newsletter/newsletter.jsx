@@ -18,10 +18,6 @@ export default function Newsletter() {
             className={styles.emailInput}
             placeholder='Enter Email Address'
           />
-          {/* <button className={styles.button}>
-            <p>Sign Up</p>
-            <RightArrow />
-          </button> */}
           <PrimaryButton classNames={styles.button}>Sign Up</PrimaryButton>
         </div>
       </form>
