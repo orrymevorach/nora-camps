@@ -6,6 +6,7 @@ import {
 import Head from 'next/head';
 import PaintingInfoTemplate from '@/components/shared/painting-info-template';
 import { capitalizeFirstLetterOfEachWord } from '@/utils/string-utils';
+import PrimaryButton from '@/components/shared/primary-button';
 
 export default function Painting({ paintingData, collectionData }) {
   // The collectionData prop has all the paintings in this collection. Use this data for the reccommended paintings section
@@ -16,6 +17,9 @@ export default function Painting({ paintingData, collectionData }) {
           Nora Camps | {capitalizeFirstLetterOfEachWord(paintingData.name)}
         </title>
       </Head>
+      <PrimaryButton isLeftArrow href="/paintings" hasBorder={false} isBold>
+        Back to Painting Page
+      </PrimaryButton>
       <PaintingInfoTemplate {...paintingData} />
     </>
   );
