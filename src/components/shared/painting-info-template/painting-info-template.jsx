@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import styles from './painting-info-template.module.scss';
 import PrimaryButton from '@/components/shared/primary-button';
 import RichText from '@/components/shared/rich-text';
@@ -9,6 +8,7 @@ import Eyebrow from './eyebrow';
 import { richTextConfig } from './rich-text-config';
 import Location from './location';
 import Details from './details';
+import ImageCarousel from './image-carousel';
 
 export default function PaintingInfoTemplate({
   imageCollection,
@@ -41,14 +41,7 @@ export default function PaintingInfoTemplate({
   return (
     <div className={styles.paintingInfoTemplateContainer}>
       <div className={styles.mainContent}>
-        <Image
-          src={url}
-          width={width}
-          height={height}
-          alt={alt}
-          quality={100}
-          className={styles.image}
-        />
+        <ImageCarousel images={imageCollection.items} />
         <div className={styles.rightColumn}>
           {collection && (
             <Eyebrow leftText="Collection" rightText={collection} />
