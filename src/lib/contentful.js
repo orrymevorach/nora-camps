@@ -9,6 +9,7 @@ import {
   GET_COLLECTION_BY_NAME,
   GET_ALL_EVENTS,
   GET_EVENT_BY_NAME,
+  GET_SPECIAL_PROJECTS_TOP_SECTION,
 } from '@/graphql/queries';
 
 export const getEntryIdsFromPageBuilder = async ({ page = '' }) => {
@@ -96,6 +97,18 @@ export const getAllEvents = async () => {
       query: GET_ALL_EVENTS,
     });
     return data.eventCollection.items;
+  } catch (error) {
+    console.error('error', error);
+  }
+};
+
+export const getSpecialProjectsTopSection = async ({ entryId = '' }) => {
+  try {
+    const { data } = await client.query({
+      query: GET_SPECIAL_PROJECTS_TOP_SECTION,
+      variables: { entryId },
+    });
+    return data.specialProjectsTopSection;
   } catch (error) {
     console.error('error', error);
   }

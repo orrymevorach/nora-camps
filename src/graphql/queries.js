@@ -127,3 +127,30 @@ export const GET_ALL_EVENTS = gql`
   }
   ${EVENT_FRAGMENT}
 `;
+
+export const GET_SPECIAL_PROJECTS_TOP_SECTION = gql`
+  query getSpecialProjectsTopSection($entryId: String!) {
+    specialProjectsTopSection(id: $entryId) {
+      topImagesCollection {
+        items {
+          ...ImageFields
+        }
+      }
+      heading
+      description {
+        json
+      }
+      bottomLeftImagesCollection {
+        items {
+          ...ImageFields
+        }
+      }
+      bottomRightImagesCollection {
+        items {
+          ...ImageFields
+        }
+      }
+    }
+  }
+  ${IMAGE_FRAGMENT}
+`;

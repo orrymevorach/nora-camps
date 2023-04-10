@@ -1,0 +1,20 @@
+@use '@mixins' as mixins;
+
+.container {
+  @include mixins.pagePadding;
+}
+
+.heading {
+  @include mixins.heading;
+  margin: 65px 0 40px;
+}
+
+.innerContainer {
+  max-width: 750px;
+  display: block;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+}
