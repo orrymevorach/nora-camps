@@ -26,14 +26,8 @@
   line-height: 1.2;
 }
 
-.date {
-  @include mixins.manropeRegular;
-  font-size: 45px;
-  margin-bottom: 50px;
-  line-height: 1.1;
-}
-
 .button {
+  margin-top: 50px;
   background: none;
 }
 

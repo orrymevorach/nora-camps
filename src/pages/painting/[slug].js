@@ -7,7 +7,7 @@ import Head from 'next/head';
 import PaintingInfoTemplate from '@/components/shared/painting-info-template';
 import { capitalizeFirstLetterOfEachWord } from '@/utils/string-utils';
 
-export default function Paintings({ paintingData, collectionData }) {
+export default function Painting({ paintingData, collectionData }) {
   // The collectionData prop has all the paintings in this collection. Use this data for the reccommended paintings section
   return (
     <>

@@ -1,0 +1,7 @@
+@use '@mixins' as mixins;
+
+.date {
+  @include mixins.manropeRegular;
+  font-size: 45px;
+  line-height: 1.1;
+}
