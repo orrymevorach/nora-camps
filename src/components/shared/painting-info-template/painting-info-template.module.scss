@@ -22,42 +22,11 @@
   margin-right: 90px;
 }
 
-.collectionContainer {
-  display: flex;
-  margin-bottom: 15px;
-  .collection {
-    @include mixins.openSans;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: variables.$darkGrey;
-    font-size: 16px;
-  }
-  .collectionName {
-    @include mixins.openSans;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    margin-left: 15px;
-  }
-}
-
 .name {
   @include mixins.heading;
   text-transform: capitalize;
   margin: 15px 0;
   line-height: 1;
-}
-
-.detailsContainer {
-  display: flex;
-  @include mixins.openSansLight;
-  color: variables.$darkGrey;
-  font-size: 16px;
-  letter-spacing: 1.2px;
-  margin: 15px 0;
-  .detail {
-    margin-left: 7px;
-  }
 }
 
 .price {

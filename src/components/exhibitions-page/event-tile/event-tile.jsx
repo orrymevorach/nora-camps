@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styles from './event-tile.module.scss';
 import PrimaryButton from '@/components/shared/primary-button';
-import { formatDate } from '@/utils/string-utils';
+import EventDateRange from '@/components/shared/event-date-range';
 
 export default function EventTile({
   name,
@@ -15,15 +15,7 @@ export default function EventTile({
       <div className={styles.column}>
         <p className={styles.comingUp}>Coming up</p>
         <p className={styles.name}>{name}</p>
-        <p className={styles.date}>
-          {startDate && <span>{formatDate(startDate)}</span>}
-          {endDate && (
-            <>
-              {' '}
-              - <br /> <span>{formatDate(endDate)}</span>
-            </>
-          )}
-        </p>
+        <EventDateRange startDate={startDate} endDate={endDate} />
         <PrimaryButton href={`/event/${name}`} classNames={styles.button}>
           Learn more
         </PrimaryButton>
