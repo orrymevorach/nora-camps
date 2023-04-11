@@ -1,0 +1,66 @@
+@use '@variables' as var;
+@use '@mixins' as mixins;
+
+.formGroup {
+  position: relative;
+  display: flex;
+  width: 100%;
+  border: 1px solid var.$darkGrey;
+  border-radius: 1px;
+  width: 100%;
+}
+
+.label {
+  position: absolute;
+  bottom: calc(100% - 8px);
+  left: 5px;
+  padding: 0 5px 5px 5px;
+  background-color: var.$white;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.input,
+.textarea {
+  border: none;
+  padding: 10px;
+  border-radius: 1px;
+  width: 100%;
+  font-size: 15px;
+}
+
+.input {
+  height: 44px;
+}
+
+.textarea {
+  height: 104px;
+  resize: none;
+  @include mixins.openSans;
+}
+
+.dropDownButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.errorText {
+  position: absolute;
+  top: 100%;
+  font-size: 0.625rem;
+  color: #ff0000;
+  padding-left: 0.5rem;
+}
+
+.activeError {
+  border-color: #ff0000;
+}
+
+.emailValidation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
