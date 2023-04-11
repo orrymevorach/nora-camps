@@ -32,3 +32,18 @@ export const PAINTING_FRAGMENT = gql`
   }
   ${IMAGE_FRAGMENT}
 `;
+
+export const EVENT_FRAGMENT = gql`
+  fragment EventFields on Event {
+    name
+    startDate
+    endDate
+    location
+    imageCollection(limit: 10) {
+      items {
+        ...ImageFields
+      }
+    }
+  }
+  ${IMAGE_FRAGMENT}
+`;
