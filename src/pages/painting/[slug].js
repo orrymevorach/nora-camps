@@ -4,9 +4,11 @@ import {
   getCollectionByName,
 } from '@/lib/contentful';
 import Head from 'next/head';
-import PaintingInfoTemplate from '@/components/shared/painting-info-template';
 import { capitalizeFirstLetterOfEachWord } from '@/utils/string-utils';
 import PrimaryButton from '@/components/shared/primary-button';
+import PaintingInfoTemplate, {
+  THEMES,
+} from '@/components/shared/painting-info-template/painting-info-template';
 
 export default function Painting({ paintingData, collectionData }) {
   // The collectionData prop has all the paintings in this collection. Use this data for the reccommended paintings section
@@ -20,7 +22,7 @@ export default function Painting({ paintingData, collectionData }) {
       <PrimaryButton isLeftArrow href="/paintings" hasBorder={false} isBold>
         Back to Painting Page
       </PrimaryButton>
-      <PaintingInfoTemplate {...paintingData} />
+      <PaintingInfoTemplate {...paintingData} theme={THEMES.PAINTING} />
     </>
   );
 }

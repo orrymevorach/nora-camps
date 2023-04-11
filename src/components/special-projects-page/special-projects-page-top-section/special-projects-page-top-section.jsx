@@ -16,9 +16,11 @@ export default function SpecialProjectsPageTopSection({
       <div className={styles.innerContainer}>
         <TopImageSection images={topImagesCollection.items} />
         <p className={styles.heading}>{heading}</p>
-        <div className={styles.richText}>
-          <RichText json={description.json} config={richTextConfig} />
-        </div>
+        <RichText
+          json={description.json}
+          config={richTextConfig}
+          classNames={styles.richText}
+        />
       </div>
       <div className={styles.row}>
         <BottomImageSection images={bottomLeftImagesCollection.items} />

@@ -1,9 +1,11 @@
 @use '@variables' as variables;
 
 .image {
-  background-color: variables.$lightGrey;
-  padding: 25px 30px;
   height: 560px;
+  &.background {
+    background-color: variables.$lightGrey;
+    padding: 25px 30px;
+  }
 }
 
 .imageSelectionContainer {

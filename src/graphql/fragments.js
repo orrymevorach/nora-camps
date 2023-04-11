@@ -9,6 +9,13 @@ export const IMAGE_FRAGMENT = gql`
   }
 `;
 
+export const BUTTON_FRAGMENT = gql`
+  fragment ButtonFields on Button {
+    label
+    url
+  }
+`;
+
 //  Exlusively for the painting in a gallery or collection, the limit is set to 1 to simplify the query
 // For the Painting Display Page, the limit will have to be higher to render more images in the carousel
 export const PAINTING_FRAGMENT = gql`
@@ -52,4 +59,23 @@ export const EVENT_FRAGMENT = gql`
     }
   }
   ${IMAGE_FRAGMENT}
+`;
+
+export const SPECIAL_PROJECT_FRAGMENT = gql`
+  fragment SpecialProjectFields on SpecialProject {
+    name
+    description {
+      json
+    }
+    imageCollection(limit: 1) {
+      items {
+        ...ImageFields
+      }
+    }
+    button {
+      ...ButtonFields
+    }
+  }
+  ${IMAGE_FRAGMENT}
+  ${BUTTON_FRAGMENT}
 `;

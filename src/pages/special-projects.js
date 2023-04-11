@@ -7,7 +7,7 @@ export default function SpecialProjects({ entries = [] }) {
   return (
     <>
       <Head>
-        <title>Nora Camps</title>
+        <title>Nora Camps | Special Projects</title>
       </Head>
       <PageBuilder entries={entries} />
     </>

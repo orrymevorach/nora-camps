@@ -19,6 +19,7 @@ export const CONTENT_MODELS = {
   EVENT: 'Event',
   PAINTING: 'Painting',
   SPECIAL_PROJECTS_TOP_SECTION: 'SpecialProjectsTopSection',
+  SPECIAL_PROJECT: 'SpecialProject',
 };
 
 export const getEntryDataFromEntryIds = async ({ entryIds }) => {

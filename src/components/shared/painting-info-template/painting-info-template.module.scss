@@ -2,12 +2,14 @@
 @use '@mixins' as mixins;
 
 .paintingInfoTemplateContainer {
-  @include mixins.pagePadding;
   margin-top: 100px;
 }
 
 .mainContent {
   display: flex;
+  &.centerVertically {
+    align-items: center;
+  }
 }
 
 .image,
@@ -35,6 +37,9 @@
   margin: 45px 0;
 }
 
+.richTextContainer {
+  margin-top: 45px;
+}
 .richText {
   @include mixins.openSansLight;
   font-size: 16px;
