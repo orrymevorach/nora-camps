@@ -40,9 +40,7 @@ export default function EmailInput({ classNames, register, errors }) {
       />
       {errors.email && (
         <>
-          <div className={styles.emailValidation}>
-            <Error />
-          </div>
+          <Error classNames={styles.emailValidation} />
           <div className={styles.errorText}>{`${
             errors.email.type === 'required'
               ? 'Email is required'
@@ -51,9 +49,7 @@ export default function EmailInput({ classNames, register, errors }) {
         </>
       )}
       {!errors.email && isEmailValidated && (
-        <div className={styles.emailValidation}>
-          <Success />
-        </div>
+        <Success classNames={styles.emailValidation} />
       )}
     </div>
   );
