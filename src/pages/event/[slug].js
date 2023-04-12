@@ -10,9 +10,7 @@ export default function Event({ eventData }) {
   return (
     <>
       <Head>
-        <title>
-          Nora Camps | Event | {capitalizeFirstLetterOfEachWord(eventData.name)}
-        </title>
+        <title>Nora Camps | Event</title>
       </Head>
       <PrimaryButton isLeftArrow href="/exhibitions" hasBorder={false} isBold>
         Back to Event Page
