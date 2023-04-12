@@ -68,17 +68,14 @@ export default function ContactForm() {
             placeholder: 'Type painting',
             ...register('paintings'),
           }}
-          label={
-            <label className={styledInput.label}>
-              Painting(s) interested in
-            </label>
-          }
           classNames={{
             container: styles.painting,
             inputGroup: styledInput.formGroup,
             input: styledInput.input,
+            label: styledInput.label,
             dropDownButton: styledInput.dropDownButton,
           }}
+          label='Painting(s) interested in'
           setValue={setValue}
         />
 

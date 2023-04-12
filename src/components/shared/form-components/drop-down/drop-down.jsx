@@ -16,7 +16,7 @@ export default function DropDown({
   return (
     <div className={classNames.container}>
       <div className={classNames.inputGroup}>
-        {label}
+        {isForm && <label className={classNames.label}>{label}</label>}
         <input className={classNames.input} ref={inputRef} {...attributes} />
         <button
           type='button'

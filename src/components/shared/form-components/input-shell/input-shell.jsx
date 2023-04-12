@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import styles from '../shared-input.module.scss';
+import { useCallback } from 'react';
 
 export default function InputShell({
   type = '',
@@ -11,21 +12,27 @@ export default function InputShell({
   required = false,
 }) {
   const mapInputTypeToComponent = {
-    input: () => (
-      <input
-        className={styles.input}
-        placeholder='Type text'
-        type='text'
-        {...register(name, { required: required })}
-      />
+    input: useCallback(
+      () => (
+        <input
+          className={styles.input}
+          placeholder='Type text'
+          type='text'
+          {...register(name, { required: required })}
+        />
+      ),
+      [register, name, required]
     ),
-    textarea: () => (
-      <textarea
-        className={styles.textarea}
-        placeholder='Type a message'
-        type='text'
-        {...register(name, { required: required })}
-      />
+    textarea: useCallback(
+      () => (
+        <textarea
+          className={styles.textarea}
+          placeholder='Type a message'
+          type='text'
+          {...register(name, { required: required })}
+        />
+      ),
+      [register, name, required]
     ),
   };
 
