@@ -1,0 +1,45 @@
+@use '@variables' as var;
+@use '@mixins' as mixins;
+
+.footerUl {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  list-style: none;
+  gap: 3.125rem;
+  padding: 3.75rem 0 3.75rem 0;
+  border-bottom: 1px solid var.$black;
+}
+
+.footerLi {
+  text-decoration: underline;
+  line-height: 14px;
+  color: var.$black;
+  @include mixins.openSans;
+}
+
+.nextLink {
+  color: var.$black;
+}
+
+@media (max-width: var.$tablet) {
+  .footerLi {
+    font-size: 0.825rem;
+    border-bottom: none;
+  }
+}
+
+@media (max-width: var.$mobile) {
+  .footerUl {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 1px;
+    gap: none;
+    padding: 0 0 2rem 0;
+  }
+
+  .footerLi {
+    white-space: nowrap;
+  }
+}

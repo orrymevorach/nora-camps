@@ -1,0 +1,26 @@
+@use '@variables' as var;
+@use '@mixins' as mixins;
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 378px;
+  background-color: var.$lightGrey;
+  @include mixins.pagePadding;
+}
+
+.footerNav {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1131px;
+}
+
+@media (max-width: var.$mobile) {
+  .container {
+    height: 365px;
+  }
+}

@@ -1,0 +1,78 @@
+@use '@variables' as var;
+@use '@mixins' as mixins;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1131px;
+  margin: 0 auto;
+  background-color: #f4f4f4;
+  @include mixins.openSans;
+}
+
+.title {
+  @include mixins.manropeSemiBold;
+  font-size: 2.8125rem;
+  grid-area: title;
+  text-align: center;
+}
+
+.form {
+  display: grid;
+  grid-template:
+    'title title'
+    'firstName lastName'
+    'email email'
+    'painting painting'
+    'subject subject'
+    'message message'
+    'submitButton submitButton';
+  grid-template-columns: 1fr 1fr;
+  gap: 1.875rem;
+  width: 100%;
+  padding: 5rem 6.875rem 3.875rem 6.875rem;
+  max-width: 748px;
+  background-color: var.$white;
+  margin-top: 100px;
+}
+
+$classes: firstName, lastName, email, painting, subject, message;
+
+@each $class in $classes {
+  @if $class == painting {
+    .#{$class} {
+      grid-area: $class;
+      position: relative;
+    }
+  } @else {
+    .#{$class} {
+      grid-area: $class;
+    }
+  }
+}
+
+.submitButton {
+  grid-area: submitButton;
+  display: flex;
+  gap: 0.5rem;
+  font-size: 15px;
+  border: 1px solid var.$black;
+  justify-content: center;
+  align-items: center;
+  height: 44px;
+  width: 100%;
+  @include mixins.montserratMedium;
+}
+
+@media (max-width: var.$mobile) {
+  .title {
+    font-size: 2rem;
+  }
+  .form {
+    margin-top: 0;
+    padding: 2rem;
+  }
+}

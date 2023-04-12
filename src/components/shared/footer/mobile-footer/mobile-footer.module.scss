@@ -1,0 +1,22 @@
+@use '@variables' as var;
+
+.logos {
+  display: flex;
+  gap: 8rem;
+  padding: 3rem 0;
+  width: 100%;
+}
+
+@media (max-width: var.$mobile) {
+  .logos {
+    padding: 2rem 0;
+    justify-self: flex-start;
+  }
+
+  .copyrightPosition {
+    display: flex;
+    align-items: flex-start;
+    padding: 2rem 0;
+    width: 100%;
+  }
+}

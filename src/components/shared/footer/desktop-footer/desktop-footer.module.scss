@@ -1,0 +1,13 @@
+.logos {
+  display: flex;
+  gap: 6rem;
+  width: 100%;
+  padding: 3rem 0;
+}
+
+.copyrightPosition {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-grow: 1;
+}
