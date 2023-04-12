@@ -10,8 +10,8 @@ export default function InputShell({
   classNames = '',
   required = false,
 }) {
-  const inputType = {
-    input: (
+  const mapInputTypeToComponent = {
+    input: () => (
       <input
         className={styles.input}
         placeholder='Type text'
@@ -19,7 +19,7 @@ export default function InputShell({
         {...register(name, { required: required })}
       />
     ),
-    textarea: (
+    textarea: () => (
       <textarea
         className={styles.textarea}
         placeholder='Type a message'
@@ -28,6 +28,8 @@ export default function InputShell({
       />
     ),
   };
+
+  const InputComponent = mapInputTypeToComponent[type];
 
   return (
     <div
@@ -39,7 +41,7 @@ export default function InputShell({
     >
       <label className={styles.label}>{label}</label>
 
-      {inputType[type]}
+      <InputComponent />
 
       {errors.formError && (
         <div className={styles.errorText}>{errors.message}</div>
