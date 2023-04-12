@@ -31,3 +31,5 @@ export const formatDate = dateString => {
   const year = date.getFullYear();
   return `${month} ${day}, ${year}`;
 };
+
+export const isOdd = num => num % 2;

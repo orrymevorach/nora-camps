@@ -1,3 +1,6 @@
+@use '@mixins' as mixins;
+
 .galleryContainer {
   margin-top: 85px;
+  @include mixins.maxWidthContainer;
 }

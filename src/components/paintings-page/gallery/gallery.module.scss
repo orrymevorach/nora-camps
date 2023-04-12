@@ -1,9 +1,10 @@
 @use '@variables' as variables;
+@use '@mixins' as mixins;
 
 .columnGallery {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  max-width: 1131px;
+  @include mixins.maxWidthContainer;
   margin-top: 150px;
   gap: 100px 170px;
   @media screen and (max-width: variables.$tablet) {
