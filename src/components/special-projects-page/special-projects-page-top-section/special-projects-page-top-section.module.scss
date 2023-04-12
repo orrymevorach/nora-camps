@@ -1,7 +1,7 @@
 @use '@mixins' as mixins;
 
 .container {
-  @include mixins.pagePadding;
+  @include mixins.maxWidthContainer;
 }
 
 .heading {

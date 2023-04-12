@@ -79,3 +79,16 @@ export const SPECIAL_PROJECT_FRAGMENT = gql`
   ${IMAGE_FRAGMENT}
   ${BUTTON_FRAGMENT}
 `;
+
+export const COLLECTION_FRAGMENT = gql`
+  fragment CollectionFields on Collection {
+    name
+    paintingsCollection(limit: 40) {
+      items {
+        ...PaintingFields
+      }
+    }
+  }
+  ${IMAGE_FRAGMENT}
+  ${PAINTING_FRAGMENT}
+`;
