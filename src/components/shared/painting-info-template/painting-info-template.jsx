@@ -9,6 +9,14 @@ import { richTextConfig } from './rich-text-config';
 import Location from './location';
 import Details from './details';
 import ImageCarousel from './image-carousel';
+import clsx from 'clsx';
+
+export const THEMES = {
+  PAINTING: 'PAINTING',
+  EVENT: 'EVENT',
+  SPECIAL_PROJECT: 'SPECIAL_PROJECT',
+};
+const { PAINTING, EVENT, SPECIAL_PROJECT } = THEMES;
 
 export default function PaintingInfoTemplate({
   imageCollection,
@@ -21,11 +29,12 @@ export default function PaintingInfoTemplate({
   startDate,
   endDate,
   location,
+  theme = '',
+  button = { label: '', url: '' },
 }) {
   const [showAdditionalDescription, setShowAdditionalDescription] =
     useState(false);
   const additionalDescriptionRef = useRef();
-  const { url, width, height, description: alt } = imageCollection.items[0];
 
   function handleClickReadMore() {
     setShowAdditionalDescription(!showAdditionalDescription);
@@ -36,12 +45,35 @@ export default function PaintingInfoTemplate({
     }
   }
 
-  const isEvent = !!startDate;
+  const mapThemeToButtonProps = {
+    [PAINTING]: {
+      label: 'Contact for purchase',
+      href: '/contact',
+    },
+    [SPECIAL_PROJECT]: {
+      label: button.label,
+      href: button.url,
+    },
+  };
+
+  const buttonProps = mapThemeToButtonProps[theme];
+  const isPainting = theme === PAINTING;
+  const isSpecialProject = theme === SPECIAL_PROJECT;
 
   return (
     <div className={styles.paintingInfoTemplateContainer}>
-      <div className={styles.mainContent}>
-        <ImageCarousel images={imageCollection.items} />
+      <div
+        className={clsx(
+          styles.mainContent,
+          isSpecialProject && styles.centerVertically
+        )}
+      >
+        {imageCollection?.items && (
+          <ImageCarousel
+            images={imageCollection.items}
+            hasBackground={isSpecialProject ? false : true}
+          />
+        )}
         <div className={styles.rightColumn}>
           {collection && (
             <Eyebrow leftText="Collection" rightText={collection} />
@@ -58,14 +90,29 @@ export default function PaintingInfoTemplate({
               {formatPrice(price).replace('.00', '')}
             </p>
           )}
-          {!isEvent && (
-            <PrimaryButton href="#" classNames={styles.contactButton}>
-              Contact for purchase
+          {isPainting && (
+            <PrimaryButton
+              href={buttonProps.href}
+              classNames={styles.contactButton}
+            >
+              {buttonProps.label}
             </PrimaryButton>
           )}
 
           {description && (
-            <RichText json={description.json} config={richTextConfig} />
+            <RichText
+              json={description.json}
+              config={richTextConfig}
+              classNames={styles.richTextContainer}
+            />
+          )}
+          {isSpecialProject && (
+            <PrimaryButton
+              href={buttonProps.href}
+              classNames={styles.contactButton}
+            >
+              {buttonProps.label}
+            </PrimaryButton>
           )}
           {additionalDescription && (
             <button
@@ -78,12 +125,12 @@ export default function PaintingInfoTemplate({
         </div>
       </div>
       {additionalDescription && showAdditionalDescription && (
-        <div
-          className={styles.additionalDetails}
-          ref={additionalDescriptionRef}
-        >
-          <RichText json={additionalDescription.json} config={richTextConfig} />
-        </div>
+        <RichText
+          json={additionalDescription.json}
+          config={richTextConfig}
+          classNames={styles.additionalDetails}
+          refs={additionalDescriptionRef}
+        />
       )}
     </div>
   );

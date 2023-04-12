@@ -79,6 +79,11 @@
   color: variables.$black;
 }
 
+@mixin montserratSemiBold {
+  font-family: 'Montserrat Semi Bold';
+  color: variables.$black;
+}
+
 @mixin pagePadding {
   padding: 0 1.25rem;
   max-width: 1131px;

@@ -1,7 +1,10 @@
 import { getEventByName, getAllEvents } from '@/lib/contentful';
 import Head from 'next/head';
-import PaintingInfoTemplate from '@/components/shared/painting-info-template';
+import PaintingInfoTemplate, {
+  THEMES,
+} from '@/components/shared/painting-info-template/painting-info-template';
 import { capitalizeFirstLetterOfEachWord } from '@/utils/string-utils';
+import PrimaryButton from '@/components/shared/primary-button';
 
 export default function Event({ eventData }) {
   return (
@@ -11,7 +14,10 @@ export default function Event({ eventData }) {
           Nora Camps | Event | {capitalizeFirstLetterOfEachWord(eventData.name)}
         </title>
       </Head>
-      <PaintingInfoTemplate {...eventData} />
+      <PrimaryButton isLeftArrow href="/exhibitions" hasBorder={false} isBold>
+        Back to Event Page
+      </PrimaryButton>
+      <PaintingInfoTemplate {...eventData} theme={THEMES.EVENT} />
     </>
   );
 }
