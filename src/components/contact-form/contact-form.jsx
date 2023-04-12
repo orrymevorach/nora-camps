@@ -1,10 +1,10 @@
 import { useForm } from 'react-hook-form';
 import styles from './contact-form.module.scss';
-import styledInput from '../shared/inputs/shared-inputs.module.scss';
-import EmailInput from '../shared/inputs/email-input';
-import DropDown from '../shared/inputs/drop-down/drop-down';
-import InputShell from '../shared/inputs/input-shell';
-import PrimaryButton from '../shared/primary-button/primary-button';
+import styledInput from '../shared/form-components/shared-input.module.scss';
+import EmailInput from '../shared/form-components/email-input';
+import DropDown from '../shared/form-components/drop-down';
+import InputShell from '../shared/form-components/input-shell';
+import PrimaryButton from '../shared/primary-button';
 
 export default function ContactForm() {
   const {
