@@ -2,12 +2,14 @@
 @use '@mixins' as mixins;
 
 .paintingInfoTemplateContainer {
-  @include mixins.pagePadding;
   margin-top: 100px;
 }
 
 .mainContent {
   display: flex;
+  &.centerVertically {
+    align-items: center;
+  }
 }
 
 .image,
@@ -15,30 +17,8 @@
   width: 50%;
 }
 
-.image {
-  background-color: variables.$lightGrey;
-  padding: 25px 30px;
-  height: 560px;
-  margin-right: 90px;
-}
-
-.collectionContainer {
-  display: flex;
-  margin-bottom: 15px;
-  .collection {
-    @include mixins.openSans;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: variables.$darkGrey;
-    font-size: 16px;
-  }
-  .collectionName {
-    @include mixins.openSans;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    margin-left: 15px;
-  }
+.rightColumn {
+  margin-left: 90px;
 }
 
 .name {
@@ -46,18 +26,6 @@
   text-transform: capitalize;
   margin: 15px 0;
   line-height: 1;
-}
-
-.detailsContainer {
-  display: flex;
-  @include mixins.openSansLight;
-  color: variables.$darkGrey;
-  font-size: 16px;
-  letter-spacing: 1.2px;
-  margin: 15px 0;
-  .detail {
-    margin-left: 7px;
-  }
 }
 
 .price {
@@ -69,6 +37,9 @@
   margin: 45px 0;
 }
 
+.richTextContainer {
+  margin-top: 45px;
+}
 .richText {
   @include mixins.openSansLight;
   font-size: 16px;

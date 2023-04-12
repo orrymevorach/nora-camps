@@ -7,6 +7,9 @@ import {
   GET_PAINTING_BY_NAME,
   GET_COLLECTION_BY_ENTRY_ID,
   GET_COLLECTION_BY_NAME,
+  GET_ALL_EVENTS,
+  GET_EVENT_BY_NAME,
+  GET_SPECIAL_PROJECTS_TOP_SECTION,
 } from '@/graphql/queries';
 
 export const getEntryIdsFromPageBuilder = async ({ page = '' }) => {
@@ -71,6 +74,41 @@ export const getPaintingByName = async ({ name }) => {
       variables: { name },
     });
     return data.paintingCollection.items[0];
+  } catch (error) {
+    console.error('error', error);
+  }
+};
+
+export const getEventByName = async ({ name }) => {
+  try {
+    const { data } = await client.query({
+      query: GET_EVENT_BY_NAME,
+      variables: { name },
+    });
+    return data.eventCollection.items[0];
+  } catch (error) {
+    console.error('error', error);
+  }
+};
+
+export const getAllEvents = async () => {
+  try {
+    const { data } = await client.query({
+      query: GET_ALL_EVENTS,
+    });
+    return data.eventCollection.items;
+  } catch (error) {
+    console.error('error', error);
+  }
+};
+
+export const getSpecialProjectsTopSection = async ({ entryId = '' }) => {
+  try {
+    const { data } = await client.query({
+      query: GET_SPECIAL_PROJECTS_TOP_SECTION,
+      variables: { entryId },
+    });
+    return data.specialProjectsTopSection;
   } catch (error) {
     console.error('error', error);
   }

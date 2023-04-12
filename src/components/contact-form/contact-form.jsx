@@ -1,19 +1,20 @@
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import RightArrow from 'svg/right-arrow/right-arrow';
 import styles from './contact-form.module.scss';
-import EmailInput from './email-input';
-import PaintingsInput from './paintings-input';
-import InputShell from './input-shell';
+import styledInput from '../shared/form-components/shared-input.module.scss';
+import EmailInput from '../shared/form-components/email-input';
+import DropDown from '../shared/form-components/drop-down';
+import InputShell from '../shared/form-components/input-shell';
+import PrimaryButton from '../shared/primary-button';
 
 export default function ContactForm() {
-  const [isToggled, setIsToggled] = useState(false);
   const {
     register,
     handleSubmit,
     setValue,
     formState: { errors },
   } = useForm();
+
+  const listItems = ['Landscape', 'Mountain', 'River', 'Grassland', 'House'];
 
   const onSubmit = formData => {
     console.log(formData);
@@ -25,51 +26,90 @@ export default function ContactForm() {
         <h1 className={styles.title}>Send a message</h1>
 
         <InputShell
-          name={'firstName'}
-          label={'First Name'}
-          styles={styles}
           register={register}
-          errors={errors}
+          name='firstName'
+          type='input'
+          required={true}
+          label={'First Name'}
+          classNames={{
+            gridArea: styles.firstName,
+          }}
+          errors={{
+            formError: errors.firstName,
+            message: 'First name is required',
+          }}
         />
 
         <InputShell
-          name={'lastName'}
+          register={register}
+          name='lastName'
+          type='input'
+          required={true}
           label={'Last Name'}
-          styles={styles}
+          classNames={{
+            gridArea: styles.lastName,
+          }}
+          errors={{
+            formError: errors.lastName,
+            message: 'Last name is required',
+          }}
+        />
+
+        <EmailInput
+          classNames={{ email: styles.email }}
           register={register}
           errors={errors}
         />
 
-        <EmailInput styles={styles} register={register} errors={errors} />
-
-        <PaintingsInput
-          styles={styles}
-          isToggled={isToggled}
-          setIsToggled={setIsToggled}
-          register={register}
+        <DropDown
+          isForm={true}
+          listItems={listItems}
+          attributes={{
+            placeholder: 'Type painting',
+            ...register('paintings'),
+          }}
+          classNames={{
+            container: styles.painting,
+            inputGroup: styledInput.formGroup,
+            input: styledInput.input,
+            label: styledInput.label,
+            dropDownButton: styledInput.dropDownButton,
+          }}
+          label='Painting(s) interested in'
           setValue={setValue}
         />
 
         <InputShell
-          name={'subject'}
-          label={'Subject'}
-          styles={styles}
           register={register}
-          errors={errors}
+          name='subject'
+          type='input'
+          required={true}
+          label={'Subject'}
+          classNames={{
+            gridArea: styles.subject,
+          }}
+          errors={{
+            formError: errors.subject,
+            message: 'Last name is required',
+          }}
         />
 
         <InputShell
-          name={'message'}
-          label={'Message'}
-          styles={styles}
           register={register}
-          errors={errors}
+          name='message'
+          type='textarea'
+          required={true}
+          label={'Message'}
+          classNames={{
+            gridArea: styles.message,
+          }}
+          errors={{
+            formError: errors.message,
+            message: 'A message is required',
+          }}
         />
 
-        <button className={styles.submitButton} type='submit'>
-          <p>Submit</p>
-          <RightArrow />
-        </button>
+        <PrimaryButton classNames={styles.submitButton}>Submit</PrimaryButton>
       </form>
     </div>
   );

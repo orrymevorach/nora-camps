@@ -1,0 +1,6 @@
+@use '@mixins' as mixins;
+
+.heading {
+  @include mixins.heading;
+  margin-bottom: 20px;
+}

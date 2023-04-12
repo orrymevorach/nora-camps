@@ -1,0 +1,13 @@
+@use '@variables' as var;
+@use '@mixins' as mixins;
+
+.copyright {
+  @include mixins.openSans;
+  color: var.$darkGrey;
+}
+
+@media (max-width: var.$tablet) {
+  .copyright {
+    font-size: 0.825rem;
+  }
+}

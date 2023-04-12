@@ -1,5 +1,10 @@
 import { gql } from '@apollo/client';
-import { PAINTING_FRAGMENT, IMAGE_FRAGMENT } from './fragments';
+import {
+  PAINTING_FRAGMENT,
+  IMAGE_FRAGMENT,
+  EVENT_FRAGMENT,
+  SPECIAL_PROJECT_FRAGMENT,
+} from './fragments';
 
 export const GET_PAGE_ENTRIES = gql`
   query getEntryIdsFromPageBuilder($page: String!) {
@@ -70,12 +75,22 @@ export const GET_GALLERY = gql`
     gallery(id: $entryId) {
       itemsCollection {
         items {
-          ...PaintingFields
+          ... on Painting {
+            ...PaintingFields
+          }
+          ... on Event {
+            ...EventFields
+          }
+          ... on SpecialProject {
+            ...SpecialProjectFields
+          }
         }
       }
     }
   }
+  ${EVENT_FRAGMENT}
   ${PAINTING_FRAGMENT}
+  ${SPECIAL_PROJECT_FRAGMENT}
 `;
 
 export const GET_PAINTING_BY_NAME = gql`
@@ -98,4 +113,53 @@ export const GET_ALL_PAINTINGS = gql`
     }
   }
   ${PAINTING_FRAGMENT}
+`;
+
+export const GET_EVENT_BY_NAME = gql`
+  query getEventByName($name: String) {
+    eventCollection(where: { name: $name }) {
+      items {
+        ...EventFields
+      }
+    }
+  }
+  ${EVENT_FRAGMENT}
+`;
+
+export const GET_ALL_EVENTS = gql`
+  query getAllEvents {
+    eventCollection {
+      items {
+        ...EventFields
+      }
+    }
+  }
+  ${EVENT_FRAGMENT}
+`;
+
+export const GET_SPECIAL_PROJECTS_TOP_SECTION = gql`
+  query getSpecialProjectsTopSection($entryId: String!) {
+    specialProjectsTopSection(id: $entryId) {
+      topImagesCollection {
+        items {
+          ...ImageFields
+        }
+      }
+      heading
+      description {
+        json
+      }
+      bottomLeftImagesCollection {
+        items {
+          ...ImageFields
+        }
+      }
+      bottomRightImagesCollection {
+        items {
+          ...ImageFields
+        }
+      }
+    }
+  }
+  ${IMAGE_FRAGMENT}
 `;

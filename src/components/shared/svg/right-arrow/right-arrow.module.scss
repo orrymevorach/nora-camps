@@ -5,6 +5,11 @@
   height: 14px;
 }
 
+.flip {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
 @media (max-width: $tablet) {
   .arrow {
     width: 12px;

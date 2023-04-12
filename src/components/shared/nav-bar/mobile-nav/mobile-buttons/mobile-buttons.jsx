@@ -1,4 +1,4 @@
-import Hamburger from 'svg/hamburger';
+import Hamburger from '@/components/shared/svg/ham';
 import styles from './mobile-buttons.module.scss';
 import MagnifyingGlass from 'svg/magnifying-glass';
 

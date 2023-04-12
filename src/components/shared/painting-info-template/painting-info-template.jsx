@@ -1,10 +1,22 @@
-import Image from 'next/image';
 import styles from './painting-info-template.module.scss';
 import PrimaryButton from '@/components/shared/primary-button';
 import RichText from '@/components/shared/rich-text';
 import { formatPrice } from '@/utils/string-utils';
-import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { useRef, useState } from 'react';
+import EventDateRange from '../event-date-range/event-date-range';
+import Eyebrow from './eyebrow';
+import { richTextConfig } from './rich-text-config';
+import Location from './location';
+import Details from './details';
+import ImageCarousel from './image-carousel';
+import clsx from 'clsx';
+
+export const THEMES = {
+  PAINTING: 'PAINTING',
+  EVENT: 'EVENT',
+  SPECIAL_PROJECT: 'SPECIAL_PROJECT',
+};
+const { PAINTING, EVENT, SPECIAL_PROJECT } = THEMES;
 
 export default function PaintingInfoTemplate({
   imageCollection,
@@ -14,26 +26,15 @@ export default function PaintingInfoTemplate({
   additionalDescription,
   price,
   details = [],
+  startDate,
+  endDate,
+  location,
+  theme = '',
+  button = { label: '', url: '' },
 }) {
   const [showAdditionalDescription, setShowAdditionalDescription] =
     useState(false);
   const additionalDescriptionRef = useRef();
-  const { url, width, height, description: alt } = imageCollection.items[0];
-
-  const richTextConfig = {
-    renderMark: {
-      [MARKS.BOLD]: text => <span className={styles.richTextBold}>{text}</span>,
-      [MARKS.ITALIC]: text => (
-        <span className={styles.richTextItalic}>{text}</span>
-      ),
-    },
-    renderNode: {
-      [BLOCKS.PARAGRAPH]: (node, children) => {
-        console.log('children', children);
-        return <p className={styles.richText}>{children}</p>;
-      },
-    },
-  };
 
   function handleClickReadMore() {
     setShowAdditionalDescription(!showAdditionalDescription);
@@ -44,53 +45,74 @@ export default function PaintingInfoTemplate({
     }
   }
 
+  const mapThemeToButtonProps = {
+    [PAINTING]: {
+      label: 'Contact for purchase',
+      href: '/contact',
+    },
+    [SPECIAL_PROJECT]: {
+      label: button.label,
+      href: button.url,
+    },
+  };
+
+  const buttonProps = mapThemeToButtonProps[theme];
+  const isPainting = theme === PAINTING;
+  const isSpecialProject = theme === SPECIAL_PROJECT;
+
   return (
     <div className={styles.paintingInfoTemplateContainer}>
-      <div className={styles.mainContent}>
-        <Image
-          src={url}
-          width={width}
-          height={height}
-          alt={alt}
-          quality={100}
-          className={styles.image}
-        />
+      <div
+        className={clsx(
+          styles.mainContent,
+          isSpecialProject && styles.centerVertically
+        )}
+      >
+        {imageCollection?.items && (
+          <ImageCarousel
+            images={imageCollection.items}
+            hasBackground={isSpecialProject ? false : true}
+          />
+        )}
         <div className={styles.rightColumn}>
           {collection && (
-            <div className={styles.collectionContainer}>
-              <p className={styles.collection}>Collection</p>
-              <p className={styles.collectionName}>{collection}</p>
-            </div>
+            <Eyebrow leftText="Collection" rightText={collection} />
           )}
+          {startDate && <Eyebrow startDate={startDate} endDate={endDate} />}
           {name && <p className={styles.name}>{name}</p>}
-          {details && details.length && (
-            <div className={styles.detailsContainer}>
-              {details.map((detail, index) => {
-                const isLastDetail = details.length === index + 1;
-                if (isLastDetail)
-                  return (
-                    <p className={styles.detail} key={detail}>
-                      {detail}
-                    </p>
-                  );
-                return (
-                  <p className={styles.detail} key={detail}>
-                    {detail},
-                  </p>
-                );
-              })}
-            </div>
+          {startDate && (
+            <EventDateRange startDate={startDate} endDate={endDate} />
           )}
+          {location && <Location location={location} />}
+          {details && !!details.length && <Details details={details} />}
           {price && (
             <p className={styles.price}>
               {formatPrice(price).replace('.00', '')}
             </p>
           )}
-          <PrimaryButton href="#" classNames={styles.contactButton}>
-            Contact for purchase
-          </PrimaryButton>
+          {isPainting && (
+            <PrimaryButton
+              href={buttonProps.href}
+              classNames={styles.contactButton}
+            >
+              {buttonProps.label}
+            </PrimaryButton>
+          )}
+
           {description && (
-            <RichText json={description.json} config={richTextConfig} />
+            <RichText
+              json={description.json}
+              config={richTextConfig}
+              classNames={styles.richTextContainer}
+            />
+          )}
+          {isSpecialProject && (
+            <PrimaryButton
+              href={buttonProps.href}
+              classNames={styles.contactButton}
+            >
+              {buttonProps.label}
+            </PrimaryButton>
           )}
           {additionalDescription && (
             <button
@@ -103,12 +125,12 @@ export default function PaintingInfoTemplate({
         </div>
       </div>
       {additionalDescription && showAdditionalDescription && (
-        <div
-          className={styles.additionalDetails}
-          ref={additionalDescriptionRef}
-        >
-          <RichText json={additionalDescription.json} config={richTextConfig} />
-        </div>
+        <RichText
+          json={additionalDescription.json}
+          config={richTextConfig}
+          classNames={styles.additionalDetails}
+          refs={additionalDescriptionRef}
+        />
       )}
     </div>
   );

@@ -1,0 +1,14 @@
+@use '@mixins' as mixins;
+
+.location {
+  @include mixins.openSansBold;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  margin: 35px 0 50px;
+}
+
+.locationMarker {
+  width: 13px;
+  margin-right: 10px;
+}
