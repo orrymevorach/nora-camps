@@ -2,6 +2,7 @@
 @use '@mixins' as mixins;
 
 .paintingInfoTemplateContainer {
+  @include mixins.maxWidthContainer;
   margin-top: 100px;
 }
 
@@ -9,6 +10,15 @@
   display: flex;
   &.centerVertically {
     align-items: center;
+  }
+  &.imageOnRightSide {
+    .imageCarousel {
+      order: 2;
+      margin-left: 90px;
+    }
+    .rightColumn {
+      margin-left: 0;
+    }
   }
 }
 

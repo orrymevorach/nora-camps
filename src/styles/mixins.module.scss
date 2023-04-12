@@ -86,18 +86,15 @@
 
 @mixin pagePadding {
   padding: 0 1.25rem;
-  max-width: 1131px;
+}
+
+@mixin maxWidthContainer() {
+  max-width: variables.$desktopMaxWidth;
   margin: 0 auto;
-}
-
-@mixin desktopMaxWidth {
-  max-width: var.$desktopWidth;
-}
-
-@mixin tabletMaxWidth {
-  max-width: var.$tabletWidth;
-}
-
-@mixin mobileMaxWidth {
-  max-width: var.$mobileWidth;
+  @media screen and (max-width: variables.$tablet) {
+    max-width: variables.$tabletMaxWidth;
+  }
+  @media screen and (max-width: variables.$mobile) {
+    max-width: variables.$mobileMaxWidth;
+  }
 }

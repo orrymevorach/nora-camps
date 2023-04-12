@@ -17,7 +17,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 1131px;
+  @include mixins.maxWidthContainer;
   height: 120px;
 }
 
@@ -29,10 +29,6 @@
 @media (max-width: var.$tablet) {
   .container {
     height: 98px;
-  }
-
-  .navigation {
-    max-width: 900px;
   }
 
   .logo {

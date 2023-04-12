@@ -31,6 +31,7 @@ export default function PaintingInfoTemplate({
   location,
   theme = '',
   button = { label: '', url: '' },
+  imageOnRightSide = false,
 }) {
   const [showAdditionalDescription, setShowAdditionalDescription] =
     useState(false);
@@ -65,13 +66,15 @@ export default function PaintingInfoTemplate({
       <div
         className={clsx(
           styles.mainContent,
-          isSpecialProject && styles.centerVertically
+          isSpecialProject && styles.centerVertically,
+          imageOnRightSide && styles.imageOnRightSide
         )}
       >
         {imageCollection?.items && (
           <ImageCarousel
             images={imageCollection.items}
             hasBackground={isSpecialProject ? false : true}
+            classNames={styles.imageCarousel}
           />
         )}
         <div className={styles.rightColumn}>

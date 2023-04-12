@@ -1,0 +1,7 @@
+@use '@variables' as variables;
+
+.listItem {
+  &:nth-child(odd) {
+    background-color: variables.$lightGrey;
+  }
+}
