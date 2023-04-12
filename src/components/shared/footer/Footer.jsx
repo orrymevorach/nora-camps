@@ -1,5 +1,5 @@
-import DesktopFooter from './desktop-footer/desktop-footer';
-import MobileFooter from './mobile-footer/mobile-footer';
+import DesktopFooter from './desktop-footer';
+import MobileFooter from './mobile-footer';
 import { useWindowSize } from '@/hooks';
 import styles from './footer.module.scss';
 
