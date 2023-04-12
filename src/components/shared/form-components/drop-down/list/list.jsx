@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import styled from './list.module.scss';
 
 export default function DropDownMenu({
-  form = '',
+  isForm = '',
   isToggled,
   setIsToggled,
   setValue = '',
@@ -47,7 +47,7 @@ export default function DropDownMenu({
   };
 
   const setValueAndCloseDropDown = option => {
-    form ? setValue('paintings', option) : (reference.current.value = option);
+    isForm ? setValue('paintings', option) : (reference.current.value = option);
     closeDropDown();
   };
 
