@@ -1,30 +1,19 @@
-import { GET_HERO_IMAGE, GET_PAGE_ENTRIES } from '@/graphql/queries';
-
-export async function fetchGraphQL({
-  query,
-  isPreview = false,
-  variables = {},
-}) {
-  return fetch(
-    `https://graphql.contentful.com/content/v1/spaces/${process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID}/environments/${process.env.NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT}?access_token=${process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN}`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${
-          isPreview
-            ? process.env.NEXT_PUBLIC_CONTENTFUL_PREVIEW_ACCESS_TOKEN
-            : process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
-        }`,
-      },
-
-      body: JSON.stringify({ query, variables }),
-    }
-  ).then(response => response.json());
-}
+import { client } from '@/graphql/apollo-config';
+import {
+  GET_ALL_PAINTINGS,
+  GET_GALLERY,
+  GET_HERO_IMAGE,
+  GET_PAGE_ENTRIES,
+  GET_PAINTING_BY_NAME,
+  GET_COLLECTION_BY_ENTRY_ID,
+  GET_COLLECTION_BY_NAME,
+  GET_ALL_EVENTS,
+  GET_EVENT_BY_NAME,
+  GET_SPECIAL_PROJECTS_TOP_SECTION,
+} from '@/graphql/queries';
 
 export const getEntryIdsFromPageBuilder = async ({ page = '' }) => {
-  const { data } = await fetchGraphQL({
+  const { data } = await client.query({
     query: GET_PAGE_ENTRIES,
     variables: { page },
   });
@@ -32,9 +21,95 @@ export const getEntryIdsFromPageBuilder = async ({ page = '' }) => {
 };
 
 export const getHeroImage = async ({ entryId = '' }) => {
-  const { data } = await fetchGraphQL({
+  const { data } = await client.query({
     query: GET_HERO_IMAGE,
     variables: { entryId },
   });
   return data.heroImageCollection.items[0];
+};
+
+export const getCollectionByEntryId = async ({ entryId = '' }) => {
+  const { data } = await client.query({
+    query: GET_COLLECTION_BY_ENTRY_ID,
+    variables: { entryId },
+  });
+  return data.collection;
+};
+
+export const getCollectionByName = async ({ name = '' }) => {
+  const { data } = await client.query({
+    query: GET_COLLECTION_BY_NAME,
+    variables: { name },
+  });
+  return data.collectionCollection.items[0];
+};
+
+export const getGallery = async ({ entryId = '' }) => {
+  try {
+    const { data } = await client.query({
+      query: GET_GALLERY,
+      variables: { entryId },
+    });
+    return data.gallery.itemsCollection;
+  } catch (error) {
+    console.error('error', error);
+  }
+};
+
+export const getAllPaintings = async () => {
+  try {
+    const { data } = await client.query({
+      query: GET_ALL_PAINTINGS,
+    });
+    return data.paintingCollection.items;
+  } catch (error) {
+    console.error('error', error);
+  }
+};
+
+export const getPaintingByName = async ({ name }) => {
+  try {
+    const { data } = await client.query({
+      query: GET_PAINTING_BY_NAME,
+      variables: { name },
+    });
+    return data.paintingCollection.items[0];
+  } catch (error) {
+    console.error('error', error);
+  }
+};
+
+export const getEventByName = async ({ name }) => {
+  try {
+    const { data } = await client.query({
+      query: GET_EVENT_BY_NAME,
+      variables: { name },
+    });
+    return data.eventCollection.items[0];
+  } catch (error) {
+    console.error('error', error);
+  }
+};
+
+export const getAllEvents = async () => {
+  try {
+    const { data } = await client.query({
+      query: GET_ALL_EVENTS,
+    });
+    return data.eventCollection.items;
+  } catch (error) {
+    console.error('error', error);
+  }
+};
+
+export const getSpecialProjectsTopSection = async ({ entryId = '' }) => {
+  try {
+    const { data } = await client.query({
+      query: GET_SPECIAL_PROJECTS_TOP_SECTION,
+      variables: { entryId },
+    });
+    return data.specialProjectsTopSection;
+  } catch (error) {
+    console.error('error', error);
+  }
 };

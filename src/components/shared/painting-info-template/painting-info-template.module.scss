@@ -1,0 +1,67 @@
+@use '@variables' as variables;
+@use '@mixins' as mixins;
+
+.paintingInfoTemplateContainer {
+  margin-top: 100px;
+}
+
+.mainContent {
+  display: flex;
+  &.centerVertically {
+    align-items: center;
+  }
+}
+
+.image,
+.rightColumn {
+  width: 50%;
+}
+
+.rightColumn {
+  margin-left: 90px;
+}
+
+.name {
+  @include mixins.heading;
+  text-transform: capitalize;
+  margin: 15px 0;
+  line-height: 1;
+}
+
+.price {
+  @include mixins.manropeSemiBold;
+  font-size: 26px;
+}
+
+.contactButton {
+  margin: 45px 0;
+}
+
+.richTextContainer {
+  margin-top: 45px;
+}
+.richText {
+  @include mixins.openSansLight;
+  font-size: 16px;
+  letter-spacing: 0.8px;
+  margin-bottom: 15px;
+}
+
+.richTextBold {
+  @include mixins.openSansMedium;
+}
+
+.richTextItalic {
+  @include mixins.openSansLightItalic;
+}
+
+.additionalDetails {
+  max-width: 750px;
+  margin: 60px auto 140px;
+}
+
+.readMoreButton {
+  @include mixins.openSansBold;
+  text-decoration: underline;
+  margin-top: 25px;
+}

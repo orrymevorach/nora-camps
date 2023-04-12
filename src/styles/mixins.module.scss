@@ -4,7 +4,17 @@
 @mixin heading($fontSize: 45px) {
   font-family: 'Manrope Medium';
   font-size: $fontSize;
-  color: variables[black];
+  color: variables.$black;
+  @media screen and (max-width: variables.$mobile) {
+    font-size: 35px;
+  }
+}
+
+@mixin bodyCopy {
+  font-family: 'OpenSans Regular';
+  font-size: 16px;
+  line-height: 28px;
+  color: variables.$black;
 }
 
 @mixin manropeLight($fontSize: 45px) {
@@ -14,54 +24,80 @@
 
 @mixin manropeRegular {
   font-family: 'Manrope Regular';
+  color: variables.$black;
+}
+
+@mixin manropeSemiBold {
+  font-family: 'Manrope Semi Bold';
   color: #231f20;
 }
 
-@mixin bodyCopy {
-  font-family: 'OpenSans Regular';
-  font-size: 16px;
-  line-height: 28px;
-  color: variables[black];
-}
-
+// font weight 400
 @mixin openSans {
   font-family: 'OpenSans Regular';
-  color: variables[black];
+  color: variables.$black;
+}
+
+@mixin openSansBold {
+  font-family: 'OpenSans Bold';
+  color: variables.$black;
 }
 
 @mixin openSansMedium {
-  font-family: 'OpenSans Extra Medium';
-  color: #231f20;
+  font-family: 'OpenSans Medium';
+  color: variables.$black;
+}
+
+@mixin openSansLight {
+  font-family: 'OpenSans Light';
+  color: variables.$black;
 }
 
 @mixin openSansSemiBold {
-  font-family: 'OpenSans Extra Semi Bold';
+  font-family: 'OpenSans Semi Bold';
   color: #231f20;
 }
 
+@mixin openSansLightItalic {
+  font-family: 'OpenSans Light Italic';
+  color: #231f20;
+}
+
+@mixin montserrat {
+  font-family: 'Montserrat Regular';
+  color: variables.$black;
+}
+
+@mixin montserratLight {
+  font-family: 'Montserrat Light';
+  color: variables.$black;
+}
+
+// font weight 500
 @mixin montserratMedium {
   font-family: 'Montserrat Medium';
-  color: #231f20;
+  color: variables.$black;
+}
+
+@mixin montserratSemiBold {
+  font-family: 'Montserrat Semi Bold';
+  color: variables.$black;
 }
 
 @mixin pagePadding {
   padding: 0 1.25rem;
+  max-width: 1131px;
+  margin: 0 auto;
 }
 
-@mixin joinEmailButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.625rem;
-  width: 268px;
-  min-width: 200px;
-  height: 66px;
-  border: 1px solid variables.$black;
-  background-color: variables.$white;
-  font-size: 1rem;
-  @include montserratMedium;
+@mixin desktopMaxWidth {
+  max-width: var.$desktopWidth;
+}
 
-  p {
-    white-space: nowrap;
-  }
+@mixin tabletMaxWidth {
+  max-width: var.$tabletWidth;
+}
+
+@mixin mobileMaxWidth {
+  max-width: var.$mobileWidth;
 }

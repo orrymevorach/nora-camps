@@ -15,10 +15,6 @@
   @include mixins.openSansSemiBold;
 }
 
-.joinEmailList {
-  @include mixins.joinEmailButton;
-}
-
 .nextLink {
   color: var.$black;
 
@@ -60,8 +56,5 @@
   .navLi {
     padding-bottom: 3.125rem;
     font-size: 1rem;
-  }
-  .joinEmailList {
-    min-width: 100px;
   }
 }

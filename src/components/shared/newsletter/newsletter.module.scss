@@ -1,0 +1,101 @@
+@use '@variables' as var;
+@use '@mixins' as mixins;
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  @include mixins.pagePadding;
+  margin: 6rem 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 477px;
+}
+
+.title {
+  font-size: var.$px16;
+  @include mixins.openSans;
+  opacity: 50%;
+  letter-spacing: 0.2em;
+  margin-bottom: var.$px10;
+}
+
+.signUp {
+  font-size: 2.8125rem;
+  line-height: 4.5rem;
+  margin-bottom: var.$px30;
+  @include mixins.manropeSemiBold;
+}
+
+.description {
+  font-size: var.$px16;
+  @include mixins.openSans;
+  text-align: center;
+  line-height: 28px;
+  margin-bottom: var.$px30;
+}
+
+.row {
+  display: flex;
+  gap: 19px;
+  width: 100%;
+  height: 66px;
+}
+
+.emailInput {
+  @include mixins.montserrat;
+  font-size: var.$px14;
+  letter-spacing: 0.03em;
+  width: 100%;
+  opacity: 50%;
+  padding: 0 var.$px16;
+  height: 100%;
+}
+
+.button {
+  min-width: 0;
+  @include mixins.montserrat;
+  height: 100%;
+}
+
+@media (max-width: var.$mobile) {
+  .title {
+    font-size: var.$px14;
+    margin-bottom: 0;
+  }
+
+  .signUp {
+    font-size: 30px;
+    margin-bottom: var.$px10;
+  }
+
+  .description {
+    font-size: var.$px14;
+    max-width: 350px;
+    margin-bottom: var.$px20;
+  }
+
+  .row {
+    height: 100%;
+    flex-direction: column;
+    gap: var.$px16;
+    max-width: 325px;
+  }
+
+  .emailInput {
+    padding: 0 var.$px10;
+    height: 45px;
+  }
+
+  .button {
+    width: 100%;
+    height: 45px;
+  }
+}

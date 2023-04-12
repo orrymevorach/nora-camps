@@ -7,7 +7,6 @@
   align-items: center;
   justify-content: center;
   top: 0;
-  @include mixins.pagePadding;
   width: 100%;
   background-color: var.$white;
   z-index: 100;
@@ -27,10 +26,6 @@
   height: 66px;
 }
 
-.joinEmailList {
-  @include mixins.joinEmailButton;
-}
-
 @media (max-width: var.$tablet) {
   .container {
     height: 98px;
@@ -43,12 +38,6 @@
   .logo {
     width: 61px;
     height: 51px;
-  }
-
-  .joinEmailList {
-    height: 51px;
-    width: 200px;
-    font-size: 0.875rem;
   }
 }
 

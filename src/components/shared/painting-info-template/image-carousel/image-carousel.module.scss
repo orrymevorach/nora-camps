@@ -1,0 +1,24 @@
+@use '@variables' as variables;
+
+.image {
+  height: 560px;
+  &.background {
+    background-color: variables.$lightGrey;
+    padding: 25px 30px;
+  }
+}
+
+.imageSelectionContainer {
+  display: flex;
+  margin-top: 20px;
+}
+
+.imageSelectionTile {
+  padding: 12px;
+  margin-right: 15px;
+  background-color: variables.$lightGrey;
+}
+
+.active {
+  border: 1px solid black;
+}

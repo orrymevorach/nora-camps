@@ -1,0 +1,21 @@
+@use '@mixins' as mixins;
+@use '@variables' as variables;
+
+.eyebrowContainer {
+  display: flex;
+  margin-bottom: 15px;
+}
+.eyebrowLeft {
+  @include mixins.openSans;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: variables.$darkGrey;
+  font-size: 16px;
+}
+.eyebrowRight {
+  @include mixins.openSans;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-left: 15px;
+}
