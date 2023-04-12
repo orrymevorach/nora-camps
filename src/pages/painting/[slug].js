@@ -15,9 +15,7 @@ export default function Painting({ paintingData, collectionData }) {
   return (
     <>
       <Head>
-        <title>
-          Nora Camps | {capitalizeFirstLetterOfEachWord(paintingData.name)}
-        </title>
+        <title>Nora Camps | Painting</title>
       </Head>
       <PrimaryButton isLeftArrow href="/paintings" hasBorder={false} isBold>
         Back to Painting Page
