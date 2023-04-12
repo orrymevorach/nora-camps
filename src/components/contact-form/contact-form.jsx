@@ -62,17 +62,21 @@ export default function ContactForm() {
         />
 
         <DropDown
-          form={true}
+          isForm={true}
           listItems={listItems}
           attributes={{
             placeholder: 'Type painting',
             ...register('paintings'),
           }}
+          label={
+            <label className={styledInput.label}>
+              Painting(s) interested in
+            </label>
+          }
           classNames={{
             container: styles.painting,
             inputGroup: styledInput.formGroup,
             input: styledInput.input,
-            label: styledInput.label,
             dropDownButton: styledInput.dropDownButton,
           }}
           setValue={setValue}
