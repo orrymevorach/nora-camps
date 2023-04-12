@@ -1,4 +1,4 @@
-export default function SmallLogo({ classNames = '' }) {
+export default function MainLogo({ classNames = '' }) {
   return (
     <svg
       width='39'
