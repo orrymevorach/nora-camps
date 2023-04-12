@@ -5,9 +5,9 @@
   padding: 3rem 0;
 }
 
-.copyright {
+.copyrightPosition {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  width: 100%;
+  flex-grow: 1;
 }

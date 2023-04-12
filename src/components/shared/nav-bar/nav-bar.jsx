@@ -1,12 +1,11 @@
 import Link from 'next/link';
 import { clsx } from 'clsx';
-import Image from 'next/image';
-import ncLogo from 'images/NC.png';
 import { useState } from 'react';
 import { useWindowSize } from '@/hooks';
 import Search from '../search/search-bar';
 import DesktopNav from './desktop-nav/desktop-nav';
 import MobileNav from './mobile-nav/mobile-nav';
+import MainLogo from 'svg/main-logo';
 import styles from './nav-bar.module.scss';
 
 export default function NavBar() {
@@ -35,9 +34,7 @@ export default function NavBar() {
     >
       <nav className={clsx(styles.navigation)}>
         <Link href='/' onClick={() => setMobileNavView(false)}>
-          <div className={styles.noraLogoBackground}>
-            <Image src={ncLogo} alt='main logo' />
-          </div>
+          <MainLogo classNames={styles.logo} />
         </Link>
         {!isMobile ? (
           <DesktopNav

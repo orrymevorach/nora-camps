@@ -1,5 +1,5 @@
-import Facebook from 'svg/Facebook';
-import Instagram from 'svg/Instagram';
+import Facebook from 'svg/facebook';
+import Instagram from 'svg/instagram';
 import styles from './social-buttons.module.scss';
 
 export default function SocialButtons() {
