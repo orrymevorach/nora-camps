@@ -3,11 +3,12 @@ import DropDownMenu from './list/list';
 import DownArrow from 'svg/down-arrow';
 
 export default function DropDown({
-  form = false,
+  isForm = false,
   setValue = '',
   listItems = [],
   attributes = {},
   classNames = '',
+  label = '',
 }) {
   const [isToggled, setIsToggled] = useState(false);
   const inputRef = useRef(null);
@@ -15,9 +16,7 @@ export default function DropDown({
   return (
     <div className={classNames.container}>
       <div className={classNames.inputGroup}>
-        {form && (
-          <label className={classNames.label}>Painting(s) interested in</label>
-        )}
+        {label}
         <input className={classNames.input} ref={inputRef} {...attributes} />
         <button
           type='button'
@@ -30,7 +29,7 @@ export default function DropDown({
       </div>
       {isToggled && (
         <DropDownMenu
-          form={form}
+          isForm={isForm}
           isToggled={isToggled}
           setIsToggled={setIsToggled}
           setValue={setValue}
