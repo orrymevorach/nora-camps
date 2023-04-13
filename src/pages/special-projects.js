@@ -9,7 +9,7 @@ export default function SpecialProjects({ entries = [] }) {
       <Head>
         <title>Nora Camps | Special Projects</title>
       </Head>
-      <PageBuilder entries={entries} />
+      <PageBuilder entries={entries} page={PAGES.SPECIAL_PROJECTS} />
     </>
   );
 }

@@ -9,7 +9,7 @@ export default function Home({ entries = [] }) {
       <Head>
         <title>Nora Camps</title>
       </Head>
-      <PageBuilder entries={entries} />
+      <PageBuilder entries={entries} page={PAGES.HOME} />
     </>
   );
 }

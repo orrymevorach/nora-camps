@@ -91,3 +91,17 @@ export const COLLECTION_FRAGMENT = gql`
   ${IMAGE_FRAGMENT}
   ${PAINTING_FRAGMENT}
 `;
+
+export const ABOUT_THE_AUTHOR_FRAGMENT = gql`
+  fragment AboutTheAuthorFields on AboutTheAuthor {
+    description {
+      json
+    }
+    imageCollection {
+      items {
+        ...ImageFields
+      }
+    }
+  }
+  ${IMAGE_FRAGMENT}
+`;

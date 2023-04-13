@@ -5,6 +5,7 @@ import {
   EVENT_FRAGMENT,
   SPECIAL_PROJECT_FRAGMENT,
   COLLECTION_FRAGMENT,
+  ABOUT_THE_AUTHOR_FRAGMENT,
 } from './fragments';
 
 export const GET_PAGE_ENTRIES = gql`
@@ -74,6 +75,9 @@ export const GET_GALLERY = gql`
           ... on Collection {
             ...CollectionFields
           }
+          ... on AboutTheAuthor {
+            ...AboutTheAuthorFields
+          }
         }
       }
     }
@@ -83,6 +87,7 @@ export const GET_GALLERY = gql`
   ${PAINTING_FRAGMENT}
   ${SPECIAL_PROJECT_FRAGMENT}
   ${COLLECTION_FRAGMENT}
+  ${ABOUT_THE_AUTHOR_FRAGMENT}
 `;
 
 export const GET_PAINTING_BY_NAME = gql`
@@ -94,6 +99,21 @@ export const GET_PAINTING_BY_NAME = gql`
           items {
             ...ImageFields
           }
+        }
+      }
+    }
+  }
+  ${IMAGE_FRAGMENT}
+  ${PAINTING_FRAGMENT}
+`;
+
+export const GET_PAINTING_BY_ENTRY_ID = gql`
+  query getPaintingByEntryId($entryId: String!) {
+    painting(id: $entryId) {
+      ...PaintingFields
+      imageCollection {
+        items {
+          ...ImageFields
         }
       }
     }

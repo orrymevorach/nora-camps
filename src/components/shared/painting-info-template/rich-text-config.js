@@ -13,4 +13,9 @@ export const richTextConfig = {
       return <p className={styles.richText}>{children}</p>;
     },
   },
+  renderText: text => {
+    return text.split('\n').reduce((children, textSegment, index) => {
+      return [...children, index > 0 && <br key={index} />, textSegment];
+    }, []);
+  },
 };

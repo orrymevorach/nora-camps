@@ -10,13 +10,9 @@ import Location from './location';
 import Details from './details';
 import ImageCarousel from './image-carousel';
 import clsx from 'clsx';
+import { PAGES } from '@/utils/contentful';
 
-export const THEMES = {
-  PAINTING: 'PAINTING',
-  EVENT: 'EVENT',
-  SPECIAL_PROJECT: 'SPECIAL_PROJECT',
-};
-const { PAINTING, EVENT, SPECIAL_PROJECT } = THEMES;
+const { PAINTING_SPECIFIC_PAGE, SPECIAL_PROJECTS, ABOUT } = PAGES;
 
 export default function PaintingInfoTemplate({
   imageCollection,
@@ -29,7 +25,7 @@ export default function PaintingInfoTemplate({
   startDate,
   endDate,
   location,
-  theme = '',
+  page = '',
   button = { label: '', url: '' },
   imageOnRightSide = false,
 }) {
@@ -46,27 +42,28 @@ export default function PaintingInfoTemplate({
     }
   }
 
-  const mapThemeToButtonProps = {
-    [PAINTING]: {
+  const mapPageToButtonProps = {
+    [PAINTING_SPECIFIC_PAGE]: {
       label: 'Contact for purchase',
       href: '/contact',
     },
-    [SPECIAL_PROJECT]: {
+    [SPECIAL_PROJECTS]: {
       label: button.label,
       href: button.url,
     },
   };
 
-  const buttonProps = mapThemeToButtonProps[theme];
-  const isPainting = theme === PAINTING;
-  const isSpecialProject = theme === SPECIAL_PROJECT;
+  const buttonProps = mapPageToButtonProps[page];
+  const isPainting = page === PAINTING_SPECIFIC_PAGE;
+  const isSpecialProject = page === SPECIAL_PROJECTS;
+  const isAboutPage = page === ABOUT;
 
   return (
     <div className={styles.paintingInfoTemplateContainer}>
       <div
         className={clsx(
           styles.mainContent,
-          isSpecialProject && styles.centerVertically,
+          isSpecialProject || isAboutPage ? styles.centerVertically : '',
           imageOnRightSide && styles.imageOnRightSide
         )}
       >

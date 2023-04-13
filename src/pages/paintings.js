@@ -11,7 +11,7 @@ export default function Paintings({ entries = [], allPaintings }) {
       <Head>
         <title>Nora Camps | Paintings</title>
       </Head>
-      <PageBuilder entries={gallery} />
+      <PageBuilder entries={gallery} page={PAGES.PAINTINGS} />
     </>
   );
 }
