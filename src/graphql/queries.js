@@ -59,6 +59,11 @@ export const GET_GALLERY = gql`
         items {
           ... on Painting {
             ...PaintingFields
+            imageCollection(limit: 1) {
+              items {
+                ...ImageFields
+              }
+            }
           }
           ... on Event {
             ...EventFields
@@ -73,6 +78,7 @@ export const GET_GALLERY = gql`
       }
     }
   }
+  ${IMAGE_FRAGMENT}
   ${EVENT_FRAGMENT}
   ${PAINTING_FRAGMENT}
   ${SPECIAL_PROJECT_FRAGMENT}
@@ -84,9 +90,15 @@ export const GET_PAINTING_BY_NAME = gql`
     paintingCollection(where: { name: $name }) {
       items {
         ...PaintingFields
+        imageCollection {
+          items {
+            ...ImageFields
+          }
+        }
       }
     }
   }
+  ${IMAGE_FRAGMENT}
   ${PAINTING_FRAGMENT}
 `;
 
@@ -95,9 +107,15 @@ export const GET_ALL_PAINTINGS = gql`
     paintingCollection {
       items {
         ...PaintingFields
+        imageCollection(limit: 1) {
+          items {
+            ...ImageFields
+          }
+        }
       }
     }
   }
+  ${IMAGE_FRAGMENT}
   ${PAINTING_FRAGMENT}
 `;
 
