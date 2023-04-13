@@ -1,3 +1,4 @@
+import { isOdd } from '@/utils/string-utils';
 import styles from './gallery.module.scss';
 import PaintingInfoTemplate, {
   THEMES,
@@ -6,10 +7,15 @@ import PaintingInfoTemplate, {
 export default function SpecialProjectsGallery({ items = [] }) {
   return (
     <ul>
-      {items.map(item => {
+      {items.map((item, index) => {
+        const imageOnRightSide = isOdd(index);
         return (
-          <li key={item.name}>
-            <PaintingInfoTemplate {...item} theme={THEMES.SPECIAL_PROJECT} />
+          <li key={item.name} className={styles.listItem}>
+            <PaintingInfoTemplate
+              {...item}
+              theme={THEMES.SPECIAL_PROJECT}
+              imageOnRightSide={imageOnRightSide}
+            />
           </li>
         );
       })}

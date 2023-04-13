@@ -3,13 +3,17 @@ import { useState } from 'react';
 import styles from './image-carousel.module.scss';
 import clsx from 'clsx';
 
-export default function ImageCarousel({ images, hasBackground = true }) {
+export default function ImageCarousel({
+  images,
+  hasBackground = true,
+  classNames,
+}) {
   const [currentImage, setCurrentImage] = useState(images[0]);
   const { url, width, height, alt } = currentImage;
   const hasMultipleImages = images.length > 1;
 
   return (
-    <div>
+    <div className={classNames}>
       <Image
         src={url}
         width={width}
