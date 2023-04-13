@@ -4,7 +4,6 @@
 .primaryButton {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 0.625rem;
   width: 268px;
   min-width: 200px;
@@ -16,6 +15,7 @@
 
   &.border {
     border: 1px solid $black;
+    justify-content: center;
   }
 
   &.bold {

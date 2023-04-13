@@ -11,6 +11,7 @@ import {
   GET_EVENT_BY_NAME,
   GET_SPECIAL_PROJECTS_TOP_SECTION,
   GET_PAINTING_BY_ENTRY_ID,
+  GET_RICH_TEXT_BY_ENTRY_ID,
 } from '@/graphql/queries';
 
 export const getEntryIdsFromPageBuilder = async ({ page = '' }) => {
@@ -124,6 +125,18 @@ export const getSpecialProjectsTopSection = async ({ entryId = '' }) => {
       variables: { entryId },
     });
     return data.specialProjectsTopSection;
+  } catch (error) {
+    console.error('error', error);
+  }
+};
+
+export const getRichTextByEntryId = async ({ entryId = '' }) => {
+  try {
+    const { data } = await client.query({
+      query: GET_RICH_TEXT_BY_ENTRY_ID,
+      variables: { entryId },
+    });
+    return data.contentTypeRichText;
   } catch (error) {
     console.error('error', error);
   }

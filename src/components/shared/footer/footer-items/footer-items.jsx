@@ -5,7 +5,7 @@ export default function FooterItems() {
   const footerNavItems = [
     { label: 'Contact', href: '/contact' },
     { label: 'Newsletter', href: '/newsletter' },
-    { label: 'Shipping & Policies', href: '/shipping' },
+    { label: 'Shipping & Policies', href: '/shipping-and-policies' },
     { label: 'Special Projects', href: '/special-projects' },
   ];
 

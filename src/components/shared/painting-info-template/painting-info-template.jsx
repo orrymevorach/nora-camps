@@ -5,7 +5,6 @@ import { formatPrice } from '@/utils/string-utils';
 import { useRef, useState } from 'react';
 import EventDateRange from '../event-date-range/event-date-range';
 import Eyebrow from './eyebrow';
-import { richTextConfig } from './rich-text-config';
 import Location from './location';
 import Details from './details';
 import ImageCarousel from './image-carousel';
@@ -102,7 +101,6 @@ export default function PaintingInfoTemplate({
           {description && (
             <RichText
               json={description.json}
-              config={richTextConfig}
               classNames={styles.richTextContainer}
             />
           )}
@@ -127,7 +125,6 @@ export default function PaintingInfoTemplate({
       {additionalDescription && showAdditionalDescription && (
         <RichText
           json={additionalDescription.json}
-          config={richTextConfig}
           classNames={styles.additionalDetails}
           refs={additionalDescriptionRef}
         />

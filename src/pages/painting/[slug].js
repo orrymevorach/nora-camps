@@ -7,6 +7,7 @@ import Head from 'next/head';
 import PrimaryButton from '@/components/shared/primary-button';
 import PaintingInfoTemplate from '@/components/shared/painting-info-template/painting-info-template';
 import { PAGES } from '@/utils/contentful';
+import Wrapper from '@/components/shared/wrapper/wrapper';
 
 export default function Painting({ paintingData, collectionData }) {
   // The collectionData prop has all the paintings in this collection. Use this data for the reccommended paintings section
@@ -15,13 +16,15 @@ export default function Painting({ paintingData, collectionData }) {
       <Head>
         <title>Nora Camps | Painting</title>
       </Head>
-      <PrimaryButton isLeftArrow href="/paintings" hasBorder={false} isBold>
-        Back to Painting Page
-      </PrimaryButton>
-      <PaintingInfoTemplate
-        {...paintingData}
-        page={PAGES.PAINTING_SPECIFIC_PAGE}
-      />
+      <Wrapper>
+        <PrimaryButton isLeftArrow href="/paintings" hasBorder={false} isBold>
+          Back to Painting Page
+        </PrimaryButton>
+        <PaintingInfoTemplate
+          {...paintingData}
+          page={PAGES.PAINTING_SPECIFIC_PAGE}
+        />
+      </Wrapper>
     </>
   );
 }
