@@ -73,7 +73,7 @@ export default function DropDownMenu({
     document.addEventListener('mouseup', closeDropDownByLosingFocus);
     return () =>
       document.removeEventListener('mouseup', closeDropDownByLosingFocus);
-  }, [ulRef]);
+  }, [ulRef, closeDropDown]);
 
   useEffect(() => {
     if (isToggled) {
