@@ -1,10 +1,12 @@
+import { useRouter } from 'next/router';
 import NavItems from '../nav-items/nav-items';
-import { clsx } from 'clsx';
 import styles from '../nav-bar.module.scss';
 import MagnifyingGlass from 'svg/magnifying-glass';
 import PrimaryButton from '@/components/shared/primary-button';
 
 export default function DesktopNav({ toggleMobileNavView, toggleSearchBar }) {
+  const { route } = useRouter();
+
   return (
     <>
       <NavItems toggles={{ toggleMobileNavView }} />
@@ -14,7 +16,10 @@ export default function DesktopNav({ toggleMobileNavView, toggleSearchBar }) {
       >
         <MagnifyingGlass />
       </button>
-      <PrimaryButton href='/mail' classNames={styles.nextLink}>
+      <PrimaryButton
+        href='/mail'
+        classNames={route === '/mail' && styles.joinEmailButtonActive}
+      >
         Join the Email List
       </PrimaryButton>
     </>

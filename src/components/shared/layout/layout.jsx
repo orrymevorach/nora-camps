@@ -11,9 +11,6 @@ export default function Layout({ children }) {
     '/contact': false,
   };
 
-  console.log(mapToRouteName[route]);
-  console.log(route);
-
   return (
     <div>
       <Nav />
