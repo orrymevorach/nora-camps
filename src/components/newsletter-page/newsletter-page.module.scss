@@ -1,0 +1,65 @@
+@use '@variables' as var;
+@use '@mixins' as mixins;
+
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  @include mixins.openSans;
+  padding: 5rem 0;
+}
+
+.form {
+  display: grid;
+  width: 100%;
+  max-width: 480px;
+  grid-template-areas:
+    'upperText'
+    'firstName'
+    'lastName'
+    'email';
+  gap: 1.75rem;
+}
+
+.upperText {
+  grid-area: upperText;
+}
+
+.title {
+  grid-area: title;
+  font-size: var.$px14;
+  opacity: 50%;
+  letter-spacing: 0.2em;
+}
+
+.signUp {
+  grid-area: signUp;
+  font-size: var.$px30;
+  padding: 1.25rem 0;
+  @include mixins.manropeSemiBold;
+}
+
+.description {
+  grid-area: description;
+  font-size: var.$px14;
+  line-height: 28px;
+  max-width: 385px;
+}
+
+.firstName {
+  grid-area: firstName;
+}
+
+.lastName {
+  grid-area: lastName;
+}
+
+.email {
+  grid-area: email;
+}
+
+.joinEmailButton {
+  height: 50px;
+  width: 100%;
+  font-size: var.$px14;
+}
