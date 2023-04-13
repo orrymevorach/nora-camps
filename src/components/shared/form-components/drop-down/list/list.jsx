@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import styled from './list.module.scss';
 
 export default function DropDownMenu({
@@ -52,10 +52,10 @@ export default function DropDownMenu({
     closeDropDown();
   };
 
-  const closeDropDown = () => {
+  const closeDropDown = useCallback(() => {
     setIsToggled(false);
     document.body.style.overflow = 'visible';
-  };
+  }, [setIsToggled]);
 
   useEffect(() => {
     const closeDropDownByLosingFocus = e => {
