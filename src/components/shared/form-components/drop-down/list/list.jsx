@@ -3,7 +3,7 @@ import styled from './list.module.scss';
 
 export default function DropDownMenu({
   isForm = '',
-  isToggled,
+  isToggled = false,
   setIsToggled,
   setValue = '',
   reference = '',
@@ -54,6 +54,7 @@ export default function DropDownMenu({
 
   const closeDropDown = () => {
     setIsToggled(false);
+    document.body.style.overflow = 'visible';
   };
 
   useEffect(() => {
@@ -79,7 +80,6 @@ export default function DropDownMenu({
       const dropDownLi = document.querySelectorAll('#drop-down-li');
       document.body.style.overflow = 'hidden';
       dropDownLi[0].focus();
-    } else {
     }
   }, [isToggled]);
 
