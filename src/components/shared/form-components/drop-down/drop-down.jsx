@@ -35,6 +35,7 @@ export default function DropDown({
           setValue={setValue}
           listItems={listItems}
           reference={inputRef}
+          classNames={classNames.listStyle}
         />
       )}
     </div>

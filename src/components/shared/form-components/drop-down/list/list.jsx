@@ -8,6 +8,7 @@ export default function DropDownMenu({
   setValue = '',
   reference = '',
   listItems,
+  classNames = '',
 }) {
   const ulRef = useRef(null);
 
@@ -57,6 +58,7 @@ export default function DropDownMenu({
 
   useEffect(() => {
     const closeDropDownByLosingFocus = e => {
+      document.body.style.overflow = 'visible';
       const target = e.target;
       if (
         ulRef.current &&
@@ -74,19 +76,21 @@ export default function DropDownMenu({
 
   useEffect(() => {
     if (isToggled) {
-      const listItems = document.querySelectorAll('#drop-down-li');
-      listItems[0].focus();
+      const dropDownLi = document.querySelectorAll('#drop-down-li');
+      document.body.style.overflow = 'hidden';
+      dropDownLi[0].focus();
+    } else {
     }
   }, [isToggled]);
 
   return (
     <>
-      <ul ref={ulRef} className={styled.ul}>
+      <ul ref={ulRef} className={isForm ? styled.ul : classNames.ul}>
         {listItems.map(option => {
           return (
             <li
               tabIndex='0'
-              className={styled.li}
+              className={isForm ? styled.li : classNames.li}
               id='drop-down-li'
               key={option}
               onKeyDown={e => handleKeyPress(e, option)}
