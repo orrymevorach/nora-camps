@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import DownArrow from '@/components/shared/svg/down-arrow';
 import styles from './collections-drop-down.module.scss';
+import DropDown from '@/components/shared/form-components/drop-down/drop-down';
 
 export default function CollectionsDropDown() {
-  const collections = [
+  const listItems = [
     'All',
     'Landscapes',
     'Abstracts',
@@ -34,7 +35,19 @@ export default function CollectionsDropDown() {
       <div className={styles.borderTop}>
         <p className={styles.filterBy}>Filter By</p>
         <div className={styles.dropDown}>
-          <button
+          <DropDown
+            isForm={false}
+            isToggled={isToggled}
+            setIsToggled={setIsToggled}
+            setDropDownValue={setDropDownValue}
+            listItems={listItems}
+            attributes={{
+              defaultValue: 'Collections',
+              readOnly: readOnly,
+              tabIndex: -1,
+            }}
+          />
+          {/* <button
             className={styles.openDropDown}
             onClick={() => toggleDropDown()}
           >
@@ -64,7 +77,7 @@ export default function CollectionsDropDown() {
                 );
               })}
             </ul>
-          )}
+          )} */}
         </div>
       </div>
     </div>
