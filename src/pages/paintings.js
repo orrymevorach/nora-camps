@@ -1,3 +1,4 @@
+import CollectionsDropDown from '@/components/paintings-page/collections-drop-down/collections-drop-down';
 import PageBuilder from '@/components/shared/page-builder';
 import SEO from '@/components/shared/seo/seo';
 import { useFilterByCollection } from '@/hooks/useFilterByCollection';
@@ -9,6 +10,7 @@ export default function Paintings({ entries = [], allPaintings }) {
   return (
     <>
       <SEO title="Paintings" />
+      <CollectionsDropDown />
       <PageBuilder entries={gallery} page={PAGES.PAINTINGS} />
     </>
   );

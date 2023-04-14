@@ -3,7 +3,7 @@ import DropDownMenu from './list/list';
 import DownArrow from 'svg/down-arrow';
 
 export default function DropDown({
-  isForm = false,
+  isReactHookForm = false,
   setValue = '',
   listItems = [],
   attributes = {},
@@ -16,7 +16,7 @@ export default function DropDown({
   return (
     <div className={classNames.container}>
       <div className={classNames.inputGroup}>
-        {isForm && <label className={classNames.label}>{label}</label>}
+        {isReactHookForm && <label className={classNames.label}>{label}</label>}
         <input className={classNames.input} ref={inputRef} {...attributes} />
         <button
           type='button'
@@ -29,12 +29,13 @@ export default function DropDown({
       </div>
       {isToggled && (
         <DropDownMenu
-          isForm={isForm}
+          isReactHookForm={isReactHookForm}
           isToggled={isToggled}
           setIsToggled={setIsToggled}
           setValue={setValue}
           listItems={listItems}
           reference={inputRef}
+          classNames={classNames.listStyle}
         />
       )}
     </div>

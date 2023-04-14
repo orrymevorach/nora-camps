@@ -1,0 +1,102 @@
+@use '@variables' as var;
+@use '@mixins' as mixins;
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 1.5rem;
+}
+
+.borderTop {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid black;
+  width: 100%;
+  max-width: 1131px;
+  padding-top: 1rem;
+}
+
+.filterBy {
+  @include mixins.openSans;
+  font-size: var.$px14;
+}
+
+.dropDownContainer {
+  position: relative;
+  display: flex;
+  height: 50px;
+}
+
+.inputGroup {
+  display: flex;
+  align-items: center;
+  background: var.$lightGrey;
+  height: 100%;
+}
+
+.input {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border: none;
+  font-size: var.$px14;
+  padding: 0 20px;
+  background: transparent;
+  @include mixins.openSansSemiBold;
+  cursor: pointer;
+}
+
+.downArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 50px;
+}
+
+.ul {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  @include mixins.openSansSemiBold;
+}
+
+.li {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  border-top: 1px solid #e0e0e0;
+  padding: 0 var.$px20;
+  background: var.$lightGrey;
+  font-size: var.$px14;
+  cursor: pointer;
+}
+
+.li:focus,
+.li:hover {
+  background-color: rgb(251, 251, 251);
+}
+
+@media (max-width: var.$tablet) {
+  .container {
+    padding-bottom: 1rem;
+  }
+
+  .borderTop {
+    max-width: 900px;
+  }
+
+  .filterBy {
+    font-size: 0.875rem;
+  }
+
+  .input {
+    font-size: 0.875rem;
+  }
+
+  .ul {
+    font-size: 0.875rem;
+  }
+}
