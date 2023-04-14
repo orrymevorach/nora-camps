@@ -30,7 +30,7 @@ export default function CollectionsDropDown() {
       <div className={styles.borderTop}>
         <p className={styles.filterBy}>Filter By</p>
         <DropDown
-          isForm={false}
+          isReactHookForm={false}
           isToggled={isToggled}
           setIsToggled={setIsToggled}
           setDropDownValue={setDropDownValue}
@@ -38,6 +38,7 @@ export default function CollectionsDropDown() {
           attributes={{
             defaultValue: 'Collections',
             tabIndex: -1,
+            readOnly: true,
           }}
           classNames={{
             container: styles.dropDownContainer,

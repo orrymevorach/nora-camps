@@ -2,7 +2,7 @@ import { useEffect, useRef, useCallback } from 'react';
 import styled from './list.module.scss';
 
 export default function DropDownMenu({
-  isForm = '',
+  isReactHookForm = '',
   isToggled = false,
   setIsToggled,
   setValue = '',
@@ -48,7 +48,9 @@ export default function DropDownMenu({
   };
 
   const setValueAndCloseDropDown = option => {
-    isForm ? setValue('paintings', option) : (reference.current.value = option);
+    isReactHookForm
+      ? setValue('paintings', option)
+      : (reference.current.value = option);
     closeDropDown();
   };
 
@@ -85,12 +87,12 @@ export default function DropDownMenu({
 
   return (
     <>
-      <ul ref={ulRef} className={isForm ? styled.ul : classNames.ul}>
+      <ul ref={ulRef} className={isReactHookForm ? styled.ul : classNames.ul}>
         {listItems.map(option => {
           return (
             <li
               tabIndex='0'
-              className={isForm ? styled.li : classNames.li}
+              className={isReactHookForm ? styled.li : classNames.li}
               id='drop-down-li'
               key={option}
               onKeyDown={e => handleKeyPress(e, option)}
