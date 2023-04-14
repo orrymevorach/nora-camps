@@ -62,7 +62,7 @@ export default function ContactForm() {
         />
 
         <DropDown
-          isForm={true}
+          isReactHookForm={true}
           listItems={listItems}
           attributes={{
             placeholder: 'Type painting',
