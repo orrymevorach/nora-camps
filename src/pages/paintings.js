@@ -1,3 +1,4 @@
+import CollectionsDropDown from '@/components/paintings-page/collections-drop-down/collections-drop-down';
 import PageBuilder from '@/components/shared/page-builder';
 import { useFilterByCollection } from '@/hooks/useFilterByCollection';
 import { getAllPaintings, getEntryIdsFromPageBuilder } from '@/lib/contentful';
@@ -11,6 +12,7 @@ export default function Paintings({ entries = [], allPaintings }) {
       <Head>
         <title>Nora Camps | Paintings</title>
       </Head>
+      <CollectionsDropDown />
       <PageBuilder entries={gallery} page={PAGES.PAINTINGS} />
     </>
   );
