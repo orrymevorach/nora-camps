@@ -5,6 +5,7 @@ import {
   EVENT_FRAGMENT,
   SPECIAL_PROJECT_FRAGMENT,
   COLLECTION_FRAGMENT,
+  ABOUT_THE_AUTHOR_FRAGMENT,
 } from './fragments';
 
 export const GET_PAGE_ENTRIES = gql`
@@ -59,6 +60,11 @@ export const GET_GALLERY = gql`
         items {
           ... on Painting {
             ...PaintingFields
+            imageCollection(limit: 1) {
+              items {
+                ...ImageFields
+              }
+            }
           }
           ... on Event {
             ...EventFields
@@ -69,14 +75,19 @@ export const GET_GALLERY = gql`
           ... on Collection {
             ...CollectionFields
           }
+          ... on AboutTheAuthor {
+            ...AboutTheAuthorFields
+          }
         }
       }
     }
   }
+  ${IMAGE_FRAGMENT}
   ${EVENT_FRAGMENT}
   ${PAINTING_FRAGMENT}
   ${SPECIAL_PROJECT_FRAGMENT}
   ${COLLECTION_FRAGMENT}
+  ${ABOUT_THE_AUTHOR_FRAGMENT}
 `;
 
 export const GET_PAINTING_BY_NAME = gql`
@@ -84,9 +95,30 @@ export const GET_PAINTING_BY_NAME = gql`
     paintingCollection(where: { name: $name }) {
       items {
         ...PaintingFields
+        imageCollection {
+          items {
+            ...ImageFields
+          }
+        }
       }
     }
   }
+  ${IMAGE_FRAGMENT}
+  ${PAINTING_FRAGMENT}
+`;
+
+export const GET_PAINTING_BY_ENTRY_ID = gql`
+  query getPaintingByEntryId($entryId: String!) {
+    painting(id: $entryId) {
+      ...PaintingFields
+      imageCollection {
+        items {
+          ...ImageFields
+        }
+      }
+    }
+  }
+  ${IMAGE_FRAGMENT}
   ${PAINTING_FRAGMENT}
 `;
 
@@ -95,9 +127,15 @@ export const GET_ALL_PAINTINGS = gql`
     paintingCollection {
       items {
         ...PaintingFields
+        imageCollection(limit: 1) {
+          items {
+            ...ImageFields
+          }
+        }
       }
     }
   }
+  ${IMAGE_FRAGMENT}
   ${PAINTING_FRAGMENT}
 `;
 
@@ -148,4 +186,14 @@ export const GET_SPECIAL_PROJECTS_TOP_SECTION = gql`
     }
   }
   ${IMAGE_FRAGMENT}
+`;
+
+export const GET_RICH_TEXT_BY_ENTRY_ID = gql`
+  query GetRichText($entryId: String!) {
+    contentTypeRichText(id: $entryId) {
+      richText {
+        json
+      }
+    }
+  }
 `;

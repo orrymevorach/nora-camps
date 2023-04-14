@@ -1,0 +1,11 @@
+@use '@mixins' as mixins;
+
+.largeWrapper {
+  @include mixins.maxWidthContainer;
+}
+
+.smallWrapper {
+  max-width: 750px;
+  margin: 0 auto;
+  display: block;
+}

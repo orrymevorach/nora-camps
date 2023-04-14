@@ -1,0 +1,11 @@
+@use '@mixins' as mixins;
+
+.aboutTheAuthorContainer {
+  max-width: 750px;
+  display: block;
+  margin: 0 auto;
+}
+
+.richText {
+  margin-bottom: 30px;
+}

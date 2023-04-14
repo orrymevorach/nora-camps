@@ -4,7 +4,7 @@ import styles from './top-image-section.module.scss';
 export default function TopImageSection({ images }) {
   return (
     <div className={styles.container}>
-      {images.map(({ url, width, height, description }) => {
+      {images.map(({ url, width, height, description }, index) => {
         return (
           <Image
             key={url}
@@ -12,6 +12,7 @@ export default function TopImageSection({ images }) {
             width={width}
             height={height}
             alt={description}
+            className={styles[`image-${index + 1}`]}
           />
         );
       })}

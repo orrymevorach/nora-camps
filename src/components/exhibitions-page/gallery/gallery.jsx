@@ -11,9 +11,12 @@ export default function Gallery({ items: events }) {
     const dateToCompare = endDate || startDate;
     return dateToCompare < today;
   });
+  const hasCurrentEvents = currentEvents.length > 0;
   return (
     <div className={styles.galleryContainer}>
-      <EventsList heading="Current" events={currentEvents} />
+      {hasCurrentEvents && (
+        <EventsList heading="Current" events={currentEvents} />
+      )}
       <EventsList heading="Past" events={pastEvents} />
     </div>
   );

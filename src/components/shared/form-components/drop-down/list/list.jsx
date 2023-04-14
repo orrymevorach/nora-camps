@@ -1,13 +1,14 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import styled from './list.module.scss';
 
 export default function DropDownMenu({
-  isForm = '',
-  isToggled,
+  isReactHookForm = '',
+  isToggled = false,
   setIsToggled,
   setValue = '',
   reference = '',
   listItems,
+  classNames = '',
 }) {
   const ulRef = useRef(null);
 
@@ -47,16 +48,20 @@ export default function DropDownMenu({
   };
 
   const setValueAndCloseDropDown = option => {
-    isForm ? setValue('paintings', option) : (reference.current.value = option);
+    isReactHookForm
+      ? setValue('paintings', option)
+      : (reference.current.value = option);
     closeDropDown();
   };
 
-  const closeDropDown = () => {
+  const closeDropDown = useCallback(() => {
     setIsToggled(false);
-  };
+    document.body.style.overflow = 'visible';
+  }, [setIsToggled]);
 
   useEffect(() => {
     const closeDropDownByLosingFocus = e => {
+      document.body.style.overflow = 'visible';
       const target = e.target;
       if (
         ulRef.current &&
@@ -70,23 +75,24 @@ export default function DropDownMenu({
     document.addEventListener('mouseup', closeDropDownByLosingFocus);
     return () =>
       document.removeEventListener('mouseup', closeDropDownByLosingFocus);
-  }, [ulRef]);
+  }, [ulRef, closeDropDown]);
 
   useEffect(() => {
     if (isToggled) {
-      const listItems = document.querySelectorAll('#drop-down-li');
-      listItems[0].focus();
+      const dropDownLi = document.querySelectorAll('#drop-down-li');
+      document.body.style.overflow = 'hidden';
+      dropDownLi[0].focus();
     }
   }, [isToggled]);
 
   return (
     <>
-      <ul ref={ulRef} className={styled.ul}>
+      <ul ref={ulRef} className={isReactHookForm ? styled.ul : classNames.ul}>
         {listItems.map(option => {
           return (
             <li
               tabIndex='0'
-              className={styled.li}
+              className={isReactHookForm ? styled.li : classNames.li}
               id='drop-down-li'
               key={option}
               onKeyDown={e => handleKeyPress(e, option)}

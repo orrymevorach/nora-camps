@@ -1,5 +1,4 @@
 import RichText from '@/components/shared/rich-text/rich-text';
-import { richTextConfig } from '@/components/shared/painting-info-template/rich-text-config';
 import styles from './special-projects-page-top-section.module.scss';
 import TopImageSection from './top-image-section';
 import BottomImageSection from './bottom-image-section';
@@ -16,11 +15,7 @@ export default function SpecialProjectsPageTopSection({
       <div className={styles.innerContainer}>
         <TopImageSection images={topImagesCollection.items} />
         <p className={styles.heading}>{heading}</p>
-        <RichText
-          json={description.json}
-          config={richTextConfig}
-          classNames={styles.richText}
-        />
+        <RichText json={description.json} classNames={styles.richText} />
       </div>
       <div className={styles.row}>
         <BottomImageSection images={bottomLeftImagesCollection.items} />

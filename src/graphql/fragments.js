@@ -30,14 +30,8 @@ export const PAINTING_FRAGMENT = gql`
     additionalDescription {
       json
     }
-    imageCollection(limit: 1) {
-      items {
-        ...ImageFields
-      }
-    }
     __typename
   }
-  ${IMAGE_FRAGMENT}
 `;
 
 export const EVENT_FRAGMENT = gql`
@@ -67,7 +61,7 @@ export const SPECIAL_PROJECT_FRAGMENT = gql`
     description {
       json
     }
-    imageCollection(limit: 1) {
+    imageCollection(limit: 5) {
       items {
         ...ImageFields
       }
@@ -86,9 +80,28 @@ export const COLLECTION_FRAGMENT = gql`
     paintingsCollection(limit: 40) {
       items {
         ...PaintingFields
+        imageCollection(limit: 1) {
+          items {
+            ...ImageFields
+          }
+        }
       }
     }
   }
   ${IMAGE_FRAGMENT}
   ${PAINTING_FRAGMENT}
+`;
+
+export const ABOUT_THE_AUTHOR_FRAGMENT = gql`
+  fragment AboutTheAuthorFields on AboutTheAuthor {
+    description {
+      json
+    }
+    imageCollection {
+      items {
+        ...ImageFields
+      }
+    }
+  }
+  ${IMAGE_FRAGMENT}
 `;

@@ -1,6 +1,10 @@
+@use '@mixins' as mixins;
+@use '@variables' as variables;
+
 .bottomImageSectionContainer {
+  max-width: calc(variables.$desktopMaxWidth / 2);
   img {
-    margin: 12px;
+    padding: 12px;
   }
 }
 
@@ -10,8 +14,4 @@
     width: 50%;
     height: 100%;
   }
-}
-
-.bottomImage {
-  width: 560px;
 }

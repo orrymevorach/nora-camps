@@ -1,10 +1,9 @@
 import { getEventByName, getAllEvents } from '@/lib/contentful';
 import Head from 'next/head';
-import PaintingInfoTemplate, {
-  THEMES,
-} from '@/components/shared/painting-info-template/painting-info-template';
-import { capitalizeFirstLetterOfEachWord } from '@/utils/string-utils';
+import PaintingInfoTemplate from '@/components/shared/painting-info-template/painting-info-template';
 import PrimaryButton from '@/components/shared/primary-button';
+import { PAGES } from '@/utils/contentful';
+import Wrapper from '@/components/shared/wrapper/wrapper';
 
 export default function Event({ eventData }) {
   return (
@@ -12,10 +11,12 @@ export default function Event({ eventData }) {
       <Head>
         <title>Nora Camps | Event</title>
       </Head>
-      <PrimaryButton isLeftArrow href="/exhibitions" hasBorder={false} isBold>
-        Back to Event Page
-      </PrimaryButton>
-      <PaintingInfoTemplate {...eventData} theme={THEMES.EVENT} />
+      <Wrapper>
+        <PrimaryButton isLeftArrow href="/exhibitions" hasBorder={false} isBold>
+          Back to Event Page
+        </PrimaryButton>
+        <PaintingInfoTemplate {...eventData} page={PAGES.EVENT_SEPCIFIC_PAGE} />
+      </Wrapper>
     </>
   );
 }
