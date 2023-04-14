@@ -1,8 +1,9 @@
 import Head from 'next/head';
-export default function SEO({ title }) {
+export default function SEO({ title = '' }) {
+  const titleAttribute = `Nora Camps${title ? ` | ${title}` : ''}`;
   return (
     <Head>
-      <title>Nora Camps{title && ` | ${title}`}</title>
+      <title>{titleAttribute}</title>
       <link rel="icon" href="images/NC.png" sizes="32" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta
