@@ -13,7 +13,7 @@ export default function Paintings({ entries = [], allPaintings }) {
         <title>Nora Camps | Paintings</title>
       </Head>
       <CollectionsDropDown />
-      <PageBuilder entries={gallery} />
+      <PageBuilder entries={gallery} page={PAGES.PAINTINGS} />
     </>
   );
 }

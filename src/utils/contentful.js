@@ -3,6 +3,7 @@ import {
   getHeroImage,
   getGallery,
   getSpecialProjectsTopSection,
+  getPaintingByEntryId,
 } from '@/lib/contentful';
 
 export const PAGES = {
@@ -10,6 +11,9 @@ export const PAGES = {
   PAINTINGS: 'Paintings Page',
   EXHIBITIONS: 'Exhibitions Page',
   SPECIAL_PROJECTS: 'Special Projects Page',
+  ABOUT: 'About Page',
+  PAINTING_SPECIFIC_PAGE: 'Painting Specific Page',
+  EVENT_SEPCIFIC_PAGE: 'Event Specific Page',
 };
 
 export const CONTENT_MODELS = {
@@ -20,16 +24,25 @@ export const CONTENT_MODELS = {
   PAINTING: 'Painting',
   SPECIAL_PROJECTS_TOP_SECTION: 'SpecialProjectsTopSection',
   SPECIAL_PROJECT: 'SpecialProject',
+  ABOUT_THE_AUTHOR: 'AboutTheAuthor',
 };
 
 export const getEntryDataFromEntryIds = async ({ entryIds }) => {
-  const { HERO_IMAGE, COLLECTION, GALLERY, SPECIAL_PROJECTS_TOP_SECTION } =
-    CONTENT_MODELS;
+  if (!entryIds) return [];
+  const {
+    HERO_IMAGE,
+    COLLECTION,
+    GALLERY,
+    SPECIAL_PROJECTS_TOP_SECTION,
+    PAINTING,
+  } = CONTENT_MODELS;
+
   const mapContentModelToQuery = {
     [HERO_IMAGE]: getHeroImage,
     [COLLECTION]: getCollectionByEntryId,
     [GALLERY]: getGallery,
     [SPECIAL_PROJECTS_TOP_SECTION]: getSpecialProjectsTopSection,
+    [PAINTING]: getPaintingByEntryId,
   };
 
   let data = [];

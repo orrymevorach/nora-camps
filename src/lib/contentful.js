@@ -10,6 +10,7 @@ import {
   GET_ALL_EVENTS,
   GET_EVENT_BY_NAME,
   GET_SPECIAL_PROJECTS_TOP_SECTION,
+  GET_PAINTING_BY_ENTRY_ID,
 } from '@/graphql/queries';
 
 export const getEntryIdsFromPageBuilder = async ({ page = '' }) => {
@@ -17,6 +18,8 @@ export const getEntryIdsFromPageBuilder = async ({ page = '' }) => {
     query: GET_PAGE_ENTRIES,
     variables: { page },
   });
+  const hasEntries = data.pageBuilderCollection.items.length > 0;
+  if (!hasEntries) return;
   return data.pageBuilderCollection.items[0].componentsCollection.items;
 };
 
@@ -74,6 +77,18 @@ export const getPaintingByName = async ({ name }) => {
       variables: { name },
     });
     return data.paintingCollection.items[0];
+  } catch (error) {
+    console.error('error', error);
+  }
+};
+
+export const getPaintingByEntryId = async ({ entryId }) => {
+  try {
+    const { data } = await client.query({
+      query: GET_PAINTING_BY_ENTRY_ID,
+      variables: { entryId },
+    });
+    return data.painting;
   } catch (error) {
     console.error('error', error);
   }

@@ -1,27 +1,27 @@
 import styles from './gallery-container.module.scss';
-import { CONTENT_MODELS } from '@/utils/contentful';
+import { PAGES } from '@/utils/contentful';
 import EventGallery from '@/components/exhibitions-page/gallery';
 import PaintingGallery from '@/components/paintings-page/gallery';
 import SpecialProjectGallery from '@/components/special-projects-page/gallery';
 import CollectionsGallery from '@/components/home-page/gallery';
 
-const { EVENT, PAINTING, SPECIAL_PROJECT, COLLECTION } = CONTENT_MODELS;
+const { PAINTINGS, EXHIBITIONS, SPECIAL_PROJECTS, HOME, ABOUT } = PAGES;
 
-const mapGalleryTypeToComponent = {
-  [PAINTING]: PaintingGallery,
-  [EVENT]: EventGallery,
-  [SPECIAL_PROJECT]: SpecialProjectGallery,
-  [COLLECTION]: CollectionsGallery,
+const mapPageToGalleryComponent = {
+  [PAINTINGS]: PaintingGallery,
+  [EXHIBITIONS]: EventGallery,
+  [SPECIAL_PROJECTS]: SpecialProjectGallery,
+  [HOME]: CollectionsGallery,
+  [ABOUT]: SpecialProjectGallery,
 };
 
 export default function Gallery(props) {
-  const { items } = props;
-  const galleryType = items[0].__typename;
-  const Component = mapGalleryTypeToComponent[galleryType];
+  const { page } = props;
+  const GalleryComponent = mapPageToGalleryComponent[page];
 
   return (
     <div className={styles.container}>
-      <Component {...props} />
+      <GalleryComponent {...props} />
     </div>
   );
 }
