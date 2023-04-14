@@ -1,14 +1,12 @@
 import PageBuilder from '@/components/shared/page-builder';
+import SEO from '@/components/shared/seo/seo';
 import { getEntryIdsFromPageBuilder } from '@/lib/contentful';
 import { PAGES, getEntryDataFromEntryIds } from '@/utils/contentful';
-import Head from 'next/head';
 
 export default function SpecialProjects({ entries = [] }) {
   return (
     <>
-      <Head>
-        <title>Nora Camps | Special Projects</title>
-      </Head>
+      <SEO title="Special Projects" />
       <PageBuilder entries={entries} page={PAGES.SPECIAL_PROJECTS} />
     </>
   );
