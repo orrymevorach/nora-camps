@@ -50,20 +50,6 @@
 .richTextContainer {
   margin-top: 45px;
 }
-.richText {
-  @include mixins.openSansLight;
-  font-size: 16px;
-  letter-spacing: 0.8px;
-  margin-bottom: 15px;
-}
-
-.richTextBold {
-  @include mixins.openSansMedium;
-}
-
-.richTextItalic {
-  @include mixins.openSansLightItalic;
-}
 
 .additionalDetails {
   max-width: 750px;

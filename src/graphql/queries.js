@@ -187,3 +187,13 @@ export const GET_SPECIAL_PROJECTS_TOP_SECTION = gql`
   }
   ${IMAGE_FRAGMENT}
 `;
+
+export const GET_RICH_TEXT_BY_ENTRY_ID = gql`
+  query GetRichText($entryId: String!) {
+    contentTypeRichText(id: $entryId) {
+      richText {
+        json
+      }
+    }
+  }
+`;

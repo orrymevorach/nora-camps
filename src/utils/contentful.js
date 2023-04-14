@@ -4,6 +4,7 @@ import {
   getGallery,
   getSpecialProjectsTopSection,
   getPaintingByEntryId,
+  getRichTextByEntryId,
 } from '@/lib/contentful';
 
 export const PAGES = {
@@ -14,6 +15,7 @@ export const PAGES = {
   ABOUT: 'About Page',
   PAINTING_SPECIFIC_PAGE: 'Painting Specific Page',
   EVENT_SEPCIFIC_PAGE: 'Event Specific Page',
+  SHIPPING_AND_POLICIES: 'Shipping and Policies Page',
 };
 
 export const CONTENT_MODELS = {
@@ -25,6 +27,7 @@ export const CONTENT_MODELS = {
   SPECIAL_PROJECTS_TOP_SECTION: 'SpecialProjectsTopSection',
   SPECIAL_PROJECT: 'SpecialProject',
   ABOUT_THE_AUTHOR: 'AboutTheAuthor',
+  RICH_TEXT: 'ContentTypeRichText',
 };
 
 export const getEntryDataFromEntryIds = async ({ entryIds }) => {
@@ -35,6 +38,7 @@ export const getEntryDataFromEntryIds = async ({ entryIds }) => {
     GALLERY,
     SPECIAL_PROJECTS_TOP_SECTION,
     PAINTING,
+    RICH_TEXT,
   } = CONTENT_MODELS;
 
   const mapContentModelToQuery = {
@@ -43,6 +47,7 @@ export const getEntryDataFromEntryIds = async ({ entryIds }) => {
     [GALLERY]: getGallery,
     [SPECIAL_PROJECTS_TOP_SECTION]: getSpecialProjectsTopSection,
     [PAINTING]: getPaintingByEntryId,
+    [RICH_TEXT]: getRichTextByEntryId,
   };
 
   let data = [];

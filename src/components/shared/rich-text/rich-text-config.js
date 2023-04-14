@@ -1,7 +1,7 @@
-import styles from './painting-info-template.module.scss';
+import styles from './rich-text.module.scss';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 
-export const richTextConfig = {
+export const sharedRichTextConfig = {
   renderMark: {
     [MARKS.BOLD]: text => <span className={styles.richTextBold}>{text}</span>,
     [MARKS.ITALIC]: text => (
@@ -11,6 +11,9 @@ export const richTextConfig = {
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => {
       return <p className={styles.richText}>{children}</p>;
+    },
+    [BLOCKS.HEADING_1]: (node, children) => {
+      return <h1 className={styles.richTextHeading}>{children}</h1>;
     },
   },
   renderText: text => {

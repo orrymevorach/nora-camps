@@ -1,0 +1,21 @@
+@use '@mixins' as mixins;
+
+.richText {
+  @include mixins.openSansLight;
+  font-size: 16px;
+  letter-spacing: 0.8px;
+  margin-bottom: 15px;
+}
+
+.richTextBold {
+  @include mixins.openSansMedium;
+}
+
+.richTextItalic {
+  @include mixins.openSansLightItalic;
+}
+
+.richTextHeading {
+  @include mixins.heading;
+  margin-bottom: 30px;
+}
