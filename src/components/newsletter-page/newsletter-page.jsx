@@ -4,8 +4,7 @@ import styles from './newsletter-page.module.scss';
 import EmailInput from '../shared/form-components/email-input/email-input';
 import PrimaryButton from '../shared/primary-button/primary-button';
 import ImageCarousel from '../shared/painting-info-template/image-carousel/image-carousel';
-import ok from 'images/emailListImage.png';
-import Image from 'next/image';
+import { useWindowSize } from '@/hooks';
 
 export default function NewsletterPage() {
   const {
@@ -13,6 +12,8 @@ export default function NewsletterPage() {
     formState: { errors },
     handleSubmit,
   } = useForm();
+
+  const { isMobile } = useWindowSize();
 
   const image = [
     {
@@ -29,56 +30,60 @@ export default function NewsletterPage() {
 
   return (
     <div className={styles.container}>
-      <ImageCarousel images={image} />
-      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-        <div className={styles.upperText}>
-          <p className={styles.title}>NEWSLETTER</p>
-          <p className={styles.signUp}>Sign up for updates</p>
-          <p className={styles.description}>
-            Sign up with your email address to receive news and updates on my
-            latest exhibitions & works.
-          </p>
-        </div>
-        <InputShell
-          register={register}
-          name='firstName'
-          type='input'
-          required={true}
-          label={'First Name'}
-          classNames={{
-            gridArea: styles.firstName,
-          }}
-          errors={{
-            formError: errors.firstName,
-            message: 'First name is required',
-          }}
-        />
+      <div className={styles.maxWidth}>
+        {!isMobile && (
+          <ImageCarousel
+            images={image}
+            hasBackground={false}
+            classNames={styles.image}
+          />
+        )}
+        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+          <div className={styles.upperText}>
+            <p className={styles.title}>NEWSLETTER</p>
+            <p className={styles.signUp}>Sign up for updates</p>
+            <p className={styles.description}>
+              Sign up with your email address to receive news and updates on my
+              latest exhibitions & works.
+            </p>
+          </div>
+          <InputShell
+            register={register}
+            name='firstName'
+            type='input'
+            required={true}
+            label={'First Name'}
+            classNames={{
+              gridArea: styles.firstName,
+            }}
+            errors={{
+              formError: errors.firstName,
+              message: 'First name is required',
+            }}
+          />
 
-        <InputShell
-          register={register}
-          name='lastName'
-          type='input'
-          required={true}
-          label={'Last Name'}
-          classNames={{
-            gridArea: styles.lastName,
-          }}
-          errors={{
-            formError: errors.lastName,
-            message: 'Last name is required',
-          }}
-        />
+          <InputShell
+            register={register}
+            name='lastName'
+            type='input'
+            required={true}
+            label={'Last Name'}
+            classNames={{
+              gridArea: styles.lastName,
+            }}
+            errors={{
+              formError: errors.lastName,
+              message: 'Last name is required',
+            }}
+          />
 
-        <EmailInput
-          register={register}
-          errors={errors}
-          classNames={styles.email}
-        />
+          <EmailInput register={register} errors={errors} />
 
-        <PrimaryButton classNames={styles.joinEmailButton}>
-          Join the Email List
-        </PrimaryButton>
-      </form>
+          <PrimaryButton classNames={styles.joinEmailButton}>
+            Join the Email List
+          </PrimaryButton>
+        </form>
+      </div>
     </div>
   );
 }

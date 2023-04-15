@@ -23,7 +23,7 @@ export default function EmailInput({ classNames, register, errors }) {
     <div
       className={clsx(
         styles.formGroup,
-        classNames.email,
+        classNames && classNames.email ? classNames.email : '',
         errors.email ? styles.activeError : ''
       )}
     >
