@@ -20,7 +20,9 @@ export const BUTTON_FRAGMENT = gql`
 // For the Painting Display Page, the limit will have to be higher to render more images in the carousel
 export const PAINTING_FRAGMENT = gql`
   fragment PaintingFields on Painting {
-    collection
+    collection {
+      name
+    }
     name
     details
     price
@@ -77,7 +79,7 @@ export const SPECIAL_PROJECT_FRAGMENT = gql`
 export const COLLECTION_FRAGMENT = gql`
   fragment CollectionFields on Collection {
     name
-    paintingsCollection(limit: 40) {
+    paintingsCollection(limit: 35) {
       items {
         ...PaintingFields
         imageCollection(limit: 1) {

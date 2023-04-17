@@ -65,6 +65,9 @@ export const GET_GALLERY = gql`
                 ...ImageFields
               }
             }
+            collection {
+              name
+            }
           }
           ... on Event {
             ...EventFields

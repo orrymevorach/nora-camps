@@ -15,7 +15,7 @@ const { PAINTING_SPECIFIC_PAGE, SPECIAL_PROJECTS, ABOUT } = PAGES;
 
 export default function PaintingInfoTemplate({
   imageCollection,
-  collection,
+  collection = {},
   name,
   description,
   additionalDescription,
@@ -74,8 +74,8 @@ export default function PaintingInfoTemplate({
           />
         )}
         <div className={styles.rightColumn}>
-          {collection && (
-            <Eyebrow leftText="Collection" rightText={collection} />
+          {collection?.name && (
+            <Eyebrow leftText="Collection" rightText={collection.name} />
           )}
           {startDate && <Eyebrow startDate={startDate} endDate={endDate} />}
           {name && <p className={styles.name}>{name}</p>}
