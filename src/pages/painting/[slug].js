@@ -36,7 +36,7 @@ export async function getStaticProps({ params }) {
     };
   const paintingResponse = await getPaintingByName({ name: params.slug });
   const collectionResponse = await getCollectionByName({
-    name: paintingResponse.collection,
+    name: paintingResponse.collection?.name,
   });
 
   // In case the collection field is empty, the page won't break

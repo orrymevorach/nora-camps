@@ -53,6 +53,15 @@ export const GET_COLLECTION_BY_NAME = gql`
   ${COLLECTION_FRAGMENT}
 `;
 
+export const GET_COLLECTION_BY_ENTRY_ID = gql`
+  query getCollectionByEntryId($entryId: String!) {
+    collection(id: $entryId) {
+      ...CollectionFields
+    }
+  }
+  ${COLLECTION_FRAGMENT}
+`;
+
 export const GET_GALLERY = gql`
   query getGallery($entryId: String!) {
     gallery(id: $entryId) {
@@ -64,6 +73,9 @@ export const GET_GALLERY = gql`
               items {
                 ...ImageFields
               }
+            }
+            collection {
+              name
             }
           }
           ... on Event {

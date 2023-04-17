@@ -7,7 +7,7 @@ export const useFilterByCollection = ({ allPaintings, entries }) => {
   useEffect(() => {
     if (query.collection) {
       const paintingsInSelectedCollection = allPaintings.filter(
-        item => item.collection === query.collection
+        item => item.collection.name === query.collection
       );
       // This is the format that the Page Builder expects the content in the gallery
       const collection = [
