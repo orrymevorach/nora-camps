@@ -1,14 +1,12 @@
 import PageBuilder from '@/components/shared/page-builder';
+import SEO from '@/components/shared/seo';
 import { getEntryIdsFromPageBuilder } from '@/lib/contentful';
 import { PAGES, getEntryDataFromEntryIds } from '@/utils/contentful';
-import Head from 'next/head';
 
 export default function Home({ entries = [] }) {
   return (
     <>
-      <Head>
-        <title>Nora Camps</title>
-      </Head>
+      <SEO />
       <PageBuilder entries={entries} page={PAGES.HOME} />
     </>
   );
