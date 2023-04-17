@@ -1,29 +1,15 @@
-import { useEffect, useRef, useState } from 'react';
-import styles from './collections-drop-down.module.scss';
 import DropDown from '@/components/shared/form-components/drop-down/drop-down';
+import styles from './collections-drop-down.module.scss';
 
-export default function CollectionsDropDown() {
+export default function CollectionsDropDown({ setSelectedCollection }) {
   const listItems = [
     'All',
-    'Landscapes',
-    'Abstracts',
+    'Landscape',
+    'Abstract',
     'Floral',
     'Portal',
     'Smalls',
   ];
-  const [isToggled, setIsToggled] = useState(false);
-  const [dropDownValue, setDropDownValue] = useState('');
-  const inputRef = useRef(null);
-
-  useEffect(() => {
-    const updateInputValue = () => {
-      inputRef.current.value = dropDownValue;
-      setIsToggled(false);
-    };
-    if (dropDownValue) {
-      updateInputValue();
-    }
-  }, [dropDownValue]);
 
   return (
     <div className={styles.container}>
@@ -31,10 +17,8 @@ export default function CollectionsDropDown() {
         <p className={styles.filterBy}>Filter By</p>
         <DropDown
           isReactHookForm={false}
-          isToggled={isToggled}
-          setIsToggled={setIsToggled}
-          setDropDownValue={setDropDownValue}
           listItems={listItems}
+          handleChange={setSelectedCollection}
           attributes={{
             defaultValue: 'Collections',
             tabIndex: -1,

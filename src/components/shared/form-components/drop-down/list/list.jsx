@@ -9,6 +9,7 @@ export default function DropDownMenu({
   reference = '',
   listItems,
   classNames = '',
+  handleChange = null,
 }) {
   const ulRef = useRef(null);
 
@@ -51,6 +52,9 @@ export default function DropDownMenu({
     isReactHookForm
       ? setValue('paintings', option)
       : (reference.current.value = option);
+    if (handleChange) {
+      handleChange(reference.current.value);
+    }
     closeDropDown();
   };
 
