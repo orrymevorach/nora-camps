@@ -20,19 +20,34 @@ This site was built using Next.JS
 
 To deploy code to production, create a PR and merge it into master
 
-To run a Contentful deployment:
+Contentful workflow and deployments:
 
-1. Create a new environment off of master in Contentful
-2. Create and edit content models
-3. Use the "Merge" extension to merge in any content model changes from a different branch (note, you will have to give "Merge" access to your new branch)
-4. Test the new branch in your local environment by changing the environment variable in your .local.env file to the name matching your new environment
-5. If you need to build any content before you make the new environment live in production, do it now
-6. When you are ready to deploy, change the `master` alias to the new environment you created
-7. Changing the alias does not deploy any branches, so if you need to run a deployment, do so manually in Netlify.
-8. In order to keep the development branch live with master, it is a good idea to delete the development branch and re-create it off of master after each deployment.
+- The `master` environment in Contentful will always be stable. If you are not working in Contentful, make sure the NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT in your .env.local file is set to `master`.
+
+To add/edit content models without affecting master or other people's work:
+
+1. Create a new environment off of master in Contentful, name it off of your feature. I.e. `add-painting-content-model`.
+2. While you are still on the `master` branch in Contentful, go to API keys, select the production key, and check the checkbox of your new environment to ensure that your new environment can pull data.
+3. In Contentful, switch to your new branch, and make changes to content models and content entries.
+
+To make your Content Model changes live:
+
+1. Create a new Contentful environment off of `master`, and name it with the current date. I.e. master-2023-04-16.
+
+- This makes sure all of the content entries are up to date with what is currently in production
+- This also allows us to revert back to the original master, in the case that there is an issue with out deploymeny
+
+2. Use the "Merge" extension to merge content model changes. Set the source branch as your feature environment, and the target branch as the new master branch you just created.
+3. Test your changes:
+
+- In git, switching to your feature branch
+- Change the environment variable in your .local.env file to the new master environment you created
+- View all pages that will be affected and test the functionality to make sure it is as you expect
+
+4. If all your changes are tested and ready, merge your feature branch into master in git.
+5. While the Netlify deployment is under way with the latest code changes, change the `master` alias in Contenful to the new master environment you created.
 
 Contentful Notes:
 
 - The "master" alias is the one that is live in production.
 - Changing content in the environment that the master alias is using, will also change content on the live site
-- The "development" branch is meant to be a stable branch used striclty by developers. If you have merged changes from a feature branch into master, make sure to also merge them into development, or atlternatively you can delete the existing development branch and re-create it as a duplicate of master
