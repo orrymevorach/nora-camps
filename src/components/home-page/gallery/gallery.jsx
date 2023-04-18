@@ -1,4 +1,4 @@
-import CollectionTile from '../collection-tile';
+import CollectionTile from "../collection-tile";
 
 export default function CollectionsGallery({ items = [] }) {
   return (

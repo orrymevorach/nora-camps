@@ -1,1 +1,1 @@
-export { default } from './collection-tile.jsx'
+export { default } from "./collection-tile.jsx";

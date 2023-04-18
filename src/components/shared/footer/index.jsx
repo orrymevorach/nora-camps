@@ -1,1 +1,1 @@
-export { default } from './foot.jsx';
+export { default } from "./foot.jsx";

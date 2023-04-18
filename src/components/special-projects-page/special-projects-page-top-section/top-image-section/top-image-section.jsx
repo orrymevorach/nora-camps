@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import styles from './top-image-section.module.scss';
+import Image from "next/image";
+import styles from "./top-image-section.module.scss";
 
 export default function TopImageSection({ images }) {
   return (

@@ -1,7 +1,7 @@
-import DesktopFooter from './desktop-footer';
-import MobileFooter from './mobile-footer';
-import { useWindowSize } from '@/hooks';
-import styles from './foot.module.scss';
+import DesktopFooter from "./desktop-footer";
+import MobileFooter from "./mobile-footer";
+import { useWindowSize } from "@/hooks";
+import styles from "./foot.module.scss";
 
 export default function Footer() {
   const { isMobile } = useWindowSize();

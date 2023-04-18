@@ -1,5 +1,5 @@
-@use '@variables' as *;
-@use '../../../styles/mixins.module.scss' as mixins;
+@use "@variables" as *;
+@use "../../../styles/mixins.module.scss" as mixins;
 
 .container {
   height: 600px;
@@ -12,7 +12,7 @@
   margin-bottom: 195px;
   // Overlay
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     height: 100%;
     width: 100%;

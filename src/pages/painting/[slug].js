@@ -2,13 +2,13 @@ import {
   getPaintingByName,
   getAllPaintings,
   getCollectionByName,
-} from '@/lib/contentful';
-import PrimaryButton from '@/components/shared/primary-button';
-import PaintingInfoTemplate from '@/components/shared/painting-info-template/painting-info-template';
-import { PAGES } from '@/utils/contentful';
-import Wrapper from '@/components/shared/wrapper/wrapper';
-import SEO from '@/components/shared/seo/seo';
-import { capitalizeFirstLetterOfEachWord } from '@/utils/string-utils';
+} from "@/lib/contentful";
+import PrimaryButton from "@/components/shared/primary-button";
+import PaintingInfoTemplate from "@/components/shared/painting-info-template/painting-info-template";
+import { PAGES } from "@/utils/contentful";
+import Wrapper from "@/components/shared/wrapper/wrapper";
+import SEO from "@/components/shared/seo/seo";
+import { capitalizeFirstLetterOfEachWord } from "@/utils/string-utils";
 
 export default function Painting({ paintingData = {}, collectionData }) {
   // The collectionData prop has all the paintings in this collection. Use this data for the reccommended paintings section
@@ -30,7 +30,7 @@ export default function Painting({ paintingData = {}, collectionData }) {
 
 export async function getStaticProps({ params }) {
   // this fixes the deployment, since there are no params on build time
-  if (params.slug === 'undefined')
+  if (params.slug === "undefined")
     return {
       props: {},
     };

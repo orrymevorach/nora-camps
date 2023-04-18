@@ -1,12 +1,12 @@
-import Link from 'next/link';
-import styles from './footer-items.module.scss';
+import Link from "next/link";
+import styles from "./footer-items.module.scss";
 
 export default function FooterItems() {
   const footerNavItems = [
-    { label: 'Contact', href: '/contact' },
-    { label: 'Newsletter', href: '/newsletter' },
-    { label: 'Shipping & Policies', href: '/shipping-and-policies' },
-    { label: 'Special Projects', href: '/special-projects' },
+    { label: "Contact", href: "/contact" },
+    { label: "Newsletter", href: "/newsletter" },
+    { label: "Shipping & Policies", href: "/shipping-and-policies" },
+    { label: "Special Projects", href: "/special-projects" },
   ];
 
   return (

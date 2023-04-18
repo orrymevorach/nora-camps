@@ -1,7 +1,7 @@
-import RichText from '@/components/shared/rich-text/rich-text';
-import styles from './special-projects-page-top-section.module.scss';
-import TopImageSection from './top-image-section';
-import BottomImageSection from './bottom-image-section';
+import RichText from "@/components/shared/rich-text/rich-text";
+import styles from "./special-projects-page-top-section.module.scss";
+import TopImageSection from "./top-image-section";
+import BottomImageSection from "./bottom-image-section";
 
 export default function SpecialProjectsPageTopSection({
   topImagesCollection,

@@ -1,5 +1,5 @@
-import { formatDate } from '@/utils/string-utils';
-import styles from './event-date-range.module.scss';
+import { formatDate } from "@/utils/string-utils";
+import styles from "./event-date-range.module.scss";
 
 export default function EventDateRange({ startDate, endDate }) {
   return (
@@ -7,7 +7,7 @@ export default function EventDateRange({ startDate, endDate }) {
       {startDate && <span>{formatDate(startDate)}</span>}
       {endDate && (
         <>
-          {' '}
+          {" "}
           - <br /> <span>{formatDate(endDate)}</span>
         </>
       )}

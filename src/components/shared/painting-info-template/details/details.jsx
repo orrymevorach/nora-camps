@@ -1,4 +1,4 @@
-import styles from './details.module.scss';
+import styles from "./details.module.scss";
 
 export default function Details({ details }) {
   return (

@@ -1,7 +1,7 @@
-import styles from './primary-button.module.scss';
-import RightArrow from '@/components/shared/svg/right-arrow/right-arrow';
-import Link from 'next/link';
-import clsx from 'clsx';
+import styles from "./primary-button.module.scss";
+import RightArrow from "@/components/shared/svg/right-arrow/right-arrow";
+import Link from "next/link";
+import clsx from "clsx";
 
 const ButtonContent = ({ children, isLeftArrow }) => {
   return (
@@ -17,7 +17,7 @@ export default function PrimaryButton({
   children,
   handleClick,
   href = null,
-  classNames = '',
+  classNames = "",
   isLeftArrow = false,
   hasBorder = true,
   isBold = false,

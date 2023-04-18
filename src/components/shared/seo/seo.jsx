@@ -1,6 +1,6 @@
-import Head from 'next/head';
-export default function SEO({ title = '' }) {
-  const titleAttribute = `Nora Camps${title ? ` | ${title}` : ''}`;
+import Head from "next/head";
+export default function SEO({ title = "" }) {
+  const titleAttribute = `Nora Camps${title ? ` | ${title}` : ""}`;
   return (
     <Head>
       <title>{titleAttribute}</title>

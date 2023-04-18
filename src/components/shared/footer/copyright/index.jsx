@@ -1,1 +1,1 @@
-export { default } from './copyright.jsx';
+export { default } from "./copyright.jsx";

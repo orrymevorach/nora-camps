@@ -1,1 +1,1 @@
-export { default } from './about-the-author';
+export { default } from "./about-the-author";
