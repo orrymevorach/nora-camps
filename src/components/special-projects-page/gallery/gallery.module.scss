@@ -7,3 +7,12 @@
   }
   margin-top: 100px;
 }
+
+@media screen and (max-width: variables.$mobile) {
+  .listItem {
+    &:nth-child(odd) {
+      padding: 30px;
+    }
+    margin-top: 30px;
+  }
+}
