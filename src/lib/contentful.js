@@ -12,6 +12,8 @@ import {
   GET_SPECIAL_PROJECTS_TOP_SECTION,
   GET_PAINTING_BY_ENTRY_ID,
   GET_RICH_TEXT_BY_ENTRY_ID,
+  GET_ALL_COLLECTIONS,
+  GET_ABOUT_PAGE_TOP_SECTION,
 } from '@/graphql/queries';
 
 export const getEntryIdsFromPageBuilder = async ({ page = '' }) => {
@@ -38,6 +40,13 @@ export const getCollectionByName = async ({ name = '' }) => {
     variables: { name },
   });
   return data.collectionCollection.items[0];
+};
+
+export const getAllCollections = async () => {
+  const { data } = await client.query({
+    query: GET_ALL_COLLECTIONS,
+  });
+  return data.collectionCollection.items;
 };
 
 export const getGallery = async ({ entryId = '' }) => {
@@ -129,6 +138,18 @@ export const getRichTextByEntryId = async ({ entryId = '' }) => {
       variables: { entryId },
     });
     return data.contentTypeRichText;
+  } catch (error) {
+    console.error('error', error);
+  }
+};
+
+export const getAboutPageTopSection = async ({ entryId = '' }) => {
+  try {
+    const { data } = await client.query({
+      query: GET_ABOUT_PAGE_TOP_SECTION,
+      variables: { entryId },
+    });
+    return data.aboutPageTopSection;
   } catch (error) {
     console.error('error', error);
   }

@@ -44,11 +44,16 @@ export default function PaintingInfoTemplate({
   const mapPageToButtonProps = {
     [PAINTING_SPECIFIC_PAGE]: {
       label: 'Contact for purchase',
-      href: '/contact',
+      href: {
+        pathname: '/contact',
+        query: {
+          painting: name,
+        },
+      },
     },
     [SPECIAL_PROJECTS]: {
       label: button.label,
-      href: button.url,
+      href: { pathname: button.url },
     },
   };
 
@@ -93,6 +98,7 @@ export default function PaintingInfoTemplate({
             <PrimaryButton
               href={buttonProps.href}
               classNames={styles.contactButton}
+              queryParams={buttonProps.queryParams}
             >
               {buttonProps.label}
             </PrimaryButton>

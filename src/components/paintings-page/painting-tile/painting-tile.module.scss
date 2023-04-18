@@ -10,6 +10,7 @@
   background: $lightGrey;
   img {
     width: 100%;
+    height: auto;
   }
 }
 
@@ -26,4 +27,12 @@
 
 .price {
   @include mixins.openSansBold;
+}
+
+@media screen and (max-width: $mobile) {
+  .imageContainer {
+    img {
+      height: auto;
+    }
+  }
 }

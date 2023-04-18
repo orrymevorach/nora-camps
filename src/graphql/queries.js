@@ -62,6 +62,17 @@ export const GET_COLLECTION_BY_ENTRY_ID = gql`
   ${COLLECTION_FRAGMENT}
 `;
 
+export const GET_ALL_COLLECTIONS = gql`
+  query GetAllCollections {
+    collectionCollection {
+      items {
+        ...CollectionFields
+      }
+    }
+  }
+  ${COLLECTION_FRAGMENT}
+`;
+
 export const GET_GALLERY = gql`
   query getGallery($entryId: String!) {
     gallery(id: $entryId) {
@@ -208,4 +219,21 @@ export const GET_RICH_TEXT_BY_ENTRY_ID = gql`
       }
     }
   }
+`;
+
+export const GET_ABOUT_PAGE_TOP_SECTION = gql`
+  query GetAboutPageTopSection($entryId: String!) {
+    aboutPageTopSection(id: $entryId) {
+      name
+      description {
+        json
+      }
+      imageCollection {
+        items {
+          ...ImageFields
+        }
+      }
+    }
+  }
+  ${IMAGE_FRAGMENT}
 `;
