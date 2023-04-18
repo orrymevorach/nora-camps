@@ -12,6 +12,7 @@ import {
   GET_SPECIAL_PROJECTS_TOP_SECTION,
   GET_PAINTING_BY_ENTRY_ID,
   GET_RICH_TEXT_BY_ENTRY_ID,
+  GET_ALL_COLLECTIONS,
 } from '@/graphql/queries';
 
 export const getEntryIdsFromPageBuilder = async ({ page = '' }) => {
@@ -38,6 +39,13 @@ export const getCollectionByName = async ({ name = '' }) => {
     variables: { name },
   });
   return data.collectionCollection.items[0];
+};
+
+export const getAllCollections = async () => {
+  const { data } = await client.query({
+    query: GET_ALL_COLLECTIONS,
+  });
+  return data.collectionCollection.items;
 };
 
 export const getGallery = async ({ entryId = '' }) => {
