@@ -1,5 +1,4 @@
 import {
-  getCollectionByEntryId,
   getHeroImage,
   getGallery,
   getSpecialProjectsTopSection,
@@ -43,7 +42,6 @@ export const getEntryDataFromEntryIds = async ({ entryIds }) => {
 
   const mapContentModelToQuery = {
     [HERO_IMAGE]: getHeroImage,
-    [COLLECTION]: getCollectionByEntryId,
     [GALLERY]: getGallery,
     [SPECIAL_PROJECTS_TOP_SECTION]: getSpecialProjectsTopSection,
     [PAINTING]: getPaintingByEntryId,

@@ -12,8 +12,12 @@ export const emailValidator = email => {
   return emailValidatingRegex.test(email);
 };
 
-export const capitalizeFirstLetterOfEachWord = sentence =>
-  sentence.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
+export const capitalizeFirstLetterOfEachWord = sentence => {
+  if (!sentence) return '';
+  return sentence.replace(/(^\w{1})|(\s+\w{1})/g, letter =>
+    letter.toUpperCase()
+  );
+};
 
 const mapToMonth = {
   1: 'January',

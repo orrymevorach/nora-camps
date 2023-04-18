@@ -3,19 +3,18 @@ import {
   getAllPaintings,
   getCollectionByName,
 } from '@/lib/contentful';
-import Head from 'next/head';
 import PrimaryButton from '@/components/shared/primary-button';
 import PaintingInfoTemplate from '@/components/shared/painting-info-template/painting-info-template';
 import { PAGES } from '@/utils/contentful';
 import Wrapper from '@/components/shared/wrapper/wrapper';
+import SEO from '@/components/shared/seo/seo';
+import { capitalizeFirstLetterOfEachWord } from '@/utils/string-utils';
 
-export default function Painting({ paintingData, collectionData }) {
+export default function Painting({ paintingData = {}, collectionData }) {
   // The collectionData prop has all the paintings in this collection. Use this data for the reccommended paintings section
   return (
     <>
-      <Head>
-        <title>Nora Camps | Painting</title>
-      </Head>
+      <SEO title={`${capitalizeFirstLetterOfEachWord(paintingData?.name)}`} />
       <Wrapper>
         <PrimaryButton isLeftArrow href="/paintings" hasBorder={false} isBold>
           Back to Painting Page
