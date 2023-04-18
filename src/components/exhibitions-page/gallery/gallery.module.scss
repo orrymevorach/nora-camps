@@ -1,14 +1,6 @@
 @use '@mixins' as mixins;
-@use '@variables' as variables;
 
 .galleryContainer {
   margin-top: 85px;
   @include mixins.maxWidthContainer;
-}
-
-@media screen and (max-width: variables.$mobile) {
-  .galleryContainer {
-    @include mixins.pagePadding;
-    margin-top: 50px;
-  }
 }

@@ -15,5 +15,6 @@
   .largeWrapper,
   .smallWrapper {
     @include mixins.pagePadding;
+    margin-top: 30px;
   }
 }
