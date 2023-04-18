@@ -32,14 +32,6 @@ export const getHeroImage = async ({ entryId = '' }) => {
   return data.heroImageCollection.items[0];
 };
 
-export const getCollectionByEntryId = async ({ entryId = '' }) => {
-  const { data } = await client.query({
-    query: GET_COLLECTION_BY_ENTRY_ID,
-    variables: { entryId },
-  });
-  return data.collection;
-};
-
 export const getCollectionByName = async ({ name = '' }) => {
   const { data } = await client.query({
     query: GET_COLLECTION_BY_NAME,

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://noracamps.com
+
+# Sitemaps
+Sitemap: https://noracamps.com/sitemap.xml
