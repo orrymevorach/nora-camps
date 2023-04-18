@@ -5,8 +5,10 @@ import EmailInput from '../shared/form-components/email-input';
 import DropDown from '../shared/form-components/drop-down';
 import InputShell from '../shared/form-components/input-shell';
 import PrimaryButton from '../shared/primary-button';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
-export default function ContactForm() {
+export default function ContactForm({ dropDownListItems }) {
   const {
     register,
     handleSubmit,
@@ -14,12 +16,16 @@ export default function ContactForm() {
     formState: { errors },
   } = useForm();
 
-  const listItems = ['Landscape', 'Mountain', 'River', 'Grassland', 'House'];
-
   const onSubmit = formData => {
     console.log(formData);
   };
 
+  const { query } = useRouter();
+  useEffect(() => {
+    if (query?.painting) {
+      setValue('paintings', query.painting);
+    }
+  }, [query.painting, setValue]);
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -27,8 +33,8 @@ export default function ContactForm() {
 
         <InputShell
           register={register}
-          name='firstName'
-          type='input'
+          name="firstName"
+          type="input"
           required={true}
           label={'First Name'}
           classNames={{
@@ -42,8 +48,8 @@ export default function ContactForm() {
 
         <InputShell
           register={register}
-          name='lastName'
-          type='input'
+          name="lastName"
+          type="input"
           required={true}
           label={'Last Name'}
           classNames={{
@@ -63,7 +69,7 @@ export default function ContactForm() {
 
         <DropDown
           isReactHookForm={true}
-          listItems={listItems}
+          listItems={dropDownListItems}
           attributes={{
             placeholder: 'Type painting',
             ...register('paintings'),
@@ -75,14 +81,14 @@ export default function ContactForm() {
             label: styledInput.label,
             dropDownButton: styledInput.dropDownButton,
           }}
-          label='Painting(s) interested in'
+          label="Painting(s) interested in"
           setValue={setValue}
         />
 
         <InputShell
           register={register}
-          name='subject'
-          type='input'
+          name="subject"
+          type="input"
           required={true}
           label={'Subject'}
           classNames={{
@@ -96,8 +102,8 @@ export default function ContactForm() {
 
         <InputShell
           register={register}
-          name='message'
-          type='textarea'
+          name="message"
+          type="textarea"
           required={true}
           label={'Message'}
           classNames={{
