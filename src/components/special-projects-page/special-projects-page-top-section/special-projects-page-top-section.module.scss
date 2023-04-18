@@ -1,4 +1,5 @@
 @use "@mixins" as mixins;
+@use "@variables" as variables;
 
 .container {
   @include mixins.maxWidthContainer;
@@ -21,4 +22,10 @@
 
 .richText {
   margin-bottom: 130px;
+}
+
+@media screen and (max-width: variables.$mobile) {
+  .richText {
+    margin-bottom: 50px;
+  }
 }

@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./event-tile.module.scss";
 import PrimaryButton from "@/components/shared/primary-button";
 import EventDateRange from "@/components/shared/event-date-range";
+import clsx from "clsx";
 
 export default function EventTile({
   name,
@@ -25,7 +26,7 @@ export default function EventTile({
         width={width}
         height={height}
         alt={description}
-        className={styles.column}
+        className={clsx(styles.column, styles.image)}
       />
     </div>
   );

@@ -15,6 +15,7 @@ const {
   PAINTING,
   ABOUT_THE_AUTHOR,
   RICH_TEXT,
+  ABOUT_PAGE_TOP_SECTION,
 } = CONTENT_MODELS;
 
 const mapContentModelToComponent = {
@@ -25,6 +26,7 @@ const mapContentModelToComponent = {
   [PAINTING]: PaintingInfoTemplate,
   [ABOUT_THE_AUTHOR]: AboutTheAuthor,
   [RICH_TEXT]: ({ richText }) => <RichText json={richText.json} />,
+  [ABOUT_PAGE_TOP_SECTION]: PaintingInfoTemplate,
 };
 
 export default function PageBuilder({ entries = [], page }) {

@@ -33,4 +33,9 @@
   @media (max-width: $mobile) {
     min-width: 100px;
   }
+  &:hover {
+    &.border {
+      border: 2px solid $black;
+    }
+  }
 }
