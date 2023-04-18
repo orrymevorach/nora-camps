@@ -1,7 +1,7 @@
 import NewsletterPage from '@/components/newsletter-page/newsletter-page';
 import Head from 'next/head';
 
-export default function mail() {
+export default function Mail() {
   return (
     <>
       <Head>
