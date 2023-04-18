@@ -1,0 +1,28 @@
+@use '@variables' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border: 1px solid red;
+  padding-top: 5rem;
+}
+
+.row {
+  display: flex;
+  gap: 1rem;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $lightGrey;
+  padding: 1rem;
+  height: 500px;
+  img {
+    height: auto;
+    width: 200px;
+  }
+}

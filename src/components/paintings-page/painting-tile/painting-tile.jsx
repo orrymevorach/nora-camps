@@ -4,7 +4,7 @@ import Link from 'next/link';
 import styles from './painting-tile.module.scss';
 
 export default function PaintingTile(props) {
-  const { name, imageCollection, price } = props;
+  const { name, imageCollection, price, classNames = '' } = props;
   const firstImage = imageCollection.items[0];
   return (
     <Link
@@ -13,7 +13,11 @@ export default function PaintingTile(props) {
       }}
       className={styles.paintingTile}
     >
-      <div className={styles.imageContainer}>
+      <div
+        className={
+          classNames ? classNames.imageContainer : styles.imageContainer
+        }
+      >
         <Image
           src={firstImage.url}
           alt={firstImage.description}
