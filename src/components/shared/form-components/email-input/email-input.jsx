@@ -5,7 +5,7 @@ import Success from 'svg/success';
 import { emailValidator, emailValidatingRegex } from '@/utils/string-utils';
 import styles from '../shared-input.module.scss';
 
-export default function EmailInput({ classNames, register, errors }) {
+export default function EmailInput({ classNames = '', register, errors }) {
   const [isEmailValidated, setIsEmailValidated] = useState(false);
 
   const handleEmailInputChange = e => {
@@ -23,7 +23,7 @@ export default function EmailInput({ classNames, register, errors }) {
     <div
       className={clsx(
         styles.formGroup,
-        classNames && classNames.email ? classNames.email : '',
+        classNames.email,
         errors.email ? styles.activeError : ''
       )}
     >
