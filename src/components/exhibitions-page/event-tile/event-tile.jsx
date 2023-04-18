@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import styles from './event-tile.module.scss';
-import PrimaryButton from '@/components/shared/primary-button';
-import EventDateRange from '@/components/shared/event-date-range';
-import clsx from 'clsx';
+import Image from "next/image";
+import styles from "./event-tile.module.scss";
+import PrimaryButton from "@/components/shared/primary-button";
+import EventDateRange from "@/components/shared/event-date-range";
+import clsx from "clsx";
 
 export default function EventTile({
   name,

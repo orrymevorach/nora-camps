@@ -1,5 +1,5 @@
-import ContactForm from '@/components/contact-form/contact-form';
-import { getAllPaintings } from '@/lib/contentful';
+import ContactForm from "@/components/contact-form/contact-form";
+import { getAllPaintings } from "@/lib/contentful";
 
 export default function Contact({ paintings = [] }) {
   return <ContactForm dropDownListItems={paintings} />;

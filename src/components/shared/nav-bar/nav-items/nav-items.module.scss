@@ -1,5 +1,5 @@
-@use '@variables' as var;
-@use '@mixins' as mixins;
+@use "@variables" as var;
+@use "@mixins" as mixins;
 
 .navUl {
   display: flex;
@@ -25,7 +25,7 @@
   color: var.$black;
   position: relative;
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     height: 1px;

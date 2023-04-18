@@ -1,1 +1,1 @@
-export { default } from './top-image-section.jsx'
+export { default } from "./top-image-section.jsx";

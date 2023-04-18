@@ -1,6 +1,6 @@
-import RichText from '@/components/shared/rich-text/rich-text';
-import styles from './hero-image.module.scss';
-import { BLOCKS } from '@contentful/rich-text-types';
+import RichText from "@/components/shared/rich-text/rich-text";
+import styles from "./hero-image.module.scss";
+import { BLOCKS } from "@contentful/rich-text-types";
 
 export default function HeroImage({ heading, description, backgroundImage }) {
   const richTextConfig = {

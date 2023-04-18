@@ -5,30 +5,30 @@ import {
   getPaintingByEntryId,
   getRichTextByEntryId,
   getAboutPageTopSection,
-} from '@/lib/contentful';
+} from "@/lib/contentful";
 
 export const PAGES = {
-  HOME: 'Home Page',
-  PAINTINGS: 'Paintings Page',
-  EXHIBITIONS: 'Exhibitions Page',
-  SPECIAL_PROJECTS: 'Special Projects Page',
-  ABOUT: 'About Page',
-  PAINTING_SPECIFIC_PAGE: 'Painting Specific Page',
-  EVENT_SEPCIFIC_PAGE: 'Event Specific Page',
-  SHIPPING_AND_POLICIES: 'Shipping and Policies Page',
+  HOME: "Home Page",
+  PAINTINGS: "Paintings Page",
+  EXHIBITIONS: "Exhibitions Page",
+  SPECIAL_PROJECTS: "Special Projects Page",
+  ABOUT: "About Page",
+  PAINTING_SPECIFIC_PAGE: "Painting Specific Page",
+  EVENT_SEPCIFIC_PAGE: "Event Specific Page",
+  SHIPPING_AND_POLICIES: "Shipping and Policies Page",
 };
 
 export const CONTENT_MODELS = {
-  HERO_IMAGE: 'HeroImage',
-  COLLECTION: 'Collection',
-  GALLERY: 'Gallery',
-  EVENT: 'Event',
-  PAINTING: 'Painting',
-  SPECIAL_PROJECTS_TOP_SECTION: 'SpecialProjectsTopSection',
-  SPECIAL_PROJECT: 'SpecialProject',
-  ABOUT_THE_AUTHOR: 'AboutTheAuthor',
-  RICH_TEXT: 'ContentTypeRichText',
-  ABOUT_PAGE_TOP_SECTION: 'AboutPageTopSection',
+  HERO_IMAGE: "HeroImage",
+  COLLECTION: "Collection",
+  GALLERY: "Gallery",
+  EVENT: "Event",
+  PAINTING: "Painting",
+  SPECIAL_PROJECTS_TOP_SECTION: "SpecialProjectsTopSection",
+  SPECIAL_PROJECT: "SpecialProject",
+  ABOUT_THE_AUTHOR: "AboutTheAuthor",
+  RICH_TEXT: "ContentTypeRichText",
+  ABOUT_PAGE_TOP_SECTION: "AboutPageTopSection",
 };
 
 export const getEntryDataFromEntryIds = async ({ entryIds }) => {

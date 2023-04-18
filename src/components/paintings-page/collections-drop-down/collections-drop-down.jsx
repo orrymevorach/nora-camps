@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
-import styles from './collections-drop-down.module.scss';
-import DropDown from '@/components/shared/form-components/drop-down/drop-down';
+import { useEffect, useRef, useState } from "react";
+import styles from "./collections-drop-down.module.scss";
+import DropDown from "@/components/shared/form-components/drop-down/drop-down";
 
 export default function CollectionsDropDown({ collections = [] }) {
   const [isToggled, setIsToggled] = useState(false);
-  const [dropDownValue, setDropDownValue] = useState('');
+  const [dropDownValue, setDropDownValue] = useState("");
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function CollectionsDropDown({ collections = [] }) {
           setDropDownValue={setDropDownValue}
           listItems={collections}
           attributes={{
-            defaultValue: 'Collections',
+            defaultValue: "Collections",
             tabIndex: -1,
             readOnly: true,
           }}

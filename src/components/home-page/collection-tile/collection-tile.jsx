@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import styles from './collection-tile.module.scss';
-import PrimaryButton from '@/components/shared/primary-button/primary-button';
+import Image from "next/image";
+import styles from "./collection-tile.module.scss";
+import PrimaryButton from "@/components/shared/primary-button/primary-button";
 
 export default function CollectionTile({ name, paintingsCollection }) {
   const firstPaintingInCollection = paintingsCollection.items[0];
@@ -24,7 +24,7 @@ export default function CollectionTile({ name, paintingsCollection }) {
 
         <PrimaryButton
           href={{
-            pathname: '/paintings',
+            pathname: "/paintings",
             query: {
               collection: name,
             },

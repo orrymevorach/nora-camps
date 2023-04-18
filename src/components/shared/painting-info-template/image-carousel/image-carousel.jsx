@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import { useState } from 'react';
-import styles from './image-carousel.module.scss';
-import clsx from 'clsx';
+import Image from "next/image";
+import { useState } from "react";
+import styles from "./image-carousel.module.scss";
+import clsx from "clsx";
 
 export default function ImageCarousel({
   images,

@@ -1,6 +1,6 @@
-import styles from './page-not-found-page.module.scss';
-import PrimaryButton from '@/components/shared/primary-button';
-import Wrapper from '../shared/wrapper/wrapper';
+import styles from "./page-not-found-page.module.scss";
+import PrimaryButton from "@/components/shared/primary-button";
+import Wrapper from "../shared/wrapper/wrapper";
 
 export default function PageNotFoundPage() {
   return (

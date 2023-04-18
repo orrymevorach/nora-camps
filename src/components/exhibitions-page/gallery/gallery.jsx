@@ -1,5 +1,5 @@
-import styles from './gallery.module.scss';
-import EventsList from './events-list';
+import styles from "./gallery.module.scss";
+import EventsList from "./events-list";
 
 export default function Gallery({ items: events }) {
   const today = new Date().toISOString();

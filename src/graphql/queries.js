@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 import {
   PAINTING_FRAGMENT,
   IMAGE_FRAGMENT,
@@ -6,7 +6,7 @@ import {
   SPECIAL_PROJECT_FRAGMENT,
   COLLECTION_FRAGMENT,
   ABOUT_THE_AUTHOR_FRAGMENT,
-} from './fragments';
+} from "./fragments";
 
 export const GET_PAGE_ENTRIES = gql`
   query getEntryIdsFromPageBuilder($page: String!) {

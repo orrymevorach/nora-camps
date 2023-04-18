@@ -1,5 +1,5 @@
-import styles from './right-arrow.module.scss';
-import clsx from 'clsx';
+import styles from "./right-arrow.module.scss";
+import clsx from "clsx";
 
 export default function RightArrow({ flip = false }) {
   return (
