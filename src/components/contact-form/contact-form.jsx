@@ -24,6 +24,8 @@ export default function ContactForm({ dropDownListItems }) {
   useEffect(() => {
     if (query?.painting) {
       setValue('paintings', query.painting);
+    } else {
+      setValue('paintings', '');
     }
   }, [query.painting, setValue]);
   return (
