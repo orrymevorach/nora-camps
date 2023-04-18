@@ -27,3 +27,11 @@
 .price {
   @include mixins.openSansBold;
 }
+
+@media screen and (max-width: $mobile) {
+  .imageContainer {
+    img {
+      height: auto;
+    }
+  }
+}

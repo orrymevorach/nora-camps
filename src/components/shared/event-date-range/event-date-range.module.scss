@@ -1,7 +1,14 @@
 @use '@mixins' as mixins;
+@use '@variables' as variables;
 
 .date {
   @include mixins.manropeRegular;
   font-size: 45px;
   line-height: 1.1;
+}
+
+@media screen and (max-width: variables.$mobile) {
+  .date {
+    font-size: 30px;
+  }
 }
