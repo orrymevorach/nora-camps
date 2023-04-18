@@ -5,17 +5,13 @@ import { useRouter } from 'next/router';
 
 export default function Layout({ children }) {
   const { route } = useRouter();
-
-  const mapToRouteName = {
-    '/mail': false,
-    '/contact': false,
-  };
+  const showNewsletter = route !== '/mail' && route !== '/contact';
 
   return (
     <div>
       <Nav />
       <main>{children}</main>
-      {mapToRouteName[route] !== false && <Newsletter />}
+      {showNewsletter && <Newsletter />}
       <Footer />
     </div>
   );
