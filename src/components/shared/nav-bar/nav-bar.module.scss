@@ -26,17 +26,6 @@
   height: 66px;
 }
 
-.joinEmailButtonActive {
-  color: var.$white;
-  background: var.$black;
-
-  svg {
-    path {
-      fill: white;
-    }
-  }
-}
-
 @media (max-width: var.$tablet) {
   .container {
     height: 98px;
