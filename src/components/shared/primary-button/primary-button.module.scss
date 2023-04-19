@@ -1,5 +1,5 @@
-@use '@variables' as *;
-@use '@mixins' as mixins;
+@use "@variables" as *;
+@use "@mixins" as mixins;
 
 .primaryButton {
   display: flex;
@@ -32,5 +32,10 @@
   }
   @media (max-width: $mobile) {
     min-width: 100px;
+  }
+  &:hover {
+    &.border {
+      border: 2px solid $black;
+    }
   }
 }

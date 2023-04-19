@@ -1,5 +1,5 @@
-import LocationMarker from '@/components/shared/svg/location-marker';
-import styles from './location.module.scss';
+import LocationMarker from "@/components/shared/svg/location-marker";
+import styles from "./location.module.scss";
 
 export default function Location({ location }) {
   return (

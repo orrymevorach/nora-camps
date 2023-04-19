@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 import {
   PAINTING_FRAGMENT,
   IMAGE_FRAGMENT,
@@ -6,7 +6,7 @@ import {
   SPECIAL_PROJECT_FRAGMENT,
   COLLECTION_FRAGMENT,
   ABOUT_THE_AUTHOR_FRAGMENT,
-} from './fragments';
+} from "./fragments";
 
 export const GET_PAGE_ENTRIES = gql`
   query getEntryIdsFromPageBuilder($page: String!) {
@@ -57,6 +57,17 @@ export const GET_COLLECTION_BY_ENTRY_ID = gql`
   query getCollectionByEntryId($entryId: String!) {
     collection(id: $entryId) {
       ...CollectionFields
+    }
+  }
+  ${COLLECTION_FRAGMENT}
+`;
+
+export const GET_ALL_COLLECTIONS = gql`
+  query GetAllCollections {
+    collectionCollection {
+      items {
+        ...CollectionFields
+      }
     }
   }
   ${COLLECTION_FRAGMENT}
@@ -208,4 +219,21 @@ export const GET_RICH_TEXT_BY_ENTRY_ID = gql`
       }
     }
   }
+`;
+
+export const GET_ABOUT_PAGE_TOP_SECTION = gql`
+  query GetAboutPageTopSection($entryId: String!) {
+    aboutPageTopSection(id: $entryId) {
+      name
+      description {
+        json
+      }
+      imageCollection {
+        items {
+          ...ImageFields
+        }
+      }
+    }
+  }
+  ${IMAGE_FRAGMENT}
 `;

@@ -1,5 +1,5 @@
-import styles from './gallery.module.scss';
-import PaintingTile from '@/components/paintings-page/painting-tile';
+import styles from "./gallery.module.scss";
+import PaintingTile from "@/components/paintings-page/painting-tile";
 
 export default function PaintingGallery({ items = [] }) {
   return (

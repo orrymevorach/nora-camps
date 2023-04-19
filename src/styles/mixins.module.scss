@@ -1,8 +1,8 @@
-@use './fonts.module.scss' as *;
-@use './variables.module.scss' as variables;
+@use "./fonts.module.scss" as *;
+@use "./variables.module.scss" as variables;
 
 @mixin heading($fontSize: 45px) {
-  font-family: 'Manrope Medium';
+  font-family: "Manrope Medium";
   font-size: $fontSize;
   color: variables.$black;
   @media screen and (max-width: variables.$mobile) {
@@ -11,76 +11,76 @@
 }
 
 @mixin bodyCopy {
-  font-family: 'OpenSans Regular';
+  font-family: "OpenSans Regular";
   font-size: 16px;
   line-height: 28px;
   color: variables.$black;
 }
 
 @mixin manropeLight($fontSize: 45px) {
-  font-family: 'Manrope Light';
+  font-family: "Manrope Light";
   font-size: $fontSize;
 }
 
 @mixin manropeRegular {
-  font-family: 'Manrope Regular';
+  font-family: "Manrope Regular";
   color: variables.$black;
 }
 
 @mixin manropeSemiBold {
-  font-family: 'Manrope Semi Bold';
+  font-family: "Manrope Semi Bold";
   color: variables.$black;
 }
 
 // font weight 400
 @mixin openSans {
-  font-family: 'OpenSans Regular';
+  font-family: "OpenSans Regular";
   color: variables.$black;
 }
 
 @mixin openSansBold {
-  font-family: 'OpenSans Bold';
+  font-family: "OpenSans Bold";
   color: variables.$black;
 }
 
 @mixin openSansMedium {
-  font-family: 'OpenSans Medium';
+  font-family: "OpenSans Medium";
   color: variables.$black;
 }
 
 @mixin openSansLight {
-  font-family: 'OpenSans Light';
+  font-family: "OpenSans Light";
   color: variables.$black;
 }
 
 @mixin openSansSemiBold {
-  font-family: 'OpenSans Semi Bold';
+  font-family: "OpenSans Semi Bold";
   color: #231f20;
 }
 
 @mixin openSansLightItalic {
-  font-family: 'OpenSans Light Italic';
+  font-family: "OpenSans Light Italic";
   color: #231f20;
 }
 
 @mixin montserrat {
-  font-family: 'Montserrat Regular';
+  font-family: "Montserrat Regular";
   color: variables.$black;
 }
 
 @mixin montserratLight {
-  font-family: 'Montserrat Light';
+  font-family: "Montserrat Light";
   color: variables.$black;
 }
 
 // font weight 500
 @mixin montserratMedium {
-  font-family: 'Montserrat Medium';
+  font-family: "Montserrat Medium";
   color: variables.$black;
 }
 
 @mixin montserratSemiBold {
-  font-family: 'Montserrat Semi Bold';
+  font-family: "Montserrat Semi Bold";
   color: variables.$black;
 }
 

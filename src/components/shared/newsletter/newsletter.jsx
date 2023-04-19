@@ -1,5 +1,5 @@
-import PrimaryButton from '../primary-button/primary-button';
-import styles from './newsletter.module.scss';
+import PrimaryButton from "../primary-button/primary-button";
+import styles from "./newsletter.module.scss";
 
 export default function Newsletter() {
   return (
@@ -13,9 +13,9 @@ export default function Newsletter() {
         </p>
         <div className={styles.row}>
           <input
-            type='email'
+            type="email"
             className={styles.emailInput}
-            placeholder='Enter Email Address'
+            placeholder="Enter Email Address"
           />
           <PrimaryButton classNames={styles.button}>Sign Up</PrimaryButton>
         </div>

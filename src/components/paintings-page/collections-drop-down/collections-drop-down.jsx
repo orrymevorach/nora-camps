@@ -1,15 +1,7 @@
-import DropDown from '@/components/shared/form-components/drop-down/drop-down';
-import styles from './collections-drop-down.module.scss';
+import styles from "./collections-drop-down.module.scss";
+import DropDown from "@/components/shared/form-components/drop-down/drop-down";
 
-export default function CollectionsDropDown({ setSelectedCollection }) {
-  const listItems = [
-    'All',
-    'Landscape',
-    'Abstract',
-    'Floral',
-    'Portal',
-    'Smalls',
-  ];
+export default function CollectionsDropDown({ collections = [], setSelectedCollection }) {
 
   return (
     <div className={styles.container}>
@@ -17,10 +9,10 @@ export default function CollectionsDropDown({ setSelectedCollection }) {
         <p className={styles.filterBy}>Filter By</p>
         <DropDown
           isReactHookForm={false}
-          listItems={listItems}
+          listItems={collections}
           handleChange={setSelectedCollection}
           attributes={{
-            defaultValue: 'Collections',
+            defaultValue: "Collections",
             tabIndex: -1,
             readOnly: true,
           }}

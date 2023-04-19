@@ -1,4 +1,4 @@
-@use '@variables' as variables;
+@use "@variables" as variables;
 
 .image {
   height: 560px;
@@ -22,4 +22,10 @@
 
 .active {
   border: 1px solid black;
+}
+
+@media screen and (max-width: variables.$mobile) {
+  .image {
+    height: auto;
+  }
 }

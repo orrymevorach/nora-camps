@@ -19,7 +19,7 @@ export const useFilterByCollection = ({
       const collection = [
         {
           items: paintingsInSelectedCollection,
-          contentModel: 'Gallery',
+          contentModel: "Gallery",
         },
       ];
       setGallery(collection);

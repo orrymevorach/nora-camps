@@ -1,5 +1,5 @@
-@use '@variables' as variables;
-@use '@mixins' as mixins;
+@use "@variables" as variables;
+@use "@mixins" as mixins;
 
 .paintingInfoTemplateContainer {
   @include mixins.maxWidthContainer;
@@ -60,4 +60,29 @@
   @include mixins.openSansBold;
   text-decoration: underline;
   margin-top: 25px;
+}
+
+@media screen and (max-width: variables.$mobile) {
+  .paintingInfoTemplateContainer {
+    margin-top: 30px;
+  }
+  .mainContent {
+    flex-direction: column;
+    &.imageOnRightSide {
+      .imageCarousel {
+        margin-left: 0px;
+      }
+    }
+  }
+  .imageCarousel,
+  .rightColumn {
+    width: 100%;
+    margin: 0;
+  }
+  .additionalDetails {
+    margin: 20px 0;
+  }
+  .name {
+    margin: 30px 0;
+  }
 }

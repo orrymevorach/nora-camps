@@ -1,4 +1,4 @@
-export default function LocationMarker({ classNames = '' }) {
+export default function LocationMarker({ classNames = "" }) {
   return (
     <svg
       width="18"

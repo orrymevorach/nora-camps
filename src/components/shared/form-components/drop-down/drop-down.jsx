@@ -1,10 +1,10 @@
-import { useState, useRef } from 'react';
-import DropDownMenu from './list/list';
-import DownArrow from 'svg/down-arrow';
+import { useState, useRef } from "react";
+import DropDownMenu from "./list/list";
+import DownArrow from "svg/down-arrow";
 
 export default function DropDown({
   isReactHookForm = false,
-  setValue = '',
+  setValue = "",
   listItems = [],
   attributes = {},
   classNames = '',
@@ -20,9 +20,9 @@ export default function DropDown({
         {isReactHookForm && <label className={classNames.label}>{label}</label>}
         <input className={classNames.input} ref={inputRef} {...attributes} />
         <button
-          type='button'
+          type="button"
           className={classNames.dropDownButton}
-          id='drop-down-arrow'
+          id="drop-down-arrow"
           onClick={() => setIsToggled(prev => !prev)}
         >
           <DownArrow />

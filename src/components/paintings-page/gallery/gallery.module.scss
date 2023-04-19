@@ -1,5 +1,5 @@
-@use '@variables' as variables;
-@use '@mixins' as mixins;
+@use "@variables" as variables;
+@use "@mixins" as mixins;
 
 .columnGallery {
   display: grid;
@@ -11,8 +11,13 @@
     gap: 100px 50px;
   }
   @media screen and (max-width: variables.$mobile) {
+    @include mixins.pagePadding;
     display: block;
     margin: 0 auto;
     width: 100%;
   }
+}
+
+.listItem {
+  margin: 50px 0;
 }
