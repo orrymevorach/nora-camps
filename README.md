@@ -1,38 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">
+ Nora Camps
+</h1>
 
-## Getting Started
+This site was built using Next.JS
 
-First, run the development server:
+1.  **Start dev server**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+    Navigate into your new site’s directory and start it up.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+    ```
+    npm run dev
+    ```
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+2.  **Open the code and start customizing!**
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+    Your site is now running at http://localhost:3000!
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+3.  **Deployments**
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+To deploy code to production, create a PR and merge it into master
 
-## Learn More
+Contentful workflow and deployments:
 
-To learn more about Next.js, take a look at the following resources:
+- The `master` environment in Contentful will always be stable. If you are not working in Contentful, make sure the NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT in your .env.local file is set to `master`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To add/edit content models without affecting master or other people's work:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Create a new environment off of master in Contentful, name it off of your feature. I.e. `add-painting-content-model`.
+2. While you are still on the `master` branch in Contentful, go to API keys, select the production key, and check the checkbox of your new environment to ensure that your new environment can pull data.
+3. In Contentful, switch to your new branch, and make changes to content models and content entries.
 
-## Deploy on Vercel
+To make your Content Model changes live:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Create a new Contentful environment off of `master`, and name it with the current date. I.e. master-2023-04-16.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- This makes sure all of the content entries are up to date with what is currently in production
+- This also allows us to revert back to the original master, in the case that there is an issue with out deploymeny
+
+2. Use the "Merge" extension to merge content model changes. Set the source branch as your feature environment, and the target branch as the new master branch you just created.
+3. Test your changes:
+
+- In git, switching to your feature branch
+- Change the environment variable in your .local.env file to the new master environment you created
+- View all pages that will be affected and test the functionality to make sure it is as you expect
+
+4. If all your changes are tested and ready, merge your feature branch into master in git.
+5. While the Netlify deployment is under way with the latest code changes, change the `master` alias in Contenful to the new master environment you created.
+
+Contentful Notes:
+
+- The "master" alias is the one that is live in production.
+- Changing content in the environment that the master alias is using, will also change content on the live site

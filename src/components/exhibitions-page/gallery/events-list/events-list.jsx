@@ -1,5 +1,5 @@
-import EventTile from '@/components/exhibitions-page/event-tile';
-import styles from './events-list.module.scss';
+import EventTile from "@/components/exhibitions-page/event-tile";
+import styles from "./events-list.module.scss";
 
 export default function EventsList({ heading, events }) {
   return (

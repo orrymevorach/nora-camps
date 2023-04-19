@@ -1,8 +1,8 @@
-import { isOdd } from '@/utils/string-utils';
-import styles from './gallery.module.scss';
-import PaintingInfoTemplate from '@/components/shared/painting-info-template/painting-info-template';
-import { PAGES } from '@/utils/contentful';
-import AboutTheAuthor from '@/components/about-page/about-the-author/about-the-author';
+import { isOdd } from "@/utils/string-utils";
+import styles from "./gallery.module.scss";
+import PaintingInfoTemplate from "@/components/shared/painting-info-template/painting-info-template";
+import { PAGES } from "@/utils/contentful";
+import AboutTheAuthor from "@/components/about-page/about-the-author/about-the-author";
 const { SPECIAL_PROJECTS, ABOUT } = PAGES;
 
 const mapPageToComponent = {

@@ -1,5 +1,5 @@
-import styles from './rich-text.module.scss';
-import { BLOCKS, MARKS } from '@contentful/rich-text-types';
+import styles from "./rich-text.module.scss";
+import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 
 export const sharedRichTextConfig = {
   renderMark: {
@@ -17,7 +17,7 @@ export const sharedRichTextConfig = {
     },
   },
   renderText: text => {
-    return text.split('\n').reduce((children, textSegment, index) => {
+    return text.split("\n").reduce((children, textSegment, index) => {
       return [...children, index > 0 && <br key={index} />, textSegment];
     }, []);
   },

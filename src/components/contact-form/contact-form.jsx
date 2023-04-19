@@ -1,12 +1,14 @@
-import { useForm } from 'react-hook-form';
-import styles from './contact-form.module.scss';
-import styledInput from '../shared/form-components/shared-input.module.scss';
-import EmailInput from '../shared/form-components/email-input';
-import DropDown from '../shared/form-components/drop-down';
-import InputShell from '../shared/form-components/input-shell';
-import PrimaryButton from '../shared/primary-button';
+import { useForm } from "react-hook-form";
+import styles from "./contact-form.module.scss";
+import styledInput from "../shared/form-components/shared-input.module.scss";
+import EmailInput from "../shared/form-components/email-input";
+import DropDown from "../shared/form-components/drop-down";
+import InputShell from "../shared/form-components/input-shell";
+import PrimaryButton from "../shared/primary-button";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
-export default function ContactForm() {
+export default function ContactForm({ dropDownListItems }) {
   const {
     register,
     handleSubmit,
@@ -14,12 +16,18 @@ export default function ContactForm() {
     formState: { errors },
   } = useForm();
 
-  const listItems = ['Landscape', 'Mountain', 'River', 'Grassland', 'House'];
-
   const onSubmit = formData => {
     console.log(formData);
   };
 
+  const { query } = useRouter();
+  useEffect(() => {
+    if (query?.painting) {
+      setValue("paintings", query.painting);
+    } else {
+      setValue("paintings", "");
+    }
+  }, [query.painting, setValue]);
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -27,31 +35,31 @@ export default function ContactForm() {
 
         <InputShell
           register={register}
-          name='firstName'
-          type='input'
+          name="firstName"
+          type="input"
           required={true}
-          label={'First Name'}
+          label={"First Name"}
           classNames={{
             gridArea: styles.firstName,
           }}
           errors={{
             formError: errors.firstName,
-            message: 'First name is required',
+            message: "First name is required",
           }}
         />
 
         <InputShell
           register={register}
-          name='lastName'
-          type='input'
+          name="lastName"
+          type="input"
           required={true}
-          label={'Last Name'}
+          label={"Last Name"}
           classNames={{
             gridArea: styles.lastName,
           }}
           errors={{
             formError: errors.lastName,
-            message: 'Last name is required',
+            message: "Last name is required",
           }}
         />
 
@@ -63,10 +71,10 @@ export default function ContactForm() {
 
         <DropDown
           isReactHookForm={true}
-          listItems={listItems}
+          listItems={dropDownListItems}
           attributes={{
-            placeholder: 'Type painting',
-            ...register('paintings'),
+            placeholder: "Type painting",
+            ...register("paintings"),
           }}
           classNames={{
             container: styles.painting,
@@ -75,37 +83,37 @@ export default function ContactForm() {
             label: styledInput.label,
             dropDownButton: styledInput.dropDownButton,
           }}
-          label='Painting(s) interested in'
+          label="Painting(s) interested in"
           setValue={setValue}
         />
 
         <InputShell
           register={register}
-          name='subject'
-          type='input'
+          name="subject"
+          type="input"
           required={true}
-          label={'Subject'}
+          label={"Subject"}
           classNames={{
             gridArea: styles.subject,
           }}
           errors={{
             formError: errors.subject,
-            message: 'Last name is required',
+            message: "Last name is required",
           }}
         />
 
         <InputShell
           register={register}
-          name='message'
-          type='textarea'
+          name="message"
+          type="textarea"
           required={true}
-          label={'Message'}
+          label={"Message"}
           classNames={{
             gridArea: styles.message,
           }}
           errors={{
             formError: errors.message,
-            message: 'A message is required',
+            message: "A message is required",
           }}
         />
 

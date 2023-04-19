@@ -1,14 +1,14 @@
-import clsx from 'clsx';
-import styles from '../shared-input.module.scss';
-import { useCallback } from 'react';
+import clsx from "clsx";
+import styles from "../shared-input.module.scss";
+import { useCallback } from "react";
 
 export default function InputShell({
-  type = '',
+  type = "",
   name,
   label,
-  errors = '',
+  errors = "",
   register,
-  classNames = '',
+  classNames = "",
   required = false,
 }) {
   const mapInputTypeToComponent = {
@@ -16,8 +16,8 @@ export default function InputShell({
       () => (
         <input
           className={styles.input}
-          placeholder='Type text'
-          type='text'
+          placeholder="Type text"
+          type="text"
           {...register(name, { required: required })}
         />
       ),
@@ -27,8 +27,8 @@ export default function InputShell({
       () => (
         <textarea
           className={styles.textarea}
-          placeholder='Type a message'
-          type='text'
+          placeholder="Type a message"
+          type="text"
           {...register(name, { required: required })}
         />
       ),
@@ -43,7 +43,7 @@ export default function InputShell({
       className={clsx(
         styles.formGroup,
         classNames.gridArea,
-        errors.formError ? styles.activeError : ''
+        errors.formError ? styles.activeError : ""
       )}
     >
       <label className={styles.label}>{label}</label>

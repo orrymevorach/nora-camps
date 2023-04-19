@@ -9,7 +9,7 @@ export default function ImageCarousel({
   classNames,
 }) {
   const [currentImage, setCurrentImage] = useState(images[0]);
-  const { url, width, height, alt } = currentImage;
+  const { url, width, height, description } = currentImage;
   const hasMultipleImages = images.length > 1;
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function ImageCarousel({
         src={url}
         width={width}
         height={height}
-        alt={alt}
+        alt={description}
         quality={100}
         className={clsx(styles.image, hasBackground && styles.background)}
       />

@@ -1,5 +1,5 @@
-import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
+import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
 
 export const useFilterByCollection = ({ allPaintings, entries }) => {
   const [gallery, setGallery] = useState(entries);
@@ -13,7 +13,7 @@ export const useFilterByCollection = ({ allPaintings, entries }) => {
       const collection = [
         {
           items: paintingsInSelectedCollection,
-          contentModel: 'Gallery',
+          contentModel: "Gallery",
         },
       ];
       setGallery(collection);

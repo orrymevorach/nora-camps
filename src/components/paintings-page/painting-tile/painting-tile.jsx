@@ -1,7 +1,7 @@
-import { formatPrice } from '@/utils/string-utils';
-import Image from 'next/image';
-import Link from 'next/link';
-import styles from './painting-tile.module.scss';
+import { formatPrice } from "@/utils/string-utils";
+import Image from "next/image";
+import Link from "next/link";
+import styles from "./painting-tile.module.scss";
 
 export default function PaintingTile(props) {
   const { name, imageCollection, price, classNames = '' } = props;

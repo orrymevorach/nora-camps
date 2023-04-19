@@ -1,1 +1,1 @@
-export { default } from './event-tile.jsx'
+export { default } from "./event-tile.jsx";

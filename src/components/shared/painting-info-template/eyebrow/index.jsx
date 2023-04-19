@@ -1,1 +1,1 @@
-export { default } from './eyebrow';
+export { default } from "./eyebrow";

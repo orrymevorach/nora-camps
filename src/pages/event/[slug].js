@@ -1,10 +1,10 @@
-import { getEventByName, getAllEvents } from '@/lib/contentful';
-import PaintingInfoTemplate from '@/components/shared/painting-info-template/painting-info-template';
-import PrimaryButton from '@/components/shared/primary-button';
-import { PAGES } from '@/utils/contentful';
-import Wrapper from '@/components/shared/wrapper/wrapper';
-import SEO from '@/components/shared/seo/seo';
-import { capitalizeFirstLetterOfEachWord } from '@/utils/string-utils';
+import { getEventByName, getAllEvents } from "@/lib/contentful";
+import PaintingInfoTemplate from "@/components/shared/painting-info-template/painting-info-template";
+import PrimaryButton from "@/components/shared/primary-button";
+import { PAGES } from "@/utils/contentful";
+import Wrapper from "@/components/shared/wrapper/wrapper";
+import SEO from "@/components/shared/seo/seo";
+import { capitalizeFirstLetterOfEachWord } from "@/utils/string-utils";
 
 export default function Event({ eventData = {} }) {
   return (
@@ -22,7 +22,7 @@ export default function Event({ eventData = {} }) {
 
 export async function getStaticProps({ params }) {
   // this fixes the deployment, since there are no params on build time
-  if (params.slug === 'undefined')
+  if (params.slug === "undefined")
     return {
       props: {},
     };

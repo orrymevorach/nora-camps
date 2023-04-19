@@ -36,7 +36,7 @@ export default function Painting({ paintingData = {}, collectionData }) {
 
 export async function getStaticProps({ params }) {
   // this fixes the deployment, since there are no params on build time
-  if (params.slug === 'undefined')
+  if (params.slug === "undefined")
     return {
       props: {},
     };

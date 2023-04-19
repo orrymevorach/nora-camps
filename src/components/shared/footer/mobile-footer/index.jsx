@@ -1,1 +1,1 @@
-export { default } from './mobile-footer.jsx';
+export { default } from "./mobile-footer.jsx";

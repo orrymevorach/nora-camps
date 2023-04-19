@@ -1,5 +1,5 @@
-@use '@mixins' as mixins;
-@use '@variables' as variables;
+@use "@mixins" as mixins;
+@use "@variables" as variables;
 
 .bottomImageSectionContainer {
   max-width: calc(variables.$desktopMaxWidth / 2);
@@ -13,5 +13,22 @@
   img {
     width: 50%;
     height: 100%;
+  }
+}
+
+@media screen and (max-width: variables.$mobile) {
+  .bottomImageSectionContainer {
+    flex-direction: column;
+    margin-bottom: 50px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .topRow {
+    flex-direction: column;
+    img {
+      width: 100%;
+    }
   }
 }
