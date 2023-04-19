@@ -9,11 +9,11 @@ import { PAGES } from '@/utils/contentful';
 import Wrapper from '@/components/shared/wrapper/wrapper';
 import SEO from '@/components/shared/seo/seo';
 import { capitalizeFirstLetterOfEachWord } from '@/utils/string-utils';
+import { removeCurrentPaintingFromRecommendedList } from '@/utils/array-utils';
 import Recommendation from '@/components/recommendation/recommendation';
 
 export default function Painting({ paintingData = {}, collectionData }) {
   // The collectionData prop has all the paintings in this collection. Use this data for the reccommended paintings section
-  const showRecommendations = collectionData.paintingData?.items.length > 0;
   return (
     <>
       <SEO title={`${capitalizeFirstLetterOfEachWord(paintingData?.name)}`} />
@@ -26,12 +26,10 @@ export default function Painting({ paintingData = {}, collectionData }) {
           page={PAGES.PAINTING_SPECIFIC_PAGE}
         />
       </Wrapper>
-      {/* {showRecommendations && ( */}
       <Recommendation
         collectionData={collectionData}
         paintingData={paintingData}
       />
-      {/* )} */}
     </>
   );
 }
@@ -47,23 +45,9 @@ export async function getStaticProps({ params }) {
     name: paintingResponse.collection?.name,
   });
 
-  const removeCurrentPaintingFromRecommendedList = (
-    paintingName,
-    allPaintingsResponse
-  ) => {
-    const allPaintingsCopy = [...allPaintingsResponse];
-
-    for (let i = 0; i < allPaintingsCopy.length; i++) {
-      if (paintingName === allPaintingsCopy[i].name) {
-        allPaintingsCopy.splice(i, 1);
-        break;
-      }
-    }
-    return allPaintingsCopy.splice(0, 3);
-  };
-
   if (collectionResponse.paintingsCollection.items.length <= 1) {
     const allPaintingsResponse = await getAllPaintings();
+
     const recommendedPaintings = removeCurrentPaintingFromRecommendedList(
       paintingResponse.name,
       allPaintingsResponse
@@ -85,10 +69,16 @@ export async function getStaticProps({ params }) {
       },
     };
   }
+
+  const recommendedPaintings = removeCurrentPaintingFromRecommendedList(
+    paintingResponse.name,
+    collectionResponse.paintingsCollection.items
+  );
+
   return {
     props: {
       paintingData: paintingResponse,
-      collectionData: collectionResponse,
+      collectionData: recommendedPaintings,
     },
   };
 }

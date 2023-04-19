@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './image-carousel.module.scss';
 import clsx from 'clsx';
 
@@ -12,6 +12,14 @@ export default function ImageCarousel({
   const { url, width, height, alt } = currentImage;
   const hasMultipleImages = images.length > 1;
 
+  useEffect(() => {
+    const updateCurrentImage = () => {
+      setCurrentImage(images[0]);
+    };
+    if (images) {
+      updateCurrentImage();
+    }
+  }, [images]);
   return (
     <div className={classNames}>
       <Image

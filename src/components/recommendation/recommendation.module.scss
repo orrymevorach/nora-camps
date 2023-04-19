@@ -1,28 +1,54 @@
 @use '@variables' as *;
+@use '@mixins' as mixins;
 
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  border: 1px solid red;
   padding-top: 5rem;
+  gap: 1rem;
+}
+
+.header {
+  @include mixins.openSans;
+  opacity: 0.5;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+}
+
+.subHeader {
+  @include mixins.manropeRegular;
+  font-size: 1.5rem;
 }
 
 .row {
   display: flex;
   gap: 1rem;
+
+  @media (max-width: $mobile) {
+    flex-direction: column;
+  }
 }
 
-.imageContainer {
+.recommendedContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   background: $lightGrey;
   padding: 1rem;
-  height: 500px;
+  height: 300px;
+  width: 250px;
+
   img {
     height: auto;
-    width: 200px;
+    width: 100%;
   }
+}
+
+.textContainer {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-top: 20px;
 }

@@ -6,6 +6,7 @@ import styles from './painting-tile.module.scss';
 export default function PaintingTile(props) {
   const { name, imageCollection, price, classNames = '' } = props;
   const firstImage = imageCollection.items[0];
+
   return (
     <Link
       href={{
@@ -15,7 +16,7 @@ export default function PaintingTile(props) {
     >
       <div
         className={
-          classNames ? classNames.imageContainer : styles.imageContainer
+          classNames ? classNames.recommendedContainer : styles.imageContainer
         }
       >
         <Image
@@ -25,7 +26,13 @@ export default function PaintingTile(props) {
           height={firstImage.height}
         />
       </div>
-      <div className={styles.textContainer}>
+      <div
+        className={
+          classNames
+            ? classNames.recommendedTextContainer
+            : styles.textContainer
+        }
+      >
         <p className={styles.paintingName}>{name}</p>
         <p className={styles.price}>{formatPrice(price)}</p>
       </div>

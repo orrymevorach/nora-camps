@@ -75,7 +75,7 @@ export default function PaintingInfoTemplate({
         )}
         <div className={styles.rightColumn}>
           {collection?.name && (
-            <Eyebrow leftText="Collection" rightText={collection.name} />
+            <Eyebrow leftText='Collection' rightText={collection.name} />
           )}
           {startDate && <Eyebrow startDate={startDate} endDate={endDate} />}
           {name && <p className={styles.name}>{name}</p>}
