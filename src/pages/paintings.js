@@ -9,17 +9,19 @@ import {
   getEntryIdsFromPageBuilder,
 } from "@/lib/contentful";
 import { PAGES, getEntryDataFromEntryIds } from "@/utils/contentful";
+import { useState } from "react";
 
 export default function Paintings({
   entries = [],
   allPaintings,
   collections = [],
 }) {
-  const gallery = useFilterByCollection({ allPaintings, entries });
+  const [selectedCollection, setSelectedCollection] = useState('');
+  const gallery = useFilterByCollection({ allPaintings, entries, selectedCollection });
   return (
     <>
       <SEO title="Paintings" />
-      <CollectionsDropDown collections={collections} />
+      <CollectionsDropDown collections={['All', ...collections]} setSelectedCollection={setSelectedCollection}/>
       <PageBuilder entries={gallery} page={PAGES.PAINTINGS} />
     </>
   );
