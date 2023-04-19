@@ -1,5 +1,5 @@
-@use '@variables' as var;
-@use '@mixins' as mixins;
+@use "@variables" as var;
+@use "@mixins" as mixins;
 
 .container {
   display: flex;
@@ -23,13 +23,13 @@
 .form {
   display: grid;
   grid-template:
-    'title title'
-    'firstName lastName'
-    'email email'
-    'painting painting'
-    'subject subject'
-    'message message'
-    'submitButton submitButton';
+    "title title"
+    "firstName lastName"
+    "email email"
+    "painting painting"
+    "subject subject"
+    "message message"
+    "submitButton submitButton";
   grid-template-columns: 1fr 1fr;
   gap: 1.875rem;
   width: 100%;

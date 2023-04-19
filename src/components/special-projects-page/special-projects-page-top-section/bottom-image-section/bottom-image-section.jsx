@@ -1,5 +1,5 @@
-import styles from './bottom-image-section.module.scss';
-import Image from 'next/image';
+import styles from "./bottom-image-section.module.scss";
+import Image from "next/image";
 
 export default function BottomImageSection({ images }) {
   const [firstImage, secondImage, thirdImage] = images;

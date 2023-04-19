@@ -1,5 +1,5 @@
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { sharedRichTextConfig } from './rich-text-config';
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { sharedRichTextConfig } from "./rich-text-config";
 
 // Documentation for @contentful/rich-text-react-renderer:
 // https://www.contentful.com/blog/rich-text-field-tips-and-tricks/

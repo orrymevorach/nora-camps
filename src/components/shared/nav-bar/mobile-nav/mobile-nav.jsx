@@ -1,5 +1,5 @@
-import NavItems from '../nav-items/nav-items';
-import MobileButtons from './mobile-buttons/mobile-buttons';
+import NavItems from "../nav-items/nav-items";
+import MobileButtons from "./mobile-buttons/mobile-buttons";
 
 export default function MobileNav({
   toggleMobileNavView,

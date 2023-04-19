@@ -1,0 +1,29 @@
+@use "@mixins" as mixins;
+@use "@variables" as variables;
+
+.pageNotFoundContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.title {
+  @include mixins.heading;
+}
+
+.apologies {
+  margin-top: 30px;
+  @include mixins.bodyCopy;
+}
+
+@media screen and (max-width: variables.$mobile) {
+  .title {
+    font-size: 30px;
+  }
+  .pageNotFoundContainer {
+    height: 200px;
+    margin-top: 100px;
+  }
+}

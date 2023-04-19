@@ -18,7 +18,7 @@ export default function PrimaryButton({
   children,
   handleClick,
   href = null,
-  classNames = '',
+  classNames = "",
   isLeftArrow = false,
   hasBorder = true,
   isBold = false,

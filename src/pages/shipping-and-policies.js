@@ -1,8 +1,8 @@
-import PageBuilder from '@/components/shared/page-builder';
-import { getEntryIdsFromPageBuilder } from '@/lib/contentful';
-import { PAGES, getEntryDataFromEntryIds } from '@/utils/contentful';
-import Wrapper from '@/components/shared/wrapper/wrapper';
-import SEO from '@/components/shared/seo/seo';
+import PageBuilder from "@/components/shared/page-builder";
+import { getEntryIdsFromPageBuilder } from "@/lib/contentful";
+import { PAGES, getEntryDataFromEntryIds } from "@/utils/contentful";
+import Wrapper from "@/components/shared/wrapper/wrapper";
+import SEO from "@/components/shared/seo/seo";
 
 export default function ShippingAndPolicies({ entries = [] }) {
   return (

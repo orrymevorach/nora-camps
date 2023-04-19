@@ -1,15 +1,15 @@
-import styles from './painting-info-template.module.scss';
-import PrimaryButton from '@/components/shared/primary-button';
-import RichText from '@/components/shared/rich-text';
-import { formatPrice } from '@/utils/string-utils';
-import { useRef, useState } from 'react';
-import EventDateRange from '../event-date-range/event-date-range';
-import Eyebrow from './eyebrow';
-import Location from './location';
-import Details from './details';
-import ImageCarousel from './image-carousel';
-import clsx from 'clsx';
-import { PAGES } from '@/utils/contentful';
+import styles from "./painting-info-template.module.scss";
+import PrimaryButton from "@/components/shared/primary-button";
+import RichText from "@/components/shared/rich-text";
+import { formatPrice } from "@/utils/string-utils";
+import { useRef, useState } from "react";
+import EventDateRange from "../event-date-range/event-date-range";
+import Eyebrow from "./eyebrow";
+import Location from "./location";
+import Details from "./details";
+import ImageCarousel from "./image-carousel";
+import clsx from "clsx";
+import { PAGES } from "@/utils/contentful";
 
 const { PAINTING_SPECIFIC_PAGE, SPECIAL_PROJECTS, ABOUT } = PAGES;
 
@@ -24,8 +24,8 @@ export default function PaintingInfoTemplate({
   startDate,
   endDate,
   location,
-  page = '',
-  button = { label: '', url: '' },
+  page = "",
+  button = { label: "", url: "" },
   imageOnRightSide = false,
 }) {
   const [showAdditionalDescription, setShowAdditionalDescription] =
@@ -43,12 +43,17 @@ export default function PaintingInfoTemplate({
 
   const mapPageToButtonProps = {
     [PAINTING_SPECIFIC_PAGE]: {
-      label: 'Contact for purchase',
-      href: '/contact',
+      label: "Contact for purchase",
+      href: {
+        pathname: "/contact",
+        query: {
+          painting: name,
+        },
+      },
     },
     [SPECIAL_PROJECTS]: {
       label: button.label,
-      href: button.url,
+      href: { pathname: button.url },
     },
   };
 
@@ -62,7 +67,7 @@ export default function PaintingInfoTemplate({
       <div
         className={clsx(
           styles.mainContent,
-          isSpecialProject || isAboutPage ? styles.centerVertically : '',
+          isSpecialProject || isAboutPage ? styles.centerVertically : "",
           imageOnRightSide && styles.imageOnRightSide
         )}
       >
@@ -86,13 +91,14 @@ export default function PaintingInfoTemplate({
           {details && !!details.length && <Details details={details} />}
           {price && (
             <p className={styles.price}>
-              {formatPrice(price).replace('.00', '')}
+              {formatPrice(price).replace(".00", "")}
             </p>
           )}
           {isPainting && (
             <PrimaryButton
               href={buttonProps.href}
               classNames={styles.contactButton}
+              queryParams={buttonProps.queryParams}
             >
               {buttonProps.label}
             </PrimaryButton>
@@ -117,7 +123,7 @@ export default function PaintingInfoTemplate({
               className={styles.readMoreButton}
               onClick={handleClickReadMore}
             >
-              {!showAdditionalDescription ? 'Read more' : 'Read less'}
+              {!showAdditionalDescription ? "Read more" : "Read less"}
             </button>
           )}
         </div>

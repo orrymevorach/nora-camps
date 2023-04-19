@@ -1,4 +1,4 @@
-@use '@mixins' as mixins;
+@use "@mixins" as mixins;
 
 .location {
   @include mixins.openSansBold;

@@ -1,4 +1,4 @@
-import { client } from '@/graphql/apollo-config';
+import { client } from "@/graphql/apollo-config";
 import {
   GET_ALL_PAINTINGS,
   GET_GALLERY,
@@ -12,9 +12,11 @@ import {
   GET_SPECIAL_PROJECTS_TOP_SECTION,
   GET_PAINTING_BY_ENTRY_ID,
   GET_RICH_TEXT_BY_ENTRY_ID,
-} from '@/graphql/queries';
+  GET_ALL_COLLECTIONS,
+  GET_ABOUT_PAGE_TOP_SECTION,
+} from "@/graphql/queries";
 
-export const getEntryIdsFromPageBuilder = async ({ page = '' }) => {
+export const getEntryIdsFromPageBuilder = async ({ page = "" }) => {
   const { data } = await client.query({
     query: GET_PAGE_ENTRIES,
     variables: { page },
@@ -24,7 +26,7 @@ export const getEntryIdsFromPageBuilder = async ({ page = '' }) => {
   return data.pageBuilderCollection.items[0].componentsCollection.items;
 };
 
-export const getHeroImage = async ({ entryId = '' }) => {
+export const getHeroImage = async ({ entryId = "" }) => {
   const { data } = await client.query({
     query: GET_HERO_IMAGE,
     variables: { entryId },
@@ -32,7 +34,7 @@ export const getHeroImage = async ({ entryId = '' }) => {
   return data.heroImageCollection.items[0];
 };
 
-export const getCollectionByName = async ({ name = '' }) => {
+export const getCollectionByName = async ({ name = "" }) => {
   const { data } = await client.query({
     query: GET_COLLECTION_BY_NAME,
     variables: { name },
@@ -40,7 +42,14 @@ export const getCollectionByName = async ({ name = '' }) => {
   return data.collectionCollection.items[0];
 };
 
-export const getGallery = async ({ entryId = '' }) => {
+export const getAllCollections = async () => {
+  const { data } = await client.query({
+    query: GET_ALL_COLLECTIONS,
+  });
+  return data.collectionCollection.items;
+};
+
+export const getGallery = async ({ entryId = "" }) => {
   try {
     const { data } = await client.query({
       query: GET_GALLERY,
@@ -48,7 +57,7 @@ export const getGallery = async ({ entryId = '' }) => {
     });
     return data.gallery.itemsCollection;
   } catch (error) {
-    console.error('error', error);
+    console.error("error", error);
   }
 };
 
@@ -59,7 +68,7 @@ export const getAllPaintings = async () => {
     });
     return data.paintingCollection.items;
   } catch (error) {
-    console.error('error', error);
+    console.error("error", error);
   }
 };
 
@@ -71,7 +80,7 @@ export const getPaintingByName = async ({ name }) => {
     });
     return data.paintingCollection.items[0];
   } catch (error) {
-    console.error('error', error);
+    console.error("error", error);
   }
 };
 
@@ -83,7 +92,7 @@ export const getPaintingByEntryId = async ({ entryId }) => {
     });
     return data.painting;
   } catch (error) {
-    console.error('error', error);
+    console.error("error", error);
   }
 };
 
@@ -95,7 +104,7 @@ export const getEventByName = async ({ name }) => {
     });
     return data.eventCollection.items[0];
   } catch (error) {
-    console.error('error', error);
+    console.error("error", error);
   }
 };
 
@@ -106,11 +115,11 @@ export const getAllEvents = async () => {
     });
     return data.eventCollection.items;
   } catch (error) {
-    console.error('error', error);
+    console.error("error", error);
   }
 };
 
-export const getSpecialProjectsTopSection = async ({ entryId = '' }) => {
+export const getSpecialProjectsTopSection = async ({ entryId = "" }) => {
   try {
     const { data } = await client.query({
       query: GET_SPECIAL_PROJECTS_TOP_SECTION,
@@ -118,11 +127,11 @@ export const getSpecialProjectsTopSection = async ({ entryId = '' }) => {
     });
     return data.specialProjectsTopSection;
   } catch (error) {
-    console.error('error', error);
+    console.error("error", error);
   }
 };
 
-export const getRichTextByEntryId = async ({ entryId = '' }) => {
+export const getRichTextByEntryId = async ({ entryId = "" }) => {
   try {
     const { data } = await client.query({
       query: GET_RICH_TEXT_BY_ENTRY_ID,
@@ -130,6 +139,18 @@ export const getRichTextByEntryId = async ({ entryId = '' }) => {
     });
     return data.contentTypeRichText;
   } catch (error) {
-    console.error('error', error);
+    console.error("error", error);
+  }
+};
+
+export const getAboutPageTopSection = async ({ entryId = "" }) => {
+  try {
+    const { data } = await client.query({
+      query: GET_ABOUT_PAGE_TOP_SECTION,
+      variables: { entryId },
+    });
+    return data.aboutPageTopSection;
+  } catch (error) {
+    console.error("error", error);
   }
 };

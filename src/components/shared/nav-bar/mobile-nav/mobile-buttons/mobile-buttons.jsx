@@ -1,6 +1,6 @@
-import Hamburger from '@/components/shared/svg/ham';
-import styles from './mobile-buttons.module.scss';
-import MagnifyingGlass from 'svg/magnifying-glass';
+import Hamburger from "@/components/shared/svg/ham";
+import styles from "./mobile-buttons.module.scss";
+import MagnifyingGlass from "svg/magnifying-glass";
 
 export default function MobileButtons({ toggles }) {
   const { toggleMobileNavView, toggleSearchBar } = toggles;

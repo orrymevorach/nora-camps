@@ -1,11 +1,11 @@
-import styles from './eyebrow.module.scss';
+import styles from "./eyebrow.module.scss";
 
 export default function Eyebrow({ startDate, endDate, leftText, rightText }) {
   if (startDate) {
     const today = new Date().toISOString();
     const dateToCompare = endDate || startDate;
     const isEventUpcoming = dateToCompare >= today;
-    leftText = isEventUpcoming ? 'Coming up' : 'Past';
+    leftText = isEventUpcoming ? "Coming up" : "Past";
   }
 
   return (

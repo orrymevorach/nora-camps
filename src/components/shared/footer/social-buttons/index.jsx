@@ -1,1 +1,1 @@
-export { default } from './social-buttons.jsx';
+export { default } from "./social-buttons.jsx";
