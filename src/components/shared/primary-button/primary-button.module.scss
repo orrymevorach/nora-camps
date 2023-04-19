@@ -25,6 +25,7 @@
   p {
     white-space: nowrap;
   }
+
   @media (max-width: $tablet) {
     height: 51px;
     width: 200px;
@@ -36,6 +37,17 @@
   &:hover {
     &.border {
       border: 2px solid $black;
+    }
+  }
+}
+
+.joinEmailButtonActive {
+  color: $white;
+  background: $black;
+
+  svg {
+    path {
+      fill: $white;
     }
   }
 }
