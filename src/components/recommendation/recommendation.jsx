@@ -7,8 +7,8 @@ export default function Recommendation({ collectionData = [] }) {
     : collectionData;
 
   const classNames = {
-    recommendedContainer: styles.recommendedContainer,
-    recommendedTextContainer: styles.recommendedTextContainer,
+    imageContainer: styles.imageContainer,
+    textContainer: styles.textContainer,
   };
 
   return (
@@ -19,7 +19,7 @@ export default function Recommendation({ collectionData = [] }) {
         {paintings.map(item => {
           return (
             <div className={styles.painting} key={item.name}>
-              <PaintingTile {...item} classNames={classNames} />
+              <PaintingTile {...item} customStylesObject={classNames} />
             </div>
           );
         })}
