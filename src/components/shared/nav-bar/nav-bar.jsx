@@ -48,7 +48,7 @@ export default function NavBar() {
             mobileNavView={isMobileNavOpen}
           />
         )}
-        {searchBarView && <Search />}
+        {searchBarView && <Search setSearchBarView={setSearchBarView}/>}
       </nav>
     </div>
   );
