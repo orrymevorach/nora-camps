@@ -10,7 +10,7 @@ import Wrapper from '@/components/shared/wrapper/wrapper';
 import SEO from '@/components/shared/seo/seo';
 import { capitalizeFirstLetterOfEachWord } from '@/utils/string-utils';
 import { removeCurrentPaintingFromRecommendedList } from '@/utils/array-utils';
-import Recommendation from '@/components/recommendation/recommendation';
+import Recommendation from '@/components/paintings-page/recommendation/recommendation';
 
 export default function Painting({ paintingData = {}, collectionData }) {
   // The collectionData prop has all the paintings in this collection. Use this data for the reccommended paintings section
@@ -28,7 +28,6 @@ export default function Painting({ paintingData = {}, collectionData }) {
       </Wrapper>
       <Recommendation
         collectionData={collectionData}
-        paintingData={paintingData}
       />
     </>
   );
@@ -45,6 +44,8 @@ export async function getStaticProps({ params }) {
     name: paintingResponse.collection?.name,
   });
 
+// If theres 1 painting in the collection we will remove the current painting from the recommended
+//  list and recommend paintings from a different collection
   if (collectionResponse.paintingsCollection.items.length <= 1) {
     const allPaintingsResponse = await getAllPaintings();
 
@@ -56,7 +57,7 @@ export async function getStaticProps({ params }) {
     return {
       props: {
         paintingData: paintingResponse,
-        collectionData: recommendedPaintings,
+        collectionData: recommendedPaintings.paintingsCollection,
       },
     };
   }
@@ -70,6 +71,8 @@ export async function getStaticProps({ params }) {
     };
   }
 
+  // If theres more than 1 painting in the collection we will remove 
+  // the current painting and recommend paintings from the current collection
   const recommendedPaintings = removeCurrentPaintingFromRecommendedList(
     paintingResponse.name,
     collectionResponse.paintingsCollection.items
