@@ -1,4 +1,3 @@
-import MagnifyingGlass from "svg/magnifying-glass";
 import styles from "./search-bar.module.scss";
 
 export default function SearchBar() {
