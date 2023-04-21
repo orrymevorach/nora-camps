@@ -9,8 +9,8 @@ export const IMAGE_FRAGMENT = gql`
   }
 `;
 
-export const BUTTON_FRAGMENT = gql`
-  fragment ButtonFields on Button {
+export const LINK_FRAGMENT = gql`
+  fragment LinkFields on Link {
     label
     url
   }
@@ -42,8 +42,8 @@ export const EVENT_FRAGMENT = gql`
     startDate
     endDate
     location {
-      name
-      googleMapsLink
+      label
+      url
     }
     description {
       json
@@ -72,11 +72,11 @@ export const SPECIAL_PROJECT_FRAGMENT = gql`
       }
     }
     button {
-      ...ButtonFields
+      ...LinkFields
     }
   }
   ${IMAGE_FRAGMENT}
-  ${BUTTON_FRAGMENT}
+  ${LINK_FRAGMENT}
 `;
 
 export const COLLECTION_FRAGMENT = gql`
