@@ -5,7 +5,6 @@
   width: 556px;
   display: block;
   margin: 0 auto 150px;
-  @include mixins.pagePadding;
 }
 
 .image {
@@ -18,7 +17,7 @@
   @include mixins.openSansMedium;
   font-size: 16px;
   text-align: right;
-  margin: 15px 0 40px;
+  margin: 15px 0 30px;
 }
 
 .collection {

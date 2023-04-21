@@ -26,6 +26,7 @@ export const PAINTING_FRAGMENT = gql`
     name
     details
     price
+    dimensions
     description {
       json
     }

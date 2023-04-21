@@ -1,7 +1,7 @@
-import NavItems from '../nav-items/nav-items';
-import styles from '../nav-bar.module.scss';
-import MagnifyingGlass from 'svg/magnifying-glass';
-import PrimaryButton from '@/components/shared/primary-button';
+import NavItems from "../nav-items/nav-items";
+import styles from "../nav-bar.module.scss";
+import MagnifyingGlass from "svg/magnifying-glass";
+import PrimaryButton from "@/components/shared/primary-button";
 
 export default function DesktopNav({ toggleMobileNavView, toggleSearchBar }) {
   return (
@@ -13,8 +13,8 @@ export default function DesktopNav({ toggleMobileNavView, toggleSearchBar }) {
       >
         <MagnifyingGlass />
       </button>
-      <PrimaryButton href='/mail' dark>
-        Join the Email List
+      <PrimaryButton href="/mail" dark>
+        Stay Connected
       </PrimaryButton>
     </>
   );
