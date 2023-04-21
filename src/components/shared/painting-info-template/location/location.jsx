@@ -1,10 +1,10 @@
 import LocationMarker from "@/components/shared/svg/location-marker";
 import styles from "./location.module.scss";
 
-export default function Location({ location }) {
+export default function Location({ location: { name, googleMapsLink } }) {
   return (
-    <div className={styles.location}>
-      <LocationMarker classNames={styles.locationMarker} /> {location}
-    </div>
+    <a href={googleMapsLink} className={styles.location} target="_blank">
+      <LocationMarker classNames={styles.locationMarker} /> {name}
+    </a>
   );
 }

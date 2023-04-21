@@ -23,7 +23,7 @@ export default function PaintingInfoTemplate({
   details = [],
   startDate,
   endDate,
-  location,
+  location = null,
   page = "",
   button = { label: "", url: "" },
   imageOnRightSide = false,

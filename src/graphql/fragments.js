@@ -41,7 +41,10 @@ export const EVENT_FRAGMENT = gql`
     name
     startDate
     endDate
-    location
+    location {
+      name
+      googleMapsLink
+    }
     description {
       json
     }
