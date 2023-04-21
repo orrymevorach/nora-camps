@@ -9,3 +9,8 @@
 .richText {
   margin-bottom: 30px;
 }
+
+.heading {
+  margin-top: 50px;
+  @include mixins.heading;
+}
