@@ -8,7 +8,8 @@
   align-items: center;
   width: 100%;
   max-width: 1131px;
-  margin: 0 auto;
+  margin: 0 auto 100px;
+  padding: 100px 0;
   background-color: #f4f4f4;
   @include mixins.openSans;
 }
@@ -36,7 +37,6 @@
   padding: 5rem 6.875rem 3.875rem 6.875rem;
   max-width: 748px;
   background-color: var.$white;
-  margin-top: 100px;
 }
 
 $classes: firstName, lastName, email, painting, subject, message;
