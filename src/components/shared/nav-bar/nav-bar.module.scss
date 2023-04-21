@@ -26,6 +26,11 @@
   height: 66px;
 }
 
+.magnifyingGlass {
+  width: 15px;
+  color: var.$charcoal;
+}
+
 @media (max-width: var.$tablet) {
   .container {
     height: 98px;

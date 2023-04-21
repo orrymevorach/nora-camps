@@ -30,7 +30,7 @@
 }
 
 .price {
-  @include mixins.openSansBold;
+  @include mixins.openSans;
 }
 
 @media screen and (max-width: $mobile) {

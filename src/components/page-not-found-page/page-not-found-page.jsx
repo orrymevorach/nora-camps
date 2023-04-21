@@ -5,7 +5,7 @@ import Wrapper from "../shared/wrapper/wrapper";
 export default function PageNotFoundPage() {
   return (
     <Wrapper>
-      <PrimaryButton isLeftArrow href="/" hasBorder={false} isBold>
+      <PrimaryButton isLeftArrow href="/" hasBorder={false} isBold smallText>
         Back to home
       </PrimaryButton>
       <div className={styles.pageNotFoundContainer}>
