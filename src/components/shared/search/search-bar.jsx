@@ -10,9 +10,7 @@ export default function SearchBar() {
     <div className={styles.container}>
       <form className={styles.form} onSubmit={e => submitSearch(e)}>
         <input autoFocus placeholder="Search for a painting or collection" />
-        <button type="submit">
-          <MagnifyingGlass />
-        </button>
+        <button type="submit">Search</button>
       </form>
     </div>
   );

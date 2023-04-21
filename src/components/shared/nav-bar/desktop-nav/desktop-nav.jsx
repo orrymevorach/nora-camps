@@ -1,9 +1,11 @@
-import NavItems from '../nav-items/nav-items';
-import styles from '../nav-bar.module.scss';
-import MagnifyingGlass from 'svg/magnifying-glass';
-import PrimaryButton from '@/components/shared/primary-button';
+import NavItems from "../nav-items/nav-items";
+import styles from "../nav-bar.module.scss";
+import MagnifyingGlass from "svg/magnifying-glass";
+import PrimaryButton from "@/components/shared/primary-button";
+import { useRouter } from "next/router";
 
 export default function DesktopNav({ toggleMobileNavView, toggleSearchBar }) {
+  const { route } = useRouter();
   return (
     <>
       <NavItems toggles={{ toggleMobileNavView }} />
@@ -13,7 +15,7 @@ export default function DesktopNav({ toggleMobileNavView, toggleSearchBar }) {
       >
         <MagnifyingGlass />
       </button>
-      <PrimaryButton href='/mail' dark>
+      <PrimaryButton href="/mail" dark={!!route === "/mail"}>
         Join the Email List
       </PrimaryButton>
     </>

@@ -1,4 +1,4 @@
-@use "@variables" as *;
+@use "@variables" as variables;
 @use "../../../styles/mixins.module.scss" as mixins;
 
 .container {
@@ -17,7 +17,7 @@
     height: 100%;
     width: 100%;
     z-index: 1;
-    background-color: rgba($black, 0.5);
+    background-color: rgba(variables.$black, 0.5);
     top: 0;
     left: 0;
     right: 0;
@@ -27,24 +27,24 @@
 
 .textContainer {
   padding: 12% 0 0 12%;
-  color: $white;
+  color: variables.$white;
 }
 
 .heading {
   position: relative;
   z-index: 2;
-  @include mixins.manropeLight($fontSize: 60px);
-  margin-bottom: 30px;
+  @include mixins.manropeLight($fontSize: variables.$px50);
+  margin-bottom: 20px;
 }
 
 .description {
   position: relative;
   z-index: 2;
-  @include mixins.manropeLight($fontSize: 26px);
-  line-height: 36px;
+  @include mixins.manropeLight($fontSize: variables.$px24);
+  line-height: 30px;
 }
 
-@media screen and (max-width: $mobile) {
+@media screen and (max-width: variables.$mobile) {
   .container {
     margin-bottom: 70px;
   }
