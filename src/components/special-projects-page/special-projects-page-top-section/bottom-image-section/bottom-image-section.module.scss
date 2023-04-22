@@ -2,8 +2,8 @@
 @use "@variables" as variables;
 
 .bottomImageSectionContainer {
-  max-width: calc(variables.$desktopMaxWidth / 2);
   img {
+    width: 100%;
     padding: 12px;
   }
 }
