@@ -100,6 +100,7 @@ export const COLLECTION_FRAGMENT = gql`
 
 export const ABOUT_THE_AUTHOR_FRAGMENT = gql`
   fragment AboutTheAuthorFields on AboutTheAuthor {
+    heading
     description {
       json
     }

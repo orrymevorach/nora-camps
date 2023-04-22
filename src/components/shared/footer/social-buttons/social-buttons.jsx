@@ -9,7 +9,7 @@ export default function SocialButtons() {
       className={styles.container}
       target="_blank"
     >
-      <FontAwesomeIcon icon={faInstagram} size="2xl" />
+      <FontAwesomeIcon icon={faInstagram} className={styles.icon} />
       <p className={styles.handle}>@noracamps_artist</p>
     </a>
   );

@@ -7,6 +7,11 @@
   width: 100%;
 }
 
+.logo {
+  width: 35px;
+  height: 100%;
+}
+
 @media (max-width: var.$mobile) {
   .logos {
     padding: 2rem 0;

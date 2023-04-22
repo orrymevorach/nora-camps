@@ -1,5 +1,5 @@
 @use "@variables" as variables;
-@use "../../../styles/mixins.module.scss" as mixins;
+@use "@mixins" as mixins;
 
 .container {
   height: 600px;

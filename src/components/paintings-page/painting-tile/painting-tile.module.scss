@@ -1,13 +1,13 @@
-@use "@variables" as *;
+@use "@variables" as variables;
 @use "@mixins" as mixins;
 
 .paintingTile {
-  color: $black;
+  color: variables.$black;
 }
 
 .imageContainer {
   padding: 25px;
-  background: $lightGrey;
+  background: variables.$lightGrey;
   height: 500px;
   display: flex;
   align-items: center;
@@ -27,13 +27,14 @@
 
 .paintingName {
   @include mixins.openSans;
+  margin-bottom: variables.$px4;
 }
 
 .price {
   @include mixins.openSans;
 }
 
-@media screen and (max-width: $mobile) {
+@media screen and (max-width: variables.$mobile) {
   .imageContainer {
     img {
       height: auto;

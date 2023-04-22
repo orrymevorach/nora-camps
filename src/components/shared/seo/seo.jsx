@@ -4,7 +4,7 @@ export default function SEO({ title = "" }) {
   return (
     <Head>
       <title>{titleAttribute}</title>
-      <link rel="icon" href="images/NC.png" sizes="32" />
+      <link rel="icon" href="images/logo.png" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta
         name="description"
