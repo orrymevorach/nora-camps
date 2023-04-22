@@ -33,11 +33,13 @@ export async function getStaticProps() {
   const allPaintings = await getAllPaintings();
   const collectionsResponse = await getAllCollections();
   const collections = collectionsResponse.map(({ name }) => name);
+  const combineResponsesInArray = [...collectionsResponse, ...allPaintings];
   return {
     props: {
       entries,
       allPaintings,
       collections,
+      combineResponsesInArray,
     },
   };
 }

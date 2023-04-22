@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import MagnifyingGlass from "../svg/magnifying-glass";
 import Link from "next/link";
 
-export default function SearchBar({ setSearchBarView }) {
-const [ searchList, setSearchList ] = useState([]);
+export default function SearchBar({ setSearchBarView, allPaintingsAndCollections }) {
+const [ searchList, setSearchList ] = useState(allPaintingsAndCollections);
 const [ searchMatch, setSearchMatch ] = useState([]);
+console.log(searchList)
 
   const handleChange = (e) => {
     const inputValue = e.target.value;
@@ -18,18 +19,6 @@ const [ searchMatch, setSearchMatch ] = useState([]);
       setSearchMatch(searchResult);
     }
   }
-
-  useEffect(() => {
-    const fetchAllPaintingsAndCollections = async () => {
-      const collectionsResponse = await getAllCollections();
-      const paintingsResponse = await getAllPaintings();
-      const combineResponsesInArray = [...collectionsResponse, ...paintingsResponse];
-      setSearchList(combineResponsesInArray);
-    }
-    
-    fetchAllPaintingsAndCollections();
-  }, [])
-
 
   return (
     <div className={styles.container}>

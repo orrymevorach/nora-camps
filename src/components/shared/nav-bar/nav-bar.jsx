@@ -8,7 +8,7 @@ import MobileNav from "./mobile-nav/mobile-nav";
 import MainLogo from "svg/main-logo";
 import styles from "./nav-bar.module.scss";
 
-export default function NavBar() {
+export default function NavBar({ allPaintingsAndCollections }) {
   const [searchBarView, setSearchBarView] = useState(false);
   const [isMobileNavOpen, setMobileNavView] = useState(false);
   const { device, isMobile } = useWindowSize();
@@ -48,7 +48,12 @@ export default function NavBar() {
             mobileNavView={isMobileNavOpen}
           />
         )}
-        {searchBarView && <Search setSearchBarView={setSearchBarView}/>}
+        {
+          searchBarView && <Search 
+                            setSearchBarView={setSearchBarView}
+                            allPaintingsAndCollections={allPaintingsAndCollections}
+                          />
+        }
       </nav>
     </div>
   );
