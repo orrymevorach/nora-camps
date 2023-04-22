@@ -8,7 +8,11 @@
 .imageContainer {
   padding: 25px;
   background: $lightGrey;
+  height: 500px;
+  display: flex;
+  align-items: center;
   img {
+    max-height: 450px;
     width: 100%;
     height: auto;
   }
