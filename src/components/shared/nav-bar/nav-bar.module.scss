@@ -10,6 +10,7 @@
   width: 100%;
   background-color: var.$white;
   z-index: 100;
+  @include mixins.pagePadding;
 }
 
 .navigation {
