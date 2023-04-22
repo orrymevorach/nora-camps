@@ -2,6 +2,7 @@ import { formatPrice } from "@/utils/string-utils";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./painting-tile.module.scss";
+import clsx from "clsx";
 
 export default function PaintingTile(props) {
   const { name, imageCollection, price, customStylesObject = '' } = props;
@@ -16,7 +17,7 @@ export default function PaintingTile(props) {
     >
       <div
         className={
-          customStylesObject ? customStylesObject.imageContainer : styles.imageContainer
+          clsx(styles.imageContainer, customStylesObject.imageContainer)
         }
       >
         <Image
@@ -28,9 +29,7 @@ export default function PaintingTile(props) {
       </div>
       <div
         className={
-          customStylesObject
-            ? customStylesObject.textContainer
-            : styles.textContainer
+          clsx(styles.textContainer, customStylesObject.textContainer)
         }
       >
         <p className={styles.paintingName}>{name}</p>
