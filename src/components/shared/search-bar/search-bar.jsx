@@ -3,17 +3,10 @@ import { getAllCollections, getAllPaintings } from "@/lib/contentful";
 import { useEffect, useState } from "react";
 import MagnifyingGlass from "../svg/magnifying-glass";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 export default function SearchBar({ setSearchBarView }) {
-const [ searchList, setSearchList ] = useState([{}]);
+const [ searchList, setSearchList ] = useState([]);
 const [ searchMatch, setSearchMatch ] = useState([]);
-const {asPath} = useRouter();
-console.log(asPath)
-
-  const submitSearch = e => {
-    e.preventDefault();
-  };
 
   const handleChange = (e) => {
     const inputValue = e.target.value;
@@ -40,11 +33,11 @@ console.log(asPath)
 
   return (
     <div className={styles.container}>
-      <form className={styles.form} onSubmit={e => submitSearch(e)}>
-        <input autoFocus placeholder="Search for a painting or collection" onChange={(e) => handleChange(e)} />
-        <button className={styles.button} type="submit">
+      <div className={styles.spacing}>
+        <input className={styles.input} autoFocus placeholder="Search for a painting or collection" onChange={(e) => handleChange(e)} />
+        <div className={styles.magnifyingGlass}>
           <MagnifyingGlass />
-        </button>
+        </div>
         {
           searchMatch.length > 0 && (
             <ul className={styles.ul}>
@@ -52,9 +45,9 @@ console.log(asPath)
                 searchMatch.map(({__typename, name}) => {
                   return (
                     <li className={styles.li} onClick={() => setSearchBarView(false)}>
-                      <Link href={__typename === 'Collection' ? `/paintings?collection=${name}` : `/painting/${name}`}>
+                      <Link className={styles.link} href={__typename === 'Collection' ? `/paintings?collection=${name}` : `/painting/${name}`}>
                       {name}
-                      <p>{__typename}</p>
+                      <p className={styles.typeText}>{__typename}</p>
                       </Link>
                     </li>
                   )
@@ -63,9 +56,7 @@ console.log(asPath)
             </ul>
           )
         }
-      </form> 
+      </div> 
     </div>
   );
 }
-
-// URL IS DUPLICATING WHEN SEARCHING FOR SOME REASON
