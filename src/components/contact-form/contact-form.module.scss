@@ -67,6 +67,10 @@ $classes: firstName, lastName, email, painting, subject, message;
   @include mixins.montserratMedium;
 }
 
+.confirmationText {
+  margin-top: 30px;
+}
+
 @media (max-width: var.$mobile) {
   .title {
     font-size: 2rem;
