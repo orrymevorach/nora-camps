@@ -2,14 +2,15 @@ import FooterItems from "../footer-items";
 import SocialButtons from "../social-buttons";
 import Copyright from "../copyright";
 import styles from "./desktop-footer.module.scss";
-import MainLogo from "svg/main-logo";
+import logo from "images/logo.png";
+import Image from "next/image";
 
 export default function DesktopFooter() {
   return (
     <>
       <FooterItems />
       <div className={styles.logos}>
-        <MainLogo />
+        <Image src={logo} className={styles.logo} />
         <SocialButtons />
         <Copyright classNames={styles.copyrightPosition} />
       </div>

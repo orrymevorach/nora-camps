@@ -1,3 +1,4 @@
+@use "@variables" as variables;
 .mobileButtons {
   display: flex;
   align-items: center;
@@ -9,9 +10,6 @@
 }
 
 .magnifyingGlass {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 39px;
-  width: 44px;
+  width: 18px;
+  color: variables.$charcoal;
 }

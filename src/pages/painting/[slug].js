@@ -16,7 +16,13 @@ export default function Painting({ paintingData = {}, collectionData }) {
     <>
       <SEO title={`${capitalizeFirstLetterOfEachWord(paintingData?.name)}`} />
       <Wrapper>
-        <PrimaryButton isLeftArrow href="/paintings" hasBorder={false} isBold>
+        <PrimaryButton
+          isLeftArrow
+          href="/paintings"
+          hasBorder={false}
+          isBold
+          smallText
+        >
           Back to Painting Page
         </PrimaryButton>
         <PaintingInfoTemplate

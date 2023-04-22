@@ -13,10 +13,10 @@
 }
 
 .footerLi {
-  text-decoration: underline;
   line-height: 14px;
   color: var.$black;
   @include mixins.openSans;
+  font-size: var.$px14;
 }
 
 .nextLink {
@@ -25,7 +25,6 @@
 
 @media (max-width: var.$tablet) {
   .footerLi {
-    font-size: 0.825rem;
     border-bottom: none;
   }
 }

@@ -1,8 +1,7 @@
-import styles from './primary-button.module.scss';
-import RightArrow from '@/components/shared/svg/right-arrow/right-arrow';
-import Link from 'next/link';
-import clsx from 'clsx';
-import { useRouter } from 'next/router';
+import styles from "./primary-button.module.scss";
+import RightArrow from "@/components/shared/svg/right-arrow/right-arrow";
+import Link from "next/link";
+import clsx from "clsx";
 
 const ButtonContent = ({ children, isLeftArrow }) => {
   return (
@@ -23,15 +22,15 @@ export default function PrimaryButton({
   hasBorder = true,
   isBold = false,
   dark = false,
+  smallText = false,
 }) {
-  const { route } = useRouter();
-
   const className = clsx(
     styles.primaryButton,
     classNames,
     hasBorder && styles.border,
     isBold && styles.bold,
-    dark && route === '/mail' && styles.joinEmailButtonActive
+    dark && styles.dark,
+    smallText && styles.smallText
   );
   if (href) {
     return (
