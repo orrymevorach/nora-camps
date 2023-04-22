@@ -44,38 +44,17 @@ export async function getStaticProps({ params }) {
     name: paintingResponse.collection?.name,
   });
 
-// If theres 1 painting in the collection we will remove the current painting from the recommended
-//  list and recommend paintings from a different collection
+  let paintingsToRecommend = [];
+
   if (collectionResponse.paintingsCollection.items.length <= 1) {
-    const allPaintingsResponse = await getAllPaintings();
-
-    const recommendedPaintings = removeCurrentPaintingFromRecommendedList(
-      paintingResponse.name,
-      allPaintingsResponse
-    );
-
-    return {
-      props: {
-        paintingData: paintingResponse,
-        collectionData: recommendedPaintings.paintingsCollection,
-      },
-    };
+    paintingsToRecommend = await getAllPaintings();
+  } else {
+    paintingsToRecommend = collectionResponse.paintingsCollection.items;
   }
 
-  // In case the collection field is empty, the page won't break
-  if (!collectionResponse) {
-    return {
-      props: {
-        paintingData: paintingResponse,
-      },
-    };
-  }
-
-  // If theres more than 1 painting in the collection we will remove 
-  // the current painting and recommend paintings from the current collection
   const recommendedPaintings = removeCurrentPaintingFromRecommendedList(
     paintingResponse.name,
-    collectionResponse.paintingsCollection.items
+    paintingsToRecommend
   );
 
   return {
