@@ -6,11 +6,11 @@ export default function Contact({ paintings = [] }) {
 }
 
 export async function getStaticProps() {
-  const paintingsResponse = await getAllPaintings();
-  const paintings = paintingsResponse.map(({ name }) => name);
-  const collectionsResponse = await getAllCollections();
-  const combineResponsesInArray = [...collectionsResponse, ...paintingsResponse];
-  
+  const allPaintings = await getAllPaintings();
+  const paintings = allPaintings.map(({ name }) => name);
+  const allCollections = await getAllCollections();
+  const combineResponsesInArray = [...allCollections, ...allPaintings];
+
   return {
     props: {
       paintings,

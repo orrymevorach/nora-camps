@@ -1,9 +1,12 @@
-import NavItems from '../nav-items/nav-items';
-import styles from '../nav-bar.module.scss';
-import MagnifyingGlass from 'svg/magnifying-glass';
-import PrimaryButton from '@/components/shared/primary-button';
+import NavItems from "../nav-items/nav-items";
+import styles from "../nav-bar.module.scss";
+import PrimaryButton from "@/components/shared/primary-button";
+import { useRouter } from "next/router";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function DesktopNav({ toggleMobileNavView, toggleSearchBar }) {
+  const { route } = useRouter();
   return (
     <>
       <NavItems toggles={{ toggleMobileNavView }} />
@@ -11,10 +14,10 @@ export default function DesktopNav({ toggleMobileNavView, toggleSearchBar }) {
         onClick={() => toggleSearchBar()}
         className={styles.magnifyingGlass}
       >
-        <MagnifyingGlass />
+        <FontAwesomeIcon icon={faMagnifyingGlass} />
       </button>
-      <PrimaryButton href='/mail' dark>
-        Join the Email List
+      <PrimaryButton href="/mail" dark={!!route === "/mail"}>
+        Stay Connected
       </PrimaryButton>
     </>
   );

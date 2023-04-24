@@ -1,4 +1,9 @@
-import { getEventByName, getAllEvents } from "@/lib/contentful";
+import {
+  getEventByName,
+  getAllEvents,
+  getAllCollections,
+  getAllPaintings,
+} from "@/lib/contentful";
 import PaintingInfoTemplate from "@/components/shared/painting-info-template/painting-info-template";
 import PrimaryButton from "@/components/shared/primary-button";
 import { PAGES } from "@/utils/contentful";
@@ -11,7 +16,13 @@ export default function Event({ eventData = {} }) {
     <>
       <SEO title={`${capitalizeFirstLetterOfEachWord(eventData?.name)}}`} />
       <Wrapper>
-        <PrimaryButton isLeftArrow href="/exhibitions" hasBorder={false} isBold>
+        <PrimaryButton
+          isLeftArrow
+          href="/exhibitions"
+          hasBorder={false}
+          isBold
+          smallText
+        >
           Back to Event Page
         </PrimaryButton>
         <PaintingInfoTemplate {...eventData} page={PAGES.EVENT_SEPCIFIC_PAGE} />
@@ -28,10 +39,14 @@ export async function getStaticProps({ params }) {
     };
 
   const eventData = await getEventByName({ name: params.slug });
+  const allCollections = await getAllCollections();
+  const allPaintings = await getAllPaintings();
+  const combineResponsesInArray = [...allCollections, ...allPaintings];
 
   return {
     props: {
       eventData,
+      combineResponsesInArray,
     },
   };
 }

@@ -23,10 +23,11 @@ export default function PaintingInfoTemplate({
   details = [],
   startDate,
   endDate,
-  location,
+  location = null,
   page = "",
   button = { label: "", url: "" },
   imageOnRightSide = false,
+  dimensions = "",
 }) {
   const [showAdditionalDescription, setShowAdditionalDescription] =
     useState(false);
@@ -62,6 +63,8 @@ export default function PaintingInfoTemplate({
   const isSpecialProject = page === SPECIAL_PROJECTS;
   const isAboutPage = page === ABOUT;
 
+  const showDetails = (details && details.length > 0) || dimensions;
+
   return (
     <div className={styles.paintingInfoTemplateContainer}>
       <div
@@ -88,7 +91,7 @@ export default function PaintingInfoTemplate({
             <EventDateRange startDate={startDate} endDate={endDate} />
           )}
           {location && <Location location={location} />}
-          {details && !!details.length && <Details details={details} />}
+          {showDetails && <Details details={details} dimensions={dimensions} />}
           {price && (
             <p className={styles.price}>
               {formatPrice(price).replace(".00", "")}

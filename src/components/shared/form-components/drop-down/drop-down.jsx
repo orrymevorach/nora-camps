@@ -1,40 +1,39 @@
 import { useState, useRef, useEffect } from "react";
 import DropDownMenu from "./list/list";
 import DownArrow from "svg/down-arrow";
-import MagnifyingGlass from "svg/magnifying-glass";
+import { useRouter } from "next/router";
 
 export default function DropDown({
   isReactHookForm = false,
-  iconType = 'drop-down',
   setValue = "",
   listItems = [],
   attributes = {},
-  classNames = '',
-  label = '',
+  classNames = "",
+  label = "",
   handleChange,
 }) {
   const [isToggled, setIsToggled] = useState(false);
   const inputRef = useRef(null);
-  
+  const { asPath, query } = useRouter();
+
   useEffect(() => {
-    if (iconType === 'magnifying-glass' && listItems.length) {
-      setIsToggled(true);
+    if (query.collection) {
+      inputRef.current.value = query.collection;
     }
-  }, [iconType, listItems])
+  }, [asPath]);
 
   return (
     <div className={classNames.container}>
       <div className={classNames.inputGroup}>
         {isReactHookForm && <label className={classNames.label}>{label}</label>}
-        <input className={classNames.input} ref={inputRef} {...attributes}/>
+        <input className={classNames.input} ref={inputRef} {...attributes} />
         <button
           type="button"
           className={classNames.dropDownButton}
           id="drop-down-arrow"
           onClick={() => setIsToggled(prev => !prev)}
         >
-          { iconType === 'drop-down' && <DownArrow /> }
-          { iconType === 'magnifying-glass' && <MagnifyingGlass /> }
+          <DownArrow />
         </button>
       </div>
       {isToggled && (

@@ -5,8 +5,9 @@ import { useWindowSize } from "@/hooks";
 import Search from "../search-bar/search-bar";
 import DesktopNav from "./desktop-nav/desktop-nav";
 import MobileNav from "./mobile-nav/mobile-nav";
-import MainLogo from "svg/main-logo";
+import logo from "images/logo.png";
 import styles from "./nav-bar.module.scss";
+import Image from "next/image";
 
 export default function NavBar({ allPaintingsAndCollections }) {
   const [searchBarView, setSearchBarView] = useState(false);
@@ -34,7 +35,7 @@ export default function NavBar({ allPaintingsAndCollections }) {
     >
       <nav className={clsx(styles.navigation)}>
         <Link href="/" onClick={() => setMobileNavView(false)}>
-          <MainLogo classNames={styles.logo} />
+          <Image src={logo} className={styles.logo} />
         </Link>
         {!isMobile ? (
           <DesktopNav
@@ -48,12 +49,12 @@ export default function NavBar({ allPaintingsAndCollections }) {
             mobileNavView={isMobileNavOpen}
           />
         )}
-        {
-          searchBarView && <Search 
-                            setSearchBarView={setSearchBarView}
-                            allPaintingsAndCollections={allPaintingsAndCollections}
-                          />
-        }
+        {searchBarView && (
+          <Search
+            setSearchBarView={setSearchBarView}
+            allPaintingsAndCollections={allPaintingsAndCollections}
+          />
+        )}
       </nav>
     </div>
   );

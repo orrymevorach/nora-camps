@@ -16,12 +16,19 @@ export default function Paintings({
   allPaintings,
   collections = [],
 }) {
-  const [selectedCollection, setSelectedCollection] = useState('');
-  const gallery = useFilterByCollection({ allPaintings, entries, selectedCollection });
+  const [selectedCollection, setSelectedCollection] = useState("");
+  const gallery = useFilterByCollection({
+    allPaintings,
+    entries,
+    selectedCollection,
+  });
   return (
     <>
       <SEO title="Paintings" />
-      <CollectionsDropDown collections={['All', ...collections]} setSelectedCollection={setSelectedCollection}/>
+      <CollectionsDropDown
+        collections={["All", ...collections]}
+        setSelectedCollection={setSelectedCollection}
+      />
       <PageBuilder entries={gallery} page={PAGES.PAINTINGS} />
     </>
   );
@@ -31,9 +38,9 @@ export async function getStaticProps() {
   const entryIds = await getEntryIdsFromPageBuilder({ page: PAGES.PAINTINGS });
   const entries = await getEntryDataFromEntryIds({ entryIds });
   const allPaintings = await getAllPaintings();
-  const collectionsResponse = await getAllCollections();
-  const collections = collectionsResponse.map(({ name }) => name);
-  const combineResponsesInArray = [...collectionsResponse, ...allPaintings];
+  const allCollections = await getAllCollections();
+  const combineResponsesInArray = [...allCollections, ...allPaintings];
+  const collections = allCollections.map(({ name }) => name);
   return {
     props: {
       entries,

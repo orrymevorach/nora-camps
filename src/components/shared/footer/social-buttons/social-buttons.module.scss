@@ -1,4 +1,18 @@
+@use "@mixins" as mixins;
+@use "@variables" as variables;
+
 .container {
   display: flex;
-  gap: 3rem;
+  align-items: flex-end;
+  color: variables.$black;
+}
+
+.handle {
+  @include mixins.manropeRegular;
+  margin-left: 5px;
+  font-size: variables.$px14;
+}
+
+.icon {
+  width: 25px;
 }

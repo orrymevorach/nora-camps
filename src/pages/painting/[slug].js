@@ -2,6 +2,7 @@ import {
   getPaintingByName,
   getAllPaintings,
   getCollectionByName,
+  getAllCollections,
 } from "@/lib/contentful";
 import PrimaryButton from "@/components/shared/primary-button";
 import PaintingInfoTemplate from "@/components/shared/painting-info-template/painting-info-template";
@@ -16,7 +17,13 @@ export default function Painting({ paintingData = {}, collectionData }) {
     <>
       <SEO title={`${capitalizeFirstLetterOfEachWord(paintingData?.name)}`} />
       <Wrapper>
-        <PrimaryButton isLeftArrow href="/paintings" hasBorder={false} isBold>
+        <PrimaryButton
+          isLeftArrow
+          href="/paintings"
+          hasBorder={false}
+          isBold
+          smallText
+        >
           Back to Painting Page
         </PrimaryButton>
         <PaintingInfoTemplate
@@ -38,12 +45,16 @@ export async function getStaticProps({ params }) {
   const collectionResponse = await getCollectionByName({
     name: paintingResponse.collection?.name,
   });
+  const allCollections = await getAllCollections();
+  const allPaintings = await getAllPaintings();
+  const combineResponsesInArray = [...allCollections, ...allPaintings];
 
   // In case the collection field is empty, the page won't break
   if (!collectionResponse) {
     return {
       props: {
         paintingData: paintingResponse,
+        combineResponsesInArray,
       },
     };
   }
@@ -51,6 +62,7 @@ export async function getStaticProps({ params }) {
     props: {
       paintingData: paintingResponse,
       collectionData: collectionResponse,
+      combineResponsesInArray,
     },
   };
 }
