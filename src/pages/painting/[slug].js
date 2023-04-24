@@ -2,15 +2,15 @@ import {
   getPaintingByName,
   getAllPaintings,
   getCollectionByName,
-} from '@/lib/contentful';
-import PrimaryButton from '@/components/shared/primary-button';
-import PaintingInfoTemplate from '@/components/shared/painting-info-template/painting-info-template';
-import { PAGES } from '@/utils/contentful';
-import Wrapper from '@/components/shared/wrapper/wrapper';
-import SEO from '@/components/shared/seo/seo';
-import { capitalizeFirstLetterOfEachWord } from '@/utils/string-utils';
-import { removeCurrentPaintingFromRecommendedList } from '@/utils/array-utils';
-import Recommendation from '@/components/paintings-page/recommendation/recommendation';
+} from "@/lib/contentful";
+import PrimaryButton from "@/components/shared/primary-button";
+import PaintingInfoTemplate from "@/components/shared/painting-info-template/painting-info-template";
+import { PAGES } from "@/utils/contentful";
+import Wrapper from "@/components/shared/wrapper/wrapper";
+import SEO from "@/components/shared/seo/seo";
+import { capitalizeFirstLetterOfEachWord } from "@/utils/string-utils";
+import { removeCurrentPaintingFromRecommendedList } from "@/utils/array-utils";
+import Recommendation from "@/components/paintings-page/recommendation/recommendation";
 
 export default function Painting({ paintingData = {}, collectionData }) {
   // The collectionData prop has all the paintings in this collection. Use this data for the reccommended paintings section
@@ -18,7 +18,13 @@ export default function Painting({ paintingData = {}, collectionData }) {
     <>
       <SEO title={`${capitalizeFirstLetterOfEachWord(paintingData?.name)}`} />
       <Wrapper>
-        <PrimaryButton isLeftArrow href='/paintings' hasBorder={false} isBold>
+        <PrimaryButton
+          isLeftArrow
+          href="/paintings"
+          hasBorder={false}
+          isBold
+          smallText
+        >
           Back to Painting Page
         </PrimaryButton>
         <PaintingInfoTemplate
@@ -26,9 +32,7 @@ export default function Painting({ paintingData = {}, collectionData }) {
           page={PAGES.PAINTING_SPECIFIC_PAGE}
         />
       </Wrapper>
-      <Recommendation
-        collectionData={collectionData}
-      />
+      <Recommendation collectionData={collectionData} />
     </>
   );
 }

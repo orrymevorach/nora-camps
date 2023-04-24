@@ -1,6 +1,9 @@
 @use "@mixins" as mixins;
 @use "@variables" as variables;
 
+.padding {
+  @include mixins.pagePadding;
+}
 .largeWrapper {
   @include mixins.maxWidthContainer;
 }
@@ -14,7 +17,6 @@
 @media screen and (max-width: variables.$mobile) {
   .largeWrapper,
   .smallWrapper {
-    @include mixins.pagePadding;
     margin-top: 30px;
   }
 }

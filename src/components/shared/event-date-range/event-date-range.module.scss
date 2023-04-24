@@ -3,12 +3,12 @@
 
 .date {
   @include mixins.manropeRegular;
-  font-size: 45px;
+  font-size: variables.$px32;
   line-height: 1.1;
 }
 
 @media screen and (max-width: variables.$mobile) {
   .date {
-    font-size: 30px;
+    font-size: variables.$px30;
   }
 }

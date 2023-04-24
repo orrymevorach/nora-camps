@@ -7,6 +7,8 @@ import InputShell from "../shared/form-components/input-shell";
 import PrimaryButton from "../shared/primary-button";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { useForm as useFormSpree } from "@formspree/react";
+import Loader from "@/components/shared/loader";
 
 export default function ContactForm({ dropDownListItems }) {
   const {
@@ -16,9 +18,7 @@ export default function ContactForm({ dropDownListItems }) {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = formData => {
-    console.log(formData);
-  };
+  const [state, handleSubmitFormspree] = useFormSpree("xknakznd");
 
   const { query } = useRouter();
   useEffect(() => {
@@ -28,9 +28,29 @@ export default function ContactForm({ dropDownListItems }) {
       setValue("paintings", "");
     }
   }, [query.painting, setValue]);
+
+  if (state.submitting) {
+    window.scrollTo(0, 0);
+    return (
+      <div className={styles.container}>
+        <Loader centerInContainer />
+      </div>
+    );
+  }
+  if (state.succeeded) {
+    return (
+      <div className={styles.container}>
+        <p className={styles.title}>Thank you for your submission.</p>
+        <p className={styles.confirmationText}>We will be in touch shortly.</p>
+      </div>
+    );
+  }
   return (
     <div className={styles.container}>
-      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className={styles.form}
+        onSubmit={handleSubmit(handleSubmitFormspree)}
+      >
         <h1 className={styles.title}>Send a message</h1>
 
         <InputShell

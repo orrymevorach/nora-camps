@@ -4,7 +4,7 @@ import styles from "./footer-items.module.scss";
 export default function FooterItems() {
   const footerNavItems = [
     { label: "Contact", href: "/contact" },
-    { label: "Newsletter", href: "/newsletter" },
+    { label: "Stay Connected", href: "/newsletter" },
     { label: "Shipping & Policies", href: "/shipping-and-policies" },
     { label: "Special Projects", href: "/special-projects" },
   ];

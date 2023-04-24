@@ -5,7 +5,13 @@ import styles from "./painting-tile.module.scss";
 import clsx from "clsx";
 
 export default function PaintingTile(props) {
-  const { name, imageCollection, price, customStylesObject = '' } = props;
+  const {
+    name,
+    imageCollection,
+    price,
+    dimensions,
+    customStylesObject = "",
+  } = props;
   const firstImage = imageCollection.items[0];
 
   return (
@@ -16,9 +22,10 @@ export default function PaintingTile(props) {
       className={styles.paintingTile}
     >
       <div
-        className={
-          clsx(styles.imageContainer, customStylesObject.imageContainer)
-        }
+        className={clsx(
+          styles.imageContainer,
+          customStylesObject.imageContainer
+        )}
       >
         <Image
           src={firstImage.url}
@@ -28,11 +35,13 @@ export default function PaintingTile(props) {
         />
       </div>
       <div
-        className={
-          clsx(styles.textContainer, customStylesObject.textContainer)
-        }
+        className={clsx(styles.textContainer, customStylesObject.textContainer)}
       >
-        <p className={styles.paintingName}>{name}</p>
+        <div>
+          <p className={styles.paintingName}>{name}</p>
+          <p className={styles.paintingName}>{dimensions}</p>
+        </div>
+
         <p className={styles.price}>{formatPrice(price)}</p>
       </div>
     </Link>

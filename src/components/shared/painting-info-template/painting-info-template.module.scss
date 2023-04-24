@@ -39,8 +39,8 @@
 }
 
 .price {
-  @include mixins.manropeSemiBold;
-  font-size: 26px;
+  @include mixins.manropeRegular;
+  font-size: 24px;
 }
 
 .contactButton {

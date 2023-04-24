@@ -11,7 +11,13 @@ export default function Event({ eventData = {} }) {
     <>
       <SEO title={`${capitalizeFirstLetterOfEachWord(eventData?.name)}}`} />
       <Wrapper>
-        <PrimaryButton isLeftArrow href="/exhibitions" hasBorder={false} isBold>
+        <PrimaryButton
+          isLeftArrow
+          href="/exhibitions"
+          hasBorder={false}
+          isBold
+          smallText
+        >
           Back to Event Page
         </PrimaryButton>
         <PaintingInfoTemplate {...eventData} page={PAGES.EVENT_SEPCIFIC_PAGE} />

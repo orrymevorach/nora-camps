@@ -48,8 +48,8 @@ export default function NavItems({ toggles }) {
       })}
       {isMobile && (
         <li className={styles.navLi}>
-          <PrimaryButton href='/mail' dark>
-            Join the Email List
+          <PrimaryButton href="/mail" dark={!!route === "/mail"}>
+            Stay Connected
           </PrimaryButton>
         </li>
       )}

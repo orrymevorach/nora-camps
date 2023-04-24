@@ -1,5 +1,5 @@
-import { useRouter } from 'next/router';
-import { useState, useEffect, useCallback } from 'react';
+import { useRouter } from "next/router";
+import { useState, useEffect, useCallback } from "react";
 
 export const useFilterByCollection = ({
   allPaintings,
@@ -12,7 +12,7 @@ export const useFilterByCollection = ({
   const filterCollectionsAndFormatForPageBuilder = useCallback(
     currentCollection => {
       const paintingsInSelectedCollection = allPaintings.filter(
-        item => item.collection.name === currentCollection
+        item => item?.collection?.name === currentCollection
       );
       // This is the format that the Page Builder expects the content in the gallery
 
@@ -36,7 +36,7 @@ export const useFilterByCollection = ({
   }, [query, allPaintings, entries, filterCollectionsAndFormatForPageBuilder]);
 
   useEffect(() => {
-    if (selectedCollection === 'All') {
+    if (selectedCollection === "All") {
       return setGallery(entries);
     }
 

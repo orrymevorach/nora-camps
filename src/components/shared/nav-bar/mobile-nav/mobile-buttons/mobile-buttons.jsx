@@ -1,6 +1,7 @@
 import Hamburger from "@/components/shared/svg/ham";
 import styles from "./mobile-buttons.module.scss";
-import MagnifyingGlass from "svg/magnifying-glass";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function MobileButtons({ toggles }) {
   const { toggleMobileNavView, toggleSearchBar } = toggles;
@@ -11,7 +12,7 @@ export default function MobileButtons({ toggles }) {
         onClick={() => toggleSearchBar()}
         className={styles.magnifyingGlass}
       >
-        <MagnifyingGlass />
+        <FontAwesomeIcon icon={faMagnifyingGlass} />
       </button>
       <button onClick={() => toggleMobileNavView()}>
         <Hamburger />

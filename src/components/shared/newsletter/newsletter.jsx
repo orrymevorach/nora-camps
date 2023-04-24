@@ -5,11 +5,10 @@ export default function Newsletter() {
   return (
     <div className={styles.container}>
       <form className={styles.form}>
-        <p className={styles.title}>NEWSLETTER</p>
-        <p className={styles.signUp}>Sign up for updates</p>
+        <p className={styles.signUp}>Stay Connected</p>
         <p className={styles.description}>
-          Sign up with your email address to receive news and updates on my
-          latest exhibitions & works.
+          Enter your email address to receive news and updates on my latest
+          works and upcoming events.
         </p>
         <div className={styles.row}>
           <input
