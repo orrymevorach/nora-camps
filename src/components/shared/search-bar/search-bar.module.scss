@@ -43,6 +43,8 @@
   border: 1px solid var.$black;
   max-width: 400px;
   background-color: var.$white;
+  max-height: 200px;
+  overflow-x: scroll;
 }
 
 .li {
@@ -62,7 +64,7 @@
   width: 100%;
   color: var.$black;
   font-size: 14px;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   @include mixins.manropeRegular;
 }
 
