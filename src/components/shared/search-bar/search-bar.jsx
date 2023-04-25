@@ -8,7 +8,7 @@ export default function SearchBar({
 }) {
   const [searchResults, setSearchResults] = useState(paintingsAndCollections);
   const [searchMatch, setSearchMatch] = useState([]);
-  console.log(searchResults);
+
   const handleChange = e => {
     const inputValue = e.target.value;
     const searchResult = searchResults.filter(item =>
