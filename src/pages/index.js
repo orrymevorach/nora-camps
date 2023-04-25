@@ -4,6 +4,7 @@ import {
   getAllPaintings,
   getEntryIdsFromPageBuilder,
   getAllCollections,
+  getCollectionsAndPaintings,
 } from "@/lib/contentful";
 import { PAGES, getEntryDataFromEntryIds } from "@/utils/contentful";
 
@@ -19,14 +20,12 @@ export default function Home({ entries = [] }) {
 export async function getStaticProps() {
   const entryIds = await getEntryIdsFromPageBuilder({ page: PAGES.HOME });
   const entries = await getEntryDataFromEntryIds({ entryIds });
-  const allPaintings = await getAllPaintings();
-  const allCollections = await getAllCollections();
-  const combineResponsesInArray = [...allCollections, ...allPaintings];
+  const { paintingsAndCollections } = await getCollectionsAndPaintings();
 
   return {
     props: {
       entries,
-      combineResponsesInArray,
+      paintingsAndCollections,
     },
   };
 }

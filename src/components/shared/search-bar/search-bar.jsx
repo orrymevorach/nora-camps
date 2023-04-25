@@ -4,14 +4,14 @@ import Link from "next/link";
 
 export default function SearchBar({
   setSearchBarView,
-  allPaintingsAndCollections,
+  paintingsAndCollections,
 }) {
-  const [searchList, setSearchList] = useState(allPaintingsAndCollections);
+  const [searchResults, setSearchResults] = useState(paintingsAndCollections);
   const [searchMatch, setSearchMatch] = useState([]);
-
+  console.log(searchResults);
   const handleChange = e => {
     const inputValue = e.target.value;
-    const searchResult = searchList.filter(item =>
+    const searchResult = searchResults.filter(item =>
       item.name.toLowerCase().includes(inputValue.toLowerCase())
     );
 
@@ -30,6 +30,7 @@ export default function SearchBar({
           autoFocus
           placeholder="Search for a painting or collection"
           onChange={e => handleChange(e)}
+          type="search"
         />
         {searchMatch.length > 0 && (
           <ul className={styles.ul}>

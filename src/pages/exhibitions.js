@@ -3,8 +3,7 @@ import SEO from "@/components/shared/seo/seo";
 import Wrapper from "@/components/shared/wrapper/wrapper";
 import {
   getEntryIdsFromPageBuilder,
-  getAllCollections,
-  getAllPaintings,
+  getCollectionsAndPaintings,
 } from "@/lib/contentful";
 import { PAGES, getEntryDataFromEntryIds } from "@/utils/contentful";
 
@@ -24,14 +23,12 @@ export async function getStaticProps() {
     page: PAGES.EXHIBITIONS,
   });
   const entries = await getEntryDataFromEntryIds({ entryIds });
-  const allPaintings = await getAllPaintings();
-  const allCollections = await getAllCollections();
-  const combineResponsesInArray = [...allCollections, ...allPaintings];
+  const { paintingsAndCollections } = await getCollectionsAndPaintings();
 
   return {
     props: {
       entries,
-      combineResponsesInArray,
+      paintingsAndCollections,
     },
   };
 }

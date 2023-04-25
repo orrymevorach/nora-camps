@@ -1,6 +1,6 @@
 import NewsletterPage from "@/components/newsletter-page/newsletter-page";
 import Head from "next/head";
-import { getAllCollections, getAllPaintings } from "@/lib/contentful";
+import { getCollectionsAndPaintings } from "@/lib/contentful";
 
 export default function Mail() {
   return (
@@ -14,13 +14,11 @@ export default function Mail() {
 }
 
 export async function getStaticProps() {
-  const allPaintings = await getAllPaintings();
-  const allCollections = await getAllCollections();
-  const combineResponsesInArray = [...allCollections, ...allPaintings];
+  const { paintingsAndCollections } = await getCollectionsAndPaintings();
 
   return {
     props: {
-      combineResponsesInArray,
+      paintingsAndCollections,
     },
   };
 }

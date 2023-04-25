@@ -1,5 +1,5 @@
 import ContactForm from "@/components/contact-form/contact-form";
-import { getAllPaintings, getAllCollections } from "@/lib/contentful";
+import { getAllPaintings, getCollectionsAndPaintings } from "@/lib/contentful";
 
 export default function Contact({ paintings = [] }) {
   return <ContactForm dropDownListItems={paintings} />;
@@ -8,13 +8,12 @@ export default function Contact({ paintings = [] }) {
 export async function getStaticProps() {
   const allPaintings = await getAllPaintings();
   const paintings = allPaintings.map(({ name }) => name);
-  const allCollections = await getAllCollections();
-  const combineResponsesInArray = [...allCollections, ...allPaintings];
+  const { paintingsAndCollections } = await getCollectionsAndPaintings();
 
   return {
     props: {
       paintings,
-      combineResponsesInArray,
+      paintingsAndCollections,
     },
   };
 }
