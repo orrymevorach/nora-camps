@@ -20,7 +20,7 @@ export default function Painting({ paintingData = {}, collectionData }) {
           isLeftArrow
           href="/paintings"
           hasBorder={false}
-          isBold
+          isMedium
           smallText
         >
           Back to Painting Page

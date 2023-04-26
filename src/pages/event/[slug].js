@@ -15,7 +15,7 @@ export default function Event({ eventData = {} }) {
           isLeftArrow
           href="/exhibitions"
           hasBorder={false}
-          isBold
+          isMedium
           smallText
         >
           Back to Event Page

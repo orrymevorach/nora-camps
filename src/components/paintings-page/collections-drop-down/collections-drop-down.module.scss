@@ -19,7 +19,7 @@
 }
 
 .filterBy {
-  @include mixins.openSans;
+  @include mixins.avenir;
   font-size: var.$px14;
 }
 
@@ -44,7 +44,7 @@
   font-size: var.$px14;
   padding: 0 20px;
   background: transparent;
-  @include mixins.openSansSemiBold;
+  @include mixins.avenirMedium;
   cursor: pointer;
 }
 
@@ -60,7 +60,7 @@
   position: absolute;
   top: 100%;
   width: 100%;
-  @include mixins.openSansSemiBold;
+  @include mixins.avenir;
 }
 
 .li {

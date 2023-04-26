@@ -11,7 +11,7 @@
   min-width: 200px;
   height: 58px;
 
-  @include mixins.montserratMedium;
+  @include mixins.avenir;
   background-color: rgba(white, 0);
 
   &.border {
@@ -19,8 +19,8 @@
     justify-content: center;
   }
 
-  &.bold {
-    @include mixins.montserratSemiBold;
+  &.medium {
+    @include mixins.avenirMedium;
   }
 
   &.smallText {

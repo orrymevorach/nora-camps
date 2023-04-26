@@ -98,3 +98,30 @@
     max-width: variables.$mobileMaxWidth;
   }
 }
+
+@mixin avenir {
+  font-family: "Avenir Regular";
+  color: variables.$black;
+}
+
+@mixin avenirLight {
+  font-family: "Avenir Light";
+  color: variables.$black;
+}
+@mixin avenirHeavy {
+  font-family: "Avenir Heavy";
+  color: variables.$black;
+}
+@mixin avenirBook {
+  font-family: "Avenir Book";
+  color: variables.$black;
+}
+@mixin avenirBlack {
+  font-family: "Avenir Black";
+  color: variables.$black;
+}
+
+@mixin avenirMedium {
+  font-family: "Avenir Medium";
+  color: variables.$black;
+}

@@ -14,8 +14,8 @@
 }
 
 .paintingName {
-  @include mixins.openSansMedium;
-  font-size: 16px;
+  @include mixins.avenir;
+  font-size: $px16;
   text-align: right;
   margin: 15px 0 30px;
 }

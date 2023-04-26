@@ -28,7 +28,7 @@
 
 .description {
   font-size: var.$px16;
-  @include mixins.openSans;
+  @include mixins.avenir;
   text-align: center;
   line-height: 28px;
   margin-bottom: var.$px30;

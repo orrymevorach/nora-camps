@@ -1,18 +1,18 @@
 @use "@mixins" as mixins;
 
 .richText {
-  @include mixins.openSansLight;
+  @include mixins.avenirLight;
   font-size: 16px;
   letter-spacing: 0.8px;
   margin-bottom: 15px;
 }
 
 .richTextBold {
-  @include mixins.openSansMedium;
+  @include mixins.avenirMedium;
 }
 
 .richTextItalic {
-  @include mixins.openSansLightItalic;
+  font-style: italic;
 }
 
 .richTextHeading {
