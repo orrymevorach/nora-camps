@@ -1,6 +1,10 @@
 import PageBuilder from "@/components/shared/page-builder";
 import { getEntryIdsFromPageBuilder } from "@/lib/contentful";
-import { PAGES, getEntryDataFromEntryIds } from "@/utils/contentful";
+import {
+  PAGES,
+  getEntryDataFromEntryIds,
+  getCollectionsAndPaintings,
+} from "@/utils/contentful";
 import Wrapper from "@/components/shared/wrapper/wrapper";
 import SEO from "@/components/shared/seo/seo";
 
@@ -20,9 +24,12 @@ export async function getStaticProps() {
     page: PAGES.SHIPPING_AND_POLICIES,
   });
   const entries = await getEntryDataFromEntryIds({ entryIds });
+  const { paintingsAndCollections } = await getCollectionsAndPaintings();
+
   return {
     props: {
       entries,
+      combineResponsesInArray,
     },
   };
 }

@@ -1,7 +1,10 @@
 import PageBuilder from "@/components/shared/page-builder";
 import SEO from "@/components/shared/seo/seo";
 import Wrapper from "@/components/shared/wrapper/wrapper";
-import { getEntryIdsFromPageBuilder } from "@/lib/contentful";
+import {
+  getEntryIdsFromPageBuilder,
+  getCollectionsAndPaintings,
+} from "@/lib/contentful";
 import { PAGES, getEntryDataFromEntryIds } from "@/utils/contentful";
 
 export default function SpecialProjects({ entries = [] }) {
@@ -20,9 +23,12 @@ export async function getStaticProps() {
     page: PAGES.SPECIAL_PROJECTS,
   });
   const entries = await getEntryDataFromEntryIds({ entryIds });
+  const { paintingsAndCollections } = await getCollectionsAndPaintings();
+
   return {
     props: {
       entries,
+      paintingsAndCollections,
     },
   };
 }

@@ -3,13 +3,13 @@ import Footer from "../footer/foot";
 import Newsletter from "../newsletter";
 import { useRouter } from "next/router";
 
-export default function Layout({ children }) {
+export default function Layout({ children, paintingsAndCollections }) {
   const { route } = useRouter();
   const showNewsletter = route !== "/mail" && route !== "/contact";
 
   return (
     <div>
-      <Nav />
+      <Nav paintingsAndCollections={paintingsAndCollections} />
       <main>{children}</main>
       {showNewsletter && <Newsletter />}
       <Footer />

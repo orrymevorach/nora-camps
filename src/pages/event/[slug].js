@@ -1,4 +1,8 @@
-import { getEventByName, getAllEvents } from "@/lib/contentful";
+import {
+  getEventByName,
+  getAllEvents,
+  getCollectionsAndPaintings,
+} from "@/lib/contentful";
 import PaintingInfoTemplate from "@/components/shared/painting-info-template/painting-info-template";
 import PrimaryButton from "@/components/shared/primary-button";
 import { PAGES } from "@/utils/contentful";
@@ -34,10 +38,12 @@ export async function getStaticProps({ params }) {
     };
 
   const eventData = await getEventByName({ name: params.slug });
+  const { paintingsAndCollections } = await getCollectionsAndPaintings();
 
   return {
     props: {
       eventData,
+      paintingsAndCollections,
     },
   };
 }

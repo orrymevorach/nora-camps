@@ -1,18 +1,26 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import DropDownMenu from "./list/list";
 import DownArrow from "svg/down-arrow";
+import { useRouter } from "next/router";
 
 export default function DropDown({
   isReactHookForm = false,
   setValue = "",
   listItems = [],
   attributes = {},
-  classNames = '',
-  label = '',
+  classNames = "",
+  label = "",
   handleChange,
 }) {
   const [isToggled, setIsToggled] = useState(false);
   const inputRef = useRef(null);
+  const { asPath, query } = useRouter();
+
+  useEffect(() => {
+    if (query.collection) {
+      inputRef.current.value = query.collection;
+    }
+  }, [asPath]);
 
   return (
     <div className={classNames.container}>
