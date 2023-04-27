@@ -12,7 +12,7 @@
 .navLi {
   list-style: none;
   font-size: var.$px14;
-  @include mixins.openSansSemiBold;
+  @include mixins.avenirMedium;
 }
 
 @keyframes lineExtend {

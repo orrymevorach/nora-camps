@@ -1,5 +1,5 @@
-@use '@variables' as var;
-@use '@mixins' as mixins;
+@use "@variables" as var;
+@use "@mixins" as mixins;
 
 .container {
   display: flex;
@@ -54,6 +54,7 @@
   font-size: var.$px14;
   line-height: 28px;
   max-width: 385px;
+  @include mixins.avenir;
 }
 
 .joinEmailButton {

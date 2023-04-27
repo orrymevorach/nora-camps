@@ -20,7 +20,7 @@ export default function PrimaryButton({
   classNames = "",
   isLeftArrow = false,
   hasBorder = true,
-  isBold = false,
+  isMedium = false,
   dark = false,
   smallText = false,
 }) {
@@ -28,7 +28,7 @@ export default function PrimaryButton({
     styles.primaryButton,
     classNames,
     hasBorder && styles.border,
-    isBold && styles.bold,
+    isMedium && styles.medium,
     dark && styles.dark,
     smallText && styles.smallText
   );

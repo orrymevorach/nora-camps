@@ -23,15 +23,15 @@
   justify-content: space-between;
   margin-top: 20px;
   align-self: flex-end;
+  @include mixins.avenir;
 }
 
 .paintingName {
-  @include mixins.openSans;
   margin-bottom: variables.$px4;
 }
 
 .price {
-  @include mixins.openSans;
+  @include mixins.avenir;
 }
 
 @media screen and (max-width: variables.$mobile) {
