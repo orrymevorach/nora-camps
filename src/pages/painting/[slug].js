@@ -10,6 +10,8 @@ import { PAGES } from "@/utils/contentful";
 import Wrapper from "@/components/shared/wrapper/wrapper";
 import SEO from "@/components/shared/seo/seo";
 import { capitalizeFirstLetterOfEachWord } from "@/utils/string-utils";
+import { removeCurrentPaintingFromRecommendedList } from "@/utils/array-utils";
+import Recommendation from "@/components/paintings-page/recommendation/recommendation";
 
 export default function Painting({ paintingData = {}, collectionData }) {
   // The collectionData prop has all the paintings in this collection. Use this data for the reccommended paintings section
@@ -31,6 +33,7 @@ export default function Painting({ paintingData = {}, collectionData }) {
           page={PAGES.PAINTING_SPECIFIC_PAGE}
         />
       </Wrapper>
+      <Recommendation collectionData={collectionData} />
     </>
   );
 }
@@ -56,10 +59,24 @@ export async function getStaticProps({ params }) {
       },
     };
   }
+
+  let paintingsToRecommend = [];
+
+  if (collectionResponse.paintingsCollection.items.length <= 1) {
+    paintingsToRecommend = await getAllPaintings();
+  } else {
+    paintingsToRecommend = collectionResponse.paintingsCollection.items;
+  }
+
+  const recommendedPaintings = removeCurrentPaintingFromRecommendedList(
+    paintingResponse.name,
+    paintingsToRecommend
+  );
+
   return {
     props: {
       paintingData: paintingResponse,
-      collectionData: collectionResponse,
+      collectionData: recommendedPaintings,
       paintingsAndCollections,
     },
   };
