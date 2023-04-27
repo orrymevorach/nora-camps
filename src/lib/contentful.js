@@ -72,30 +72,6 @@ export const getAllPaintings = async () => {
   }
 };
 
-export const getCollectionsAndPaintings = async () => {
-  try {
-    const {
-      data: { collectionCollection },
-    } = await client.query({
-      query: GET_ALL_COLLECTIONS,
-    });
-    const {
-      data: { paintingCollection },
-    } = await client.query({
-      query: GET_ALL_PAINTINGS,
-    });
-
-    return {
-      paintingsAndCollections: [
-        ...collectionCollection.items,
-        ...paintingCollection.items,
-      ],
-    };
-  } catch (error) {
-    console.error("error", error);
-  }
-};
-
 export const getPaintingByName = async ({ name }) => {
   try {
     const { data } = await client.query({

@@ -8,7 +8,7 @@ export default function DropDownMenu({
   setValue = "",
   reference = "",
   listItems,
-  classNames = "",
+  classNames = '',
   handleChange = null,
 }) {
   const ulRef = useRef(null);

@@ -2,14 +2,14 @@ import Link from "next/link";
 import { clsx } from "clsx";
 import { useState } from "react";
 import { useWindowSize } from "@/hooks";
-import Search from "../search-bar/search-bar";
+import Search from "../search/search-bar";
 import DesktopNav from "./desktop-nav/desktop-nav";
 import MobileNav from "./mobile-nav/mobile-nav";
 import logo from "images/logo.png";
 import styles from "./nav-bar.module.scss";
 import Image from "next/image";
 
-export default function NavBar({ paintingsAndCollections }) {
+export default function NavBar() {
   const [searchBarView, setSearchBarView] = useState(false);
   const [isMobileNavOpen, setMobileNavView] = useState(false);
   const { device, isMobile } = useWindowSize();
@@ -49,12 +49,7 @@ export default function NavBar({ paintingsAndCollections }) {
             mobileNavView={isMobileNavOpen}
           />
         )}
-        {searchBarView && (
-          <Search
-            setSearchBarView={setSearchBarView}
-            paintingsAndCollections={paintingsAndCollections}
-          />
-        )}
+        {searchBarView && <Search />}
       </nav>
     </div>
   );

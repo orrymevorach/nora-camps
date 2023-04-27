@@ -7,7 +7,6 @@ import {
   getAllPaintings,
   getCollectionByName,
   getEntryIdsFromPageBuilder,
-  getCollectionsAndPaintings,
 } from "@/lib/contentful";
 import { PAGES, getEntryDataFromEntryIds } from "@/utils/contentful";
 import { useState } from "react";
@@ -17,19 +16,12 @@ export default function Paintings({
   allPaintings,
   collections = [],
 }) {
-  const [selectedCollection, setSelectedCollection] = useState("");
-  const gallery = useFilterByCollection({
-    allPaintings,
-    entries,
-    selectedCollection,
-  });
+  const [selectedCollection, setSelectedCollection] = useState('');
+  const gallery = useFilterByCollection({ allPaintings, entries, selectedCollection });
   return (
     <>
       <SEO title="Paintings" />
-      <CollectionsDropDown
-        collections={["All", ...collections]}
-        setSelectedCollection={setSelectedCollection}
-      />
+      <CollectionsDropDown collections={['All', ...collections]} setSelectedCollection={setSelectedCollection}/>
       <PageBuilder entries={gallery} page={PAGES.PAINTINGS} />
     </>
   );
@@ -39,15 +31,13 @@ export async function getStaticProps() {
   const entryIds = await getEntryIdsFromPageBuilder({ page: PAGES.PAINTINGS });
   const entries = await getEntryDataFromEntryIds({ entryIds });
   const allPaintings = await getAllPaintings();
-  const allCollections = await getAllCollections();
-  const collections = allCollections.map(({ name }) => name);
-  const { paintingsAndCollections } = await getCollectionsAndPaintings();
+  const collectionsResponse = await getAllCollections();
+  const collections = collectionsResponse.map(({ name }) => name);
   return {
     props: {
       entries,
       allPaintings,
       collections,
-      paintingsAndCollections,
     },
   };
 }

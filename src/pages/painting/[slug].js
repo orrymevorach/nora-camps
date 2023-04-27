@@ -2,7 +2,6 @@ import {
   getPaintingByName,
   getAllPaintings,
   getCollectionByName,
-  getCollectionsAndPaintings,
 } from "@/lib/contentful";
 import PrimaryButton from "@/components/shared/primary-button";
 import PaintingInfoTemplate from "@/components/shared/painting-info-template/painting-info-template";
@@ -48,17 +47,6 @@ export async function getStaticProps({ params }) {
   const collectionResponse = await getCollectionByName({
     name: paintingResponse.collection?.name,
   });
-  const { paintingsAndCollections } = await getCollectionsAndPaintings();
-
-  // In case the collection field is empty, the page won't break
-  if (!collectionResponse) {
-    return {
-      props: {
-        paintingData: paintingResponse,
-        paintingsAndCollections,
-      },
-    };
-  }
 
   let paintingsToRecommend = [];
 
@@ -77,7 +65,6 @@ export async function getStaticProps({ params }) {
     props: {
       paintingData: paintingResponse,
       collectionData: recommendedPaintings,
-      paintingsAndCollections,
     },
   };
 }
