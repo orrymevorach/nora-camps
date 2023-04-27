@@ -1,10 +1,9 @@
 import PageBuilder from "@/components/shared/page-builder";
-import { getEntryIdsFromPageBuilder } from "@/lib/contentful";
 import {
-  PAGES,
-  getEntryDataFromEntryIds,
+  getEntryIdsFromPageBuilder,
   getCollectionsAndPaintings,
-} from "@/utils/contentful";
+} from "@/lib/contentful";
+import { PAGES, getEntryDataFromEntryIds } from "@/utils/contentful";
 import Wrapper from "@/components/shared/wrapper/wrapper";
 import SEO from "@/components/shared/seo/seo";
 
@@ -29,7 +28,7 @@ export async function getStaticProps() {
   return {
     props: {
       entries,
-      combineResponsesInArray,
+      paintingsAndCollections,
     },
   };
 }
