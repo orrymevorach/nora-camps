@@ -1,12 +1,12 @@
 import styles from "./details.module.scss";
 
 export default function Details({ details = [], dimensions = "" }) {
-  const hasDetails = details.length;
+  const hasDetails = details && details.length;
   const formattedDimensions = hasDetails ? `${dimensions},` : dimensions;
   return (
     <div className={styles.detailsContainer}>
       {dimensions && <p className={styles.detail}>{formattedDimensions}</p>}
-      {details.length > 0 &&
+      {hasDetails &&
         details.map((detail, index) => {
           const isLastDetail = details.length === index + 1;
           if (isLastDetail)
