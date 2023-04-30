@@ -27,3 +27,12 @@
 .li:focus {
   background-color: var.$lightGrey;
 }
+
+.link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 0 var.$px20;
+  color: var.$black;
+}
