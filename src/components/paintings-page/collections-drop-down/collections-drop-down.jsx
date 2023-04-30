@@ -1,8 +1,10 @@
 import styles from "./collections-drop-down.module.scss";
 import DropDown from "@/components/shared/form-components/drop-down/drop-down";
 
-export default function CollectionsDropDown({ collections = [], setSelectedCollection }) {
-
+export default function CollectionsDropDown({
+  collections = [],
+  setSelectedCollection,
+}) {
   return (
     <div className={styles.container}>
       <div className={styles.borderTop}>
@@ -10,7 +12,6 @@ export default function CollectionsDropDown({ collections = [], setSelectedColle
         <DropDown
           isReactHookForm={false}
           listItems={collections}
-          handleChange={setSelectedCollection}
           attributes={{
             defaultValue: "Collections",
             tabIndex: -1,
