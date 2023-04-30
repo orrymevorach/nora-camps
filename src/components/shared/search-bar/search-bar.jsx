@@ -6,14 +6,17 @@ export default function SearchBar({
   setSearchBarView,
   paintingsAndCollections,
 }) {
-  const [searchResults, setSearchResults] = useState(paintingsAndCollections);
+  const [searchResults] = useState(paintingsAndCollections);
   const [searchMatch, setSearchMatch] = useState([]);
 
   const handleChange = e => {
     const inputValue = e.target.value;
-    const searchResult = searchResults.filter(item =>
-      item.name.toLowerCase().includes(inputValue.toLowerCase())
-    );
+    const searchResult = searchResults.filter(item => {
+      // Justin wants strictly collection images that won't show up in the search bar
+      if (item.__typename === "Collection" || item.collection) {
+        return item.name.toLowerCase().includes(inputValue.toLowerCase());
+      }
+    });
 
     if (inputValue === "") {
       setSearchMatch([]);
@@ -37,6 +40,7 @@ export default function SearchBar({
             {searchMatch.map(({ __typename, name }) => {
               return (
                 <li
+                  key={name}
                   className={styles.li}
                   onClick={() => setSearchBarView(false)}
                 >
