@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import DropDownMenu from "./list/list";
 import DownArrow from "svg/down-arrow";
 import { useRouter } from "next/router";
+import { set } from "react-hook-form";
 
 export default function DropDown({
   isReactHookForm = false,
@@ -10,7 +11,6 @@ export default function DropDown({
   attributes = {},
   classNames = "",
   label = "",
-  handleChange,
 }) {
   const [isToggled, setIsToggled] = useState(false);
   const inputRef = useRef(null);
@@ -42,7 +42,6 @@ export default function DropDown({
           isToggled={isToggled}
           setIsToggled={setIsToggled}
           setValue={setValue}
-          handleChange={handleChange}
           listItems={listItems}
           reference={inputRef}
           classNames={classNames.listStyle}
