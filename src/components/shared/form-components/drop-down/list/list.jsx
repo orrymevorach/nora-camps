@@ -1,5 +1,7 @@
 import { useEffect, useRef, useCallback } from "react";
 import styled from "./list.module.scss";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function DropDownMenu({
   isReactHookForm = "",
@@ -9,9 +11,9 @@ export default function DropDownMenu({
   reference = "",
   listItems,
   classNames = "",
-  handleChange = null,
 }) {
   const ulRef = useRef(null);
+  const { pathname } = useRouter();
 
   const handleKeyPress = (e, option) => {
     const listItems = document.querySelectorAll("#drop-down-li");
@@ -52,9 +54,6 @@ export default function DropDownMenu({
     isReactHookForm
       ? setValue("paintings", option)
       : (reference.current.value = option);
-    if (handleChange) {
-      handleChange(reference.current.value);
-    }
     closeDropDown();
   };
 
@@ -102,7 +101,21 @@ export default function DropDownMenu({
               onKeyDown={e => handleKeyPress(e, option)}
               onClick={() => setValueAndCloseDropDown(option)}
             >
-              {option}
+              {pathname === "/paintings" ? (
+                <Link
+                  className={styled.link}
+                  href={{
+                    pathname: "/paintings",
+                    query: {
+                      collection: option,
+                    },
+                  }}
+                >
+                  {option}
+                </Link>
+              ) : (
+                option
+              )}
             </li>
           );
         })}
