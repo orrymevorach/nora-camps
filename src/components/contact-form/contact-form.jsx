@@ -91,7 +91,7 @@ export default function ContactForm({ dropDownListItems }) {
 
         <DropDown
           isReactHookForm={true}
-          listItems={dropDownListItems}
+          listItems={["Not Applicable", ...dropDownListItems]}
           attributes={{
             placeholder: "Type painting",
             ...register("paintings"),
@@ -103,7 +103,7 @@ export default function ContactForm({ dropDownListItems }) {
             label: styledInput.label,
             dropDownButton: styledInput.dropDownButton,
           }}
-          label="Painting(s) interested in"
+          label="Painting interested in"
           setValue={setValue}
         />
 
