@@ -23,7 +23,7 @@
   font-size: 2.8125rem;
   line-height: 4.5rem;
   margin-bottom: var.$px24;
-  @include mixins.manropeSemiBold;
+  @include mixins.heading;
 }
 
 .description {
