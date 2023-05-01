@@ -46,7 +46,7 @@ export default function NavBar({ paintingsAndCollections }) {
           <MobileNav
             toggleMobileNavView={toggleMobileNavView}
             toggleSearchBar={toggleSearchBar}
-            mobileNavView={isMobileNavOpen}
+            isMobileNavOpen={isMobileNavOpen}
           />
         )}
         {searchBarView && (
