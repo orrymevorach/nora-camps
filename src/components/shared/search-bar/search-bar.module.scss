@@ -25,15 +25,10 @@
   width: 100%;
   font-size: 14px;
   padding-left: 0.2rem;
-  @include mixins.manropeRegular;
+  @include mixins.avenir;
 }
 .input:focus {
   outline: none;
-}
-
-.magnifyingGlass {
-  display: flex;
-  align-items: center;
 }
 
 .ul {
@@ -45,6 +40,7 @@
   background-color: var.$white;
   max-height: 200px;
   overflow-x: scroll;
+  padding: 0.1rem;
 }
 
 .li {
@@ -65,7 +61,7 @@
   color: var.$black;
   font-size: 14px;
   padding: 0.5rem 1rem;
-  @include mixins.manropeRegular;
+  @include mixins.avenir;
 }
 
 .typeText {

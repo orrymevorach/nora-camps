@@ -11,8 +11,13 @@
   @include mixins.manropeRegular;
   margin-left: 5px;
   font-size: variables.$px14;
+  @media (max-width: 360px) {
+    font-size: 12px;
+  }
 }
 
 .icon {
-  width: 25px;
+  width: 26px;
+  margin-left: 0.3rem;
+  font-size: 22px;
 }

@@ -1,5 +1,5 @@
 import Nav from "../nav-bar/nav-bar";
-import Footer from "../footer/foot";
+import Footer from "../footer/footer";
 import Newsletter from "../newsletter";
 import { useRouter } from "next/router";
 

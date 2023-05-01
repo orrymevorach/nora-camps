@@ -16,7 +16,7 @@ export default function DesktopNav({ toggleMobileNavView, toggleSearchBar }) {
       >
         <FontAwesomeIcon icon={faMagnifyingGlass} />
       </button>
-      <PrimaryButton href="/mail" dark={!!route === "/mail"}>
+      <PrimaryButton href="/mail" dark={route === "/mail"}>
         Stay Connected
       </PrimaryButton>
     </>
