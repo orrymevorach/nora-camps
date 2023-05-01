@@ -10,7 +10,6 @@ export default function NavItems({ toggles }) {
   const { toggleMobileNavView } = toggles;
   const { isMobile } = useWindowSize();
   const { route } = useRouter();
-  console.log(route === "/mail");
   const navLinks = [
     { label: "Home", href: "/" },
     { label: "Paintings", href: "/paintings" },
