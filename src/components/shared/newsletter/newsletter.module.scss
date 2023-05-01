@@ -22,7 +22,7 @@
 .signUp {
   font-size: 2.8125rem;
   line-height: 4.5rem;
-  margin-bottom: var.$px30;
+  margin-bottom: var.$px24;
   @include mixins.manropeSemiBold;
 }
 
@@ -38,7 +38,7 @@
   display: flex;
   gap: 19px;
   width: 100%;
-  height: 66px;
+  height: 44px;
 }
 
 .emailInput {
