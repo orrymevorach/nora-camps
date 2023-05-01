@@ -4,12 +4,16 @@
 .eventTileContainer {
   display: flex;
   background-color: variables.$lightGrey;
-  padding: 100px 75px;
   margin-bottom: 75px;
 }
 
 .column {
   width: 50%;
+}
+
+.description {
+  width: 50%;
+  padding: variables.$px24;
 }
 
 .comingUp {

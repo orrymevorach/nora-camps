@@ -12,7 +12,10 @@ export default function MobileButtons({ toggles }) {
         onClick={() => toggleSearchBar()}
         className={styles.magnifyingGlass}
       >
-        <FontAwesomeIcon icon={faMagnifyingGlass} />
+        <FontAwesomeIcon
+          icon={faMagnifyingGlass}
+          className={styles.magnifyingGlass}
+        />
       </button>
       <button onClick={() => toggleMobileNavView()}>
         <Hamburger />

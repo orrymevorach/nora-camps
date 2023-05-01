@@ -13,7 +13,7 @@ export default function EventTile({
   const { url, width, height, description } = imageCollection.items[0];
   return (
     <div className={styles.eventTileContainer}>
-      <div className={styles.column}>
+      <div className={styles.description}>
         <p className={styles.comingUp}>Coming up</p>
         <p className={styles.name}>{name}</p>
         <EventDateRange startDate={startDate} endDate={endDate} />
