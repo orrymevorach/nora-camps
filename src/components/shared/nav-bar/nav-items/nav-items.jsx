@@ -10,6 +10,7 @@ export default function NavItems({ toggles }) {
   const { toggleMobileNavView } = toggles;
   const { isMobile } = useWindowSize();
   const { route } = useRouter();
+  console.log(route === "/mail");
   const navLinks = [
     { label: "Home", href: "/" },
     { label: "Paintings", href: "/paintings" },
@@ -47,8 +48,8 @@ export default function NavItems({ toggles }) {
         );
       })}
       {isMobile && (
-        <li className={styles.navLi}>
-          <PrimaryButton href="/mail" dark={!!route === "/mail"}>
+        <li className={styles.navLi} onClick={() => toggleMobileNavView(false)}>
+          <PrimaryButton href="/mail" dark={route === "/mail"}>
             Stay Connected
           </PrimaryButton>
         </li>
