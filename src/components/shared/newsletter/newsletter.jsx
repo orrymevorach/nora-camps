@@ -24,7 +24,7 @@ export default function Newsletter() {
     } else {
       setIsLoading(true);
       const { data, error } = await fetch(
-        "/api/create-mailer-lite-subscription",
+        "/api/create-mailer-lite-subscriber",
         {
           method: "POST",
           headers: {

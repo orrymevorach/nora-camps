@@ -7,14 +7,14 @@ const mailerlite = new MailerLite({
 export default async function handler(req, res) {
   try {
     const { email } = req.body;
-    console.log("Creating MailerLite subscripber...");
+    console.log("Creating MailerLite subscriber...");
     await mailerlite.subscribers
       .createOrUpdate({
         email,
         status: "active",
       })
       .then(response => {
-        console.log("Subscription plan created successfuly...");
+        console.log("Subscriber created successfuly...");
         res.status(200).json(response.data);
       })
       .catch(error => {
