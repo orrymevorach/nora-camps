@@ -38,7 +38,7 @@ export default function Newsletter() {
       if (error) {
         setIsLoading(false);
         setError(error.message);
-      } else if (data && data.status === "active") {
+      } else if (data) {
         setIsLoading(false);
         setIsSubmitted(true);
       }
