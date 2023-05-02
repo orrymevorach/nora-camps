@@ -57,6 +57,25 @@
   height: 100%;
 }
 
+.errorMessage {
+  @include mixins.montserrat;
+  color: red;
+  align-self: flex-start;
+  margin-bottom: 10px;
+}
+
+.submitted {
+  padding: 100px 0;
+  text-align: center;
+  .title {
+    @include mixins.heading;
+    margin-bottom: 20px;
+  }
+  .bodyCopy {
+    @include mixins.montserrat;
+  }
+}
+
 @media (max-width: var.$mobile) {
   .signUp {
     font-size: 30px;
