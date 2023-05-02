@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from "react";
 import DropDownMenu from "./list/list";
 import DownArrow from "svg/down-arrow";
 import { useRouter } from "next/router";
-import { set } from "react-hook-form";
 
 export default function DropDown({
   isReactHookForm = false,
