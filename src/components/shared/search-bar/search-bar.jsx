@@ -11,12 +11,9 @@ export default function SearchBar({
 
   const handleChange = e => {
     const inputValue = e.target.value;
-    const searchResult = searchResults.filter(item => {
-      // Justin wants strictly collection images that won't show up in the search bar
-      if (item.__typename === "Collection" || item.collection) {
-        return item.name.toLowerCase().includes(inputValue.toLowerCase());
-      }
-    });
+    const searchResult = searchResults.filter(item =>
+      item.name.toLowerCase().includes(inputValue.toLowerCase())
+    );
 
     if (inputValue === "") {
       setSearchMatch([]);
