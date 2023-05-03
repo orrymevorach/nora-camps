@@ -1,9 +1,7 @@
 import PageBuilder from "@/components/shared/page-builder";
 import SEO from "@/components/shared/seo";
 import {
-  getAllPaintings,
   getEntryIdsFromPageBuilder,
-  getAllCollections,
   getCollectionsAndPaintings,
 } from "@/lib/contentful";
 import { PAGES, getEntryDataFromEntryIds } from "@/utils/contentful";

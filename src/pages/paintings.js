@@ -5,31 +5,25 @@ import { useFilterByCollection } from "@/hooks/useFilterByCollection";
 import {
   getAllCollections,
   getAllPaintings,
-  getCollectionByName,
   getEntryIdsFromPageBuilder,
   getCollectionsAndPaintings,
 } from "@/lib/contentful";
 import { PAGES, getEntryDataFromEntryIds } from "@/utils/contentful";
-import { useState } from "react";
 
 export default function Paintings({
   entries = [],
   allPaintings,
   collections = [],
 }) {
-  const [selectedCollection, setSelectedCollection] = useState("");
   const gallery = useFilterByCollection({
     allPaintings,
     entries,
-    selectedCollection,
   });
+
   return (
     <>
       <SEO title="Paintings" />
-      <CollectionsDropDown
-        collections={["All", ...collections]}
-        setSelectedCollection={setSelectedCollection}
-      />
+      <CollectionsDropDown collections={["All", ...collections]} />
       <PageBuilder entries={gallery} page={PAGES.PAINTINGS} />
     </>
   );

@@ -10,7 +10,6 @@ export default function DropDown({
   attributes = {},
   classNames = "",
   label = "",
-  handleChange,
 }) {
   const [isToggled, setIsToggled] = useState(false);
   const inputRef = useRef(null);
@@ -42,7 +41,6 @@ export default function DropDown({
           isToggled={isToggled}
           setIsToggled={setIsToggled}
           setValue={setValue}
-          handleChange={handleChange}
           listItems={listItems}
           reference={inputRef}
           classNames={classNames.listStyle}

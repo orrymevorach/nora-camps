@@ -1,11 +1,7 @@
 import { useRouter } from "next/router";
 import { useState, useEffect, useCallback } from "react";
 
-export const useFilterByCollection = ({
-  allPaintings,
-  entries,
-  selectedCollection,
-}) => {
+export const useFilterByCollection = ({ allPaintings, entries }) => {
   const [gallery, setGallery] = useState(entries);
   const { query } = useRouter();
 
@@ -28,27 +24,13 @@ export const useFilterByCollection = ({
   );
 
   useEffect(() => {
-    if (query.collection) {
-      filterCollectionsAndFormatForPageBuilder(query.collection);
-    } else {
-      setGallery(entries);
-    }
-  }, [query, allPaintings, entries, filterCollectionsAndFormatForPageBuilder]);
-
-  useEffect(() => {
-    if (selectedCollection === "All") {
+    if (query.collection === "All" || !query.collection) {
       return setGallery(entries);
     }
-
-    if (selectedCollection) {
-      filterCollectionsAndFormatForPageBuilder(selectedCollection);
+    if (query.collection) {
+      filterCollectionsAndFormatForPageBuilder(query.collection);
     }
-  }, [
-    selectedCollection,
-    allPaintings,
-    entries,
-    filterCollectionsAndFormatForPageBuilder,
-  ]);
+  }, [query, allPaintings, entries, filterCollectionsAndFormatForPageBuilder]);
 
   return gallery;
 };
