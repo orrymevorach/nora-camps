@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   background-color: variables.$white;
-  font-size: variables.$px16;
+  font-size: variables.$px14;
   gap: 0.625rem;
   width: 250px;
   min-width: 200px;
@@ -41,7 +41,6 @@
   @media (max-width: variables.$tablet) {
     height: 51px;
     width: 200px;
-    font-size: 0.875rem;
   }
   @media (max-width: variables.$mobile) {
     min-width: 100px;

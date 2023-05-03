@@ -67,6 +67,8 @@
     left: 0;
     padding-left: 1.25rem;
     width: 100%;
+    height: calc(100vh - 68px);
+    overflow-y: scroll;
   }
 
   .closeButton {
@@ -78,6 +80,5 @@
 
   .navLi {
     padding-bottom: 3.125rem;
-    font-size: 1rem;
   }
 }

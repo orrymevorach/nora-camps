@@ -35,7 +35,7 @@ export default function CollectionTile({ name, paintingTile }) {
           }}
           classNames={styles.button}
         >
-          View other {name}s
+          View more
         </PrimaryButton>
       </div>
     </div>

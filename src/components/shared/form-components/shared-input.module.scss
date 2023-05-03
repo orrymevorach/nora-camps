@@ -17,16 +17,16 @@
   padding: 0 5px 5px 5px;
   background-color: var.$white;
   font-weight: bold;
-  font-size: 12px;
+  font-size: var.$px12;
 }
 
 .input,
 .textarea {
   border: none;
-  padding: 10px;
+  padding: var.$px10;
   border-radius: 1px;
   width: 100%;
-  font-size: 15px;
+  font-size: var.$px14;
 }
 
 .input {
@@ -49,7 +49,7 @@
 .errorText {
   position: absolute;
   top: 100%;
-  font-size: 0.625rem;
+  font-size: var.$px10;
   color: #ff0000;
   padding-left: 0.5rem;
 }

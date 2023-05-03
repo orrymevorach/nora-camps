@@ -1,18 +1,23 @@
 @use "@mixins" as mixins;
-@use "@variables" as variables;
+@use "@variables" as variable;
 
 .container {
   display: flex;
   align-items: flex-end;
-  color: variables.$black;
+  color: variable.$black;
 }
 
 .handle {
   @include mixins.manropeRegular;
   margin-left: 5px;
-  font-size: variables.$px14;
+  font-size: variable.$px14;
+  @media (max-width: 360px) {
+    font-size: variable.$px12;
+  }
 }
 
 .icon {
-  width: 25px;
+  width: 26px;
+  margin-left: 0.3rem;
+  font-size: variable.$px22;
 }

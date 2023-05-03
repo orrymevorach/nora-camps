@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function SocialButtons() {
   return (
     <a
-      href="https://www.instagram.com/noracamps/?hl=en"
+      href="https://www.instagram.com/noracamps_artist/?hl=en"
       className={styles.container}
       target="_blank"
     >

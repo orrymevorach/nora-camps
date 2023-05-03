@@ -2,7 +2,7 @@ import Link from "next/link";
 import { clsx } from "clsx";
 import { useState } from "react";
 import { useWindowSize } from "@/hooks";
-import Search from "../search-bar/search-bar";
+import SearchBar from "../search-bar/search-bar";
 import DesktopNav from "./desktop-nav/desktop-nav";
 import MobileNav from "./mobile-nav/mobile-nav";
 import logo from "images/logo.png";
@@ -46,11 +46,11 @@ export default function NavBar({ paintingsAndCollections }) {
           <MobileNav
             toggleMobileNavView={toggleMobileNavView}
             toggleSearchBar={toggleSearchBar}
-            mobileNavView={isMobileNavOpen}
+            isMobileNavOpen={isMobileNavOpen}
           />
         )}
         {searchBarView && (
-          <Search
+          <SearchBar
             setSearchBarView={setSearchBarView}
             paintingsAndCollections={paintingsAndCollections}
           />

@@ -18,9 +18,9 @@
 .li {
   display: flex;
   justify-content: flex-start;
-  padding: 1rem 0.625rem;
+  padding: 0.625rem;
   cursor: pointer;
-  font-size: 15px;
+  font-size: var.$px14;
 }
 
 .li:hover,
