@@ -71,9 +71,6 @@
     @include mixins.heading;
     margin-bottom: 20px;
   }
-  .bodyCopy {
-    @include mixins.montserrat;
-  }
 }
 
 @media (max-width: var.$mobile) {
