@@ -9,7 +9,7 @@ export default function MobileFooter() {
   return (
     <>
       <div className={styles.logos}>
-        <Image src={logo} className={styles.logo} />
+        <Image src={logo} className={styles.logo} alt="Main logo" />
         <SocialButtons />
       </div>
       <FooterItems />

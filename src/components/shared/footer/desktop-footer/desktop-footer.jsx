@@ -10,7 +10,7 @@ export default function DesktopFooter() {
     <>
       <FooterItems />
       <div className={styles.logos}>
-        <Image src={logo} className={styles.logo} />
+        <Image src={logo} className={styles.logo} alt="Main logo" />
         <SocialButtons />
         <Copyright classNames={styles.copyrightPosition} />
       </div>
