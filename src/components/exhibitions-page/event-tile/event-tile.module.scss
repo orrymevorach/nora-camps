@@ -9,11 +9,13 @@
 
 .columnOne {
   width: 50%;
+  height: auto;
   padding: variables.$px24;
 }
 
 .columnTwo {
   width: 50%;
+  height: auto;
 }
 
 .comingUp {
@@ -36,7 +38,8 @@
 }
 
 @media screen and (max-width: variables.$mobile) {
-  .column {
+  .columnOne,
+  .columnTwo {
     width: 100%;
     @include mixins.pagePadding;
   }

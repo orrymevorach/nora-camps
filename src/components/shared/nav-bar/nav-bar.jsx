@@ -35,7 +35,7 @@ export default function NavBar({ paintingsAndCollections }) {
     >
       <nav className={clsx(styles.navigation)}>
         <Link href="/" onClick={() => setMobileNavView(false)}>
-          <Image src={logo} className={styles.logo} />
+          <Image src={logo} className={styles.logo} alt="Main logo" />
         </Link>
         {!isMobile ? (
           <DesktopNav
