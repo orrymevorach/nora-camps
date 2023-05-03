@@ -48,7 +48,7 @@ export default function NavItems({ toggles }) {
       })}
       {isMobile && (
         <li className={styles.navLi} onClick={() => toggleMobileNavView(false)}>
-          <PrimaryButton href="/mail" dark={!!route === "/mail"}>
+          <PrimaryButton href="/newsletter" dark={!!route === "/newsletter"}>
             Stay Connected
           </PrimaryButton>
         </li>
