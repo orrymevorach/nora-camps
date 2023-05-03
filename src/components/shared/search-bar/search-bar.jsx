@@ -6,12 +6,11 @@ export default function SearchBar({
   setSearchBarView,
   paintingsAndCollections,
 }) {
-  const [searchResults] = useState(paintingsAndCollections);
   const [searchMatch, setSearchMatch] = useState([]);
 
   const handleChange = e => {
     const inputValue = e.target.value;
-    const searchResult = searchResults.filter(item =>
+    const searchResult = paintingsAndCollections.filter(item =>
       item.name.toLowerCase().includes(inputValue.toLowerCase())
     );
 
