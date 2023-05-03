@@ -36,7 +36,8 @@
 }
 
 @media screen and (max-width: variables.$mobile) {
-  .column {
+  .columnOne,
+  .columnTwo {
     width: 100%;
     @include mixins.pagePadding;
   }
