@@ -11,8 +11,10 @@ export default function PaintingTile(props) {
     price,
     dimensions,
     customStylesObject = "",
+    status,
   } = props;
   const firstImage = imageCollection.items[0];
+  const showStatus = status && status !== "Available";
 
   return (
     <Link
@@ -40,6 +42,7 @@ export default function PaintingTile(props) {
         <div>
           <p className={styles.paintingName}>{name}</p>
           <p className={styles.paintingName}>{dimensions}</p>
+          {showStatus && <p className={styles.status}>[{status}]</p>}
         </div>
 
         <p className={styles.price}>{formatPrice(price)}</p>
