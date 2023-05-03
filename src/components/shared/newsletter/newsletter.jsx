@@ -6,8 +6,7 @@ import { emailValidator } from "@/utils/string-utils";
 
 const Submitted = () => (
   <div className={styles.submitted}>
-    <p className={styles.title}>Thank you for your submission!</p>
-    <p className={styles.bodyCopy}>We will be in touch!</p>
+    <p className={styles.title}>Thank you for subscribing!</p>
   </div>
 );
 export default function Newsletter() {
