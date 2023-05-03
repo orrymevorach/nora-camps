@@ -2,8 +2,7 @@ import Image from "next/image";
 import styles from "./collection-tile.module.scss";
 import PrimaryButton from "@/components/shared/primary-button/primary-button";
 
-export default function CollectionTile({ name, paintingTile }) {
-  const image = paintingTile?.imageCollection?.items[0];
+export default function CollectionTile({ name, image, paintingName }) {
   return (
     <div className={styles.container}>
       {image && (
@@ -17,9 +16,7 @@ export default function CollectionTile({ name, paintingTile }) {
         />
       )}
 
-      {paintingTile?.name && (
-        <p className={styles.paintingName}>{paintingTile.name}</p>
-      )}
+      {paintingName && <p className={styles.paintingName}>{paintingName}</p>}
       <div className={styles.collectionContainer}>
         <div className={styles.left}>
           <p className={styles.collection}>Collection</p>

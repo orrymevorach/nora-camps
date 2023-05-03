@@ -83,6 +83,10 @@ export const SPECIAL_PROJECT_FRAGMENT = gql`
 export const COLLECTION_FRAGMENT = gql`
   fragment CollectionFields on Collection {
     name
+    image {
+      ...ImageFields
+    }
+    paintingName
     paintingsCollection(limit: 35) {
       items {
         ...PaintingFields
@@ -90,14 +94,6 @@ export const COLLECTION_FRAGMENT = gql`
           items {
             ...ImageFields
           }
-        }
-      }
-    }
-    paintingTile {
-      ...PaintingFields
-      imageCollection(limit: 1) {
-        items {
-          ...ImageFields
         }
       }
     }
