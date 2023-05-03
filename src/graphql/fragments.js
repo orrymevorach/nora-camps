@@ -93,6 +93,14 @@ export const COLLECTION_FRAGMENT = gql`
         }
       }
     }
+    paintingTile {
+      ...PaintingFields
+      imageCollection(limit: 1) {
+        items {
+          ...ImageFields
+        }
+      }
+    }
   }
   ${IMAGE_FRAGMENT}
   ${PAINTING_FRAGMENT}
