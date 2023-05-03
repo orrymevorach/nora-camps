@@ -39,9 +39,13 @@
   line-height: 1;
 }
 
-.price {
+.price,
+.status {
   @include mixins.manropeRegular;
   font-size: 24px;
+}
+.status {
+  text-transform: uppercase;
 }
 
 .contactButton {
@@ -61,13 +65,6 @@
   @include mixins.openSansBold;
   text-decoration: underline;
   margin-top: 25px;
-}
-
-.status {
-  @include mixins.manropeRegular;
-  color: red;
-  text-transform: uppercase;
-  font-size: variables.$px30;
 }
 
 @media screen and (max-width: variables.$mobile) {
