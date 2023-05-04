@@ -34,12 +34,14 @@ export const GET_HERO_IMAGE = gql`
           json
         }
         backgroundImage {
-          ...ImageFields
+          url
+          width
+          height
+          description
         }
       }
     }
   }
-  ${IMAGE_FRAGMENT}
 `;
 
 export const GET_COLLECTION_BY_NAME = gql`

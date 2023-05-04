@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import styles from './image-carousel.module.scss';
-import clsx from 'clsx';
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import styles from "./image-carousel.module.scss";
+import clsx from "clsx";
 
 export default function ImageCarousel({
   images,
@@ -29,6 +29,7 @@ export default function ImageCarousel({
         alt={description}
         quality={100}
         className={clsx(styles.image, hasBackground && styles.background)}
+        priority
       />
       {hasMultipleImages && (
         <div className={styles.imageSelectionContainer}>

@@ -23,7 +23,7 @@ export default function Painting({ paintingData = {}, collectionData }) {
       <Wrapper>
         <PrimaryButton
           isLeftArrow
-          href={`/paintings?collection=${query.location}`}
+          href={`/paintings?collection=${query.collection}`}
           hasBorder={false}
           isMedium
           smallText
@@ -42,7 +42,6 @@ export default function Painting({ paintingData = {}, collectionData }) {
 
 export async function getStaticProps({ params }) {
   // this fixes the deployment, since there are no params on build time
-  console.log(params.slug);
   if (params.slug === "undefined")
     return {
       props: {},

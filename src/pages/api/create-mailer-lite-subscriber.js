@@ -6,10 +6,13 @@ const mailerlite = new MailerLite({
 
 export default async function handler(req, res) {
   try {
-    const { email } = req.body;
+    const { email, name } = req.body;
     console.log("Creating MailerLite subscriber...");
     await mailerlite.subscribers
       .createOrUpdate({
+        fields: {
+          name,
+        },
         email,
         status: "active",
       })

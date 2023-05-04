@@ -12,17 +12,19 @@ export default function PaintingTile(props) {
     price,
     dimensions,
     customStylesObject = "",
+    index,
+    status,
   } = props;
   const firstImage = imageCollection.items[0];
   const { query } = useRouter();
-  const hasQuery = (query && query.collection) || "All";
+  const showStatus = status && status !== "Available";
 
   return (
     <Link
       href={{
         pathname: `/painting/${name}`,
         query: {
-          location: hasQuery,
+          collection: query.collection,
         },
       }}
       className={styles.paintingTile}
@@ -38,6 +40,9 @@ export default function PaintingTile(props) {
           alt={firstImage.description}
           width={firstImage.width}
           height={firstImage.height}
+          priority={index === 0 || index === 1}
+          placeholder="blur"
+          blurDataURL={firstImage.url}
         />
       </div>
       <div
@@ -46,6 +51,7 @@ export default function PaintingTile(props) {
         <div>
           <p className={styles.paintingName}>{name}</p>
           <p className={styles.paintingName}>{dimensions}</p>
+          {showStatus && <p className={styles.status}>{status}</p>}
         </div>
 
         <p className={styles.price}>{formatPrice(price)}</p>

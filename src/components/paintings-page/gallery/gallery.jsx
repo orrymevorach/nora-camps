@@ -6,10 +6,10 @@ export default function PaintingGallery({ items = [] }) {
   return (
     <Wrapper>
       <ul className={styles.columnGallery}>
-        {items.map(item => {
+        {items.map((item, index) => {
           return (
             <li key={item.name} className={styles.listItem}>
-              <PaintingTile {...item} />
+              <PaintingTile {...item} index={index} />
             </li>
           );
         })}

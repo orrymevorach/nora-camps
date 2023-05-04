@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 export const IMAGE_FRAGMENT = gql`
   fragment ImageFields on Asset {
-    url
+    url(transform: { width: 850 })
     width
     height
     description
@@ -20,6 +20,7 @@ export const LINK_FRAGMENT = gql`
 // For the Painting Display Page, the limit will have to be higher to render more images in the carousel
 export const PAINTING_FRAGMENT = gql`
   fragment PaintingFields on Painting {
+    status
     collection {
       name
     }

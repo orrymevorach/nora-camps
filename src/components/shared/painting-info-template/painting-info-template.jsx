@@ -28,6 +28,7 @@ export default function PaintingInfoTemplate({
   button = { label: "", url: "" },
   imageOnRightSide = false,
   dimensions = "",
+  status,
 }) {
   const [showAdditionalDescription, setShowAdditionalDescription] =
     useState(false);
@@ -64,6 +65,7 @@ export default function PaintingInfoTemplate({
   const isAboutPage = page === ABOUT;
 
   const showDetails = (details && details.length > 0) || dimensions;
+  const showStatus = status && status !== "Available";
 
   return (
     <div className={styles.paintingInfoTemplateContainer}>
@@ -83,10 +85,11 @@ export default function PaintingInfoTemplate({
         )}
         <div className={styles.rightColumn}>
           {collection?.name && (
-            <Eyebrow leftText='Collection' rightText={collection.name} />
+            <Eyebrow leftText="Collection" rightText={collection.name} />
           )}
           {startDate && <Eyebrow startDate={startDate} endDate={endDate} />}
           {name && <p className={styles.name}>{name}</p>}
+          {showStatus && <p className={styles.status}>{status}</p>}
           {startDate && (
             <EventDateRange startDate={startDate} endDate={endDate} />
           )}
