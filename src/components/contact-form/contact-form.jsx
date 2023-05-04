@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useForm as useFormSpree } from "@formspree/react";
 import Loader from "@/components/shared/loader";
+import clsx from "clsx";
 
 export default function ContactForm({ dropDownListItems }) {
   const {
@@ -93,13 +94,13 @@ export default function ContactForm({ dropDownListItems }) {
           isReactHookForm={true}
           listItems={["Not Applicable", ...dropDownListItems]}
           attributes={{
-            placeholder: "Type painting",
+            placeholder: "Select Painting",
             ...register("paintings"),
           }}
           classNames={{
             container: styles.painting,
             inputGroup: styledInput.formGroup,
-            input: styledInput.input,
+            input: clsx(styledInput.input, styles.inputCursor),
             label: styledInput.label,
             dropDownButton: styledInput.dropDownButton,
           }}

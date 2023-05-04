@@ -54,6 +54,10 @@ $classes: firstName, lastName, email, painting, subject, message;
   }
 }
 
+.inputCursor {
+  cursor: pointer;
+}
+
 .submitButton {
   grid-area: submitButton;
   display: flex;

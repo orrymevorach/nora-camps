@@ -15,6 +15,11 @@ export default function DropDown({
   const inputRef = useRef(null);
   const { asPath, query } = useRouter();
 
+  const handleClick = e => {
+    e.stopPropagation();
+    setIsToggled(prev => !prev);
+  };
+
   useEffect(() => {
     if (query.collection) {
       inputRef.current.value = query.collection;
@@ -23,14 +28,19 @@ export default function DropDown({
 
   return (
     <div className={classNames.container}>
-      <div className={classNames.inputGroup}>
+      <div className={classNames.inputGroup} onClick={e => handleClick(e)}>
         {isReactHookForm && <label className={classNames.label}>{label}</label>}
-        <input className={classNames.input} ref={inputRef} {...attributes} />
+        <input
+          readOnly
+          className={classNames.input}
+          ref={inputRef}
+          {...attributes}
+        />
         <button
           type="button"
           className={classNames.dropDownButton}
           id="drop-down-arrow"
-          onClick={() => setIsToggled(prev => !prev)}
+          onClick={e => handleClick(e)}
         >
           <DownArrow />
         </button>
