@@ -42,7 +42,7 @@ export default function PaintingTile(props) {
         <div>
           <p className={styles.paintingName}>{name}</p>
           <p className={styles.paintingName}>{dimensions}</p>
-          {showStatus && <p className={styles.status}>[{status}]</p>}
+          {showStatus && <p className={styles.status}>{status}</p>}
         </div>
 
         <p className={styles.price}>{formatPrice(price)}</p>

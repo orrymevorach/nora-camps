@@ -89,7 +89,7 @@ export default function PaintingInfoTemplate({
           )}
           {startDate && <Eyebrow startDate={startDate} endDate={endDate} />}
           {name && <p className={styles.name}>{name}</p>}
-          {showStatus && <p className={styles.status}>[{status}]</p>}
+          {showStatus && <p className={styles.status}>{status}</p>}
           {startDate && (
             <EventDateRange startDate={startDate} endDate={endDate} />
           )}
