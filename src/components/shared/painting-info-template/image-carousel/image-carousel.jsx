@@ -34,7 +34,6 @@ export default function ImageCarousel({
         <div className={styles.imageSelectionContainer}>
           {images.map(image => {
             const isCurrentImage = currentImage.url === image.url;
-            console.log(isCurrentImage);
             return (
               <button
                 key={image.url}
