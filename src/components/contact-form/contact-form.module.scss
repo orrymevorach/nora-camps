@@ -76,6 +76,9 @@ $classes: firstName, lastName, email, painting, subject, message;
 }
 
 @media (max-width: var.$mobile) {
+  .container {
+    background: none;
+  }
   .title {
     font-size: 2rem;
   }
