@@ -1,10 +1,10 @@
-import { useForm } from 'react-hook-form';
-import InputShell from '../shared/form-components/input-shell/input-shell';
-import styles from './newsletter-page.module.scss';
-import EmailInput from '../shared/form-components/email-input/email-input';
-import PrimaryButton from '../shared/primary-button/primary-button';
-import ImageCarousel from '../shared/painting-info-template/image-carousel/image-carousel';
-import { useWindowSize } from '@/hooks';
+import { useForm } from "react-hook-form";
+import InputShell from "../shared/form-components/input-shell/input-shell";
+import styles from "./newsletter-page.module.scss";
+import EmailInput from "../shared/form-components/email-input/email-input";
+import PrimaryButton from "../shared/primary-button/primary-button";
+import ImageCarousel from "../shared/painting-info-template/image-carousel/image-carousel";
+import { useWindowSize } from "@/hooks";
 
 export default function NewsletterPage() {
   const {
@@ -17,10 +17,10 @@ export default function NewsletterPage() {
 
   const image = [
     {
-      url: '/images/emailListImage.png',
+      url: "/images/emailListImage.png",
       width: 404,
       height: 408.25,
-      alt: 'Abstract painting',
+      alt: "Abstract painting",
     },
   ];
 
@@ -40,8 +40,7 @@ export default function NewsletterPage() {
         )}
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.upperText}>
-            <p className={styles.title}>NEWSLETTER</p>
-            <p className={styles.signUp}>Sign up for updates</p>
+            <p className={styles.title}>Sign up for updates</p>
             <p className={styles.description}>
               Sign up with your email address to receive news and updates on my
               latest exhibitions & works.
@@ -49,31 +48,31 @@ export default function NewsletterPage() {
           </div>
           <InputShell
             register={register}
-            name='firstName'
-            type='input'
+            name="firstName"
+            type="input"
             required={true}
-            label={'First Name'}
+            label={"First Name"}
             classNames={{
               gridArea: styles.firstName,
             }}
             errors={{
               formError: errors.firstName,
-              message: 'First name is required',
+              message: "First name is required",
             }}
           />
 
           <InputShell
             register={register}
-            name='lastName'
-            type='input'
+            name="lastName"
+            type="input"
             required={true}
-            label={'Last Name'}
+            label={"Last Name"}
             classNames={{
               gridArea: styles.lastName,
             }}
             errors={{
               formError: errors.lastName,
-              message: 'Last name is required',
+              message: "Last name is required",
             }}
           />
 
