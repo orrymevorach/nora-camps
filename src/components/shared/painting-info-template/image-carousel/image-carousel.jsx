@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import styles from './image-carousel.module.scss';
-import clsx from 'clsx';
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import styles from "./image-carousel.module.scss";
+import clsx from "clsx";
 
 export default function ImageCarousel({
   images,
@@ -34,6 +34,7 @@ export default function ImageCarousel({
         <div className={styles.imageSelectionContainer}>
           {images.map(image => {
             const isCurrentImage = currentImage.url === image.url;
+            console.log(isCurrentImage);
             return (
               <button
                 key={image.url}
