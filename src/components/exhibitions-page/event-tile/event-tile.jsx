@@ -9,6 +9,7 @@ export default function EventTile({
   imageCollection,
   startDate,
   endDate,
+  index,
 }) {
   const { url, width, height, description } = imageCollection.items[0];
   return (
@@ -27,6 +28,8 @@ export default function EventTile({
         height={height}
         alt={description}
         className={clsx(styles.columnTwo, styles.image)}
+        priority={index === 0}
+        quality={50}
       />
     </div>
   );

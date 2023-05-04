@@ -11,6 +11,7 @@ export default function PaintingTile(props) {
     price,
     dimensions,
     customStylesObject = "",
+    index,
     status,
   } = props;
   const firstImage = imageCollection.items[0];
@@ -34,6 +35,9 @@ export default function PaintingTile(props) {
           alt={firstImage.description}
           width={firstImage.width}
           height={firstImage.height}
+          priority={index === 0 || index === 1}
+          placeholder="blur"
+          blurDataURL={firstImage.url}
         />
       </div>
       <div

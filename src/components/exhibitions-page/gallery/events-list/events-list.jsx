@@ -6,10 +6,10 @@ export default function EventsList({ heading, events }) {
     <>
       <p className={styles.heading}>{heading}</p>
       <ul>
-        {events.map(event => {
+        {events.map((event, index) => {
           return (
             <li key={event.name}>
-              <EventTile {...event} />
+              <EventTile {...event} index={index} />
             </li>
           );
         })}

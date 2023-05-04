@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 export const IMAGE_FRAGMENT = gql`
   fragment ImageFields on Asset {
-    url
+    url(transform: { width: 850 })
     width
     height
     description
