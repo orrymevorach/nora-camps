@@ -12,7 +12,7 @@
 
 @media screen and (max-width: variables.$mobile) {
   .listItem {
-    &:nth-child(odd) {
+    &:nth-child(odd).aboutListItem {
       padding: 30px;
     }
     margin-top: 30px;
