@@ -30,8 +30,13 @@
   margin-bottom: variables.$px4;
 }
 
-.price {
+.price,
+.status {
   @include mixins.avenir;
+}
+
+.status {
+  text-transform: uppercase;
 }
 
 @media screen and (max-width: variables.$mobile) {

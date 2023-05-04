@@ -20,6 +20,7 @@ export const LINK_FRAGMENT = gql`
 // For the Painting Display Page, the limit will have to be higher to render more images in the carousel
 export const PAINTING_FRAGMENT = gql`
   fragment PaintingFields on Painting {
+    status
     collection {
       name
     }
