@@ -78,7 +78,7 @@ export default function NewsletterPage() {
           ) : (
             <>
               <div className={styles.upperText}>
-                <p className={styles.signUp}>Sign up for updates</p>
+                <p className={styles.title}>Sign up for updates</p>
                 <p className={styles.description}>
                   Sign up with your email address to receive news and updates on
                   my latest exhibitions & works.
