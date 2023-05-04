@@ -2,7 +2,7 @@ import Image from "next/image";
 import styles from "./collection-tile.module.scss";
 import PrimaryButton from "@/components/shared/primary-button/primary-button";
 
-export default function CollectionTile({ name, image, paintingName }) {
+export default function CollectionTile({ name, image, paintingName, index }) {
   return (
     <div className={styles.container}>
       {image && (
@@ -13,6 +13,7 @@ export default function CollectionTile({ name, image, paintingName }) {
           height={image.height}
           className={styles.image}
           quality={100}
+          priority={index === 0}
         />
       )}
 
