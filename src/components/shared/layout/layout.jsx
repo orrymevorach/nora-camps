@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 
 export default function Layout({ children, paintingsAndCollections }) {
   const { route } = useRouter();
-  const showNewsletter = route !== "/mail" && route !== "/contact";
+  const showNewsletter = route !== "/newsletter" && route !== "/contact";
 
   return (
     <div>

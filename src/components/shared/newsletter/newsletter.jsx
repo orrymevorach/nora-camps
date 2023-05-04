@@ -3,8 +3,9 @@ import PrimaryButton from "../primary-button/primary-button";
 import styles from "./newsletter.module.scss";
 import Loader from "../loader/loader";
 import { emailValidator } from "@/utils/string-utils";
+import { createMailerLiteSubscriber } from "@/lib/mailer-lite";
 
-const Submitted = () => (
+export const Submitted = () => (
   <div className={styles.submitted}>
     <p className={styles.title}>Thank you for subscribing!</p>
   </div>
@@ -22,17 +23,7 @@ export default function Newsletter() {
       setError("Please enter a valid email");
     } else {
       setIsLoading(true);
-      const { data, error } = await fetch(
-        "/api/create-mailer-lite-subscriber",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({ email }),
-        }
-      ).then(res => res.json());
+      const { data, error } = await createMailerLiteSubscriber({ email });
 
       if (error) {
         setIsLoading(false);
