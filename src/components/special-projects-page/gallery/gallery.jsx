@@ -4,6 +4,7 @@ import PaintingInfoTemplate from "@/components/shared/painting-info-template/pai
 import { PAGES } from "@/utils/contentful";
 import AboutTheAuthor from "@/components/about-page/about-the-author/about-the-author";
 const { SPECIAL_PROJECTS, ABOUT } = PAGES;
+import clsx from "clsx";
 
 const mapPageToComponent = {
   [SPECIAL_PROJECTS]: ({ page, item, index }) => (
@@ -17,11 +18,18 @@ const mapPageToComponent = {
 };
 export default function SpecialProjectsGallery({ items = [], page }) {
   const Component = mapPageToComponent[page];
+  const isAboutPage = page === ABOUT;
   return (
     <ul>
       {items.map((item, index) => {
         return (
-          <li key={`gallery-${index}`} className={styles.listItem}>
+          <li
+            key={`gallery-${index}`}
+            className={clsx(
+              styles.listItem,
+              isAboutPage && styles.aboutListItem
+            )}
+          >
             <Component page={page} index={index} item={item} />
           </li>
         );

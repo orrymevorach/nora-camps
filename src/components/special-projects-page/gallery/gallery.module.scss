@@ -3,14 +3,16 @@
 .listItem {
   &:nth-child(odd) {
     background-color: variables.$lightGrey;
-    padding: 100px 0;
+    &.aboutListItem {
+      padding: 100px 0;
+    }
   }
   margin-top: 100px;
 }
 
 @media screen and (max-width: variables.$mobile) {
   .listItem {
-    &:nth-child(odd) {
+    &:nth-child(odd).aboutListItem {
       padding: 30px;
     }
     margin-top: 30px;
