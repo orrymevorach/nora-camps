@@ -22,7 +22,7 @@ export default function Event({ eventData = {} }) {
           isMedium
           smallText
         >
-          Back to Event Page
+          Back to Exhibitions Page
         </PrimaryButton>
         <PaintingInfoTemplate {...eventData} page={PAGES.EVENT_SEPCIFIC_PAGE} />
       </Wrapper>

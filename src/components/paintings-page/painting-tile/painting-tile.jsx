@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./painting-tile.module.scss";
 import clsx from "clsx";
+import { useRouter } from "next/router";
 
 export default function PaintingTile(props) {
   const {
@@ -15,12 +16,16 @@ export default function PaintingTile(props) {
     status,
   } = props;
   const firstImage = imageCollection.items[0];
+  const { query } = useRouter();
   const showStatus = status && status !== "Available";
 
   return (
     <Link
       href={{
         pathname: `/painting/${name}`,
+        query: {
+          collection: query.collection,
+        },
       }}
       className={styles.paintingTile}
     >

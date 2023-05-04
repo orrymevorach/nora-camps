@@ -18,17 +18,9 @@
   height: auto;
 }
 
-.comingUp {
-  @include mixins.openSans;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: variables.$darkGrey;
-  font-size: 16px;
-}
-
 .name {
   @include mixins.heading;
-  margin: 20px 0;
+  padding-bottom: 20px;
   line-height: 1.2;
 }
 

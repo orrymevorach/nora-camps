@@ -15,7 +15,6 @@ export default function EventTile({
   return (
     <div className={styles.eventTileContainer}>
       <div className={styles.columnOne}>
-        <p className={styles.comingUp}>Coming up</p>
         <p className={styles.name}>{name}</p>
         <EventDateRange startDate={startDate} endDate={endDate} />
         <PrimaryButton href={`/event/${name}`} classNames={styles.button}>
