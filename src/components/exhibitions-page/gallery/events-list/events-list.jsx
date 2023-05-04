@@ -9,7 +9,7 @@ export default function EventsList({ heading, events }) {
         {events.map((event, index) => {
           return (
             <li key={event.name}>
-              <EventTile {...event} heading={heading} index={index} />
+              <EventTile {...event} index={index} />
             </li>
           );
         })}

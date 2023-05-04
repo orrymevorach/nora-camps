@@ -69,7 +69,8 @@ export default function DropDownMenu({
       if (
         ulRef.current &&
         !ulRef.current.contains(target) &&
-        target.id !== "drop-down-arrow"
+        target.id !== "drop-down-arrow" &&
+        target.id !== "drop-down-input"
       ) {
         closeDropDown();
       }

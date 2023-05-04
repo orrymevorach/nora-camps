@@ -9,16 +9,12 @@ export default function EventTile({
   imageCollection,
   startDate,
   endDate,
-  heading,
   index,
 }) {
   const { url, width, height, description } = imageCollection.items[0];
   return (
     <div className={styles.eventTileContainer}>
       <div className={styles.columnOne}>
-        <p className={styles.comingUp}>
-          {heading === "Current" ? "Coming up" : "Past Event"}
-        </p>
         <p className={styles.name}>{name}</p>
         <EventDateRange startDate={startDate} endDate={endDate} />
         <PrimaryButton href={`/event/${name}`} classNames={styles.button}>
