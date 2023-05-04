@@ -11,17 +11,19 @@ import Wrapper from "@/components/shared/wrapper/wrapper";
 import SEO from "@/components/shared/seo/seo";
 import { capitalizeFirstLetterOfEachWord } from "@/utils/string-utils";
 import { removeCurrentPaintingFromRecommendedList } from "@/utils/array-utils";
+import { useRouter } from "next/router";
 import Recommendation from "@/components/paintings-page/recommendation/recommendation";
 
 export default function Painting({ paintingData = {}, collectionData }) {
   // The collectionData prop has all the paintings in this collection. Use this data for the reccommended paintings section
+  const { query } = useRouter();
   return (
     <>
       <SEO title={`${capitalizeFirstLetterOfEachWord(paintingData?.name)}`} />
       <Wrapper>
         <PrimaryButton
           isLeftArrow
-          href="/paintings"
+          href={`/paintings?collection=${query.location}`}
           hasBorder={false}
           isMedium
           smallText
