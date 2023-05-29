@@ -1,5 +1,5 @@
-@use '@variables' as *;
-@use '@mixins' as mixins;
+@use "@variables" as *;
+@use "@mixins" as mixins;
 
 .container {
   display: flex;
@@ -42,6 +42,7 @@
 
   img {
     height: auto;
+    max-height: 250px;
     width: 100%;
   }
 }
