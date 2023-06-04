@@ -23,7 +23,7 @@ export default function Paintings({
   return (
     <>
       <SEO title="Paintings" />
-      <CollectionsDropDown collections={["All", ...collections]} />
+      <CollectionsDropDown collections={collections} />
       <PageBuilder entries={gallery} page={PAGES.PAINTINGS} />
     </>
   );
@@ -34,7 +34,9 @@ export async function getStaticProps() {
   const entries = await getEntryDataFromEntryIds({ entryIds });
   const allPaintings = await getAllPaintings();
   const allCollections = await getAllCollections();
-  const collections = allCollections.map(({ name }) => name);
+  const collections = allCollections.map(({ name, order }) => {
+    return { name, order };
+  });
   const { paintingsAndCollections } = await getCollectionsAndPaintings();
   return {
     props: {
