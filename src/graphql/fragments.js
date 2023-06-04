@@ -98,6 +98,7 @@ export const COLLECTION_FRAGMENT = gql`
         }
       }
     }
+    order
   }
   ${IMAGE_FRAGMENT}
   ${PAINTING_FRAGMENT}
