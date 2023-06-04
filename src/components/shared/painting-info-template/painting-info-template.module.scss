@@ -65,6 +65,7 @@
   @include mixins.openSansBold;
   text-decoration: underline;
   margin-top: 25px;
+  font-size: 16px;
 }
 
 @media screen and (max-width: variables.$mobile) {

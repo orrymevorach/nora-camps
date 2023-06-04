@@ -94,7 +94,7 @@ export default function ContactForm({ dropDownListItems }) {
           isReactHookForm={true}
           listItems={["Not Applicable", ...dropDownListItems]}
           attributes={{
-            placeholder: "Select Painting",
+            placeholder: "Select painting",
             ...register("paintings"),
           }}
           classNames={{
