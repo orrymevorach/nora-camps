@@ -1,8 +1,8 @@
 import styles from "./painting-info-template.module.scss";
 import PrimaryButton from "@/components/shared/primary-button";
 import RichText from "@/components/shared/rich-text";
-import { formatPrice } from "@/utils/string-utils";
-import { useRef, useState } from "react";
+import { formatPrice, getVideoId } from "@/utils/string-utils";
+import { useEffect, useRef, useState } from "react";
 import EventDateRange from "../event-date-range/event-date-range";
 import Eyebrow from "./eyebrow";
 import Location from "./location";
@@ -29,9 +29,11 @@ export default function PaintingInfoTemplate({
   imageOnRightSide = false,
   dimensions = "",
   status,
+  videoUrl,
 }) {
   const [showAdditionalDescription, setShowAdditionalDescription] =
     useState(false);
+  const [youtubeVideoId, setYoutubeVideoId] = useState("");
   const additionalDescriptionRef = useRef();
 
   function handleClickReadMore() {
@@ -66,6 +68,16 @@ export default function PaintingInfoTemplate({
 
   const showDetails = (details && details.length > 0) || dimensions;
   const showStatus = status && status !== "Available";
+
+  useEffect(() => {
+    const getVideoIdFromYoutubeUrl = () => {
+      const id = getVideoId(videoUrl);
+      setYoutubeVideoId(id);
+    };
+    if (videoUrl) {
+      getVideoIdFromYoutubeUrl();
+    }
+  }, [videoUrl]);
 
   return (
     <div className={styles.paintingInfoTemplateContainer}>
@@ -140,6 +152,12 @@ export default function PaintingInfoTemplate({
           classNames={styles.additionalDetails}
           refs={additionalDescriptionRef}
         />
+      )}
+      {videoUrl && showAdditionalDescription && (
+        <iframe
+          className={styles.video}
+          src={`https://www.youtube.com/embed/${youtubeVideoId}`}
+        ></iframe>
       )}
     </div>
   );
