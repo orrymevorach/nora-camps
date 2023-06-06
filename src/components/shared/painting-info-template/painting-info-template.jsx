@@ -34,13 +34,13 @@ export default function PaintingInfoTemplate({
   const [showAdditionalDescription, setShowAdditionalDescription] =
     useState(false);
   const [youtubeVideoId, setYoutubeVideoId] = useState("");
-  const additionalDescriptionRef = useRef();
+  const scrollIntoViewRef = useRef();
 
   function handleClickReadMore() {
     setShowAdditionalDescription(!showAdditionalDescription);
     if (!showAdditionalDescription) {
       setTimeout(() => {
-        additionalDescriptionRef.current.scrollIntoView();
+        scrollIntoViewRef.current.scrollIntoView();
       }, 200);
     }
   }
@@ -126,6 +126,7 @@ export default function PaintingInfoTemplate({
             <RichText
               json={description.json}
               classNames={styles.richTextContainer}
+              refs={scrollIntoViewRef}
             />
           )}
           {isSpecialProject && (
@@ -136,7 +137,7 @@ export default function PaintingInfoTemplate({
               {buttonProps.label}
             </PrimaryButton>
           )}
-          {additionalDescription && (
+          {(additionalDescription || videoUrl) && (
             <button
               className={styles.readMoreButton}
               onClick={handleClickReadMore}
@@ -150,12 +151,14 @@ export default function PaintingInfoTemplate({
         <RichText
           json={additionalDescription.json}
           classNames={styles.additionalDetails}
-          refs={additionalDescriptionRef}
         />
       )}
       {videoUrl && showAdditionalDescription && (
         <iframe
-          className={styles.video}
+          className={clsx(
+            !additionalDescription && styles.moreSpacing,
+            styles.video
+          )}
           src={`https://www.youtube.com/embed/${youtubeVideoId}`}
         ></iframe>
       )}
