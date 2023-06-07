@@ -10,7 +10,7 @@ import { PAGES } from "@/utils/contentful";
 import Wrapper from "@/components/shared/wrapper/wrapper";
 import SEO from "@/components/shared/seo/seo";
 import { capitalizeFirstLetterOfEachWord } from "@/utils/string-utils";
-import { removeCurrentPaintingFromRecommendedList } from "@/utils/array-utils";
+import { buildRecommendationsList } from "@/utils/array-utils";
 import { useRouter } from "next/router";
 import Recommendation from "@/components/paintings-page/recommendation/recommendation";
 
@@ -54,7 +54,7 @@ export async function getStaticProps({ params }) {
   const collectionResponse = await getCollectionByName({
     name: paintingResponse.collection?.name,
   });
-  const recommendedPaintings = removeCurrentPaintingFromRecommendedList(
+  const recommendedPaintings = buildRecommendationsList(
     paintingResponse,
     allPaintings
   );

@@ -1,9 +1,10 @@
-export const removeCurrentPaintingFromRecommendedList = (
+export const buildRecommendationsList = (
   currentPainting,
   allPaintingsResponse
 ) => {
   const filteredPaintingsArray = allPaintingsResponse.filter(
-    ({ name, status }) => name !== currentPainting.name && status !== "Sold"
+    ({ name, status, collection }) =>
+      collection && name !== currentPainting.name && status !== "Sold"
   );
   return createRecommendedArray(filteredPaintingsArray);
 };

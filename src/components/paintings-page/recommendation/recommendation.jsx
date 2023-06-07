@@ -1,6 +1,5 @@
 import PaintingTile from "../painting-tile/painting-tile";
 import styles from "./recommendation.module.scss";
-import { removeCurrentPaintingFromRecommendedList } from "@/utils/array-utils";
 
 export default function Recommendation({ collectionData = [] }) {
   const customStylesObject = {
