@@ -54,6 +54,10 @@ export async function getStaticProps({ params }) {
   const collectionResponse = await getCollectionByName({
     name: paintingResponse.collection?.name,
   });
+  const recommendedPaintings = removeCurrentPaintingFromRecommendedList(
+    paintingResponse,
+    allPaintings
+  );
   const { paintingsAndCollections } = await getCollectionsAndPaintings();
 
   // In case the collection field is empty, the page won't break
@@ -61,7 +65,6 @@ export async function getStaticProps({ params }) {
     return {
       props: {
         paintingData: paintingResponse,
-        collectionData: allPaintings,
         paintingsAndCollections,
       },
     };
@@ -70,7 +73,7 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       paintingData: paintingResponse,
-      collectionData: allPaintings,
+      collectionData: recommendedPaintings,
       paintingsAndCollections,
     },
   };
