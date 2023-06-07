@@ -35,7 +35,10 @@ export default function Painting({ paintingData = {}, collectionData }) {
           page={PAGES.PAINTING_SPECIFIC_PAGE}
         />
       </Wrapper>
-      <Recommendation collectionData={collectionData} />
+      <Recommendation
+        paintingData={paintingData}
+        collectionData={collectionData}
+      />
     </>
   );
 }
@@ -47,6 +50,7 @@ export async function getStaticProps({ params }) {
       props: {},
     };
   const paintingResponse = await getPaintingByName({ name: params.slug });
+  const allPaintings = await getAllPaintings();
   const collectionResponse = await getCollectionByName({
     name: paintingResponse.collection?.name,
   });
@@ -57,28 +61,16 @@ export async function getStaticProps({ params }) {
     return {
       props: {
         paintingData: paintingResponse,
+        collectionData: allPaintings,
         paintingsAndCollections,
       },
     };
   }
 
-  let paintingsToRecommend = [];
-
-  if (collectionResponse.paintingsCollection.items.length <= 1) {
-    paintingsToRecommend = await getAllPaintings();
-  } else {
-    paintingsToRecommend = collectionResponse.paintingsCollection.items;
-  }
-
-  const recommendedPaintings = removeCurrentPaintingFromRecommendedList(
-    paintingResponse.name,
-    paintingsToRecommend
-  );
-
   return {
     props: {
       paintingData: paintingResponse,
-      collectionData: recommendedPaintings,
+      collectionData: allPaintings,
       paintingsAndCollections,
     },
   };
