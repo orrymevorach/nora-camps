@@ -12,7 +12,6 @@ export default async function handler(req, res) {
       .assignSubscriber(subscriberId, groupId)
       .then(response => {
         console.log("Subscriber added successfuly...");
-        console.log(response.data);
         res.status(200).json(response.data);
       })
       .catch(error => {
