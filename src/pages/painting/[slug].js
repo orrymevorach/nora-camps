@@ -35,10 +35,7 @@ export default function Painting({ paintingData = {}, collectionData }) {
           page={PAGES.PAINTING_SPECIFIC_PAGE}
         />
       </Wrapper>
-      <Recommendation
-        paintingData={paintingData}
-        collectionData={collectionData}
-      />
+      <Recommendation collectionData={collectionData} />
     </>
   );
 }
