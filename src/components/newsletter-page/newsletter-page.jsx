@@ -9,7 +9,10 @@ import { useState } from "react";
 import Loader from "../shared/loader/loader";
 import clsx from "clsx";
 import { Submitted } from "@/components/shared/newsletter/newsletter";
-import { createMailerLiteSubscriber } from "@/lib/mailer-lite";
+import {
+  addMailerLiteSubscriberToGroup,
+  createMailerLiteSubscriber,
+} from "@/lib/mailer-lite";
 
 export default function NewsletterPage() {
   const {
@@ -43,6 +46,10 @@ export default function NewsletterPage() {
       setIsLoading(false);
       setFormError(error.message);
     } else if (data) {
+      await addMailerLiteSubscriberToGroup({
+        subscriberId: data.id,
+        groupId: process.env.NEWSLETTER_FORM_GROUP_ID,
+      });
       setIsLoading(false);
       setIsSubmitted(true);
     }
