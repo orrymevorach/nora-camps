@@ -48,7 +48,7 @@ export default function NewsletterPage() {
     } else if (data) {
       await addMailerLiteSubscriberToGroup({
         subscriberId: data.id,
-        groupId: process.env.NEWSLETTER_FORM_GROUP_ID,
+        groupId: process.env.MAILER_LITE_NEWSLETTER_FORM_GROUP_ID,
       });
       setIsLoading(false);
       setIsSubmitted(true);

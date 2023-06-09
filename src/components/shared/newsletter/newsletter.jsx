@@ -34,7 +34,7 @@ export default function Newsletter() {
       } else if (data) {
         await addMailerLiteSubscriberToGroup({
           subscriberId: data.id,
-          groupId: process.env.STAY_CONNECTED_GROUP_ID,
+          groupId: process.env.MAILER_LITE_STAY_CONNECTED_GROUP_ID,
         });
         setIsLoading(false);
         setIsSubmitted(true);
