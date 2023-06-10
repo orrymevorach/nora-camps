@@ -48,7 +48,7 @@ export default function ImageCarousel({
                   src={image.url}
                   width={100}
                   height={100}
-                  alt={image.alt || "image carousel"}
+                  alt={image.alt || ""}
                   quality={50}
                 />
               </button>
