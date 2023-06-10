@@ -34,13 +34,13 @@ export default function PaintingInfoTemplate({
   const [showAdditionalDescription, setShowAdditionalDescription] =
     useState(false);
   const [youtubeVideoId, setYoutubeVideoId] = useState("");
-  const scrollIntoViewRef = useRef();
+  const additionalDescriptionRef = useRef();
 
   function handleClickReadMore() {
     setShowAdditionalDescription(!showAdditionalDescription);
     if (!showAdditionalDescription) {
       setTimeout(() => {
-        scrollIntoViewRef.current.scrollIntoView();
+        additionalDescriptionRef.current.scrollIntoView();
       }, 200);
     }
   }
@@ -126,7 +126,6 @@ export default function PaintingInfoTemplate({
             <RichText
               json={description.json}
               classNames={styles.richTextContainer}
-              refs={scrollIntoViewRef}
             />
           )}
           {isSpecialProject && (
@@ -151,6 +150,7 @@ export default function PaintingInfoTemplate({
         <RichText
           json={additionalDescription.json}
           classNames={styles.additionalDetails}
+          refs={additionalDescriptionRef}
         />
       )}
       {videoUrl && showAdditionalDescription && (
