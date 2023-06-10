@@ -17,13 +17,14 @@ import Recommendation from "@/components/paintings-page/recommendation/recommend
 export default function Painting({ paintingData = {}, collectionData }) {
   // The collectionData prop has all the paintings in this collection. Use this data for the reccommended paintings section
   const { query } = useRouter();
+  const collectionName = query.collection || "All";
   return (
     <>
       <SEO title={`${capitalizeFirstLetterOfEachWord(paintingData?.name)}`} />
       <Wrapper>
         <PrimaryButton
           isLeftArrow
-          href={`/paintings?collection=${query.collection}`}
+          href={`/paintings?collection=${collectionName}`}
           hasBorder={false}
           isMedium
           smallText
