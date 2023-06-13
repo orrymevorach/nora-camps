@@ -1,8 +1,7 @@
-import PaintingTile from '../painting-tile/painting-tile';
-import styles from './recommendation.module.scss';
+import PaintingTile from "../painting-tile/painting-tile";
+import styles from "./recommendation.module.scss";
 
 export default function Recommendation({ collectionData = [] }) {
-
   const customStylesObject = {
     imageContainer: styles.imageContainer,
     textContainer: styles.textContainer,
@@ -15,7 +14,11 @@ export default function Recommendation({ collectionData = [] }) {
       <div className={styles.row}>
         {collectionData.map(item => {
           return (
-              <PaintingTile key={item.name} {...item} customStylesObject={customStylesObject} />
+            <PaintingTile
+              key={item.name}
+              {...item}
+              customStylesObject={customStylesObject}
+            />
           );
         })}
       </div>
