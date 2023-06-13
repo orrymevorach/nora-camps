@@ -3,7 +3,10 @@ import PrimaryButton from "../primary-button/primary-button";
 import styles from "./newsletter.module.scss";
 import Loader from "../loader/loader";
 import { emailValidator } from "@/utils/string-utils";
-import { createMailerLiteSubscriber } from "@/lib/mailer-lite";
+import {
+  createMailerLiteSubscriber,
+  addMailerLiteSubscriberToGroup,
+} from "@/lib/mailer-lite";
 
 export const Submitted = () => (
   <div className={styles.submitted}>
@@ -29,6 +32,10 @@ export default function Newsletter() {
         setIsLoading(false);
         setError(error.message);
       } else if (data) {
+        await addMailerLiteSubscriberToGroup({
+          subscriberId: data.id,
+          groupId: process.env.STAY_CONNECTED_GROUP_ID,
+        });
         setIsLoading(false);
         setIsSubmitted(true);
       }
