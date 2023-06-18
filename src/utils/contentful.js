@@ -60,11 +60,8 @@ export const getEntryDataFromEntryIds = async ({ entryIds }) => {
     const query = mapContentModelToQuery[contentModelId];
     if (query) {
       const componentData = await query({ entryId: entry.sys.id });
-      const copyOfComponentData = { ...componentData }; // making a copy so component data items can be mutated
-      const filteredItems = copyOfComponentData.items.filter(item => !!item); // filtering null fields (deleted items, or if in in draft status)
-      copyOfComponentData.items = filteredItems;
       data.push({
-        ...copyOfComponentData,
+        ...componentData,
         contentModel: contentModelId, // Use this ID to map the data to a corresponding React component
       });
     }

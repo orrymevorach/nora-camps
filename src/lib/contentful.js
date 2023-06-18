@@ -55,7 +55,12 @@ export const getGallery = async ({ entryId = "" }) => {
       query: GET_GALLERY,
       variables: { entryId },
     });
-    return data.gallery.itemsCollection;
+    const galleryData = data.gallery.itemsCollection;
+    const copyOfGalleryData = { ...galleryData }; // making a copy so component data items can be mutated
+    const filteredItems = copyOfGalleryData.items.filter(item => !!item); // filtering null items (deleted items, or if in in draft status)
+    copyOfGalleryData.items = filteredItems;
+
+    return copyOfGalleryData;
   } catch (error) {
     console.error("error", error);
   }
