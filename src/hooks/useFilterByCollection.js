@@ -1,13 +1,13 @@
 import { useRouter } from "next/router";
 import { useState, useEffect, useCallback } from "react";
 
-export const useFilterByCollection = ({ allPaintings, entries }) => {
+export const useFilterByCollection = ({ entries }) => {
   const [gallery, setGallery] = useState(entries);
   const { query } = useRouter();
 
   const filterCollectionsAndFormatForPageBuilder = useCallback(
     currentCollection => {
-      const paintingsInSelectedCollection = allPaintings.filter(
+      const paintingsInSelectedCollection = entries[0]?.items.filter(
         item => item?.collection?.name === currentCollection
       );
       // This is the format that the Page Builder expects the content in the gallery
@@ -20,17 +20,18 @@ export const useFilterByCollection = ({ allPaintings, entries }) => {
       ];
       setGallery(collection);
     },
-    [allPaintings]
+    [entries]
   );
 
   useEffect(() => {
-    if (query.collection === "All" || !query.collection) {
+    const collectionFilter = query.collection;
+    if (collectionFilter === "All" || !collectionFilter) {
       return setGallery(entries);
     }
-    if (query.collection) {
+    if (collectionFilter) {
       filterCollectionsAndFormatForPageBuilder(query.collection);
     }
-  }, [query, allPaintings, entries, filterCollectionsAndFormatForPageBuilder]);
+  }, [query, entries, filterCollectionsAndFormatForPageBuilder]);
 
   return gallery;
 };
