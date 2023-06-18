@@ -8,7 +8,7 @@ export const client = new ApolloClient({
   },
   defaultOptions: {
     query: {
-      errorPolicy: "ignore",
+      errorPolicy: "ignore", // adding this so that unresolved contentful entries (deleted or in draft status) do not break the page
     },
   },
 });
