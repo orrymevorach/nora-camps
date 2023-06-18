@@ -4,19 +4,13 @@ import SEO from "@/components/shared/seo/seo";
 import { useFilterByCollection } from "@/hooks/useFilterByCollection";
 import {
   getAllCollections,
-  getAllPaintings,
   getEntryIdsFromPageBuilder,
   getCollectionsAndPaintings,
 } from "@/lib/contentful";
 import { PAGES, getEntryDataFromEntryIds } from "@/utils/contentful";
 
-export default function Paintings({
-  entries = [],
-  allPaintings,
-  collections = [],
-}) {
+export default function Paintings({ entries = [], collections = [] }) {
   const gallery = useFilterByCollection({
-    allPaintings,
     entries,
   });
 
@@ -32,14 +26,12 @@ export default function Paintings({
 export async function getStaticProps() {
   const entryIds = await getEntryIdsFromPageBuilder({ page: PAGES.PAINTINGS });
   const entries = await getEntryDataFromEntryIds({ entryIds });
-  const allPaintings = await getAllPaintings();
   const allCollections = await getAllCollections();
   const collections = allCollections.map(({ name }) => name);
   const { paintingsAndCollections } = await getCollectionsAndPaintings();
   return {
     props: {
       entries,
-      allPaintings,
       collections,
       paintingsAndCollections,
     },

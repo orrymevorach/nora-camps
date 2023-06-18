@@ -6,4 +6,9 @@ export const client = new ApolloClient({
   headers: {
     authorization: `Bearer ${process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN}`,
   },
+  defaultOptions: {
+    query: {
+      errorPolicy: "ignore",
+    },
+  },
 });
