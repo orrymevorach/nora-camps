@@ -34,6 +34,7 @@ export const PAINTING_FRAGMENT = gql`
     additionalDescription {
       json
     }
+    videoUrl
     __typename
   }
 `;

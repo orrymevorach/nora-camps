@@ -44,3 +44,15 @@ export const formatDate = dateString => {
 };
 
 export const isOdd = num => num % 2;
+
+export const getVideoId = url => {
+  const videoId = /[?&]v=([^&#]*)/i; // Regular expression to match the video ID
+  const match = url.match(videoId); // Find the video ID in the URL
+
+  if (match && match[1]) {
+    return match[1];
+  } else {
+    // Invalid YouTube URL or video ID not found
+    return null;
+  }
+};

@@ -67,6 +67,16 @@
   margin-top: 25px;
 }
 
+.moreSpacing {
+  margin-top: 2rem;
+}
+
+.video {
+  width: 100%;
+  height: 600px;
+  border: none;
+}
+
 @media screen and (max-width: variables.$mobile) {
   .paintingInfoTemplateContainer {
     margin-top: 30px;
