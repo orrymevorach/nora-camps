@@ -9,7 +9,7 @@ import {
   getCollectionsAndPaintings,
 } from "@/lib/contentful";
 import { PAGES, getEntryDataFromEntryIds } from "@/utils/contentful";
-
+console.log("hi");
 export default function Paintings({
   entries = [],
   allPaintings,
