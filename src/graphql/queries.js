@@ -66,13 +66,16 @@ export const GET_COLLECTION_BY_ENTRY_ID = gql`
 
 export const GET_ALL_COLLECTIONS = gql`
   query GetAllCollections {
-    collectionCollection {
+    collectionGalleryCollection {
       items {
-        ...CollectionFields
+        itemsCollection {
+          items {
+            name
+          }
+        }
       }
     }
   }
-  ${COLLECTION_FRAGMENT}
 `;
 
 export const GET_GALLERY = gql`

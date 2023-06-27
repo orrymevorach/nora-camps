@@ -43,10 +43,12 @@ export const getCollectionByName = async ({ name = "" }) => {
 };
 
 export const getAllCollections = async () => {
-  const { data } = await client.query({
+  const {
+    data: { collectionGalleryCollection },
+  } = await client.query({
     query: GET_ALL_COLLECTIONS,
   });
-  return data.collectionCollection.items;
+  return collectionGalleryCollection.items[0].itemsCollection.items;
 };
 
 export const getGallery = async ({ entryId = "" }) => {
@@ -80,7 +82,7 @@ export const getAllPaintings = async () => {
 export const getCollectionsAndPaintings = async () => {
   try {
     const {
-      data: { collectionCollection },
+      data: { collectionGalleryCollection },
     } = await client.query({
       query: GET_ALL_COLLECTIONS,
     });
@@ -92,7 +94,7 @@ export const getCollectionsAndPaintings = async () => {
 
     return {
       paintingsAndCollections: [
-        ...collectionCollection.items,
+        ...collectionGalleryCollection.items[0].itemsCollection.items,
         ...paintingCollection.items,
       ],
     };

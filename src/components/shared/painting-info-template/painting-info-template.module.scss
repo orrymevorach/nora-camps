@@ -63,6 +63,7 @@
 
 .readMoreButton {
   @include mixins.openSansBold;
+  font-size: 16px;
   text-decoration: underline;
   margin-top: 25px;
 }
