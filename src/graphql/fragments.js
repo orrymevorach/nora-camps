@@ -54,6 +54,7 @@ export const EVENT_FRAGMENT = gql`
     additionalDescription {
       json
     }
+    videoUrl
     imageCollection(limit: 10) {
       items {
         ...ImageFields
