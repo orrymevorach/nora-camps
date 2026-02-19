@@ -17,7 +17,7 @@ export default function Paintings({ entries = [], collections = [] }) {
   return (
     <>
       <SEO title="Paintings" />
-      <CollectionsDropDown collections={["All", ...collections]} />
+      <CollectionsDropDown collections={["Browse All", ...collections]} />
       <PageBuilder entries={gallery} page={PAGES.PAINTINGS} />
     </>
   );

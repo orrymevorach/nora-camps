@@ -43,6 +43,11 @@ export const formatDate = dateString => {
   return `${month} ${day}, ${year}`;
 };
 
+export const getCurrentYear = () => {
+  const currentDate = new Date();
+  return currentDate.getFullYear();
+};
+
 export const isOdd = num => num % 2;
 
 export const getVideoId = url => {

@@ -24,7 +24,11 @@ export default function Event({ eventData = {} }) {
         >
           Back to Exhibitions Page
         </PrimaryButton>
-        <PaintingInfoTemplate {...eventData} page={PAGES.EVENT_SEPCIFIC_PAGE} />
+        <PaintingInfoTemplate
+          {...eventData}
+          page={PAGES.EVENT_SEPCIFIC_PAGE}
+          showDescriptionByDefault
+        />
       </Wrapper>
     </>
   );

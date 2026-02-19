@@ -30,9 +30,11 @@ export default function PaintingInfoTemplate({
   dimensions = "",
   status,
   videoUrl,
+  showDescriptionByDefault = false,
 }) {
-  const [showAdditionalDescription, setShowAdditionalDescription] =
-    useState(false);
+  const [showAdditionalDescription, setShowAdditionalDescription] = useState(
+    showDescriptionByDefault
+  );
   const [youtubeVideoId, setYoutubeVideoId] = useState("");
   const additionalDescriptionRef = useRef();
 
@@ -40,7 +42,7 @@ export default function PaintingInfoTemplate({
     setShowAdditionalDescription(!showAdditionalDescription);
     if (!showAdditionalDescription) {
       setTimeout(() => {
-        additionalDescriptionRef.current.scrollIntoView();
+        additionalDescriptionRef?.current?.scrollIntoView();
       }, 200);
     }
   }
@@ -136,7 +138,7 @@ export default function PaintingInfoTemplate({
               {buttonProps.label}
             </PrimaryButton>
           )}
-          {(additionalDescription || videoUrl) && (
+          {!showDescriptionByDefault && (additionalDescription || videoUrl) && (
             <button
               className={styles.readMoreButton}
               onClick={handleClickReadMore}

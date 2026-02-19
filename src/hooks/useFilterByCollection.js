@@ -25,7 +25,7 @@ export const useFilterByCollection = ({ entries }) => {
 
   useEffect(() => {
     const collectionFilter = query.collection;
-    if (collectionFilter === "All" || !collectionFilter) {
+    if (collectionFilter === "Browse All" || !collectionFilter) {
       return setGallery(entries);
     }
     if (collectionFilter) {
