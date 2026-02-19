@@ -204,6 +204,7 @@ export const getAnnouncementBar = async () => {
   try {
     const { data } = await client.query({
       query: GET_ANNOUNCEMENT_BAR,
+      fetchPolicy: "no-cache", // ensuring we always get the most up to date announcement bar (in case it gets updated while users have the site open)
     });
     if (!data.announcementBarCollection.items.length) return null;
     return data.announcementBarCollection.items[0];

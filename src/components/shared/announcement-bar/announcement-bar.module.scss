@@ -57,15 +57,12 @@
   .container {
     min-height: 38px;
     gap: var.$px10;
+    justify-content: flex-start;
   }
 
-  .closeButton {
-    right: 1.25rem;
-  }
-
-  .text,
-  .closeButton {
-    font-size: var.$px14;
-    line-height: 1.3;
+  .richText {
+    width: 100%;
+    padding-right: var.$px32;
+    text-align: left;
   }
 }
