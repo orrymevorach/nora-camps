@@ -7,11 +7,14 @@ import { GoogleAnalytics } from "nextjs-google-analytics";
 config.autoAddCss = false;
 
 export default function App({ Component, pageProps }) {
-  const { paintingsAndCollections } = pageProps;
+  const { paintingsAndCollections, announcementBar } = pageProps;
   useInitializeHotjar();
 
   return (
-    <Layout paintingsAndCollections={paintingsAndCollections}>
+    <Layout
+      paintingsAndCollections={paintingsAndCollections}
+      announcementBar={announcementBar}
+    >
       <GoogleAnalytics trackPageViews />
       <Component {...pageProps} />
     </Layout>

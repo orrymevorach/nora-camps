@@ -1,0 +1,71 @@
+@use "@variables" as var;
+@use "@mixins" as mixins;
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var.$px12;
+  padding: var.$px10 1.25rem;
+  background-color: var.$lightGrey;
+  z-index: 120;
+  transform: translateY(-100%);
+  animation: slideDown 240ms ease-out forwards;
+}
+
+.richText {
+  p {
+    margin: 0 !important;
+  }
+  a {
+    text-decoration: underline;
+    color: var.$charcoal;
+    &:active {
+      color: var.$charcoal;
+    }
+  }
+}
+
+.closeButton {
+  @include mixins.openSans;
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: var.$mobile) {
+  .container {
+    min-height: 38px;
+    gap: var.$px10;
+  }
+
+  .closeButton {
+    right: 1.25rem;
+  }
+
+  .text,
+  .closeButton {
+    font-size: var.$px14;
+    line-height: 1.3;
+  }
+}

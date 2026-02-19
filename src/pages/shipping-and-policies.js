@@ -2,6 +2,7 @@ import PageBuilder from "@/components/shared/page-builder";
 import {
   getEntryIdsFromPageBuilder,
   getCollectionsAndPaintings,
+  getAnnouncementBar,
 } from "@/lib/contentful";
 import { PAGES, getEntryDataFromEntryIds } from "@/utils/contentful";
 import Wrapper from "@/components/shared/wrapper/wrapper";
@@ -24,11 +25,13 @@ export async function getStaticProps() {
   });
   const entries = await getEntryDataFromEntryIds({ entryIds });
   const { paintingsAndCollections } = await getCollectionsAndPaintings();
+  const announcementBar = await getAnnouncementBar();
 
   return {
     props: {
       entries,
       paintingsAndCollections,
+      announcementBar,
     },
   };
 }

@@ -3,6 +3,7 @@ import SEO from "@/components/shared/seo";
 import {
   getEntryIdsFromPageBuilder,
   getCollectionsAndPaintings,
+  getAnnouncementBar,
 } from "@/lib/contentful";
 import { PAGES, getEntryDataFromEntryIds } from "@/utils/contentful";
 
@@ -19,11 +20,13 @@ export async function getStaticProps() {
   const entryIds = await getEntryIdsFromPageBuilder({ page: PAGES.HOME });
   const entries = await getEntryDataFromEntryIds({ entryIds });
   const { paintingsAndCollections } = await getCollectionsAndPaintings();
+  const announcementBar = await getAnnouncementBar();
 
   return {
     props: {
       entries,
       paintingsAndCollections,
+      announcementBar,
     },
   };
 }

@@ -15,6 +15,7 @@ import {
   GET_ALL_COLLECTIONS,
   GET_ABOUT_PAGE_TOP_SECTION,
   GET_SPECIAL_PROJECT_WITH_VIDEO,
+  GET_ANNOUNCEMENT_BAR,
 } from "@/graphql/queries";
 
 export const getEntryIdsFromPageBuilder = async ({ page = "" }) => {
@@ -196,5 +197,18 @@ export const getAboutPageTopSection = async ({ entryId = "" }) => {
     return data.aboutPageTopSection;
   } catch (error) {
     console.error("error", error);
+  }
+};
+
+export const getAnnouncementBar = async () => {
+  try {
+    const { data } = await client.query({
+      query: GET_ANNOUNCEMENT_BAR,
+    });
+    if (!data.announcementBarCollection.items.length) return null;
+    return data.announcementBarCollection.items[0];
+  } catch (error) {
+    console.error("error", error);
+    return;
   }
 };

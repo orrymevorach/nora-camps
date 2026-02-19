@@ -13,6 +13,10 @@
   @include mixins.pagePadding;
 }
 
+.withAnnouncement {
+  top: 42px;
+}
+
 .navigation {
   display: flex;
   align-items: center;
@@ -44,6 +48,10 @@
 }
 
 @media (max-width: var.$mobile) {
+  .withAnnouncement {
+    top: 38px;
+  }
+
   .container {
     padding: 0 0.6rem 0 1.25rem;
     height: 68px;

@@ -3,6 +3,7 @@ import {
   getAllPaintings,
   getCollectionByName,
   getCollectionsAndPaintings,
+  getAnnouncementBar,
 } from "@/lib/contentful";
 import PrimaryButton from "@/components/shared/primary-button";
 import PaintingInfoTemplate from "@/components/shared/painting-info-template/painting-info-template";
@@ -57,6 +58,7 @@ export async function getStaticProps({ params }) {
     allPaintings
   );
   const { paintingsAndCollections } = await getCollectionsAndPaintings();
+  const announcementBar = await getAnnouncementBar();
 
   // In case the collection field is empty, the page won't break
   if (!collectionResponse) {
@@ -64,6 +66,7 @@ export async function getStaticProps({ params }) {
       props: {
         paintingData: paintingResponse,
         paintingsAndCollections,
+        announcementBar,
       },
     };
   }
@@ -73,6 +76,7 @@ export async function getStaticProps({ params }) {
       paintingData: paintingResponse,
       collectionData: recommendedPaintings,
       paintingsAndCollections,
+      announcementBar,
     },
   };
 }

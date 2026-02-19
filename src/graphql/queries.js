@@ -254,3 +254,15 @@ export const GET_ABOUT_PAGE_TOP_SECTION = gql`
   }
   ${IMAGE_FRAGMENT}
 `;
+
+export const GET_ANNOUNCEMENT_BAR = gql`
+  query GetAnnouncementBar {
+    announcementBarCollection(where: { title: "ANNOUNCEMENT" }) {
+      items {
+        text {
+          json
+        }
+      }
+    }
+  }
+`;

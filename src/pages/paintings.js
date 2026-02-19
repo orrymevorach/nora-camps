@@ -6,6 +6,7 @@ import {
   getAllCollections,
   getEntryIdsFromPageBuilder,
   getCollectionsAndPaintings,
+  getAnnouncementBar,
 } from "@/lib/contentful";
 import { PAGES, getEntryDataFromEntryIds } from "@/utils/contentful";
 import { useEffect } from "react";
@@ -46,11 +47,13 @@ export async function getStaticProps() {
   const allCollections = await getAllCollections();
   const collections = allCollections.map(({ name }) => name);
   const { paintingsAndCollections } = await getCollectionsAndPaintings();
+  const announcementBar = await getAnnouncementBar();
   return {
     props: {
       entries,
       collections,
       paintingsAndCollections,
+      announcementBar,
     },
   };
 }

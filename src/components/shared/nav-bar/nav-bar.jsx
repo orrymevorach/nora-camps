@@ -9,7 +9,10 @@ import logo from "images/logo.png";
 import styles from "./nav-bar.module.scss";
 import Image from "next/image";
 
-export default function NavBar({ paintingsAndCollections }) {
+export default function NavBar({
+  paintingsAndCollections,
+  isAnnouncementVisible = false,
+}) {
   const [searchBarView, setSearchBarView] = useState(false);
   const [isMobileNavOpen, setMobileNavView] = useState(false);
   const { device, isMobile } = useWindowSize();
@@ -30,6 +33,7 @@ export default function NavBar({ paintingsAndCollections }) {
     <div
       className={clsx(
         styles.container,
+        isAnnouncementVisible && styles.withAnnouncement,
         isMobileNavOpen ? styles.mobileNavActive : ""
       )}
     >

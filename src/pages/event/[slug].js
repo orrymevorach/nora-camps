@@ -2,6 +2,7 @@ import {
   getEventByName,
   getAllEvents,
   getCollectionsAndPaintings,
+  getAnnouncementBar,
 } from "@/lib/contentful";
 import PaintingInfoTemplate from "@/components/shared/painting-info-template/painting-info-template";
 import PrimaryButton from "@/components/shared/primary-button";
@@ -43,11 +44,13 @@ export async function getStaticProps({ params }) {
 
   const eventData = await getEventByName({ name: params.slug });
   const { paintingsAndCollections } = await getCollectionsAndPaintings();
+  const announcementBar = await getAnnouncementBar();
 
   return {
     props: {
       eventData,
       paintingsAndCollections,
+      announcementBar,
     },
   };
 }
