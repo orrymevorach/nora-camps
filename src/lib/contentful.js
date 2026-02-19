@@ -14,6 +14,7 @@ import {
   GET_RICH_TEXT_BY_ENTRY_ID,
   GET_ALL_COLLECTIONS,
   GET_ABOUT_PAGE_TOP_SECTION,
+  GET_SPECIAL_PROJECT_WITH_VIDEO,
 } from "@/graphql/queries";
 
 export const getEntryIdsFromPageBuilder = async ({ page = "" }) => {
@@ -157,6 +158,18 @@ export const getSpecialProjectsTopSection = async ({ entryId = "" }) => {
       variables: { entryId },
     });
     return data.specialProjectsTopSection;
+  } catch (error) {
+    console.error("error", error);
+  }
+};
+
+export const getSpecialProjectWithVideo = async ({ entryId = "" }) => {
+  try {
+    const { data } = await client.query({
+      query: GET_SPECIAL_PROJECT_WITH_VIDEO,
+      variables: { entryId },
+    });
+    return data.specialProjectWithVideo;
   } catch (error) {
     console.error("error", error);
   }

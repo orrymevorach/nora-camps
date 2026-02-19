@@ -6,6 +6,7 @@ import { CONTENT_MODELS } from "@/utils/contentful";
 import PaintingInfoTemplate from "../painting-info-template/painting-info-template";
 import AboutTheAuthor from "@/components/about-page/about-the-author";
 import RichText from "../rich-text/rich-text";
+import SpecialProjectWithVideo from "@/components/special-projects-page/special-project-with-video";
 
 const {
   HERO_IMAGE,
@@ -16,6 +17,7 @@ const {
   ABOUT_THE_AUTHOR,
   RICH_TEXT,
   ABOUT_PAGE_TOP_SECTION,
+  SPECIAL_PROJECT_WITH_VIDEO,
 } = CONTENT_MODELS;
 
 const mapContentModelToComponent = {
@@ -27,6 +29,7 @@ const mapContentModelToComponent = {
   [ABOUT_THE_AUTHOR]: AboutTheAuthor,
   [RICH_TEXT]: ({ richText }) => <RichText json={richText.json} />,
   [ABOUT_PAGE_TOP_SECTION]: PaintingInfoTemplate,
+  [SPECIAL_PROJECT_WITH_VIDEO]: SpecialProjectWithVideo,
 };
 
 export default function PageBuilder({ entries = [], page }) {

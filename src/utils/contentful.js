@@ -5,6 +5,7 @@ import {
   getPaintingByEntryId,
   getRichTextByEntryId,
   getAboutPageTopSection,
+  getSpecialProjectWithVideo,
 } from "@/lib/contentful";
 
 export const PAGES = {
@@ -24,7 +25,8 @@ export const CONTENT_MODELS = {
   GALLERY: "Gallery",
   EVENT: "Event",
   PAINTING: "Painting",
-  SPECIAL_PROJECTS_TOP_SECTION: "SpecialProjectsTopSection",
+  SPECIAL_PROJECT_WITH_VIDEO: "SpecialProjectWithVideo",
+  SPECIAL_PROJECTS_TOP_SECTION: "SpecialProjectsTopSection", // rename to special projects with image grid
   SPECIAL_PROJECT: "SpecialProject",
   ABOUT_THE_AUTHOR: "AboutTheAuthor",
   RICH_TEXT: "ContentTypeRichText",
@@ -37,6 +39,7 @@ export const getEntryDataFromEntryIds = async ({ entryIds }) => {
     HERO_IMAGE,
     COLLECTION,
     GALLERY,
+    SPECIAL_PROJECT_WITH_VIDEO,
     SPECIAL_PROJECTS_TOP_SECTION,
     PAINTING,
     RICH_TEXT,
@@ -46,6 +49,7 @@ export const getEntryDataFromEntryIds = async ({ entryIds }) => {
   const mapContentModelToQuery = {
     [HERO_IMAGE]: getHeroImage,
     [GALLERY]: getGallery,
+    [SPECIAL_PROJECT_WITH_VIDEO]: getSpecialProjectWithVideo,
     [SPECIAL_PROJECTS_TOP_SECTION]: getSpecialProjectsTopSection,
     [PAINTING]: getPaintingByEntryId,
     [RICH_TEXT]: getRichTextByEntryId,
