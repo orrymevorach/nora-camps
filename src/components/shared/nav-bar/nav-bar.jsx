@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { clsx } from "clsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useWindowSize } from "@/hooks";
 import SearchBar from "../search-bar/search-bar";
 import DesktopNav from "./desktop-nav/desktop-nav";
@@ -12,10 +12,20 @@ import Image from "next/image";
 export default function NavBar({
   paintingsAndCollections,
   isAnnouncementVisible = false,
+  announcementBarRef,
 }) {
   const [searchBarView, setSearchBarView] = useState(false);
   const [isMobileNavOpen, setMobileNavView] = useState(false);
+  const [marginTop, setMarginTop] = useState("0px");
   const { device, isMobile } = useWindowSize();
+
+  // create spacing to make room for announcement bar
+  useEffect(() => {
+    if (announcementBarRef?.current) {
+      const announcementBarHeight = announcementBarRef.current.offsetHeight;
+      setMarginTop(`${announcementBarHeight}px`);
+    }
+  }, [announcementBarRef?.current, isAnnouncementVisible]);
 
   if (!device) return;
 
@@ -33,9 +43,9 @@ export default function NavBar({
     <div
       className={clsx(
         styles.container,
-        isAnnouncementVisible && styles.withAnnouncement,
         isMobileNavOpen ? styles.mobileNavActive : ""
       )}
+      style={{ top: isAnnouncementVisible ? marginTop : 0 }}
     >
       <nav className={clsx(styles.navigation)}>
         <Link href="/" onClick={() => setMobileNavView(false)}>

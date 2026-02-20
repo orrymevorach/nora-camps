@@ -9,8 +9,10 @@ const FORTY_EIGHT_HOURS_IN_MS = 48 * 60 * 60 * 1000;
 export default function AnnouncementBar({
   text = "",
   setIsAnnouncementVisible,
+  announcementBarRef,
 }) {
-  const [isVisible, setIsVisible] = useState(false);
+  const hasText = Boolean(text);
+  const [isVisible, setIsVisible] = useState(hasText);
 
   useEffect(() => {
     if (!text) {
@@ -36,7 +38,12 @@ export default function AnnouncementBar({
   if (!text || !isVisible) return null;
 
   return (
-    <div className={styles.container} role="status" aria-live="polite">
+    <div
+      className={styles.container}
+      role="status"
+      aria-live="polite"
+      ref={announcementBarRef}
+    >
       <RichText json={text.json} classNames={styles.richText} />
       <button className={styles.closeButton} onClick={closeAnnouncement}>
         <CloseButton isSmall />
