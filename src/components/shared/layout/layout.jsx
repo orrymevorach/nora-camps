@@ -1,9 +1,11 @@
+import styles from "./layout.module.scss";
 import Nav from "../nav-bar/nav-bar";
 import Footer from "../footer/footer";
 import Newsletter from "../newsletter";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import AnnouncementBar from "../announcement-bar";
+import clsx from "clsx";
 
 export default function Layout({
   children,
@@ -28,7 +30,14 @@ export default function Layout({
         paintingsAndCollections={paintingsAndCollections}
         isAnnouncementVisible={isAnnouncementVisible}
       />
-      <main>{children}</main>
+      <main
+        className={clsx(
+          styles.children,
+          isAnnouncementVisible && styles.withAnnouncement
+        )}
+      >
+        {children}
+      </main>
       {showNewsletter && <Newsletter />}
       <Footer />
     </div>
