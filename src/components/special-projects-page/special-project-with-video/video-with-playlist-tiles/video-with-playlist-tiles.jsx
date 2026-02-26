@@ -1,7 +1,6 @@
 import { useState } from "react";
 import styles from "./video-with-playlist-tiles.module.scss";
 import { getYouTubeEmbedUrl } from "../utils";
-import { useSliderDrag } from "./useSliderDrag";
 import PlayButton from "@/components/shared/svg/play-button";
 
 export default function VideoWithPlaylistTiles({
@@ -13,13 +12,11 @@ export default function VideoWithPlaylistTiles({
   const [activeVideoUrl, setActiveVideoUrl] = useState(
     defaultVideoYouTubeEmbedUrl
   );
-  const {
-    isDragging,
-    onSliderPointerDown,
-    onSliderPointerMove,
-    onSliderPointerUp,
-    onThumbnailClick,
-  } = useSliderDrag({ setActiveVideoUrl });
+
+  function handleThumbnailClick(url) {
+    const videoEmbedUrl = getYouTubeEmbedUrl({ url });
+    setActiveVideoUrl(videoEmbedUrl);
+  }
 
   return (
     <div>
@@ -32,21 +29,12 @@ export default function VideoWithPlaylistTiles({
         allowFullScreen
       ></iframe>
       {videos.length && (
-        <div
-          className={`${styles.thumbnailsContainer} ${
-            isDragging ? styles.dragging : ""
-          }`}
-          onPointerDown={onSliderPointerDown}
-          onPointerMove={onSliderPointerMove}
-          onPointerUp={onSliderPointerUp}
-          onPointerCancel={onSliderPointerUp}
-          onPointerLeave={onSliderPointerUp}
-        >
+        <div className={styles.thumbnailsContainer}>
           {videos.map(video => {
             return (
               <button
                 key={video.id}
-                onClick={() => onThumbnailClick(video.url)}
+                onClick={() => handleThumbnailClick(video.url)}
                 className={styles.thumbnail}
                 type="button"
               >
