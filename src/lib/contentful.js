@@ -1,3 +1,4 @@
+import { getYouTubePlaylist } from "@/components/special-projects-page/special-project-with-video/utils";
 import { client } from "@/graphql/apollo-config";
 import {
   GET_ALL_PAINTINGS,
@@ -170,6 +171,15 @@ export const getSpecialProjectWithVideo = async ({ entryId = "" }) => {
       query: GET_SPECIAL_PROJECT_WITH_VIDEO,
       variables: { entryId },
     });
+    if (data.specialProjectWithVideo?.youTubePlaylistLink) {
+      const videos = await getYouTubePlaylist({
+        playlistLink: data.specialProjectWithVideo.youTubePlaylistLink,
+      });
+      return {
+        ...data.specialProjectWithVideo,
+        videos,
+      };
+    }
     return data.specialProjectWithVideo;
   } catch (error) {
     console.error("error", error);

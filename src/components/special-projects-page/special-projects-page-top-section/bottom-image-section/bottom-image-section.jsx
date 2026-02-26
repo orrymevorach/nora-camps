@@ -8,20 +8,20 @@ export default function BottomImageSection({ images }) {
       <div className={styles.topRow}>
         <Image
           src={firstImage.url}
-          alt={firstImage.description}
+          alt={firstImage.description || "First Image"}
           width={firstImage.width}
           height={firstImage.height}
         />
         <Image
           src={secondImage.url}
-          alt={secondImage.description}
+          alt={secondImage.description || "Second Image"}
           width={secondImage.width}
           height={secondImage.height}
         />
       </div>
       <Image
         src={thirdImage.url}
-        alt={thirdImage.description}
+        alt={thirdImage.description || "Third Image"}
         width={thirdImage.width}
         height={thirdImage.height}
         className={styles.bottomImage}

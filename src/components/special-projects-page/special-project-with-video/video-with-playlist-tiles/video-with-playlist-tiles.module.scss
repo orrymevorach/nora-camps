@@ -1,0 +1,93 @@
+@use "@variables" as variables;
+
+.video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
+.thumbnailsContainer {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.dragging {
+  cursor: grabbing;
+}
+
+.thumbnail {
+  flex: 0 0 auto;
+  width: 200px;
+  height: 120px;
+  position: relative;
+  cursor: pointer;
+}
+
+.thumbnailBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 4px;
+}
+
+.playButton {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.thumbnail:hover .playButton {
+  opacity: 0.9;
+}
+
+.thumbnailTitle {
+  width: 100%;
+  color: variables.$white;
+  font-size: 13px;
+  line-height: 1.2;
+  padding: 6px 8px;
+  background: variables.$black;
+  border-radius: 2px;
+  z-index: 10;
+  max-height: 40px;
+  bottom: 0;
+  margin-top: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+}
+
+@media screen and (max-width: variables.$mobile) {
+  .thumbnail {
+    width: 150px;
+    height: 84px;
+  }
+  .thumbnailTitle {
+    font-size: 11px;
+    padding: 4px 6px;
+    max-height: 32px;
+  }
+  .playButton {
+    width: 36px;
+    height: 36px;
+  }
+}

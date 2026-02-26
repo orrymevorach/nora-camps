@@ -221,6 +221,7 @@ export const GET_SPECIAL_PROJECT_WITH_VIDEO = gql`
     specialProjectWithVideo(id: $entryId) {
       videoLink
       heading
+      youTubePlaylistLink
       description {
         json
       }
