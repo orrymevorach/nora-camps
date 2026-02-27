@@ -7,24 +7,14 @@
 }
 
 .thumbnailsContainer {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   margin-top: 12px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-  cursor: grab;
-  touch-action: pan-y;
-  user-select: none;
-}
-
-.dragging {
-  cursor: grabbing;
 }
 
 .thumbnail {
   flex: 0 0 auto;
-  width: 200px;
   height: 120px;
   position: relative;
   cursor: pointer;
@@ -62,7 +52,7 @@
   line-height: 1.2;
   padding: 6px 8px;
   background: variables.$black;
-  border-radius: 2px;
+  border-radius: 4px;
   z-index: 10;
   max-height: 40px;
   bottom: 0;
@@ -77,17 +67,12 @@
 }
 
 @media screen and (max-width: variables.$mobile) {
-  .thumbnail {
-    width: 150px;
-    height: 84px;
+  .thumbnailsContainer {
+    grid-template-columns: repeat(2, 1fr);
   }
   .thumbnailTitle {
     font-size: 11px;
     padding: 4px 6px;
     max-height: 32px;
-  }
-  .playButton {
-    width: 36px;
-    height: 36px;
   }
 }
