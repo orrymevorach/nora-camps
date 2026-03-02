@@ -16,9 +16,13 @@ export default function VideoWithPlaylistTiles({
 
   function handleThumbnailClick(video) {
     if (isMobile && videoContainerRef.current) {
-      videoContainerRef.current.scrollIntoView({
+      const elementPosition =
+        videoContainerRef.current.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - 80;
+
+      window.scrollTo({
+        top: offsetPosition,
         behavior: "smooth",
-        block: "start",
       });
     }
     setActiveVideo(video);
