@@ -63,7 +63,34 @@ export async function getYouTubePlaylist({ playlistLink }) {
         ? item.snippet.thumbnails.medium.url
         : null,
       url: `https://www.youtube.com/embed/${item.snippet.resourceId.videoId}`,
+      channelTitle: item.snippet.channelTitle,
+      description: item.snippet.description,
     };
   });
   return videos;
+}
+
+export async function getYouTubeVideoDataFromUrl({ videoUrl }) {
+  const apiKey = process.env.YOUTUBE_API_KEY;
+  try {
+    const parsedUrl = new URL(videoUrl);
+
+    const videoId = parsedUrl.searchParams.get("v");
+
+    const videoRes = await fetch(
+      `https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=${videoId}&key=${apiKey}`
+    );
+    if (!videoRes.ok) {
+      throw new Error("Failed to fetch video data");
+    }
+
+    const videoData = await videoRes.json();
+    if (!videoData.items || videoData.items.length === 0) {
+      throw new Error("No video data found for the provided URL");
+    }
+    return videoData.items[0].snippet;
+  } catch (error) {
+    console.error("Invalid URL:", error);
+    return null;
+  }
 }

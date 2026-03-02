@@ -1,4 +1,7 @@
-import { getYouTubePlaylist } from "@/components/special-projects-page/special-project-with-video/utils";
+import {
+  getYouTubePlaylist,
+  getYouTubeVideoDataFromUrl,
+} from "@/components/special-projects-page/special-project-with-video/utils";
 import { client } from "@/graphql/apollo-config";
 import {
   GET_ALL_PAINTINGS,
@@ -175,9 +178,23 @@ export const getSpecialProjectWithVideo = async ({ entryId = "" }) => {
       const videos = await getYouTubePlaylist({
         playlistLink: data.specialProjectWithVideo.youTubePlaylistLink,
       });
+      const filteredVideos = videos.filter(
+        video => video.title !== "Deleted video"
+      );
+      const videoLink = data.specialProjectWithVideo.videoLink;
+      const videoData = await getYouTubeVideoDataFromUrl({
+        videoUrl: videoLink,
+      });
+      const featureVideo = {
+        title: videoData.title,
+        url: videoLink,
+        channelTitle: videoData.channelTitle,
+      };
       return {
         ...data.specialProjectWithVideo,
-        videos,
+        videos: filteredVideos,
+        videoData,
+        featureVideo,
       };
     }
     return data.specialProjectWithVideo;

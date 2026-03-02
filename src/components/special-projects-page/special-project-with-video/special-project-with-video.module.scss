@@ -3,11 +3,14 @@
 
 .container {
   @include mixins.maxWidthContainer;
+  background-color: variables.$lightGrey;
+  margin-bottom: 130px;
+  padding: 25px 0;
 }
 
 .heading {
   @include mixins.heading;
-  margin: 65px 0 40px;
+  margin: 35px 0 40px !important;
 }
 
 .innerContainer {
@@ -16,11 +19,10 @@
   margin: 0 auto;
 }
 
-.richText {
-  margin-bottom: 130px;
-}
-
 @media screen and (max-width: variables.$mobile) {
+  .container {
+    background-color: white;
+  }
   .richText {
     margin-bottom: 50px;
   }

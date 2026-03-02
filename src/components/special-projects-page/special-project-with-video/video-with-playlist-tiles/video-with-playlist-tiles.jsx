@@ -6,49 +6,55 @@ import PlayButton from "@/components/shared/svg/play-button";
 export default function VideoWithPlaylistTiles({
   projectHeading,
   videos,
-  videoLink,
+  featureVideo,
 }) {
-  const defaultVideoYouTubeEmbedUrl = getYouTubeEmbedUrl({ url: videoLink });
-  const [activeVideoUrl, setActiveVideoUrl] = useState(
-    defaultVideoYouTubeEmbedUrl
-  );
+  const [activeVideo, setActiveVideo] = useState(featureVideo);
+  const videoYouTubeEmbedUrl = getYouTubeEmbedUrl({ url: activeVideo.url });
 
-  function handleThumbnailClick(url) {
-    const videoEmbedUrl = getYouTubeEmbedUrl({ url });
-    setActiveVideoUrl(videoEmbedUrl);
+  function handleThumbnailClick(video) {
+    setActiveVideo(video);
   }
 
   return (
     <div>
       <iframe
         className={styles.video}
-        src={activeVideoUrl}
+        src={videoYouTubeEmbedUrl}
         title={projectHeading || "YouTube video"}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
       ></iframe>
+      <p className={styles.videoTitle}>
+        Resonance <span className={styles.horizontalLine}></span> Nora Camps,
+        2026
+      </p>
+      <div className={styles.border} />
+      <p className={styles.seriesText}>From the series</p>
       {videos.length && (
         <div className={styles.thumbnailsContainer}>
           {videos.map(video => {
             return (
-              <button
-                key={video.id}
-                onClick={() => handleThumbnailClick(video.url)}
-                className={styles.thumbnail}
-                type="button"
-              >
-                <div
-                  className={styles.thumbnailBackground}
-                  style={{ backgroundImage: `url(${video.thumbnail})` }}
-                />
-                <PlayButton classNames={styles.playButton} />
-                <span className={styles.thumbnailTitle}>{video.title}</span>
-              </button>
+              <div className={styles.thumbnailContainer}>
+                <button
+                  key={video.id}
+                  onClick={() => handleThumbnailClick(video)}
+                  className={styles.thumbnail}
+                  type="button"
+                >
+                  <div
+                    className={styles.thumbnailBackground}
+                    style={{ backgroundImage: `url(${video.thumbnail})` }}
+                  />
+                  <PlayButton classNames={styles.playButton} />
+                </button>
+                <p className={styles.thumbnailTitle}>{video.title}</p>
+              </div>
             );
           })}
         </div>
       )}
+      <div className={styles.border} />
     </div>
   );
 }

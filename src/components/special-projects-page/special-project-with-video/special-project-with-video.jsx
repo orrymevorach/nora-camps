@@ -3,23 +3,23 @@ import RichText from "@/components/shared/rich-text/rich-text";
 import VideoWithPlaylistTiles from "./video-with-playlist-tiles/video-with-playlist-tiles";
 
 export default function SpecialProjectWithVideo({
-  videoLink,
   heading,
   description,
   videos = [],
+  featureVideo,
 }) {
   return (
     <div className={styles.container}>
       <div className={styles.innerContainer}>
-        {videoLink && (
+        {featureVideo?.url && (
           <VideoWithPlaylistTiles
-            videoLink={videoLink}
+            featureVideo={featureVideo}
             projectHeading={heading}
             videos={videos}
           />
         )}
         <p className={styles.heading}>{heading}</p>
-        <RichText json={description.json} classNames={styles.richText} />
+        <RichText json={description.json} />
       </div>
     </div>
   );
