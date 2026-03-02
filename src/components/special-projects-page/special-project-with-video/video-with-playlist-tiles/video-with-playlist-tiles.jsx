@@ -1,22 +1,31 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import styles from "./video-with-playlist-tiles.module.scss";
 import { getYouTubeEmbedUrl } from "../utils";
 import PlayButton from "@/components/shared/svg/play-button";
+import { useWindowSize } from "@/hooks";
 
 export default function VideoWithPlaylistTiles({
   projectHeading,
   videos,
   featureVideo,
 }) {
+  const { isMobile } = useWindowSize();
   const [activeVideo, setActiveVideo] = useState(featureVideo);
   const videoYouTubeEmbedUrl = getYouTubeEmbedUrl({ url: activeVideo.url });
+  const videoContainerRef = useRef(null);
 
   function handleThumbnailClick(video) {
+    if (isMobile && videoContainerRef.current) {
+      videoContainerRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
     setActiveVideo(video);
   }
 
   return (
-    <div>
+    <div ref={videoContainerRef}>
       <iframe
         className={styles.video}
         src={videoYouTubeEmbedUrl}
