@@ -11,6 +11,9 @@ export default function SpecialProjectWithVideo({
   return (
     <div className={styles.container}>
       <div className={styles.innerContainer}>
+        <p className={styles.heading}>{heading}</p>
+        <RichText json={description.json} />
+        <div className={styles.border} />
         {featureVideo?.url && (
           <VideoWithPlaylistTiles
             featureVideo={featureVideo}
@@ -18,8 +21,6 @@ export default function SpecialProjectWithVideo({
             videos={videos}
           />
         )}
-        <p className={styles.heading}>{heading}</p>
-        <RichText json={description.json} />
       </div>
     </div>
   );
