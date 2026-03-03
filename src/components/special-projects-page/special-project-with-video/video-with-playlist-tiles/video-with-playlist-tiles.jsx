@@ -4,6 +4,7 @@ import { getYouTubeEmbedUrl } from "../utils";
 import PlayButton from "@/components/shared/svg/play-button";
 import { useWindowSize } from "@/hooks";
 import PrimaryButton from "@/components/shared/primary-button";
+import clsx from "clsx";
 
 export default function VideoWithPlaylistTiles({
   projectHeading,
@@ -72,12 +73,15 @@ export default function VideoWithPlaylistTiles({
             })}
           </div>
           {isMobile && videos.length > 4 && !showAllVideos && (
-            <PrimaryButton
-              handleClick={() => setShowAllVideos(true)}
-              classNames={styles.button}
-            >
-              Show All Videos
-            </PrimaryButton>
+            <>
+              <PrimaryButton
+                handleClick={() => setShowAllVideos(true)}
+                classNames={styles.button}
+              >
+                Show All Videos
+              </PrimaryButton>
+              <div className={clsx(styles.border, styles.mobileBorder)} />
+            </>
           )}
         </>
       )}

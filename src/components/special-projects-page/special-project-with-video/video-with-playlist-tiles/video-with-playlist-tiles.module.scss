@@ -88,6 +88,10 @@
   margin: 16px 0;
 }
 
+.mobileBorder {
+  margin-top: 50px;
+}
+
 .seriesText {
   color: variables.$darkGrey;
   @include mixins.avenirLight;

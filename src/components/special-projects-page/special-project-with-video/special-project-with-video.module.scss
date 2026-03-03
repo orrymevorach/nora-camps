@@ -19,16 +19,10 @@
   margin: 0 auto;
 }
 
-.border {
-  width: 100%;
-  height: 1px;
-  background-color: rgba(variables.$darkGrey, 0.3);
-  margin: 36px 0;
-}
-
 @media screen and (max-width: variables.$mobile) {
   .container {
     background-color: white;
+    margin-bottom: 25px;
   }
   .richText {
     margin-bottom: 50px;
