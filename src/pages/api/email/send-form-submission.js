@@ -25,8 +25,7 @@ export default async function handler(req, res) {
 
   await transporter.sendMail({
     from: "Nora Camps Contact Form Submission noreply@noracamps.com",
-    // to: ["nora@noracamps.com", "justindemarchi@gmail.com", "ncamps@duo.ca"],
-    to: "orry.mevorach@gmail.com",
+    to: ["nora@noracamps.com", "justindemarchi@gmail.com", "ncamps@duo.ca"],
     subject: `${formName} Submission`,
     html: `
     <div style="width:550px;margin:0 auto;display:block">
