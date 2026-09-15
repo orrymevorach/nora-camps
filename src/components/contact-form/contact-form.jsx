@@ -6,10 +6,10 @@ import DropDown from "../shared/form-components/drop-down";
 import InputShell from "../shared/form-components/input-shell";
 import PrimaryButton from "../shared/primary-button";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
-import { useForm as useFormSpree } from "@formspree/react";
+import { useEffect, useState } from "react";
 import Loader from "@/components/shared/loader";
 import clsx from "clsx";
+import { sendFormSubmission } from "@/lib/mailgun";
 
 export default function ContactForm({ dropDownListItems }) {
   const {
@@ -19,7 +19,30 @@ export default function ContactForm({ dropDownListItems }) {
     formState: { errors },
   } = useForm();
 
-  const [state, handleSubmitFormspree] = useFormSpree("xknakznd");
+  const [state, setState] = useState({
+    submitting: false,
+    succeeded: false,
+    error: false,
+  });
+
+  const handleSubmitForm = async fields => {
+    setState({ submitting: true, succeeded: false, error: false });
+
+    try {
+      const response = await sendFormSubmission({
+        fields,
+        formName: "Contact",
+      });
+
+      if (!response?.success) {
+        throw new Error("Form submission failed");
+      }
+
+      setState({ submitting: false, succeeded: true, error: false });
+    } catch {
+      setState({ submitting: false, succeeded: false, error: true });
+    }
+  };
 
   const { query } = useRouter();
   useEffect(() => {
@@ -46,12 +69,19 @@ export default function ContactForm({ dropDownListItems }) {
       </div>
     );
   }
+  if (state.error) {
+    return (
+      <div className={styles.container}>
+        <p className={styles.title}>Something went wrong.</p>
+        <p className={styles.confirmationText}>
+          Please try again or contact us directly.
+        </p>
+      </div>
+    );
+  }
   return (
     <div className={styles.container}>
-      <form
-        className={styles.form}
-        onSubmit={handleSubmit(handleSubmitFormspree)}
-      >
+      <form className={styles.form} onSubmit={handleSubmit(handleSubmitForm)}>
         <h1 className={styles.title}>Send a message</h1>
 
         <InputShell
